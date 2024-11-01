@@ -8,10 +8,42 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        secondary: "var(--secondaryColour)",
+        third: "var(--thirdColour)",
+      },
+      textColor: {
+        black: "#000000",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      boxShadow: {
+        "text-shadow": "1px 1px 2px rgb(0, 0, 0)",
+        "img-shadow": "rgba(0, 0, 0, 0.2) 0px 4px 8px 0px",
+      },
+    },
+    variants: {
+      extend: {
+        borderColor: ["focus"],
+        outline: ["focus"],
+        ringColor: ["focus"],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".text-shadow": {
+          textShadow: "1px 1px 2px rgb(0, 0, 0)",
+        },
+        ".img-shadow": {
+          boxShadow: "rgba(0, 0, 0, 0.2) 0px 4px 8px 0px",
+        },
+      };
+
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };

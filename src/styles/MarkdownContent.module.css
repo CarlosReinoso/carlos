@@ -1,0 +1,36 @@
+/* src/styles/MarkdownContent.module.css */
+.markdown-content h1 {
+  @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4;
+}
+
+.markdown-content h2 {
+  @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4;
+}
+
+.markdown-content h3 {
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mb-4;
+}
+
+.markdown-content h4 {
+  @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-4;
+}
+
+.markdown-content h5 {
+  @apply text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium mb-4;
+}
+
+.markdown-content h6 {
+  @apply text-base sm:text-lg md:text-xl lg:text-2xl font-medium mb-4;
+}
+
+.markdown-content p {
+  @apply mb-4;
+}
+
+.markdown-content ul {
+  @apply list-disc pl-5;
+}
+
+.markdown-content li {
+  @apply mb-2;
+}
