@@ -3,14 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #231b3b;
   --foreground: #171717;
+  --font-monoton: var(--font-monoton);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1c162f;
     --foreground: #ededed;
+    --font-monoton: var(--font-monoton);
   }
 }
 
@@ -20,6 +22,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.hero-bg {
-  background-image: url("/homepage/hero.jpg");
+.text-shadow {
+  text-shadow: 6px 6px 10px var(--background);
+}
+
+.animated-wave {
+  animation: waveMove 5s ease-in-out infinite;
+  transform-origin: center; /* Center the animation scaling */
+}
+
+@keyframes waveMove {
+  0%,
+  100% {
+    transform: scaleY(1); /* Initial width */
+  }
+  50% {
+    transform: scaleY(1.3); /* Slight horizontal scaling */
+  }
+}
+
+.font-monoton {
+  letter-spacing: 0.15em;
 }

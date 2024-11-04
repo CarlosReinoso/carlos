@@ -7,6 +7,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        neucha: ["var(--font-neucha)", "sans-serif"],
+        monoton: ["var(--font-monoton)", "cursive"],
+        emblema: ["var(--font-emblema)", "cursive"],
+      },
+      letterSpacing: {
+        monoton: "0.2em", // Custom tracking class
+      },
       colors: {
         secondary: "var(--secondaryColour)",
         third: "var(--thirdColour)",
@@ -23,6 +31,9 @@ module.exports = {
         "text-shadow": "1px 1px 2px rgb(0, 0, 0)",
         "img-shadow": "rgba(0, 0, 0, 0.2) 0px 4px 8px 0px",
       },
+      blur: {
+        custom: "60px", // Custom blur size
+      },
     },
     variants: {
       extend: {
@@ -32,18 +43,4 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    function ({ addUtilities }) {
-      const newUtilities = {
-        ".text-shadow": {
-          textShadow: "1px 1px 2px rgb(0, 0, 0)",
-        },
-        ".img-shadow": {
-          boxShadow: "rgba(0, 0, 0, 0.2) 0px 4px 8px 0px",
-        },
-      };
-
-      addUtilities(newUtilities, ["responsive", "hover"]);
-    },
-  ],
 };
