@@ -1,7 +1,5 @@
 import { heroVideoUrlPortrait } from "@/lib/constants";
 import Typography from "./common/Typography";
-import { Monoton } from "next/font/google";
-import { monoton } from "@/app/layout";
 
 const HeroSection = () => {
   return (
@@ -10,6 +8,7 @@ const HeroSection = () => {
         autoPlay
         loop
         muted
+        playsInline
         className="absolute w-full h-full opacity-60 hidden sm:block object-cover"
       >
         <source src={heroVideoUrlPortrait} />
@@ -19,9 +18,10 @@ const HeroSection = () => {
         autoPlay
         loop
         muted
+        playsInline
         className="absolute w-full h-full opacity-60 block sm:hidden object-cover"
       >
-        <source src={heroVideoUrlPortrait} />
+        <source src={heroVideoUrlPortrait} type="video/mp4" />
       </video>
 
       <div className="relative flex flex-col justify-center items-center text-center h-full opacity-90 text-shadow">
