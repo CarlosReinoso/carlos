@@ -3,10 +3,10 @@ import Typography from "./common/Typography";
 
 const UpcomingEvent = () => {
   return (
-    <div className="text-center relative h-[60vh] sm:h-[70vh] bg-[url('/homepage/strawberry-moon.jpg')] bg-cover bg-center">
+    <div className="text-center relative h-[80vh] bg-[url('/homepage/strawberry-moon.jpg')] bg-cover bg-center">
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
-      <Typography variant="h2" className="font-monoton pt-20 z-10 opacity-90">
+      <Typography variant="h2" className="font-monoton pt-20 z-10 opacity-90 text-shadow">
         Luminous Next Event
       </Typography>
       <div className="container max-w-full flex justify-center pt-0 sm:pt-20">
