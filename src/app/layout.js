@@ -21,7 +21,8 @@ const emblema = Emblema_One({
 
 export const metadata = {
   title: "Experience Conscious Dance",
-  description: "Join The Luminous Community an Ecstatic Dance like no other. Connecting you to lively dance events London",
+  description:
+    "Join The Luminous Community an Ecstatic Dance like no other. Connecting you to lively dance events London",
 };
 
 export default function RootLayout({ children }) {

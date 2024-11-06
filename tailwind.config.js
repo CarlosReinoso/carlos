@@ -16,8 +16,9 @@ module.exports = {
         monoton: "0.2em", // Custom tracking class
       },
       colors: {
-        secondary: "var(--secondaryColour)",
-        third: "var(--thirdColour)",
+        secondary: "var(--secondary-colour)",
+        third: "var(--third-colour)",
+        primary: "var(--primary-colour)",
       },
       textColor: {
         black: "#000000",
@@ -34,6 +35,7 @@ module.exports = {
       blur: {
         custom: "60px", // Custom blur size
       },
+      
     },
     variants: {
       extend: {

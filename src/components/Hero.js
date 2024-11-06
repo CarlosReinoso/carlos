@@ -31,11 +31,11 @@ const HeroSection = () => {
         <div className="relative z-10">
           <Typography
             variant="h1"
-            className="font-monoton font-normal text-white tracking-extra"
+            className="text-white tracking-extra"
           >
             Experience Conscious Dance
           </Typography>
-          <Typography variant="h3" className="font-emblema text-white">
+          <Typography variant="h2" className="font-emblema text-white">
             Join The Luminous Community
           </Typography>
         </div>
