@@ -9,7 +9,7 @@ const HeroSection = () => {
         loop
         muted
         playsInline
-        className="absolute w-full h-full opacity-60 hidden sm:block object-cover"
+        className="absolute w-full h-full opacity-50 hidden sm:block object-cover"
       >
         <source src={heroVideoUrlPortrait} />
       </video>
