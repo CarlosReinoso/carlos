@@ -12,7 +12,9 @@ const images = [
 const SpotlightSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState("");
+  console.log("🚀 ~ SpotlightSection ~ currentImage:", currentImage)
   const [currentIndex, setCurrentIndex] = useState(0);
+  console.log("🚀 ~ SpotlightSection ~ currentIndex:", currentIndex)
 
   const openModal = (image) => {
     setCurrentImage(image);
@@ -68,7 +70,7 @@ const SpotlightSection = () => {
                     src={image.src}
                     alt={`Image ${index + 1}`}
                     className="w-full h-full object-cover rounded-full shadow-md"
-                    onClick={() => openModal(image.src)}
+                    onClick={() => openModal(image)}
                   />
                   {/* Name Overlay at the Bottom */}
                   <div className="font-neucha absolute bottom-0 w-full bg-primary bg-opacity-70 text-white text-lg font-semibold py-5">
