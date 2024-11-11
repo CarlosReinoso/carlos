@@ -50,6 +50,3 @@ body {
 .font-neucha {
   letter-spacing: 0.1em;
 }
-.svg-container {
-  transform: scale(-1, -1) translateY(0.2px);
-}

@@ -1,9 +1,8 @@
-import AboutSection from "@/components/AboutSection";
+import EventsPlatformSection from "@/components/EventsPlatformSection";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/Hero";
 import SpotlightSection from "@/components/SpotlightSection";
 import UpcomingEvent from "@/components/UpcomingEvent";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -11,6 +10,7 @@ export default function Home() {
       <HeroSection />
       <UpcomingEvent />
       <SpotlightSection />
+      {/* <EventsPlatformSection /> */}
       <Footer />
     </main>
   );
