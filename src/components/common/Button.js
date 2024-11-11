@@ -14,7 +14,15 @@ export default function Button({
     "font-neucha inline-block px-6 py-3 font-semibold rounded-full transition duration-300 ease-in-out cursor-pointer";
   const lightThemeStyles =
     "text-white bg-primary hover:bg-secondary hover:scale-105 hover:shadow-[0_0_15px_var(--primary-colour)]";
-  const darkThemeStyles = "text-white hover:bg-gray-200 hover:text-black";
+
+  const darkThemeStyles = `
+    text-primary 
+    bg-gray-100 
+    border-2 
+    border-primary 
+    hover:scale-105 
+    hover:shadow-[0_0_15px_var(--primary-colour)]
+  `;
 
   return (
     <div className="mt-4 flex justify-center">

@@ -10,7 +10,7 @@ export default function Home() {
       <HeroSection />
       <UpcomingEvent />
       <SpotlightSection />
-      {/* <EventsPlatformSection /> */}
+      <EventsPlatformSection />
       <Footer />
     </main>
   );
