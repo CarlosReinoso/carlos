@@ -12,8 +12,8 @@ export async function GET() {
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
       executablePath: isProd
-        ? await chromium.executablePath()
-        : "C:\\Users\\jrpca\\Documents\\web-agency\\chromium\\chromium\\win64-1355085\\chrome-win\\chrome.exe",
+        ? await chromium.executablePath(process.env.CHROMIUM_TAR)
+        : "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
