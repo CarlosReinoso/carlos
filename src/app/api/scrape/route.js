@@ -1,13 +1,31 @@
 // pages/api/refresh-calendar.js
 import supabase from "@/services/supabase/setup";
 import { NextResponse } from "next/server";
-import puppeteer from "puppeteer";
+import chromium from "@sparticuz/chromium";
+import puppeteerExtra from "puppeteer-extra";
+import { isProd } from "@/lib/constants";
 
 export async function GET() {
   try {
-    const browser = await puppeteer.launch({ headless: true }); // Set headless: true for no GUI
+    const browser = await puppeteerExtra.launch({
+      args: [
+        ...chromium.args,
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-blink-features=AutomationControlled",
+        "--disable-web-security",
+        "--disable-features=IsolateOrigins,site-per-process",
+        "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
+      ],
+      executablePath: isProd
+        ? await chromium.executablePath()
+        : "C:\\Users\\jrpca\\Documents\\web-agency\\chromium\\chromium\\win64-1355085\\chrome-win\\chrome.exe",
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true,
+    });
+
     const page = await browser.newPage();
-    // Go to the Airbnb login page
     await page.goto(
       "https://www.eventbrite.co.uk/o/carlos-reinoso-24978075108",
       {
@@ -71,7 +89,7 @@ export async function GET() {
         { status: 500 }
       );
     }
-    // await browser.close();
+    await browser.close();
 
     return NextResponse.json(
       { data: events, message: "Scrape completed successfully!", error },

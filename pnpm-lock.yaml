@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@sparticuz/chromium': ^130.0.0
   '@supabase/supabase-js': ^2.46.1
   clsx: ^2.1.1
   gray-matter: ^4.0.3
@@ -8,6 +9,8 @@ specifiers:
   nodemailer: ^6.9.14
   postcss: ^8.4.39
   puppeteer: ^23.7.1
+  puppeteer-core: ^23.7.1
+  puppeteer-extra: ^3.3.6
   raw-loader: ^4.0.2
   react: ^18
   react-dom: ^18
@@ -17,12 +20,15 @@ specifiers:
   tailwindcss: ^3.4.4
 
 dependencies:
+  '@sparticuz/chromium': 130.0.0
   '@supabase/supabase-js': 2.46.1
   clsx: 2.1.1
   gray-matter: 4.0.3
   next: 14.2.5_nnrd3gsncyragczmpvfhocinkq
   nodemailer: 6.9.16
   puppeteer: 23.7.1
+  puppeteer-core: 23.7.1
+  puppeteer-extra: 3.3.6_mdbxdnvhtzbiaptsohrugusl7e
   raw-loader: 4.0.2
   react: 18.3.1
   react-dom: 18.3.1_react@18.3.1
@@ -232,6 +238,16 @@ packages:
       yargs: 17.7.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@sparticuz/chromium/130.0.0:
+    resolution: {integrity: sha512-ohWzhoIV07i9pkks6RMojWCODZ7ImQsVl4Vtp9A8ZjQqLz3i5T3AolEEZ10IERUpwd9KM6JEy0eCphIHYI5u5A==}
+    engines: {node: '>= 16'}
+    dependencies:
+      follow-redirects: 1.15.9
+      tar-fs: 3.0.6
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /@supabase/auth-js/2.65.1:
@@ -683,6 +699,11 @@ packages:
       character-entities: 2.0.2
     dev: false
 
+  /deepmerge/4.3.1:
+    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   /degenerator/5.0.1:
     resolution: {integrity: sha512-TllpMR/t0M5sqCXfj85i4XaAzxmS5tVA16dqvdkMwGmzI+dXLXnw3J+3Vdv7VKw+ThlTMboK6i9rnZ6Nntj5CQ==}
     engines: {node: '>= 14'}
@@ -847,6 +868,16 @@ packages:
     dependencies:
       to-regex-range: 5.0.1
     dev: true
+
+  /follow-redirects/1.15.9:
+    resolution: {integrity: sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
 
   /foreground-child/3.3.0:
     resolution: {integrity: sha512-Ld2g8rrAyMYFXBhEqMz8ZAHBi4J4uS1i/CxGMDnjyFWddMXLVcDp051DZfu+t7+ab7Wv6SMqpWmyFIj5UbfFvg==}
@@ -1752,6 +1783,30 @@ packages:
       - bufferutil
       - supports-color
       - utf-8-validate
+    dev: false
+
+  /puppeteer-extra/3.3.6_mdbxdnvhtzbiaptsohrugusl7e:
+    resolution: {integrity: sha512-rsLBE/6mMxAjlLd06LuGacrukP2bqbzKCLzV1vrhHFavqQE/taQ2UXv3H5P0Ls7nsrASa+6x3bDbXHpqMwq+7A==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      '@types/puppeteer': '*'
+      puppeteer: '*'
+      puppeteer-core: '*'
+    peerDependenciesMeta:
+      '@types/puppeteer':
+        optional: true
+      puppeteer:
+        optional: true
+      puppeteer-core:
+        optional: true
+    dependencies:
+      '@types/debug': 4.1.12
+      debug: 4.3.7
+      deepmerge: 4.3.1
+      puppeteer: 23.7.1
+      puppeteer-core: 23.7.1
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /puppeteer/23.7.1:
