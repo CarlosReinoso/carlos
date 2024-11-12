@@ -6,6 +6,7 @@ specifiers:
   chrome-aws-lambda: ^10.1.0
   clsx: ^2.1.1
   gray-matter: ^4.0.3
+  ignore-loader: ^0.1.2
   next: 14.2.5
   nodemailer: ^6.9.14
   postcss: ^8.4.39
@@ -39,6 +40,7 @@ dependencies:
   remark-html: 16.0.1
 
 devDependencies:
+  ignore-loader: 0.1.2
   postcss: 8.4.47
   tailwindcss: 3.4.14
 
@@ -1048,6 +1050,10 @@ packages:
   /ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
     dev: false
+
+  /ignore-loader/0.1.2:
+    resolution: {integrity: sha512-yOJQEKrNwoYqrWLS4DcnzM7SEQhRKis5mB+LdKKh4cPmGYlLPR0ozRzHV5jmEk2IxptqJNQA5Cc0gw8Fj12bXA==}
+    dev: true
 
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}

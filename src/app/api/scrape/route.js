@@ -1,20 +1,23 @@
-// pages/api/refresh-calendar.js
-import supabase from "@/services/supabase/setup";
 import { NextResponse } from "next/server";
-import chromium from "chrome-aws-lambda";
+import chromium from "@sparticuz/chromium";
 import puppeteer from "puppeteer-core";
+import { isProd } from "@/lib/constants";
+import supabase from "@/services/supabase/setup";
 
 export async function GET() {
+  let browser = null;
   try {
-    const executablePath = await chromium.executablePath;
-    const browser = await puppeteer.launch({
-      executablePath:
-        executablePath ||
-        "C:\\Users\\jrpca\\Documents\\web-agency\\chromium\\chromium\\win64-1355085\\chrome-win\\chrome.exe",
+    console.log("Launching browser...");
+    browser = await puppeteer.launch({
       args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: isProd
+        ? await chromium.executablePath()
+        : "C:\\Users\\jrpca\\Documents\\web-agency\\chromium\\chromium\\win64-1355085\\chrome-win\\chrome.exe",
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
+    console.log("Browser launched successfully");
 
     const page = await browser.newPage();
     await page.goto(
