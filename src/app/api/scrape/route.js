@@ -7,6 +7,11 @@ import { isProd } from "@/lib/constants";
 
 export async function GET() {
   try {
+    console.log(
+      "Launching Puppeteer with the following path:",
+      await chromium.executablePath()
+    );
+
     const browser = await puppeteerExtra.launch({
       args: [
         ...chromium.args,
