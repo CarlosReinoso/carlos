@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@sparticuz/chromium': ^130.0.0
   '@supabase/supabase-js': ^2.46.1
+  chrome-aws-lambda: ^10.1.0
   clsx: ^2.1.1
   gray-matter: ^4.0.3
   next: 14.2.5
@@ -22,6 +23,7 @@ specifiers:
 dependencies:
   '@sparticuz/chromium': 130.0.0
   '@supabase/supabase-js': 2.46.1
+  chrome-aws-lambda: 10.1.0_puppeteer-core@23.7.1
   clsx: 2.1.1
   gray-matter: 4.0.3
   next: 14.2.5_nnrd3gsncyragczmpvfhocinkq
@@ -599,6 +601,16 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /chrome-aws-lambda/10.1.0_puppeteer-core@23.7.1:
+    resolution: {integrity: sha512-NZQVf+J4kqG4sVhRm3WNmOfzY0OtTSm+S8rg77pwePa9RCYHzhnzRs8YvNI6L9tALIW6RpmefWiPURt3vURXcw==}
+    engines: {node: '>= 10.16'}
+    peerDependencies:
+      puppeteer-core: ^10.1.0
+    dependencies:
+      lambdafs: 2.1.1
+      puppeteer-core: 23.7.1
+    dev: false
+
   /chromium-bidi/0.8.0_sbykfsvq7ziiwe56prhfyimqdq:
     resolution: {integrity: sha512-uJydbGdTw0DEUjhoogGveneJVWX/9YuqkWePzMmkBYwtdAqo5d3J/ovNKFr+/2hWXYmYCr6it8mSSTIj6SS6Ug==}
     peerDependencies:
@@ -1168,6 +1180,14 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
     dev: false
+
+  /lambdafs/2.1.1:
+    resolution: {integrity: sha512-x5k8JcoJWkWLvCVBzrl4pzvkEHSgSBqFjg3Dpsc4AcTMq7oUMym4cL/gRTZ6VM4mUMY+M0dIbQ+V1c1tsqqanQ==}
+    engines: {node: '>= 10.16'}
+    hasBin: true
+    dev: false
+    bundledDependencies:
+      - tar-fs
 
   /lilconfig/2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
