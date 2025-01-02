@@ -11,14 +11,11 @@ export async function GET() {
 
   if (error) {
     console.error("Error logging keep-alive action:", error);
-    return NextResponse.json(
-      { success: false, error },
-      { status: 500, headers: responseHeaders }
-    );
+    return NextResponse.json({ success: false, error }, { status: 500 });
   }
 
   return NextResponse.json(
     { success: true, message: "Keep-alive action logged." },
-    { status: 200, headers: responseHeaders }
+    { status: 200 }
   );
 }
