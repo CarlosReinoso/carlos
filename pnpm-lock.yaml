@@ -8,6 +8,7 @@ specifiers:
   gray-matter: ^4.0.3
   ignore-loader: ^0.1.2
   next: 14.2.5
+  node-cron: ^3.0.3
   nodemailer: ^6.9.14
   postcss: ^8.4.39
   puppeteer: ^23.7.1
@@ -28,6 +29,7 @@ dependencies:
   clsx: 2.1.1
   gray-matter: 4.0.3
   next: 14.2.5_nnrd3gsncyragczmpvfhocinkq
+  node-cron: 3.0.3
   nodemailer: 6.9.16
   puppeteer: 23.7.1
   puppeteer-core: 23.7.1
@@ -1565,6 +1567,13 @@ packages:
       - babel-plugin-macros
     dev: false
 
+  /node-cron/3.0.3:
+    resolution: {integrity: sha512-dOal67//nohNgYWb+nWmg5dkFdIwDm8EpeGYMekPMrngV3637lqnX0lbUcCtgibHTz6SEz7DAIjKvKDFYCnO1A==}
+    engines: {node: '>=6.0.0'}
+    dependencies:
+      uuid: 8.3.2
+    dev: false
+
   /nodemailer/6.9.16:
     resolution: {integrity: sha512-psAuZdTIRN08HKVd/E8ObdV6NO7NTBY3KsC30F7M4H1OnmLCUNaS56FpYxyb26zWLSyYF9Ozch9KYHhHegsiOQ==}
     engines: {node: '>=6.0.0'}
@@ -2348,6 +2357,11 @@ packages:
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
+
+  /uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
+    dev: false
 
   /vfile-message/4.0.2:
     resolution: {integrity: sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==}

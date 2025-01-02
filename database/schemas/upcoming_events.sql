@@ -5,10 +5,9 @@ CREATE TABLE IF NOT EXISTS upcoming_events (
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
   img_url TEXT, 
   title VARCHAR(255) NOT NULL, 
-  event_date TIMESTAMP, 
+  event_date VARCHAR(255), 
   location VARCHAR(255), 
-  price DECIMAL(10, 2), 
-  organiser VARCHAR(255), 
+  price VARCHAR(255), 
   PRIMARY KEY (id)
 );
 

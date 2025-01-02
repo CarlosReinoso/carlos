@@ -1,22 +1,36 @@
 import { NextResponse } from "next/server";
-import chromium from "@sparticuz/chromium";
 import puppeteer from "puppeteer-core";
-import { isProd } from "@/lib/constants";
+import chromium from "@sparticuz/chromium";
+import { isProd } from "@/lib/constants"; // Assume this indicates dev/production
 import supabase from "@/services/supabase/setup";
+import { delay } from "@/services/puppeteer/refreshCalendars";
 
 export async function GET() {
   let browser = null;
   try {
     console.log("Launching browser...");
-    browser = await puppeteer.launch({
-      args: chromium.args,
-      defaultViewport: chromium.defaultViewport,
-      executablePath: isProd
-        ? await chromium.executablePath(process.env.CHROMIUM_TAR)
-        : "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-      headless: chromium.headless,
-      ignoreHTTPSErrors: true,
-    });
+
+    if (isProd) {
+      // Production: Use puppeteer-core with Sparticuz Chromium
+      console.log(
+        "Using puppeteer-core with Sparticuz Chromium in production..."
+      );
+      browser = await puppeteer.launch({
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(process.env.CHROMIUM_TAR), // Path to Chromium binary
+        headless: true,
+        ignoreHTTPSErrors: true,
+      });
+    } else {
+      // Development: Use puppeteer with its bundled Chromium
+      console.log("Using puppeteer in development...");
+      const puppeteerDev = await import("puppeteer"); // Dynamically import puppeteer
+      browser = await puppeteerDev.launch({
+        headless: false, // Launch with a visible browser for debugging
+      });
+    }
+
     console.log("Browser launched successfully");
 
     const page = await browser.newPage();
@@ -27,66 +41,86 @@ export async function GET() {
       }
     );
 
-    await page.waitForSelector('[data-testid="organizer-profile__events"]');
+    await delay(5000);
 
-    // Extract image URLs for each event inside this section
+    await page.waitForFunction(() => {
+      const container = document.querySelector(
+        '[data-testid="organizer-profile__events"] div'
+      );
+      const cards = container.querySelectorAll("div");
+      const cardsLoaded = cards.length > 0;
+      return cardsLoaded;
+    });
+
     const events = await page.evaluate(() => {
-      const eventContainer = document.querySelector(
+      const container = document.querySelector(
         '[data-testid="organizer-profile__events"]'
       );
-      if (!eventContainer) return [];
+      if (!container) return [];
 
-      const eventSections = Array.from(
-        eventContainer.querySelectorAll("section.event-card-details")
-      );
-      console.log("🚀 ~ events ~ eventSections:", eventSections);
+      const eventCards = Array.from(container.querySelectorAll("div"));
 
-      // Use a Set to keep track of unique events
       const uniqueEvents = new Map();
 
-      eventSections.forEach((section) => {
-        const linkElement = section.closest(".event-card")?.querySelector("a");
-        const titleElement = section.querySelector("h3");
-        const imgElement = section.closest(".event-card")?.querySelector("img");
+      eventCards.forEach((section) => {
+        // Find the closest event card and query its details
+        const eventCard = section.closest(".event-card");
+        if (!eventCard) return;
+
+        const linkElement = eventCard.querySelector("a");
+        const titleElement = eventCard.querySelector("h3");
+        const pElements = eventCard.querySelectorAll("p");
+        const eventDate = pElements[0];
+        const eventLocation = pElements[1];
+        const eventPrice = pElements[2];
+        const imgElement = eventCard.querySelector("img");
 
         const event_id = linkElement
           ? linkElement.getAttribute("data-event-id")
           : null;
         const link_url = linkElement ? linkElement.href : null;
-        const title = titleElement ? titleElement.innerText : null;
+        const title = titleElement ? titleElement.innerText.trim() : null;
+        const event_date = eventDate ? eventDate.innerText.trim() : null;
+        const location = eventLocation ? eventLocation.innerText.trim() : null;
+        const price = eventPrice ? eventPrice.innerText.trim() : null;
         const img_url = imgElement ? imgElement.src : null;
 
         if (title && img_url) {
           // Create a unique key based on title and img_url
           const uniqueKey = `${title}_${img_url}`;
           if (!uniqueEvents.has(uniqueKey)) {
-            uniqueEvents.set(uniqueKey, { event_id, link_url, title, img_url });
+            uniqueEvents.set(uniqueKey, {
+              event_id,
+              link_url,
+              img_url,
+              title,
+              event_date,
+              location,
+              price,
+            });
           }
         }
       });
 
-      // Convert the Map values to an array of unique event objects
       return Array.from(uniqueEvents.values());
     });
 
-    console.log(events);
+    console.log("events", events);
 
     const { data, error } = await supabase
-      .from("upcoming_events") // Replace "upcoming_events" with your actual table name
-      .upsert(events, { onConflict: ["event_id"] }); // Using "upsert" to avoid duplicates
+      .from("upcoming_events")
+      .upsert(events, { onConflict: ["event_id"] })
+      .select();
     console.log("🚀 ~ GET ~ data:", data);
 
     if (error) {
-      console.error("Error inserting data into Supabase:", error);
-      return NextResponse.json(
-        { message: "Error inserting data", error },
-        { status: 500 }
-      );
+      console.log("🚀 ~ GET ~ error:", error);
+      throw new Error("Error inserting data into Supabase:", error);
     }
     await browser.close();
 
     return NextResponse.json(
-      { data: events, message: "Scrape completed successfully!", error },
+      { data: events, message: "Scrape completed successfully!" },
       { status: 200 }
     );
   } catch (error) {
