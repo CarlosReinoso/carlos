@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import supabase from "@/services/supabase/setup";
 
+export const fetchCache = 'force-no-store'
+
 export async function GET() {
   // Set headers to disable caching
   const responseHeaders = {
