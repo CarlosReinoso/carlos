@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
-import supabase from "@/lib/supabase";
+import supabase from "@/services/supabase/setup";
 import cron from "node-cron";
 
 let taskScheduled = false;
 
 export async function GET() {
   if (!taskScheduled) {
-    cron.schedule("0 0 9 * * *", async () => {
+    // cron.schedule("0 0 9 * * *", async () => {
+    cron.schedule("*/10 * * * * *", async () => {
       console.log("🚀 ~ Scheduled task running...");
 
       const { error } = await supabase
