@@ -12,6 +12,8 @@ import { NextResponse } from "next/server";
 //     { status: 200 }
 //   );
 // }
+export const revalidate = 0;
+export const dynamic = 'force-static'
 export async function GET() {
   console.log("🚀 ~ GET ~ GET:TESSTTTT")
   return new Response("Cache Control example", {
