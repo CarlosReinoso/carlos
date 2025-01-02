@@ -1,13 +1,25 @@
 import { NextResponse } from "next/server";
 
-export const fetchCache = "force-no-store";
+// export const fetchCache = "force-no-store";
+// export async function GET() {
+
+//   return NextResponse.json(
+//     {
+//       success: true,
+//       message: "Testing API route",
+//       timestamp: new Date().toISOString(),
+//     },
+//     { status: 200 }
+//   );
+// }
 export async function GET() {
-  return NextResponse.json(
-    {
-      success: true,
-      message: "Testing API route",
-      timestamp: new Date().toISOString(),
+  console.log("🚀 ~ GET ~ GET:TESSTTTT")
+  return new Response("Cache Control example", {
+    status: 200,
+    headers: {
+      "Cache-Control": "public, s-maxage=1",
+      "CDN-Cache-Control": "public, s-maxage=60",
+      "Vercel-CDN-Cache-Control": "public, s-maxage=3600",
     },
-    { status: 200 }
-  );
+  });
 }
