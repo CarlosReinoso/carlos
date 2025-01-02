@@ -1,15 +1,12 @@
 import { NextResponse } from "next/server";
 import supabase from "@/services/supabase/setup";
 
-export const fetchCache = 'force-no-store'
-
 export async function GET() {
   // Set headers to disable caching
   const responseHeaders = {
-    "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-    Pragma: "no-cache",
-    Expires: "0",
-    "Surrogate-Control": "no-store",
+    "Cache-Control": "public, s-maxage=1",
+    "CDN-Cache-Control": "public, s-maxage=1",
+    "Vercel-CDN-Cache-Control": "public, s-maxage=1",
   };
 
   console.log("🚀 ~ Cron endpoint triggered in production...");
