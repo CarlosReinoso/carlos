@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import supabase from "@/services/supabase/setup";
 
 export const revalidate = 0;
-export const dynamic = 'force-static'
+// export const dynamic = 'force-static'
 export async function GET() {
   // Set headers to disable caching
   const responseHeaders = {
