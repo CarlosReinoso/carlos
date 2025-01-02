@@ -1,10 +1,8 @@
-import { NextResponse } from "next/server";
-
 export async function GET() {
-  console.log("🚀 ~ GET ~ GET:TESTTTT!!");
+  console.log("🚀 ~ GET ~ TEST: Function triggered at", new Date());
 
   return NextResponse.json(
-    { success: true, message: "Testing" },
+    { success: true, message: "Testing API route", timestamp: new Date().toISOString() },
     { status: 200 }
   );
 }
