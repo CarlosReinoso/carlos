@@ -1,132 +1,143 @@
+// src/app/api/scrape/route.js
 import { NextResponse } from "next/server";
 import puppeteer from "puppeteer-core";
 import chromium from "@sparticuz/chromium";
-import { isProd } from "@/lib/constants"; // Assume this indicates dev/production
+import { isProd } from "@/lib/constants";
 import supabase from "@/services/supabase/setup";
 import { delay } from "@/services/puppeteer/refreshCalendars";
+import { convertToTimestamp } from "@/lib/dates/convertToTimestamp";
 
-export async function GET() {
-  let browser = null;
+export async function POST(req) {
   try {
-    console.log("Launching browser...");
+    const { url } = await req.json(); // Extract URL from request body
 
-    if (isProd) {
-      // Production: Use puppeteer-core with Sparticuz Chromium
-      console.log(
-        "Using puppeteer-core with Sparticuz Chromium in production..."
+    if (!url) {
+      return NextResponse.json(
+        { message: "Missing URL in request body." },
+        { status: 400 }
       );
-      browser = await puppeteer.launch({
-        args: chromium.args,
-        defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath(process.env.CHROMIUM_TAR), // Path to Chromium binary
-        headless: true,
-        ignoreHTTPSErrors: true,
-      });
-    } else {
-      // Development: Use puppeteer with its bundled Chromium
-      console.log("Using puppeteer in development...");
-      const puppeteerDev = await import("puppeteer"); // Dynamically import puppeteer
-      browser = await puppeteerDev.launch({
-        headless: false, // Launch with a visible browser for debugging
-      });
     }
 
-    console.log("Browser launched successfully");
+    let browser = null;
+    try {
+      console.log("Launching browser...");
 
-    const page = await browser.newPage();
-    await page.goto(
-      "https://www.eventbrite.co.uk/o/carlos-reinoso-24978075108",
-      {
-        waitUntil: "networkidle2",
+      if (isProd) {
+        browser = await puppeteer.launch({
+          args: chromium.args,
+          defaultViewport: chromium.defaultViewport,
+          executablePath: await chromium.executablePath(
+            process.env.CHROMIUM_TAR
+          ),
+          headless: true,
+          ignoreHTTPSErrors: true,
+        });
+      } else {
+        const puppeteerDev = await import("puppeteer");
+        browser = await puppeteerDev.launch({ headless: false });
       }
-    );
 
-    await delay(5000);
+      console.log("Browser launched successfully");
 
-    await page.waitForFunction(() => {
-      const container = document.querySelector(
-        '[data-testid="organizer-profile__events"] div'
-      );
-      const cards = container.querySelectorAll("div");
-      const cardsLoaded = cards.length > 0;
-      return cardsLoaded;
-    });
+      const page = await browser.newPage();
 
-    const events = await page.evaluate(() => {
-      const container = document.querySelector(
-        '[data-testid="organizer-profile__events"]'
-      );
-      if (!container) return [];
-
-      const eventCards = Array.from(container.querySelectorAll("div"));
-
-      const uniqueEvents = new Map();
-
-      eventCards.forEach((section) => {
-        // Find the closest event card and query its details
-        const eventCard = section.closest(".event-card");
-        if (!eventCard) return;
-
-        const linkElement = eventCard.querySelector("a");
-        const titleElement = eventCard.querySelector("h3");
-        const pElements = eventCard.querySelectorAll("p");
-        const eventDate = pElements[0];
-        const eventLocation = pElements[1];
-        const eventPrice = pElements[2];
-        const imgElement = eventCard.querySelector("img");
-
-        const event_id = linkElement
-          ? linkElement.getAttribute("data-event-id")
-          : null;
-        const link_url = linkElement ? linkElement.href : null;
-        const title = titleElement ? titleElement.innerText.trim() : null;
-        const event_date = eventDate ? eventDate.innerText.trim() : null;
-        const location = eventLocation ? eventLocation.innerText.trim() : null;
-        const price = eventPrice ? eventPrice.innerText.trim() : null;
-        const img_url = imgElement ? imgElement.src : null;
-
-        if (title && img_url) {
-          // Create a unique key based on title and img_url
-          const uniqueKey = `${title}_${img_url}`;
-          if (!uniqueEvents.has(uniqueKey)) {
-            uniqueEvents.set(uniqueKey, {
-              event_id,
-              link_url,
-              img_url,
-              title,
-              event_date,
-              location,
-              price,
-            });
-          }
-        }
+      //
+      await page.addScriptTag({ path: "./node_modules/dayjs/dayjs.min.js" });
+      await page.addScriptTag({ path: "./node_modules/dayjs/plugin/utc.js" });
+      await page.addScriptTag({
+        path: "./node_modules/dayjs/plugin/timezone.js",
       });
 
-      return Array.from(uniqueEvents.values());
-    });
+      await page.goto(url, { waitUntil: "networkidle2" });
+      await delay(5000); // Important to ensure content loads
 
-    console.log("events", events);
+      // Check if the target element exists before proceeding
+      await page.waitForSelector(
+        '[data-testid="organizer-profile__events"] div',
+        { timeout: 10000 }
+      ); // Wait for up to 10 seconds
 
-    const { data, error } = await supabase
-      .from("upcoming_events")
-      .upsert(events, { onConflict: ["event_id"] })
-      .select();
-    console.log("🚀 ~ GET ~ data:", data);
+      const events = await page.evaluate(() => {
+        const container = document.querySelector(
+          '[data-testid="organizer-profile__events"]'
+        );
+        if (!container) return [];
 
-    if (error) {
-      console.log("🚀 ~ GET ~ error:", error);
-      throw new Error("Error inserting data into Supabase:", error);
+        const eventCards = Array.from(container.querySelectorAll("div"));
+        const uniqueEvents = new Map();
+
+        eventCards.forEach((section) => {
+          const eventCard = section.closest(".event-card");
+          if (!eventCard) return;
+
+          const linkElement = eventCard.querySelector("a");
+          const titleElement = eventCard.querySelector("h3");
+          const pElements = eventCard.querySelectorAll("p");
+          const eventDate = pElements[0]?.innerText.trim() || null; // Extract raw date string
+          const eventLocation = pElements[1]?.innerText.trim() || null;
+          const eventPrice = pElements[2]?.innerText.trim() || null;
+          const imgElement = eventCard.querySelector("img");
+
+          const event_id = linkElement?.getAttribute("data-event-id") || null;
+          const link_url = linkElement?.href || null;
+          const title = titleElement?.innerText.trim() || null;
+          const img_url = imgElement?.src || null;
+
+          if (title && img_url) {
+            const uniqueKey = `${title}_${img_url}`;
+            if (!uniqueEvents.has(uniqueKey)) {
+              uniqueEvents.set(uniqueKey, {
+                event_id,
+                link_url,
+                img_url,
+                title,
+                raw_date: eventDate, // Return raw date string
+                location: eventLocation,
+                price: eventPrice,
+              });
+            }
+          }
+        });
+
+        return Array.from(uniqueEvents.values());
+      });
+
+      console.log("Raw events:", events);
+
+      // Process dates after returning from browser context
+      const processedEvents = events.map((event) => ({
+        ...event,
+        event_date: event.raw_date
+          ? convertToTimestamp(event.raw_date) // Process the raw date string
+          : null,
+      }));
+
+      console.log("Processed events:", processedEvents);
+
+      const { data, error } = await supabase
+        .from("upcoming_events")
+        .upsert(processedEvents, { onConflict: ["event_id"] })
+        .select();
+
+      if (error) {
+        console.error("Supabase error:", error);
+        return NextResponse.json(
+          { message: "Error inserting data into Supabase." },
+          { status: 500 }
+        );
+      }
+
+      return NextResponse.json(
+        { data: processedEvents, message: "Scrape completed successfully!" },
+        { status: 200 }
+      );
+    } finally {
+      // if (browser) await browser.close();
     }
-    await browser.close();
-
-    return NextResponse.json(
-      { data: events, message: "Scrape completed successfully!" },
-      { status: 200 }
-    );
   } catch (error) {
-    console.error("Error during the process:", error);
+    console.error("Scrape process error:", error);
     return NextResponse.json(
-      { message: "Error during the process", error },
+      { message: "Error during the scraping process.", error: error.message },
       { status: 500 }
     );
   }
