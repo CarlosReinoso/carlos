@@ -1,6 +1,7 @@
 import supabase from "@/services/supabase/setup"; // Ensure you have the Supabase client setup
 import { NextResponse } from "next/server";
 
+export const revalidate = 0;
 export async function GET() {
   try {
     // Fetch the latest 10 entries from the spotlight table sorted by created_at
