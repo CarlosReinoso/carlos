@@ -15,9 +15,9 @@ const EventsPlatformSection = () => {
           <Typography variant="h2" className="font-emblema text-white">
             Dance With Our Partners
           </Typography>
-          <Link href={"/events"}>
-            <Button theme="dark">Find Events</Button>
-          </Link>
+          <Button href={"/events"} theme="dark">
+            Find Events
+          </Button>
         </div>
       </div>
     </div>

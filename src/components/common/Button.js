@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import SVGSpinner from "./SVGSpinner";
+import Link from "next/link";
 
 export default function Button({
   buttonUrl,
@@ -26,8 +27,8 @@ export default function Button({
 
   return (
     <div className="mt-4 flex justify-center">
-      <a
-        href={buttonUrl}
+      <Link
+        href={buttonUrl || "/"}
         className={clsx(
           baseStyles,
           theme === "light" ? lightThemeStyles : darkThemeStyles, // Apply theme styles based on prop
@@ -36,7 +37,7 @@ export default function Button({
         {...props}
       >
         {loading ? <SVGSpinner /> : children}
-      </a>
+      </Link>
     </div>
   );
 }
