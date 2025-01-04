@@ -1,4 +1,4 @@
-const path = require('path');
+import path from "path";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -12,10 +12,10 @@ const nextConfig = {
   experimental: {
     outputFileTracingIncludes: {
       "src/app/api/scrape": [
-        path.join(__dirname, "node_modules/dayjs/**/*")
-      ]
-    }
-  }
+        path.join(process.cwd(), "node_modules/dayjs/**/*"),
+      ],
+    },
+  },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
