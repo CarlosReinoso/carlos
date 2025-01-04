@@ -1,5 +1,3 @@
-import path from "path";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config) => {
@@ -8,13 +6,6 @@ const nextConfig = {
       use: "raw-loader",
     });
     return config;
-  },
-  experimental: {
-    outputFileTracingIncludes: {
-      "src/app/api/scrape": [
-        path.join(process.cwd(), "node_modules/dayjs/**/*"),
-      ],
-    },
   },
 };
 

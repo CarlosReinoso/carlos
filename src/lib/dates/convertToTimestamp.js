@@ -7,8 +7,6 @@ dayjs.extend(customParseFormat);
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-console.log(require.resolve("dayjs"));
-
 export function convertToTimestamp(dateString) {
   if (!dateString) return null; // Handle null or undefined input
 

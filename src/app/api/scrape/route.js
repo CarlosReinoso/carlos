@@ -41,13 +41,6 @@ export async function POST(req) {
 
       const page = await browser.newPage();
 
-      //
-      await page.addScriptTag({ path: "./node_modules/dayjs/dayjs.min.js" });
-      await page.addScriptTag({ path: "./node_modules/dayjs/plugin/utc.js" });
-      await page.addScriptTag({
-        path: "./node_modules/dayjs/plugin/timezone.js",
-      });
-
       await page.goto(url, { waitUntil: "networkidle2" });
       await delay(5000); // Important to ensure content loads
 
