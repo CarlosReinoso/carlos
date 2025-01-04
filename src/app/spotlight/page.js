@@ -2,8 +2,8 @@
 import { useState, useEffect } from "react";
 
 const SpotlightForm = () => {
-  const [name, setName] = useState("testName");
-  const [description, setDescription] = useState("desc");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -77,7 +77,7 @@ const SpotlightForm = () => {
       ) : (
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col space-y-4 p-4 pt-12"
+          className="text-black flex flex-col space-y-4 p-4 pt-12"
         >
           <input
             type="text"
@@ -99,7 +99,7 @@ const SpotlightForm = () => {
             accept="image/*"
             onChange={(e) => setImage(e.target.files[0])}
             required
-            className="border p-2 rounded"
+            className="text-white border p-2 rounded"
           />
           <button
             type="submit"
