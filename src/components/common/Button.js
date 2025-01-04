@@ -28,7 +28,7 @@ export default function Button({
   return (
     <div className="mt-4 flex justify-center">
       <Link
-        href={buttonUrl || "/"}
+        href={buttonUrl || "#"}
         className={clsx(
           baseStyles,
           theme === "light" ? lightThemeStyles : darkThemeStyles, // Apply theme styles based on prop
