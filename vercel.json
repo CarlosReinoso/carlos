@@ -1,10 +1,5 @@
 {
   "functions": {
-    "api/*.js": {
-      "includeFiles": [
-        "node_modules/dayjs/**/*"
-      ]
-    },
     "src/app/api/scrape/route.js": {
       "memory": 1024,
       "maxDuration": 60

@@ -1,3 +1,5 @@
+const path = require('path');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config) => {
@@ -7,6 +9,13 @@ const nextConfig = {
     });
     return config;
   },
+  experimental: {
+    outputFileTracingIncludes: {
+      "src/app/api/scrape": [
+        path.join(__dirname, "node_modules/dayjs/**/*")
+      ]
+    }
+  }
 };
 
-export default nextConfig;
+module.exports = nextConfig;
