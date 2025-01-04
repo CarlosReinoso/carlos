@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation"; // Import the hook
 
 const SpotlightForm = () => {
   const [name, setName] = useState("testName");
@@ -9,18 +8,20 @@ const SpotlightForm = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [positionError, setPositionError] = useState(false);
-
-  const searchParams = useSearchParams(); // Get search params
-  const position = searchParams.get("position"); // Extract the "position" parameter
-  console.log("🚀 ~ SpotlightForm ~ position:", position)
+  const [position, setPosition] = useState("");
 
   useEffect(() => {
-    if (!position || !["1", "2", "3"].includes(position)) {
+    // Parse the position parameter from the URL
+    const searchParams = new URLSearchParams(window.location.search);
+    const pos = searchParams.get("position");
+
+    if (!pos || !["1", "2", "3"].includes(pos)) {
       setPositionError(true);
     } else {
+      setPosition(pos);
       setPositionError(false);
     }
-  }, [position]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
