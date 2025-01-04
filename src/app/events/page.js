@@ -48,7 +48,7 @@ export default function EventsPage() {
 
   return (
     <div className="min-h-screen p-6">
-      <Typography variant="h1" className="text-center pb-4">
+      <Typography variant="h1" className="text-center pt-16 pb-4">
         Upcoming Events
       </Typography>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">

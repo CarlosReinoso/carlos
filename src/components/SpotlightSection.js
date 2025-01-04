@@ -3,50 +3,79 @@ import { useState, useEffect } from "react";
 import Typography from "./common/Typography";
 import SVGWave from "./common/SVGWave";
 
-const images = [
-  { src: "/homepage/strawberry-moon.jpg", name: "Carlos Reinoso" },
-  { src: "/homepage/delic-moon.jpg", name: "Person 2" },
-  { src: "/homepage/moon-dance.jpg", name: "Person 3" },
-  // Add more image objects as needed
+const fallbackImages = [
+  { src: "/homepage/strawberry-moon.jpg", name: "Carlos Reinoso", description: "Default description 1" },
+  { src: "/homepage/delic-moon.jpg", name: "Person 2", description: "Default description 2" },
+  { src: "/homepage/moon-dance.jpg", name: "Person 3", description: "Default description 3" },
 ];
 
 const SpotlightSection = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState("");
-  console.log("🚀 ~ SpotlightSection ~ currentImage:", currentImage);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  console.log("🚀 ~ SpotlightSection ~ currentIndex:", currentIndex);
+  const [spotlighters, setSpotlighters] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const openModal = (image) => {
-    setCurrentImage(image);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentItem, setCurrentItem] = useState(null);
+
+  const openModal = (item) => {
+    setCurrentItem(item);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setCurrentImage("");
+    setCurrentItem(null);
   };
 
   const showPreviousImage = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+    setCurrentItem((prev) => {
+      const currentIndex = spotlighters.findIndex((item) => item === prev);
+      const newIndex = currentIndex === 0 ? spotlighters.length - 1 : currentIndex - 1;
+      return spotlighters[newIndex] || fallbackImages[newIndex];
+    });
   };
 
   const showNextImage = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentItem((prev) => {
+      const currentIndex = spotlighters.findIndex((item) => item === prev);
+      const newIndex = (currentIndex + 1) % (spotlighters.length || fallbackImages.length);
+      return spotlighters[newIndex] || fallbackImages[newIndex];
+    });
   };
 
   useEffect(() => {
-    setCurrentImage(images[currentIndex]);
-  }, [currentIndex]);
+    const fetchSpotlighters = async () => {
+      try {
+        const response = await fetch("/api/spotlight/get");
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        if (data.length > 0) {
+          setSpotlighters(data);
+        } else {
+          setSpotlighters(fallbackImages);
+        }
+      } catch (err) {
+        console.error(err.message);
+        setSpotlighters(fallbackImages);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSpotlighters();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  const displayItems = spotlighters.length > 0 ? spotlighters : fallbackImages;
 
   return (
     <div>
       <div className="relative h-[105vh] 2xl:h-[115vh] bg-[url('/homepage/delic-moon.jpg')] bg-cover bg-center bg-black bg-opacity-50 bg-blend-overlay">
-        {/* SVGWave at the top with lower z-index */}
         <SVGWave
           style={{
             transform: "scale(-1, -1) translateY(0.2px)",
@@ -62,18 +91,17 @@ const SpotlightSection = () => {
 
         <div className="flex justify-center w-full relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 p-4">
-            {images.map((image, index) => (
+            {displayItems.map((item, index) => (
               <div key={index} className="text-center">
                 <div className="relative cursor-pointer w-64 sm:w-80 h-64 sm:h-80 mx-auto overflow-hidden rounded-full">
                   <img
-                    src={image.src}
-                    alt={`Image ${index + 1}`}
+                    src={item.image_url || item.src}
+                    alt={`Spotlight ${item.name}`}
                     className="w-full h-full object-cover rounded-full shadow-md"
-                    onClick={() => openModal(image)}
+                    onClick={() => openModal(item)}
                   />
-                  {/* Name Overlay at the Bottom */}
                   <div className="font-neucha absolute bottom-0 w-full bg-primary bg-opacity-70 text-white text-lg font-semibold py-5">
-                    {image.name}
+                    {item.name}
                   </div>
                 </div>
               </div>
@@ -81,7 +109,7 @@ const SpotlightSection = () => {
           </div>
         </div>
 
-        {isModalOpen && (
+        {isModalOpen && currentItem && (
           <div
             className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
             onClick={closeModal}
@@ -98,19 +126,14 @@ const SpotlightSection = () => {
               </button>
               <div className="w-1/2 p-2">
                 <img
-                  src={currentImage.src}
-                  alt="Fullscreen"
+                  src={currentItem.image_url || currentItem.src}
+                  alt={currentItem.name}
                   className="w-full h-auto rounded"
                 />
               </div>
               <div className="w-1/2 p-2 text-black overflow-y-auto">
-                <h2 className="text-xl font-bold mb-2">Image Title</h2>
-                <p className="text-sm">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam vehicula, nisi vel facilisis fermentum, lorem urna
-                  cursus arcu, at tincidunt nisi eros vel sapien. Integer non
-                  libero nec nulla consectetur tincidunt.
-                </p>
+                <h2 className="text-xl font-bold mb-2">{currentItem.name}</h2>
+                <p className="text-sm">{currentItem.description}</p>
               </div>
               <button
                 onClick={showNextImage}
@@ -128,7 +151,6 @@ const SpotlightSection = () => {
           </div>
         )}
 
-        {/* SVGWave at the bottom with lower z-index */}
         <SVGWave
           className="absolute inset-x-0 bottom-[-1%]"
           style={{ transform: "scale(-1, 1) translateY(0.2px)" }}

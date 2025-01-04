@@ -1,5 +1,6 @@
 import { Monoton, Neucha, Emblema_One } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 export const monoton = Monoton({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${monoton.variable} ${neucha.variable} ${emblema.variable}`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
