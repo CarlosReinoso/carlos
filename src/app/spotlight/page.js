@@ -108,7 +108,7 @@ const SpotlightForm = () => {
           >
             {loading ? "Uploading..." : "Submit"}
           </button>
-          {message && <p>{message}</p>}
+          {message && <p className="text-white">{message}</p>}
         </form>
       )}
     </>
