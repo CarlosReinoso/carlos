@@ -95,16 +95,16 @@ export async function POST(req) {
         return Array.from(uniqueEvents.values());
       });
 
-      console.log("Raw events:", events);
+      const processedEvents = events.map((event) => {
+        const eventDate = event.raw_date
+          ? convertToTimestamp(event.raw_date)
+          : null;
 
-      // Process dates after returning from browser context
-      const processedEvents = events.map((event) => ({
-        ...event,
-        event_date: event.raw_date
-          ? convertToTimestamp(event.raw_date) // Process the raw date string
-          : null,
-      }));
-
+        return {
+          ...event,
+          event_date: eventDate, // Ensure null is explicitly set
+        };
+      });
       console.log("Processed events:", processedEvents);
 
       const { data, error } = await supabase

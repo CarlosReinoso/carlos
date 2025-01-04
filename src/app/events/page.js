@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function EventsPage() {
   const [events, setEvents] = useState([]);
+  console.log("🚀 ~ EventsPage ~ events:", events);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -18,9 +19,14 @@ export default function EventsPage() {
 
         // Extract month and day from event_date
         const processedData = data.map((event) => {
+          if (!event.event_date) {
+            return { ...event, month: null, day: null, dateObject: null };
+          }
+
           const date = new Date(event.event_date); // Parse the event_date
           const month = date.toLocaleString("default", { month: "short" }); // Get abbreviated month name
           const day = date.getDate(); // Get the day of the month
+
           return {
             ...event,
             month,
@@ -68,46 +74,40 @@ export default function EventsPage() {
               />
               <div className="p-4 flex flex-col flex-grow">
                 {/* Date Display */}
-                <div className="flex items-center mb-3">
+                {event.month && event.day && (
                   <div className="text-center mr-3 bg-gray-100 p-2 rounded">
-                    <div className="text-xs uppercase text-gray-600">
-                      {event.month}
-                    </div>
-                    <div className="text-lg font-bold text-gray-800">
-                      {event.day}
-                    </div>
+                    <div className="text-xs uppercase text-gray-600">{event.month}</div>
+                    <div className="text-lg font-bold text-gray-800">{event.day}</div>
                   </div>
-                  <div>
-                    <h2 className="text-lg font-semibold text-gray-800">
-                      {event.title}
-                    </h2>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <svg
-                        className="w-4 h-4 mr-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
-                      {event.location}
-                    </div>
+                )}
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-800">{event.title}</h2>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <svg
+                      className="w-4 h-4 mr-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    {event.location}
                   </div>
                 </div>
-                <div className="flex-grow"></div>
-                <p className="mt-2 text-gray-700 font-bold">{event.price}</p>
+              <p className="mt-2 text-gray-700 font-bold">{event.price}</p>
               </div>
+              <div className="flex-grow"></div>
             </div>
           </a>
         ))}
