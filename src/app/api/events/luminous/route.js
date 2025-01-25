@@ -26,11 +26,20 @@ export async function GET() {
       );
     }
 
-    // Sort the results by event_date and pick the first one
-    const sortedData = data.sort(
+    const currentDate = new Date();
+
+    // Filter out events that are in the past
+    const upcomingEvents = data.filter(
+      (event) => new Date(event.event_date) >= currentDate
+    );
+
+    // Sort the remaining events by event_date
+    const sortedData = upcomingEvents.sort(
       (a, b) => new Date(a.event_date) - new Date(b.event_date)
     );
-    const firstEvent = sortedData[0];
+
+    // Get the first upcoming event or return null if no events are found
+    const firstEvent = sortedData.length > 0 ? sortedData[0] : null;
 
     return NextResponse.json(firstEvent, { status: 200 });
   } catch (err) {

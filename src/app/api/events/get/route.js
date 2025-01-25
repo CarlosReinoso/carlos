@@ -14,7 +14,19 @@ export async function GET() {
       );
     }
 
-    return NextResponse.json(data, { status: 200 });
+    // Get the current date
+    const currentDate = new Date();
+
+    // Filter out events whose dates have passed, but keep events without an event_date
+    const filteredEvents = data.filter((event) => {
+      // If event_date is missing or null, keep the event
+      if (!event.event_date) return true;
+
+      // Otherwise, only keep events with a future or current date
+      return new Date(event.event_date) >= currentDate;
+    });
+
+    return NextResponse.json(filteredEvents, { status: 200 });
   } catch (err) {
     console.error("Unexpected error:", err.message);
     return NextResponse.json(

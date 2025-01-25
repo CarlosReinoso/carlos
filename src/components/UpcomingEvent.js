@@ -49,7 +49,7 @@ const UpcomingEvent = () => {
     );
   }
 
-  const { raw_date, location, price, img_url, link_url } = eventData;
+  const { raw_date, location, img_url, link_url } = eventData;
 
   return (
     <div
