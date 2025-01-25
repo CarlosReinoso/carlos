@@ -97,10 +97,7 @@ const SpotlightSection = () => {
           }}
         />
 
-        <Typography
-          variant="h2"
-          className="font-monoton text-shadow text-center"
-        >
+        <Typography variant="h1" className="text-center">
           This Month's Spotlight!
         </Typography>
 
