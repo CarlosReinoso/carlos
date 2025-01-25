@@ -76,7 +76,7 @@ const SpotlightSection = () => {
 
   return (
     <div>
-      <div className="relative h-[105vh] 2xl:h-[115vh] bg-[url('/homepage/delic-moon.jpg')] bg-cover bg-center bg-black bg-opacity-50 bg-blend-overlay">
+      <div className="relative h-[170vh] sm:h-[160vh] 2xl:h-[115vh] bg-[url('/homepage/delic-moon.jpg')] bg-cover bg-center bg-black bg-opacity-50 bg-blend-overlay">
         <SVGWave
           style={{
             transform: "scale(-1, -1) translateY(0.2px)",

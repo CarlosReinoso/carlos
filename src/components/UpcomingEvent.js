@@ -77,7 +77,7 @@ const UpcomingEvent = () => {
               />
             </div>
 
-            <div className="col-span-8 sm:col-span-10 col-start-3 sm:col-start-7 md:col-start-7 col-end-13 absolute top-full sm:top-[20%] md:top-[22%] transform -translate-y-1/4 z-20 p-4 bg-white text-black flex flex-col rounded">
+            <div className="col-span-8 sm:col-span-10 col-start-1 sm:col-start-7 md:col-start-7 col-end-13 absolute top-full sm:top-[20%] md:top-[22%] transform -translate-y-1/4 z-20 p-4 bg-white text-black flex flex-col rounded">
               <div className="decorative-square"></div>
 
               <Typography
