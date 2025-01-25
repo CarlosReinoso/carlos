@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 const NavLink = ({ children, href }) => (
   <Link
     href={href}
-    className="font-neucha text-white text-lg hover:text-gray-300 hover:cursor-pointer relative transition-all duration-300"
+    className="font-playfair text-white text-lg hover:text-gray-300 hover:cursor-pointer relative transition-all duration-300"
   >
     {children}
   </Link>

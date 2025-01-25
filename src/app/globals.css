@@ -5,7 +5,7 @@
 :root {
   --primary-colour: #231b3b;
   --secondary-colour: #1b233b;
-  --third-colour: #b3a123;
+  --third-colour: #ff7fe8;
   --background: var(--primary-colour);
   --foreground: #171717;
   --font-monoton: var(--font-monoton);
@@ -47,6 +47,6 @@ body {
   letter-spacing: 0.15em;
 }
 
-.font-neucha {
+.font-playfair {
   letter-spacing: 0.1em;
 }

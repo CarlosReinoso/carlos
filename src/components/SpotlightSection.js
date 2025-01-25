@@ -5,9 +5,21 @@ import SVGWave from "./common/SVGWave";
 import SpotlightModal from "./SpotlightModal";
 
 const fallbackImages = [
-  { src: "/homepage/strawberry-moon.jpg", name: "Carlos Reinoso", description: "Default description 1" },
-  { src: "/homepage/delic-moon.jpg", name: "Person 2", description: "Default description 2" },
-  { src: "/homepage/moon-dance.jpg", name: "Person 3", description: "Default description 3" },
+  {
+    src: "/homepage/strawberry-moon.jpg",
+    name: "Carlos Reinoso",
+    description: "Default description 1",
+  },
+  {
+    src: "/homepage/delic-moon.jpg",
+    name: "Person 2",
+    description: "Default description 2",
+  },
+  {
+    src: "/homepage/moon-dance.jpg",
+    name: "Person 3",
+    description: "Default description 3",
+  },
 ];
 
 const SpotlightSection = () => {
@@ -30,7 +42,8 @@ const SpotlightSection = () => {
   const showPreviousImage = () => {
     setCurrentItem((prev) => {
       const currentIndex = spotlighters.findIndex((item) => item === prev);
-      const newIndex = currentIndex === 0 ? spotlighters.length - 1 : currentIndex - 1;
+      const newIndex =
+        currentIndex === 0 ? spotlighters.length - 1 : currentIndex - 1;
       return spotlighters[newIndex] || fallbackImages[newIndex];
     });
   };
@@ -38,7 +51,8 @@ const SpotlightSection = () => {
   const showNextImage = () => {
     setCurrentItem((prev) => {
       const currentIndex = spotlighters.findIndex((item) => item === prev);
-      const newIndex = (currentIndex + 1) % (spotlighters.length || fallbackImages.length);
+      const newIndex =
+        (currentIndex + 1) % (spotlighters.length || fallbackImages.length);
       return spotlighters[newIndex] || fallbackImages[newIndex];
     });
   };
@@ -76,7 +90,7 @@ const SpotlightSection = () => {
 
   return (
     <div>
-      <div className="relative h-[170vh] sm:h-[160vh] 2xl:h-[115vh] bg-[url('/homepage/delic-moon.jpg')] bg-cover bg-center bg-black bg-opacity-50 bg-blend-overlay">
+      <div className="relative h-[170vh] sm:h-[160vh] 2xl:h-[115vh] bg-second bg-black bg-opacity-50 bg-blend-overlay">
         <SVGWave
           style={{
             transform: "scale(-1, -1) translateY(0.2px)",
@@ -101,7 +115,7 @@ const SpotlightSection = () => {
                     className="w-full h-full object-cover rounded-full shadow-md"
                     onClick={() => openModal(item)}
                   />
-                  <div className="font-neucha absolute bottom-0 w-full bg-primary bg-opacity-70 text-white text-lg font-semibold py-5">
+                  <div className="font-playfair absolute bottom-0 w-full bg-primary bg-opacity-70 text-white text-lg font-semibold py-5">
                     {item.name}
                   </div>
                 </div>

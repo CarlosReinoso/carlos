@@ -1,4 +1,4 @@
-import { Monoton, Neucha, Emblema_One } from "next/font/google";
+import { Monoton, Playfair_Display, Emblema_One } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
@@ -8,10 +8,10 @@ export const monoton = Monoton({
   variable: "--font-monoton",
 });
 
-const neucha = Neucha({
+const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-neucha",
+  variable: "--font-playfair",
 });
 
 const emblema = Emblema_One({
@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${monoton.variable} ${neucha.variable} ${emblema.variable}`}
+        className={`${monoton.variable} ${playfair.variable} ${emblema.variable}`}
       >
         <Navbar />
         {children}

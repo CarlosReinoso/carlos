@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        neucha: ["var(--font-neucha)", "sans-serif"],
+        playfair: ["var(--font-playfair)", "sans-serif"],
         monoton: ["var(--font-monoton)", "cursive"],
         emblema: ["var(--font-emblema)", "cursive"],
       },
