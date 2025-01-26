@@ -16,7 +16,7 @@ const ContactUs = () => {
             Please feel free to get in touch, ask us a question, or send us a
             link to a song you'd like to request for a dance you are attending.
           </Typography>
-
+          <br />
           <Typography variant="body1" className="mb-12">
             We look forward to hearing from you.
           </Typography>

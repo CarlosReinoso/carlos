@@ -6,7 +6,7 @@ const playlists = [
   {
     title: "Monthly Luminous Recordings",
     description:
-      "Why not listen to the magic playlists from our very own LuminousDJ Gumbo over and over and over again.",
+      "Why not listen to the magic playlists from our very own Luminous DJ Gumbo over and over and over again.",
     embedUrl: [
       "https://w.soundcloud.com/player/?visual=false&url=https%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F1763646651&show_artwork=true&color=%23ff5500&show_comments=true&show_playcount=true",
     ],
