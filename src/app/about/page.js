@@ -1,116 +1,56 @@
 "use client";
+
 import Typography from "@/components/common/Typography";
-import { useEffect, useState } from "react";
 
-export default function EventsPage() {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch("/api/events/get");
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-
-        // Extract month and day from event_date
-        const processedData = data.map((event) => {
-          if (!event.event_date) {
-            return { ...event, month: null, day: null, dateObject: null };
-          }
-
-          const date = new Date(event.event_date); // Parse the event_date
-          const month = date.toLocaleString("default", { month: "short" }); // Get abbreviated month name
-          const day = date.getDate(); // Get the day of the month
-
-          return {
-            ...event,
-            month,
-            day,
-            dateObject: date, // Add date object for sorting purposes
-          };
-        });
-
-        // Sort events by date
-        processedData.sort((a, b) => a.dateObject - b.dateObject);
-
-        setEvents(processedData);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEvents();
-  }, []);
-
-  if (loading) return <p>Loading events...</p>;
-  if (error) return <p>Error: {error}</p>;
-
+const AboutUs = () => {
   return (
-    <div className="min-h-screen p-6">
-      <Typography variant="h1" className="text-center pt-16 pb-4">
-        Upcoming Events
-      </Typography>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-        {events.map((event) => (
-          <a
-            href={event.link_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            key={event.id}
-            className="block hover:no-underline h-full"
+    <div className="relative text-center h-auto flex items-center justify-center bg-cover bg-center py-16 px-4">
+      <div className="relative z-10 bg-white text-black p-8 rounded-lg shadow-lg max-w-6xl flex flex-col sm:flex-row">
+        <div className="flex-shrink-0 sm:-ml-20">
+          <img
+            src="/founders-two.jpg"
+            alt="Founders"
+            className="rounded-lg shadow-md w-full sm:w-96 object-cover"
+          />
+        </div>
+        <div className="flex flex-col text-left w-full sm:pl-8">
+          <Typography
+            variant="h2"
+            className="font-emblema text-primary h-text-shadow mb-6"
           >
-            <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
-              <img
-                src={event.img_url}
-                alt={event.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 flex flex-col flex-grow">
-                {/* Date Display */}
-                {event.month && event.day && (
-                  <div className="text-center mr-3 bg-gray-100 p-2 rounded">
-                    <div className="text-xs uppercase text-gray-600">{event.month}</div>
-                    <div className="text-lg font-bold text-gray-800">{event.day}</div>
-                  </div>
-                )}
-                <div>
-                  <h2 className="text-lg font-semibold text-gray-800">{event.title}</h2>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <svg
-                      className="w-4 h-4 mr-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                    {event.location}
-                  </div>
-                </div>
-              <p className="mt-2 text-gray-700 font-bold">{event.price}</p>
-              </div>
-              <div className="flex-grow"></div>
-            </div>
-          </a>
-        ))}
+            About Us
+          </Typography>
+          <Typography variant="body1" className="mb-6">
+            Luminous Ent are bringing a community of dancers together who
+            co-curate the space during each event. Inspired by conscious dance
+            practices, we facilitate an open format DJ set with the intention of
+            connecting and flowing with the energy in the room. Each event will
+            be different, as those in attendance will shape the experience with
+            what they bring to the dance.
+          </Typography>
+          <Typography variant="body1" className="mb-6">
+            Our events are all about celebrating life, love, and connection
+            through heart-centered fun. With an amazing spinning soul-stirring
+            afro-inspired beats, you'll move and groove with a like-minded
+            community in a safe and sober environment. Embrace the magic of the
+            night, connect with your inner self, and dance your heart out as we
+            unite in joy and celebration.
+          </Typography>
+          <Typography variant="body1" className="mb-6">
+            Being held around the full moons, our fun, heart-centred experience
+            is an expressive outlet for whatever you have been harnessing that
+            month, to leave you feeling rejuvenated for the new month
+            approaching. We are creating an open forum for the community to
+            input on each month’s event; sharing music that you would love to
+            dance to (either composed by others or by yourself), original
+            artwork to decorate the space is welcomed, as well as instruments to
+            jam along and elevate the vibe, as we invite you to bring what’s
+            energetically motivating you to want to dance that month.
+          </Typography>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default AboutUs;
