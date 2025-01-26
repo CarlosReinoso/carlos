@@ -3,10 +3,12 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const NavLink = ({ children, href, onClick }) => (
+const NavLink = ({ children, href, onClick, isActive }) => (
   <Link
     href={href}
-    className="font-poppins text-white text-2xl font-medium transition-all duration-300 relative group"
+    className={`font-poppins text-white text-2xl font-medium transition-all duration-300 relative group ${
+      isActive ? "after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white" : ""
+    }`}
     onClick={onClick}
   >
     {children}
@@ -62,19 +64,19 @@ export default function Navbar() {
             ✖
           </button>
 
-          <NavLink href="/" onClick={closeMenu}>
+          <NavLink href="/" onClick={closeMenu} isActive={pathname === "/"}>
             Home
           </NavLink>
-          <NavLink href="/events" onClick={closeMenu}>
+          <NavLink href="/events" onClick={closeMenu} isActive={pathname === "/events"}>
             Events
           </NavLink>
-          <NavLink href="/playlists" onClick={closeMenu}>
+          <NavLink href="/playlists" onClick={closeMenu} isActive={pathname === "/playlists"}>
             Playlists
           </NavLink>
-          <NavLink href="/about" onClick={closeMenu}>
+          <NavLink href="/about" onClick={closeMenu} isActive={pathname === "/about"}>
             About Us
           </NavLink>
-          <NavLink href="/contact" onClick={closeMenu}>
+          <NavLink href="/contact" onClick={closeMenu} isActive={pathname === "/contact"}>
             Contact
           </NavLink>
         </div>
