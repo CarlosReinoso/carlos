@@ -9,7 +9,7 @@ const Typography = ({ variant = "h1", children, className = "" }) => {
     h4: "text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-4",
     h5: "text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium mb-4",
     h6: "text-base sm:text-lg md:text-xl lg:text-2xl font-medium mb-4",
-    body1: "font-playfair text-base sm:text-lg mb-4",
+    body1: "font-poppins text-base sm:text-lg mb-4",
     body2: "text-sm sm:text-base mb-4",
   };
 

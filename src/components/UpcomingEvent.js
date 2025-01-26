@@ -49,53 +49,36 @@ const UpcomingEvent = () => {
     );
   }
 
-  const { raw_date, location, img_url, link_url } = eventData;
+  const { raw_date, location, link_url } = eventData;
 
   return (
     <div
-      className="relative text-center h-[80vh] bg-cover bg-center"
+      className="relative text-center h-[80vh] flex items-center justify-center bg-cover bg-center"
       style={{
-        backgroundImage: `url("/homepage/strawberry-moon.jpg")`,
+        backgroundImage: `url("/homepage/moon-dance-two.jpeg")`,
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 bg-white text-black p-6 rounded-lg shadow-lg flex flex-col items-center max-w-md">
+        <div className="decorative-square"></div>
         <Typography
-          variant="h2"
-          className="font-monoton pt-20 opacity-90 text-shadow text-white"
+          variant="h4"
+          className="font-emblema text-primary h-text-shadow mb-4"
         >
           Luminous Next Event
         </Typography>
-        <div className="container max-w-full flex justify-center pt-0 sm:pt-20">
-          <div className="w-[900px] grid grid-cols-12 auto-rows-auto justify-items-center relative">
-            <div className="col-span-10 sm:col-span-8 col-start-1">
-              <img
-                src={img_url || "/homepage/moon-dance.jpg"}
-                alt="Event Image"
-                className="rounded"
-              />
-            </div>
-
-            <div className="col-span-8 sm:col-span-10 col-start-1 sm:col-start-7 md:col-start-7 col-end-13 absolute top-full sm:top-[20%] md:top-[22%] transform -translate-y-1/4 z-20 p-4 bg-white text-black flex flex-col rounded">
-              <div className="decorative-square"></div>
-
-              <Typography
-                variant="h4"
-                className="font-emblema text-primary h-text-shadow"
-              >
-                Luminous Conscious Dance
-              </Typography>
-              <Typography variant="body1">{raw_date}</Typography>
-              <Typography variant="body1">{location}</Typography>
-              {link_url && (
-                <Button onClick={() => window.open(link_url, "_blank")}>
-                  Get Your Tickets Here
-                </Button>
-              )}
-            </div>
-          </div>
-        </div>
+        <Typography variant="body1" className="mb-2">
+          {raw_date}
+        </Typography>
+        <Typography variant="body1" className="mb-4">
+          {location}
+        </Typography>
+        {link_url && (
+          <Button onClick={() => window.open(link_url, "_blank")}>
+            Get Your Tickets Here
+          </Button>
+        )}
       </div>
 
       <SVGWave className="absolute inset-x-0 bottom-[-1%]" />

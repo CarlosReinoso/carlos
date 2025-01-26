@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        playfair: ["var(--font-playfair)", "sans-serif"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
         monoton: ["var(--font-monoton)", "cursive"],
         emblema: ["var(--font-emblema)", "cursive"],
       },
@@ -35,7 +35,6 @@ module.exports = {
       blur: {
         custom: "60px", // Custom blur size
       },
-      
     },
     variants: {
       extend: {

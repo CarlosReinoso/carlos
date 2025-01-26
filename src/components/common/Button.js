@@ -12,7 +12,7 @@ export default function Button({
 }) {
   // Define base, light, and dark theme styles
   const baseStyles =
-    "font-playfair inline-block px-6 py-3 font-semibold rounded-full transition duration-300 ease-in-out cursor-pointer";
+    "font-poppins inline-block px-6 py-3 font-semibold rounded-full transition duration-300 ease-in-out cursor-pointer";
   const lightThemeStyles =
     "text-white bg-primary hover:bg-secondary hover:scale-105 hover:shadow-[0_0_15px_var(--primary-colour)]";
 

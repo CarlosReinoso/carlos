@@ -112,7 +112,7 @@ const SpotlightSection = () => {
                     className="w-full h-full object-cover rounded-full shadow-md"
                     onClick={() => openModal(item)}
                   />
-                  <div className="font-playfair absolute bottom-0 w-full bg-primary bg-opacity-70 text-white text-lg font-semibold py-5">
+                  <div className="font-poppins absolute bottom-0 w-full bg-primary bg-opacity-70 text-white text-lg font-semibold py-5">
                     {item.name}
                   </div>
                 </div>
