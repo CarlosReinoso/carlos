@@ -90,7 +90,7 @@ const SpotlightSection = () => {
 
   return (
     <div>
-      <div className="relative h-[110vh] sm:h-[120vh] 2xl:h-[115vh] bg-second bg-black bg-opacity-50 bg-blend-overlay">
+      <div className="relative h-[170vh] sm:h-[160vh] 2xl:h-[115vh] bg-second bg-black bg-opacity-50 bg-blend-overlay">
         <SVGWave
           style={{
             transform: "scale(-1, -1) translateY(0.2px)",
@@ -112,7 +112,7 @@ const SpotlightSection = () => {
                     className="w-full h-full object-cover rounded-full shadow-md"
                     onClick={() => openModal(item)}
                   />
-                  <div className="font-poppins absolute bottom-0 w-full bg-primary bg-opacity-70 text-white text-lg font-semibold py-5">
+                  <div className="font-playfair absolute bottom-0 w-full bg-primary bg-opacity-70 text-white text-lg font-semibold py-5">
                     {item.name}
                   </div>
                 </div>
