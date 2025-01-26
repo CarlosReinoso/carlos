@@ -66,6 +66,9 @@ export default function Navbar() {
           <NavLink href="/events" isActive={pathname === "/events"}>
             Events
           </NavLink>
+          <NavLink href="/playlists" isActive={pathname === "/playlists"}>
+            Playlists
+          </NavLink>
           <NavLink href="/about" isActive={pathname === "/about"}>
             About Us
           </NavLink>
