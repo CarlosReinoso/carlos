@@ -11,7 +11,6 @@ export default function Home() {
       <UpcomingEvent />
       <SpotlightSection />
       <EventsPlatformSection />
-      <Footer />
     </main>
   );
 }

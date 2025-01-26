@@ -1,65 +1,40 @@
 "use client";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const NavLink = ({ children, href, isActive }) => (
+const NavLink = ({ children, href, onClick }) => (
   <Link
     href={href}
-    className={`font-poppins text-lg relative transition-all duration-300 hover:cursor-pointer ${
-      isActive ? "text-white" : "text-gray-400"
-    }`}
-    style={{
-      position: "relative",
-      textDecoration: "none",
-      color: "inherit",
-    }}
-    onMouseEnter={(e) => {
-      const after = e.currentTarget.querySelector("span");
-      if (after) {
-        after.style.transform = "scaleX(1)";
-        after.style.transformOrigin = "bottom left";
-      }
-    }}
-    onMouseLeave={(e) => {
-      const after = e.currentTarget.querySelector("span");
-      if (after && !isActive) {
-        after.style.transform = "scaleX(0)";
-        after.style.transformOrigin = "bottom right";
-      }
-    }}
+    className="font-poppins text-white text-2xl font-medium transition-all duration-300 relative group"
+    onClick={onClick}
   >
     {children}
-    <span
-      style={{
-        content: '""',
-        position: "absolute",
-        width: "100%",
-        height: "2px",
-        bottom: "0",
-        left: "0",
-        backgroundColor: "currentColor",
-        transform: isActive ? "scaleX(1)" : "scaleX(0)",
-        transformOrigin: isActive ? "bottom left" : "bottom right",
-        transition: "transform 0.25s ease-out",
-        display: "block",
-      }}
-    ></span>
+    <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
   </Link>
 );
 
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
+  }, [isMobileMenuOpen]);
+
+  const closeMenu = () => setIsMobileMenuOpen(false);
+
   return (
-    <div
-      className={`fixed top-0 left-0 w-full shadow-md z-50 transition-transform duration-300 transform translate-y-0`}
-      style={{
-        background:
-          "linear-gradient(to bottom, var(--primary-colour) 60%, var(--secondary-colour) 85%, rgba(128, 0, 128, 0))",
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-end">
-        <nav className="flex space-x-6">
+    <div className="fixed top-0 left-0 w-full shadow-md z-50 bg-primary">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="text-white text-3xl focus:outline-none md:hidden"
+        >
+          {isMobileMenuOpen ? "✖" : "☰"}
+        </button>
+
+        <div className="hidden md:flex space-x-6">
           <NavLink href="/" isActive={pathname === "/"}>
             Home
           </NavLink>
@@ -75,8 +50,35 @@ export default function Navbar() {
           <NavLink href="/contact" isActive={pathname === "/contact"}>
             Contact
           </NavLink>
-        </nav>
+        </div>
       </div>
+
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 bg-primary z-50 flex flex-col items-center justify-center space-y-6">
+          <button
+            onClick={closeMenu}
+            className="absolute top-6 left-6 text-white text-3xl focus:outline-none"
+          >
+            ✖
+          </button>
+
+          <NavLink href="/" onClick={closeMenu}>
+            Home
+          </NavLink>
+          <NavLink href="/events" onClick={closeMenu}>
+            Events
+          </NavLink>
+          <NavLink href="/playlists" onClick={closeMenu}>
+            Playlists
+          </NavLink>
+          <NavLink href="/about" onClick={closeMenu}>
+            About Us
+          </NavLink>
+          <NavLink href="/contact" onClick={closeMenu}>
+            Contact
+          </NavLink>
+        </div>
+      )}
     </div>
   );
 }
