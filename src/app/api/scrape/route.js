@@ -126,7 +126,7 @@ export async function POST(req) {
         { status: 200 }
       );
     } finally {
-      // if (browser) await browser.close();
+      if (browser) await browser.close();
     }
   } catch (error) {
     console.error("Scrape process error:", error);
