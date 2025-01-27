@@ -23,6 +23,7 @@ const playlists = [
       "https://open.spotify.com/embed?uri=spotify%3Aplaylist%3A0K7LvhBosWFOVAJDaLaKVk",
       "https://open.spotify.com/embed?uri=spotify%3Aplaylist%3A43O2Ui4GKw28pe1Zn0u2T3",
       "https://open.spotify.com/embed?uri=spotify%3Aplaylist%3A77stpfoOEgTam4N4RtFa6H",
+      "https://open.spotify.com/embed?uri=spotify%3Aplaylist%3A77stpfoOEgTam4N4RtFa6H",
     ],
   },
 ];

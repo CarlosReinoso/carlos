@@ -51,22 +51,23 @@ export async function POST(req) {
       ); // Wait for up to 10 seconds
 
       const events = await page.evaluate(() => {
-        const container = document.querySelector(
-          '[data-testid="organizer-profile__events"]'
+        const futureEventsSection = document.querySelector(
+          '[data-testid="organizer-profile__future-events"]'
         );
-        if (!container) return [];
+        if (!futureEventsSection) return [];
 
-        const eventCards = Array.from(container.querySelectorAll("div"));
-        const uniqueEvents = new Map();
+        const eventCards = Array.from(
+          futureEventsSection.querySelectorAll(".event-card")
+        );
 
-        eventCards.forEach((section) => {
-          const eventCard = section.closest(".event-card");
-          if (!eventCard) return;
+        // Use a Map to store unique events by event_id
+        const eventMap = new Map();
 
+        eventCards.forEach((eventCard) => {
           const linkElement = eventCard.querySelector("a");
           const titleElement = eventCard.querySelector("h3");
           const pElements = eventCard.querySelectorAll("p");
-          const eventDate = pElements[0]?.innerText.trim() || null; // Extract raw date string
+          const eventDate = pElements[0]?.innerText.trim() || null;
           const eventLocation = pElements[1]?.innerText.trim() || null;
           const eventPrice = pElements[2]?.innerText.trim() || null;
           const imgElement = eventCard.querySelector("img");
@@ -76,15 +77,15 @@ export async function POST(req) {
           const title = titleElement?.innerText.trim() || null;
           const img_url = imgElement?.src || null;
 
-          if (title && img_url) {
-            const uniqueKey = `${title}_${img_url}`;
-            if (!uniqueEvents.has(uniqueKey)) {
-              uniqueEvents.set(uniqueKey, {
+          if (title && img_url && event_id) {
+            // Only add if event_id doesn't exist in the Map
+            if (!eventMap.has(event_id)) {
+              eventMap.set(event_id, {
                 event_id,
                 link_url,
                 img_url,
                 title,
-                raw_date: eventDate, // Return raw date string
+                raw_date: eventDate,
                 location: eventLocation,
                 price: eventPrice,
               });
@@ -92,9 +93,9 @@ export async function POST(req) {
           }
         });
 
-        return Array.from(uniqueEvents.values());
+        // Convert Map values back to array
+        return Array.from(eventMap.values());
       });
-
       const processedEvents = events.map((event) => {
         const eventDate = event.raw_date
           ? convertToTimestamp(event.raw_date)
@@ -125,7 +126,7 @@ export async function POST(req) {
         { status: 200 }
       );
     } finally {
-      if (browser) await browser.close();
+      // if (browser) await browser.close();
     }
   } catch (error) {
     console.error("Scrape process error:", error);

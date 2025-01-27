@@ -1,3 +1,12 @@
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat.js";
+import utc from "dayjs/plugin/utc.js";
+import timezone from "dayjs/plugin/timezone.js";
+
+dayjs.extend(customParseFormat);
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 export function convertToTimestamp(dateString) {
   if (!dateString) return null; // Handle null or undefined input
 
@@ -7,6 +16,7 @@ export function convertToTimestamp(dateString) {
       [
         "ddd, D MMM, HH:mm", // "Sun, 7 Dec, 10:00"
         "ddd, MMM D • h:mm A", // "Sat, Jan 18 • 6:00 PM"
+        "ddd, MMM D •  h:mm A", // "Sat, Jan 18 •  6:00 PM" extra space
         "ddd, D MMM • h:mm A", // "Sat, 18 Jan • 6:00 PM" (if order is sometimes reversed)
         "ddd, D MMM YYYY, HH:mm", // Add year if sometimes present
         "ddd, MMM D YYYY • h:mm A", // Add year if sometimes present
