@@ -77,7 +77,7 @@ const SpotlightForm = () => {
       ) : (
         <form
           onSubmit={handleSubmit}
-          className="text-black flex flex-col space-y-4 p-4 pt-12"
+          className="text-black flex flex-col space-y-4 p-4 pt-24"
         >
           <input
             type="text"
