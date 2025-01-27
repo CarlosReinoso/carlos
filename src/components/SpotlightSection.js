@@ -90,29 +90,29 @@ const SpotlightSection = () => {
 
   return (
     <div>
-      <div className="relative h-[170vh] sm:h-[160vh] 2xl:h-[115vh] bg-second bg-black bg-opacity-50 bg-blend-overlay">
+      <div className="relative min-h-screen bg-second bg-black bg-opacity-50 bg-blend-overlay">
         <SVGWave
           style={{
             transform: "scale(-1, -1) translateY(0.2px)",
           }}
         />
 
-        <Typography variant="h1" className="text-center">
+        <Typography variant="h1" className="text-center py-8">
           This Month's Spotlight!
         </Typography>
 
         <div className="flex justify-center w-full relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-4 max-w-[1200px] mx-auto">
             {displayItems.map((item, index) => (
               <div key={index} className="text-center">
-                <div className="relative cursor-pointer w-64 sm:w-80 h-64 sm:h-80 mx-auto overflow-hidden rounded-full">
+                <div className="relative cursor-pointer w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 mx-auto overflow-hidden rounded-full">
                   <img
                     src={item.image_url || item.src}
                     alt={`Spotlight ${item.name}`}
                     className="w-full h-full object-cover rounded-full shadow-md"
                     onClick={() => openModal(item)}
                   />
-                  <div className="font-playfair absolute bottom-0 w-full bg-primary bg-opacity-70 text-white text-lg font-semibold py-5">
+                  <div className="font-playfair absolute bottom-0 w-full bg-primary bg-opacity-70 text-white text-lg font-semibold py-2">
                     {item.name}
                   </div>
                 </div>

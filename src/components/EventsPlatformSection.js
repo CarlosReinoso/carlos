@@ -1,7 +1,6 @@
 import Typography from "./common/Typography";
 import SVGWave from "./common/SVGWave";
 import Button from "./common/Button";
-import Link from "next/link";
 
 const EventsPlatformSection = () => {
   return (
@@ -9,7 +8,10 @@ const EventsPlatformSection = () => {
       <div className="relative h-[60vh] sm:h-[60vh] md:h-[60vh] lg:h-[80vh] 2xl:h-[100vh] bg-[url('/homepage/pink-moon.jpg')] bg-cover bg-center bg-black bg-opacity-50 bg-blend-overlay text-center">
         <SVGWave style={{ transform: "scale(1, -1) translateY(0.2px)" }} />
         <div className="flex flex-col justify-around h-[30vh] sm:h-[30vh] md:h-[30vh]">
-          <Typography variant="h2" className="font-monoton text-shadow ">
+          <Typography
+            variant="h1"
+            className="font-monoton text-shadow text-white"
+          >
             Events Near You
           </Typography>
           <Typography variant="h2" className="font-emblema text-white">
