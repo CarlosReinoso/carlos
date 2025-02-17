@@ -1,6 +1,7 @@
 import supabase from "@/services/supabase/setup";
 import { NextResponse } from "next/server";
 
+export const revalidate = 0;
 export async function GET() {
   try {
     // Fetch all events with the specified title
