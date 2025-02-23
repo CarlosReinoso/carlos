@@ -22,9 +22,9 @@ const emblema = Emblema_One({
 });
 
 export const metadata = {
-  title: "Experience Conscious Dance",
+  title: "Keanu Arkadio",
   description:
-    "Join The Luminous Community an Ecstatic Dance like no other. Connecting you to lively dance events London",
+    "Keanu Lawrence Arcadio - W R I T E R & T E A C H E R",
 };
 
 export default function RootLayout({ children }) {

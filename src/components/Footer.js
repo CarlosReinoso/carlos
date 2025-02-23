@@ -9,7 +9,7 @@ const instagramUrl = "https://www.instagram.com/luminousnightslondon/";
 const Footer = () => {
   return (
     <>
-      <div className="bg-secondary py-6">
+      <div className="bg-primary py-6">
         {/* Icons Section */}
         <div className="flex justify-center space-x-4 relative">
           <WhatsAppIcon link={whatsAppLink} />

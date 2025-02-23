@@ -1,6 +1,6 @@
-import EventsPlatformSection from "@/components/EventsPlatformSection";
 import HeroSection from "@/components/Hero";
-import SpotlightSection from "@/components/SpotlightSection";
+import BioSection from "@/components/BioSection";
+import EducationSection from "@/components/EducationSection";
 import ShortStoriesSection from "@/components/ShortStoriesSection";
 
 export default function Home() {
@@ -8,8 +8,8 @@ export default function Home() {
     <main>
       <HeroSection />
       <ShortStoriesSection />
-      {/* <SpotlightSection />
-      <EventsPlatformSection /> */}
+      <BioSection />
+      <EducationSection />
     </main>
   );
 }

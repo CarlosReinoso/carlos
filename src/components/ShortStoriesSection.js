@@ -56,7 +56,10 @@ const ShortStoriesSection = () => {
   };
 
   return (
-    <div className="relative min-h-[100vh] mt-32 sm:mt-8 flex items-center justify-center bg-primary p-4">
+    <div
+      id="short-stories"
+      className="relative min-h-[100vh] mt-32 sm:mt-8 flex items-center justify-center bg-primary p-4"
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl overflow-hidden">
         {/* Left side - Short Stories List */}
         <div className="flex flex-col justify-start items-start p-6 md:p-8 w-full">
@@ -85,11 +88,11 @@ const ShortStoriesSection = () => {
         </div>
 
         {/* Right side - Image */}
-        <div className="flex justify-center items-center bg-secondary h-[60vh] sm:h-[70vh] md:h-[80vh] px-4 sm:px-8 md:px-12">
+        <div className="flex justify-center items-center bg-secondary h-[60vh] sm:h-[70vh] md:h-[80vh] p-4 sm:px-8 md:px-12">
           <img
             src="/cats.jpg"
             alt="Cats on a wall"
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-cover "
           />
         </div>
       </div>

@@ -28,7 +28,7 @@ const WebsiteBy = () => {
   };
 
   return (
-    <div className="bg-secondary py-6">
+    <div className="bg-primary py-6">
       {/* WebsiteBy Text Section */}
       <div className="text-center text-white mt-4">
         <p style={{ fontSize: "13px" }}>
