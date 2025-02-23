@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      {/* <ShortStoriesSection /> */}
+      <ShortStoriesSection />
       {/* <SpotlightSection />
       <EventsPlatformSection /> */}
     </main>

@@ -1,87 +1,109 @@
 "use client";
+
 import { useState, useEffect } from "react";
-import Button from "./common/Button";
-import SVGWave from "./common/SVGWave";
 import Typography from "./common/Typography";
+import ShortStoriesModal from "./ShortStoriesModal";
+import supabase from "@/services/supabase/setup";
 
 const ShortStoriesSection = () => {
-  const [eventData, setEventData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentStory, setCurrentStory] = useState(null);
+  const [stories, setStories] = useState([]);
 
   useEffect(() => {
-    const fetchEvent = async () => {
-      try {
-        const response = await fetch("/api/events/luminous");
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        setEventData(data);
-      } catch (err) {
-        console.error("Error fetching event:", err.message);
-        setError(err.message);
-      } finally {
-        setLoading(false);
+    const fetchStories = async () => {
+      const { data, error } = await supabase
+        .from("keanu_short_stories")
+        .select("id, title, page_count, year_written, preview, reading_time")
+        .order("year_written", { ascending: true });
+
+      if (error) {
+        console.error("Error fetching stories:", error);
+      } else {
+        setStories(data);
       }
     };
 
-    fetchEvent();
+    fetchStories();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="relative text-center h-[80vh] flex items-center justify-center">
-        <Typography variant="h2" className="font-playfair text-white">
-          Loading event...
-        </Typography>
-      </div>
-    );
-  }
+  const openModal = (story) => {
+    setCurrentStory(story);
+    setIsModalOpen(true);
+  };
 
-  if (error || !eventData) {
-    return (
-      <div className="relative text-center h-[80vh] flex items-center justify-center">
-        <Typography variant="h2" className="font-playfair text-white">
-          {error ? `Error: ${error}` : "Event not found."}
-        </Typography>
-      </div>
-    );
-  }
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setCurrentStory(null);
+  };
 
-  const { raw_date, location, link_url } = eventData;
+  const showNextStory = () => {
+    if (!currentStory || stories.length === 0) return;
+    const currentIndex = stories.findIndex(
+      (story) => story.id === currentStory.id
+    );
+    const nextIndex = (currentIndex + 1) % stories.length;
+    setCurrentStory(stories[nextIndex]);
+  };
+
+  const showPreviousStory = () => {
+    if (!currentStory || stories.length === 0) return;
+    const currentIndex = stories.findIndex(
+      (story) => story.id === currentStory.id
+    );
+    const previousIndex = (currentIndex - 1 + stories.length) % stories.length;
+    setCurrentStory(stories[previousIndex]);
+  };
 
   return (
-    <div
-      className="relative text-center h-[80vh] flex items-center justify-center bg-cover bg-center"
-      style={{
-        backgroundImage: `url("/homepage/moon-dance-two.jpeg")`,
-      }}
-    >
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div className="relative min-h-[100vh] mt-32 sm:mt-8 flex items-center justify-center bg-primary p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl overflow-hidden">
+        {/* Left side - Short Stories List */}
+        <div className="flex flex-col justify-start items-start p-6 md:p-8 w-full">
+          <Typography
+            variant="h3"
+            className="font-semibold tracking-widest text-lg sm:text-xl mb-2"
+          >
+            SHORT STORIES
+          </Typography>
+          <hr className="w-full border-t-2 border-gray-600 mb-4" />
+          <ul className="text-gray-800 space-y-2 text-base sm:text-lg w-full">
+            {stories?.length > 0 ? (
+              stories.map((story) => (
+                <li
+                  key={story.id}
+                  className="hover:text-gray-600 cursor-pointer"
+                  onClick={() => openModal(story)}
+                >
+                  {story.title}, {story.year_written} ({story.page_count} pages)
+                </li>
+              ))
+            ) : (
+              <li className="text-gray-500">Loading stories...</li>
+            )}
+          </ul>
+        </div>
 
-      <div className="relative z-10 bg-white text-black p-6 rounded-lg shadow-lg flex flex-col items-center max-w-md">
-        <div className="decorative-square"></div>
-        <Typography
-          variant="h4"
-          className="font-emblema text-primary h-text-shadow mb-4"
-        >
-          Luminous Next Event
-        </Typography>
-        <Typography variant="body1" className="mb-2">
-          {raw_date}
-        </Typography>
-        <Typography variant="body1" className="mb-4">
-          {location}
-        </Typography>
-        {link_url && (
-          <Button onClick={() => window.open(link_url, "_blank")}>
-            Get Your Tickets Here
-          </Button>
-        )}
+        {/* Right side - Image */}
+        <div className="flex justify-center items-center bg-secondary h-[60vh] sm:h-[70vh] md:h-[80vh] px-4 sm:px-8 md:px-12">
+          <img
+            src="/cats.jpg"
+            alt="Cats on a wall"
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </div>
       </div>
 
-      <SVGWave className="absolute inset-x-0 bottom-[-1%]" />
+      {/* Modal Component */}
+      {isModalOpen && currentStory && (
+        <ShortStoriesModal
+          isModalOpen={isModalOpen}
+          currentStory={currentStory}
+          closeModal={closeModal}
+          showNextStory={showNextStory}
+          showPreviousStory={showPreviousStory}
+        />
+      )}
     </div>
   );
 };
