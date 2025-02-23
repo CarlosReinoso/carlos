@@ -10,7 +10,7 @@ const EventsPlatformSection = () => {
         <div className="flex flex-col justify-around h-[30vh] sm:h-[30vh] md:h-[30vh]">
           <Typography
             variant="h1"
-            className="font-monoton text-shadow text-white"
+            className="font-playfair text-shadow text-white"
           >
             Events Near You
           </Typography>

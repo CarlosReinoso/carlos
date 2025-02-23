@@ -30,12 +30,12 @@ export async function GET() {
     const currentDate = new Date();
 
     // Filter out events that are in the past
-    const upcomingEvents = data.filter(
+    const ShortStoriesSections = data.filter(
       (event) => new Date(event.event_date) >= currentDate
     );
 
     // Sort the remaining events by event_date
-    const sortedData = upcomingEvents.sort(
+    const sortedData = ShortStoriesSections.sort(
       (a, b) => new Date(a.event_date) - new Date(b.event_date)
     );
 

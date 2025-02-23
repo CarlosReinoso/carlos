@@ -1,12 +1,12 @@
-import { Monoton, Poppins, Emblema_One } from "next/font/google";
+import { Playfair_Display, Poppins, Emblema_One } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export const monoton = Monoton({
+export const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-monoton",
+  variable: "--font-playfair",
 });
 
 const poppins = Poppins({
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${monoton.variable} ${poppins.variable} ${emblema.variable}`}
+        className={`${playfair.variable} ${poppins.variable} ${emblema.variable}`}
       >
         <Navbar />
         {children}

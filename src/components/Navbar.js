@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 const NavLink = ({ children, href, onClick, isActive }) => (
   <Link
     href={href}
-    className={`font-poppins text-white text-2xl font-medium transition-all duration-300 relative group ${
+    className={`font-poppins text-2xl font-medium transition-all duration-300 relative group ${
       isActive ? "after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white" : ""
     }`}
     onClick={onClick}
@@ -31,26 +31,26 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-white text-3xl focus:outline-none md:hidden"
+          className="text-3xl focus:outline-none md:hidden"
         >
           {isMobileMenuOpen ? "✖" : "☰"}
         </button>
 
         <div className="hidden md:flex space-x-6">
-          <NavLink href="/" isActive={pathname === "/"}>
-            Home
+          <NavLink href="/bio" isActive={pathname === "/bio"}>
+            Bio
           </NavLink>
-          <NavLink href="/events" isActive={pathname === "/events"}>
-            Events
+          <NavLink href="/short-stories" isActive={pathname === "/short-stories"}>
+            Short Stories
           </NavLink>
-          <NavLink href="/playlists" isActive={pathname === "/playlists"}>
-            Playlists
+          <NavLink href="/education" isActive={pathname === "/education"}>
+            Education
           </NavLink>
-          <NavLink href="/about" isActive={pathname === "/about"}>
-            About Us
+          <NavLink href="/publications" isActive={pathname === "/publications"}>
+            Publications
           </NavLink>
-          <NavLink href="/contact" isActive={pathname === "/contact"}>
-            Contact
+          <NavLink href="/monthly-essays" isActive={pathname === "/monthly-essays"}>
+            Monthly Essays
           </NavLink>
         </div>
       </div>
@@ -59,25 +59,25 @@ export default function Navbar() {
         <div className="fixed inset-0 bg-primary z-50 flex flex-col items-center justify-center space-y-6">
           <button
             onClick={closeMenu}
-            className="absolute top-6 left-6 text-white text-3xl focus:outline-none"
+            className="absolute top-6 left-6 text-3xl focus:outline-none"
           >
             ✖
           </button>
 
-          <NavLink href="/" onClick={closeMenu} isActive={pathname === "/"}>
-            Home
+          <NavLink href="/bio" onClick={closeMenu} isActive={pathname === "/bio"}>
+            Bio
           </NavLink>
-          <NavLink href="/events" onClick={closeMenu} isActive={pathname === "/events"}>
-            Events
+          <NavLink href="/short-stories" onClick={closeMenu} isActive={pathname === "/short-stories"}>
+            Short Stories
           </NavLink>
-          <NavLink href="/playlists" onClick={closeMenu} isActive={pathname === "/playlists"}>
-            Playlists
+          <NavLink href="/education" onClick={closeMenu} isActive={pathname === "/education"}>
+            Education
           </NavLink>
-          <NavLink href="/about" onClick={closeMenu} isActive={pathname === "/about"}>
-            About Us
+          <NavLink href="/publications" onClick={closeMenu} isActive={pathname === "/publications"}>
+            Publications
           </NavLink>
-          <NavLink href="/contact" onClick={closeMenu} isActive={pathname === "/contact"}>
-            Contact
+          <NavLink href="/monthly-essays" onClick={closeMenu} isActive={pathname === "/monthly-essays"}>
+            Monthly Essays
           </NavLink>
         </div>
       )}

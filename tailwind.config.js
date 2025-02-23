@@ -9,11 +9,8 @@ module.exports = {
     extend: {
       fontFamily: {
         poppins: ["var(--font-poppins)", "sans-serif"],
-        monoton: ["var(--font-monoton)", "cursive"],
+        playfair: ["var(--font-playfair)", "cursive"],
         emblema: ["var(--font-emblema)", "cursive"],
-      },
-      letterSpacing: {
-        monoton: "0.2em", // Custom tracking class
       },
       colors: {
         secondary: "var(--secondary-colour)",

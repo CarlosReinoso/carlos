@@ -3,24 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --primary-colour: #231b3b;
-  --secondary-colour: #1b233b;
+  --primary-colour: #c2c2c2;
+  --secondary-colour: #e8ebea;
   --third-colour: #ff7fe8;
   --background: var(--primary-colour);
   --foreground: #171717;
-  --font-monoton: var(--font-monoton);
+  --font-playfair: var(--font-playfair);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--primary-colour);
     --foreground: #ededed;
-    --font-monoton: var(--font-monoton);
+    --font-playfair: var(--font-playfair);
   }
 }
 
 body {
-  color: var(--foreground);
+  color: #374151;
   background: var(--primary-colour);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -41,10 +41,6 @@ body {
   margin: 0.5rem; /* Equivalent to Tailwind's m-2 */
   border: 1px solid var(--primary-colour); /* Ensure --primary-color is defined */
   pointer-events: none;
-}
-
-.font-monoton {
-  letter-spacing: 0.15em;
 }
 
 .font-poppins {

@@ -4,7 +4,7 @@ import Button from "./common/Button";
 import SVGWave from "./common/SVGWave";
 import Typography from "./common/Typography";
 
-const UpcomingEvent = () => {
+const ShortStoriesSection = () => {
   const [eventData, setEventData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -32,7 +32,7 @@ const UpcomingEvent = () => {
   if (loading) {
     return (
       <div className="relative text-center h-[80vh] flex items-center justify-center">
-        <Typography variant="h2" className="font-monoton text-white">
+        <Typography variant="h2" className="font-playfair text-white">
           Loading event...
         </Typography>
       </div>
@@ -42,7 +42,7 @@ const UpcomingEvent = () => {
   if (error || !eventData) {
     return (
       <div className="relative text-center h-[80vh] flex items-center justify-center">
-        <Typography variant="h2" className="font-monoton text-white">
+        <Typography variant="h2" className="font-playfair text-white">
           {error ? `Error: ${error}` : "Event not found."}
         </Typography>
       </div>
@@ -86,4 +86,4 @@ const UpcomingEvent = () => {
   );
 };
 
-export default UpcomingEvent;
+export default ShortStoriesSection;
