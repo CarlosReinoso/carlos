@@ -1,5 +1,5 @@
 {
-  "name": "keanu",
+  "name": "grace-art",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@sparticuz/chromium": "^130.0.0",
+    "@stripe/stripe-js": "^5.7.0",
     "@supabase/supabase-js": "^2.46.1",
     "chrome-aws-lambda": "^10.1.0",
     "clsx": "^2.1.1",
@@ -26,7 +27,8 @@
     "react-dom": "^18",
     "react-social-icons": "^6.16.0",
     "remark": "^15.0.1",
-    "remark-html": "^16.0.1"
+    "remark-html": "^16.0.1",
+    "stripe": "^17.7.0"
   },
   "devDependencies": {
     "ignore-loader": "^0.1.2",

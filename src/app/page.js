@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <ShortStoriesSection />
+      {/* <ShortStoriesSection />
       <BioSection />
-      <EducationSection />
+      <EducationSection /> */}
     </main>
   );
 }

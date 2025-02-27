@@ -30,7 +30,7 @@ export default function Navbar() {
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   const navItems = [
-    { label: "Short Stories", href: "#short-stories" },
+    { label: "Shop", href: "/shop" },
     { label: "Bio", href: "#bio" },
     { label: "Education", href: "#education" },
     // { label: "Publications", href: "#publications" },

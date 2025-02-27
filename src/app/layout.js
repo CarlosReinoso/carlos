@@ -22,9 +22,9 @@ const emblema = Emblema_One({
 });
 
 export const metadata = {
-  title: "Keanu Arkadio",
+  title: "Grace Basak",
   description:
-    "Keanu Lawrence Arcadio - W R I T E R & T E A C H E R",
+    "Grace is an artist from Surrey. She studied sculpting working at Madame Tussauds for a time and went on to teach herself the art of oil paintings",
 };
 
 export default function RootLayout({ children }) {
