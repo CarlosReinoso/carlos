@@ -7,6 +7,18 @@ const nextConfig = {
     });
     return config;
   },
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "static.wixstatic.com", // Allow Wix images
+      },
+    ],
+    domains: [
+      "gelato-api-live.s3.eu-west-1.amazonaws.com", // Add Gelato API S3 bucket
+    ],
+  },
 };
 
 export default nextConfig;

@@ -46,3 +46,27 @@ body {
 .font-poppins {
   letter-spacing: 0.1em;
 }
+
+/* Universal Custom Scrollbar */
+* {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #bfbfbf #f1f1f1; /* Thumb | Track */
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* Adjust width */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light grey background */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bfbfbf; /* Subtle grey thumb */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a6a6a6; /* Darker grey on hover */
+}

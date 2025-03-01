@@ -1,51 +1,130 @@
 "use client";
-import { stripePublishableKey } from "@/lib/constants";
-import { loadStripe } from "@stripe/stripe-js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import BuyOriginalWorksCTA from "@/components/BuyOriginalWorksCTA";
+import ProductDetailsModal from "@/components/ProductDetailsModal";
 
-const stripePromise = loadStripe(stripePublishableKey);
+export default function Shop() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentProduct, setCurrentProduct] = useState(null);
+  console.log("🚀 ~ Shop ~ currentProduct:", currentProduct);
 
-export default function Checkout() {
-  const [loading, setLoading] = useState(false);
-
-  const handleCheckout = async () => {
-    setLoading(true);
-
-    const res = await fetch("/api/checkout", {
-      method: "POST",
-      body: JSON.stringify({
-        amount: 9900, // $99.00 in cents
-        currency: "usd",
-        customerDetails: {
-          name: "John Doe",
-          email: "john@example.com",
-        },
-      }),
-    });
-
-    const { sessionId } = await res.json(); // Use sessionId here
-    const stripe = await stripePromise;
-
-    if (!sessionId) {
-      console.error("🚀 ~ handleCheckout ~ sessionId is undefined");
-      setLoading(false);
-      return;
-    }
-
-    console.log("🚀 ~ handleCheckout ~ sessionId:", sessionId);
-
-    const { error } = await stripe.redirectToCheckout({ sessionId });
-
-    if (error) console.error("Stripe Checkout Error:", error.message);
-
-    setLoading(false);
+  // Open modal with the selected product
+  const openProductModal = (product) => {
+    setCurrentProduct(product);
+    setIsModalOpen(true);
   };
 
+  // Close modal
+  const closeProductModal = () => {
+    setIsModalOpen(false);
+    setCurrentProduct(null);
+  };
+
+  // Show the next product
+  // Function to find the index of the current product in the products array
+  const getProductIndex = () => {
+    if (!currentProduct || products.length === 0) return -1;
+    return products.findIndex((p) => p.title === currentProduct.title);
+  };
+
+  // Show the next product
+  const showNextProduct = () => {
+    const currentIndex = getProductIndex();
+    if (currentIndex === -1) {
+      console.error("Product not found in the list");
+      return;
+    }
+    const nextIndex = (currentIndex + 1) % products.length;
+    console.log("🚀 ~ showNextProduct ~ nextIndex:", nextIndex);
+    setCurrentProduct(products[nextIndex]);
+  };
+
+  // Show the previous product
+  const showPreviousProduct = () => {
+    const currentIndex = getProductIndex();
+    if (currentIndex === -1) {
+      console.error("Product not found in the list");
+      return;
+    }
+    const previousIndex =
+      (currentIndex - 1 + products.length) % products.length;
+    console.log("🚀 ~ showPreviousProduct ~ previousIndex:", previousIndex);
+    setCurrentProduct(products[previousIndex]);
+  };
+
+  // Fetch product list from API
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch("/api/products/list");
+        if (!res.ok) throw new Error("Failed to fetch products");
+        const data = await res.json();
+        setProducts(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto py-12 px-4">
+        <BuyOriginalWorksCTA />
+        <p className="text-center text-gray-500">Loading products...</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="mt-48">
-      <button onClick={handleCheckout} disabled={loading}>
-        {loading ? "Processing..." : "Pay Now"}
-      </button>
+    <div className="container mx-auto py-12 px-4">
+      <BuyOriginalWorksCTA />
+      <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {products.map((product) => (
+          <div
+            key={product.id || product.title}
+            className="flex flex-col items-center"
+          >
+            <div
+              className="overflow-hidden flex-grow cursor-pointer"
+              onClick={() => openProductModal(product)} // Use onClick instead of onDoubleClick
+            >
+              <Image
+                src={product.previewUrl}
+                alt={product.title}
+                width={300}
+                height={300}
+                className="w-full h-auto rounded-sm shadow-lg"
+                placeholder="blur"
+                blurDataURL="/image-loading-placeholder.json"
+              />
+            </div>
+            <h2 className="mt-4 text-lg font-semibold">{product.title}</h2>
+            <p className="text-gray-600 text-sm text-center mt-2">
+              {product.basePrice
+                ? `£${product.basePrice}`
+                : "Fetching price..."}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* Product Modal */}
+      {isModalOpen && currentProduct && (
+        <ProductDetailsModal
+          isModalOpen={isModalOpen}
+          product={currentProduct}
+          closeModal={closeProductModal}
+          showNextProduct={showNextProduct}
+          showPreviousProduct={showPreviousProduct}
+        />
+      )}
     </div>
   );
 }

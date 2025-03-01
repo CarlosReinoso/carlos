@@ -30,11 +30,12 @@ export default function Navbar() {
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   const navItems = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Gallery", href: "/gallery " },
     { label: "Shop", href: "/shop" },
-    { label: "Bio", href: "#bio" },
-    { label: "Education", href: "#education" },
-    // { label: "Publications", href: "#publications" },
-    // { label: "Monthly Essays", href: "#monthly-essays" },
+    { label: "Originals", href: "/originals" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (

@@ -9,26 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sparticuz/chromium": "^130.0.0",
     "@stripe/stripe-js": "^5.7.0",
     "@supabase/supabase-js": "^2.46.1",
-    "chrome-aws-lambda": "^10.1.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
-    "formidable": "^3.5.2",
+    "framer-motion": "^12.4.7",
     "gray-matter": "^4.0.3",
+    "jsdom": "^26.0.0",
     "next": "14.2.5",
     "nodemailer": "^6.9.14",
-    "puppeteer": "^23.7.1",
-    "puppeteer-core": "^23.7.1",
-    "puppeteer-extra": "^3.3.6",
+    "puppeteer": "^24.3.0",
     "raw-loader": "^4.0.2",
     "react": "^18",
     "react-dom": "^18",
-    "react-social-icons": "^6.16.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-    "stripe": "^17.7.0"
+    "stripe": "^17.7.0",
+    "zlib": "^1.0.5"
   },
   "devDependencies": {
     "ignore-loader": "^0.1.2",

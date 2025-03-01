@@ -1,11 +1,10 @@
 import { gelatoApiKey, gelatoStoreId } from "@/lib/constants";
 import { NextResponse } from "next/server";
 
-export const revalidate = 0;
+export const revalidate = 86400;
 
 export async function GET() {
   try {
-
     const queryParams = new URLSearchParams({
       order: "desc",
       orderBy: "createdAt",
@@ -13,7 +12,8 @@ export async function GET() {
       limit: "100",
     }).toString();
 
-    const response = await fetch(
+    // Fetch all products from Gelato API
+    const productsResponse = await fetch(
       `https://ecommerce.gelatoapis.com/v1/stores/${gelatoStoreId}/products?${queryParams}`,
       {
         method: "GET",
@@ -24,16 +24,23 @@ export async function GET() {
       }
     );
 
-    if (!response.ok) {
-      console.error("Fetch failed:", response.status, await response.text());
+    if (!productsResponse.ok) {
+      console.error(
+        "Fetch failed:",
+        productsResponse.status,
+        await productsResponse.text()
+      );
       return new NextResponse(
         JSON.stringify({ error: "Failed to fetch products" }),
-        { status: response.status }
+        { status: productsResponse.status }
       );
     }
 
-    const data = await response.json();
-    return new NextResponse(JSON.stringify(data), {
+    const productsData = await productsResponse.json();
+    console.log("🚀 ~ GET ~ productsData:", productsData);
+
+    // Return the product list as received from the API (No modifications)
+    return new NextResponse(JSON.stringify(productsData), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
