@@ -24,6 +24,7 @@ export async function POST(req) {
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
+    console.log("🚀 ~ POST ~ session:", session)
 
     const { name = "", address = {}, email } = session.customer_details || {};
     const [firstName = "First", lastName = "Last"] =

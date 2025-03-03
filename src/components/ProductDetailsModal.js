@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import Typography from "./common/Typography";
 import Image from "next/image";
+import Button from "./common/Button";
+import BuyButton from "./BuyButton";
 
 const ProductDetailsModal = ({
   product,
@@ -50,6 +52,26 @@ const ProductDetailsModal = ({
           </Typography>
 
           <hr className="border-gray-300 my-4" />
+          {/* Navigation Buttons */}
+          <div className="flex items-center justify-center space-x-6 my-4">
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                showPreviousProduct();
+              }}
+            >
+              ← Previous
+            </Button>
+
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                showNextProduct();
+              }}
+            >
+              Next →
+            </Button>
+          </div>
 
           {/* Image Section */}
           <div className="flex justify-center">
@@ -67,7 +89,7 @@ const ProductDetailsModal = ({
         <div className="order-2 md:order-none  custom-scrollbar">
           {/* Sizes Dropdown */}
           <Typography className="text-2xl sm:text-3xl font-bold text-gray-800 text-center md:text-left">
-            £{selectedVariant?.price || product.basePrice || "N/A"}
+            {selectedVariant?.price || product.basePrice || "N/A"}
           </Typography>
 
           {Array.isArray(product.variants) && product.variants.length > 0 && (
@@ -91,6 +113,7 @@ const ProductDetailsModal = ({
           <div className="mt-4 text-gray-700">
             <p className="font-semibold text-lg">Quantity:</p>
             <input
+              id="quantityInput"
               type="number"
               defaultValue="1"
               min="1"
@@ -98,20 +121,7 @@ const ProductDetailsModal = ({
             />
           </div>
 
-          {/* Buy Now Button */}
-          <button className="mt-4 w-full bg-purple-500 hover:bg-purple-600 text-white text-lg font-semibold py-3 rounded-lg transition">
-            Buy Now
-          </button>
-
-          {/* Google Pay Button */}
-          <button className="mt-2 w-full bg-black text-white text-lg font-semibold py-3 rounded-lg flex items-center justify-center">
-            <img
-              src="/google-pay-logo.png"
-              alt="Google Pay"
-              className="h-6 mr-2"
-            />
-            Pay
-          </button>
+          <BuyButton product={product} selectedVariant={selectedVariant} />
 
           <div className="description-container text-gray-700 text-sm sm:text-base leading-relaxed space-y-2">
             {product.description ? (
@@ -120,53 +130,15 @@ const ProductDetailsModal = ({
               "No description available."
             )}
           </div>
-
-          {/* Additional Info */}
-          <div className="space-y-2 text-gray-700 mt-4">
-            <p>
-              <strong>Product URL:</strong>{" "}
-              <a
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 underline"
-              >
-                View Product
-              </a>
-            </p>
-          </div>
-
-          {/* Navigation Buttons */}
-          <div className="flex items-center space-x-4 mt-6">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                showPreviousProduct();
-              }}
-              className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition"
-            >
-              ← Previous
-            </button>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                showNextProduct();
-              }}
-              className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition"
-            >
-              Next →
-            </button>
-          </div>
         </div>
 
         {/* Close Button */}
-        <button
+        <Button
           onClick={closeModal}
           className="absolute top-2 right-2 text-gray-600 text-2xl font-bold hover:text-black"
         >
           &times;
-        </button>
+        </Button>
       </div>
     </div>
   );

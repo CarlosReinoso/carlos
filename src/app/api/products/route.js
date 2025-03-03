@@ -1,7 +1,7 @@
 import { gelatoApiKey, gelatoStoreId } from "@/lib/constants";
 import { NextResponse } from "next/server";
 
-export const revalidate = 86400;
+export const revalidate = 0;
 
 export async function GET() {
   try {

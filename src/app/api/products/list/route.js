@@ -11,8 +11,6 @@ export async function GET() {
     const fileContent = await fs.readFile(filePath, "utf-8");
     const dummyData = JSON.parse(fileContent);
 
-    console.log("🚀 Returning Dummy Data:", dummyData);
-
     return new NextResponse(JSON.stringify(dummyData), {
       status: 200,
       headers: { "Content-Type": "application/json" },

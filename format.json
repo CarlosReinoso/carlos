@@ -1,0 +1,25 @@
+{
+  "title": "Testy Product Title",
+  "description": "<p>Sizes: A3 and A2 Print on canvas.</p>",
+  "metadata": [
+    {
+      "id": "b8c62116-3126-49e9-b3ea-a81122599416",
+      "productId": "a6f9f13d-0531-4083-b9e2-15f8a2444afc",
+      "variantId": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
+      "imageId": null,
+      "key": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
+      "value": "49.99",
+      "test": "val",
+      "isExternal": false
+    },
+    {
+      "id": "d76823be-fb34-4c5f-96b3-d0734af8ef8b",
+      "productId": "a6f9f13d-0531-4083-b9e2-15f8a2444afc",
+      "variantId": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
+      "imageId": null,
+      "key": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
+      "value": "39.99",
+      "isExternal": false
+    }
+  ]
+}

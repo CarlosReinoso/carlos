@@ -9,7 +9,6 @@ export default function Shop() {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
-  console.log("🚀 ~ Shop ~ currentProduct:", currentProduct);
 
   // Open modal with the selected product
   const openProductModal = (product) => {

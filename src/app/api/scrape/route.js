@@ -45,14 +45,11 @@ export async function GET() {
       throw new Error("No products found on shop page.");
     }
 
-    console.log("🚀 Extracted Product Titles & URLs:", productLinks);
+    console.log("🚀 Extracted Product Titles & URLs:", productLinks.length);
 
     const scrapedProducts = [];
 
-    const test = productLinks.splice(0, 3);
-    console.log("🚀 ~ GET ~ test:", test);
-
-    for (const product of test) {
+    for (const product of productLinks) {
       console.log("🚀 Scraping Product Page:", product.url);
 
       const productPage = await browser.newPage();
@@ -61,18 +58,39 @@ export async function GET() {
       // Extract Product Data from `wix-warmup-data`
       const productData = await productPage.evaluate(() => {
         const scriptTag = document.querySelector("#wix-warmup-data");
-        if (!scriptTag) return null;
+        if (!scriptTag) {
+          console.error("🚀 No wix-warmup-data found on page");
+          return { error: "No wix-warmup-data found" };
+        }
 
-        const jsonData = JSON.parse(scriptTag.innerText);
-        const pageData = Object.values(jsonData.appsWarmupData)[0];
+        let jsonData;
+        try {
+          jsonData = JSON.parse(scriptTag.innerText);
+        } catch (error) {
+          console.error("🚀 Failed to parse wix-warmup-data", error);
+          return { error: "Failed to parse wix-warmup-data" };
+        }
 
-        if (!pageData) return null;
+        console.log("🚀 Extracted Warmup Data:", jsonData);
+
+        const pageData = jsonData.appsWarmupData
+          ? Object.values(jsonData.appsWarmupData)[0]
+          : null;
+
+        if (!pageData) {
+          console.error("🚀 appsWarmupData not found in warmup data");
+          return { error: "appsWarmupData not found" };
+        }
 
         // Extract product details
         const productInfo = Object.values(pageData).find(
           (data) => data?.catalog?.product
         )?.catalog?.product;
-        if (!productInfo) return null;
+
+        if (!productInfo) {
+          console.error("🚀 No product info found in warmup data");
+          return { error: "No product info found" };
+        }
 
         // Extract price and variant data
         return {
@@ -92,8 +110,8 @@ export async function GET() {
 
       await productPage.close();
 
-      if (!productData) {
-        console.error(`🚀 Failed to extract data for: ${product.title}`);
+      if (productData.error) {
+        console.error(`🚀 Failed to extract data for: ${product.title}`, productData.error);
         continue;
       }
 

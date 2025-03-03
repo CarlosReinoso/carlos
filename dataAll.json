@@ -8,7 +8,7 @@
       {
         "title": "50x50 cm / 20x20″ - Vertical - Slim",
         "price": "£250.00",
-        "productUid":"test_uid"
+        "productUid": "test_uid"
       }
     ],
     "url": "https://www.gracebasak.com/product-page/hummingbird-and-hibiscus-canvas"
@@ -292,5 +292,213 @@
       }
     ],
     "url": "https://www.gracebasak.com/product-page/peacock-woman-canvas"
+  },
+  {
+    "title": "Peacock Woman PRINT",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_aa1f67cf608d453a921d9459005ecc07~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£30.00",
+    "variants": [
+      {
+        "title": "A3 (29.7 x 42  cm)",
+        "price": "£30.00"
+      },
+      {
+        "title": "A2 (42 x 59.4  cm)",
+        "price": "£60.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/peacock-woman-print"
+  },
+  {
+    "title": "La Luna PRINT",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_6ee7956bcba44df0b734e9cdf5653b99~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£45.00",
+    "variants": [
+      {
+        "title": "25x60 cm / 10x24″",
+        "price": "£45.00"
+      },
+      {
+        "title": "70x100 cm / 28x40″",
+        "price": "£80.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/la-luna-print"
+  },
+  {
+    "title": "La Luna Canvas",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_04eb14d1c0f1431f83abdd6edd3cc787~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£311.00",
+    "variants": [
+      {
+        "title": "Canvas",
+        "price": "£311.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/canvas-1"
+  },
+  {
+    "title": "Felicity's Waterfall Canvas Print",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_991a32f405fb435fa5cf3825042e9b39~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£120.00",
+    "variants": [
+      {
+        "title": "45x60 cm / 18x24″ - Vertical - Slim",
+        "price": "£120.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/copy-of-brigid-canvas-print"
+  },
+  {
+    "title": "Felicity's Waterfall PRINT",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_12f64ba4cdd74fdebbad42019c3667eb~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£30.00",
+    "variants": [
+      {
+        "title": "A3 (29.7 x 42  cm)",
+        "price": "£30.00"
+      },
+      {
+        "title": "A2 (42 x 59.4  cm)",
+        "price": "£50.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/felicity-s-waterfall-print"
+  },
+  {
+    "title": "Diving Kingfisher PRINT",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_37d91ce1167948ea9a108a3d9ba878dd~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£35.00",
+    "variants": [
+      {
+        "title": "40x40 cm / 16x16″",
+        "price": "£35.00"
+      },
+      {
+        "title": "50x50 cm / 20x20″",
+        "price": "£55.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/diving-kingfisher-print"
+  },
+  {
+    "title": "Diving Kingfisher Canvas",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_55ac0b3e4acf4cb1b1bcec86606da278~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£250.00",
+    "variants": [
+      {
+        "title": "Canvas",
+        "price": "£250.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/diving-kingfisher-canvas"
+  },
+  {
+    "title": "Lakshmi Canvas Print",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_f07e089a806f443b82b6a56e9d05214b~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£120.00",
+    "variants": [
+      {
+        "title": "30x45 cm / 12x18″",
+        "price": "£120.00"
+      },
+      {
+        "title": "45x60 cm / 18x24″",
+        "price": "£220.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/copy-of-scorpio-canvas-print"
+  },
+  {
+    "title": "Lakshmi PRINT",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_92b9a9fd6dda43b3a84860aaf72bcb43~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£17.00",
+    "variants": [
+      {
+        "title": "A4 21x29.7 cm / 8x12″",
+        "price": "£17.00"
+      },
+      {
+        "title": "A3 (29.7 x 42  cm)",
+        "price": "£30.00"
+      },
+      {
+        "title": "A2 (42 x 59.4  cm)",
+        "price": "£50.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/lakshmi-print"
+  },
+  {
+    "title": "Scorpio Canvas Print",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_96786d077d474ffe8bc96caf803b166b~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£120.00",
+    "variants": [
+      {
+        "title": "30x45 cm / 12x18″",
+        "price": "£120.00"
+      },
+      {
+        "title": "45x60 cm / 18x24″",
+        "price": "£220.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/scorpio-canvas-print"
+  },
+  {
+    "title": "Scorpio PRINT",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_3eb232f6b05649a38d632d786944c7ab~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£17.00",
+    "variants": [
+      {
+        "title": "A4 21x29.7 cm / 8x12″",
+        "price": "£17.00"
+      },
+      {
+        "title": "A3 (29.7 x 42  cm)",
+        "price": "£30.00"
+      },
+      {
+        "title": "A2 (42 x 59.4  cm)",
+        "price": "£50.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/scorpio-print"
+  },
+  {
+    "title": "Brigid PRINT",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_224699d8bce9495585a018f5b3aec5e7~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£17.00",
+    "variants": [
+      {
+        "title": "A4 21x29.7 cm / 8x12″",
+        "price": "£17.00"
+      },
+      {
+        "title": "A3 (29.7 x 42  cm)",
+        "price": "£30.00"
+      },
+      {
+        "title": "A2 (42 x 59.4  cm)",
+        "price": "£50.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/brigid-print-1"
+  },
+  {
+    "title": "Brigid Canvas Print",
+    "previewUrl": "https://static.wixstatic.com/media/3a715a_d24e59e579d54888bae45c1febb6c3f1~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "basePrice": "£120.00",
+    "variants": [
+      {
+        "title": "30x45 cm / 12x18″",
+        "price": "£120.00"
+      },
+      {
+        "title": "45x60 cm / 18x24″",
+        "price": "£220.00"
+      }
+    ],
+    "url": "https://www.gracebasak.com/product-page/canvas"
   }
 ]
