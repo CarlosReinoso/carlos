@@ -1,7 +1,7 @@
 // src/app/api/webhooks/stripe/route.js
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { stripeSecretKey, stripeWebhookSignature } from "@/lib/constants";
+import { stripeSecretKey, stripeWebhookSignature } from "@/lib/constants.js";
 import { placeOrder } from "@/lib/gelato/placeOrder";
 
 const stripe = new Stripe(stripeSecretKey);
@@ -24,7 +24,7 @@ export async function POST(req) {
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
-    console.log("🚀 ~ POST ~ session:", session)
+    console.log("🚀 ~ POST ~ session:", session);
 
     const { name = "", address = {}, email } = session.customer_details || {};
     const [firstName = "First", lastName = "Last"] =

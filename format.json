@@ -1,25 +1,835 @@
 {
-  "title": "Testy Product Title",
-  "description": "<p>Sizes: A3 and A2 Print on canvas.</p>",
-  "metadata": [
+  "products": [
     {
-      "id": "b8c62116-3126-49e9-b3ea-a81122599416",
-      "productId": "a6f9f13d-0531-4083-b9e2-15f8a2444afc",
-      "variantId": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
-      "imageId": null,
-      "key": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
-      "value": "49.99",
-      "test": "val",
-      "isExternal": false
+      "id": "a6f9f13d-0531-4083-b9e2-15f8a2444afc",
+      "storeId": "947532c1-0582-4e63-9984-318179bcd8a7",
+      "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+      "externalId": null,
+      "title": "Testy Product Title",
+      "description": "<p>Sizes: A3 and A2 Print on canvas.</p>",
+      "previewUrl": "https://gelato-api-live.s3.eu-west-1.amazonaws.com/ecommerce/store_product_image/e26edc9a-463f-4cb5-85cc-35bcce46e17a/preview?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3QM3COBPZOL2E4GY%2F20250303%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20250303T145601Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=28f4b132571c8d5f9a4f8e9cdb640dac8a81eb6d3c374465304c258c14367e29",
+      "externalPreviewUrl": "",
+      "externalThumbnailUrl": "",
+      "isReadyToPublish": true,
+      "publishedAt": "2025-03-03T10:19:14+00:00",
+      "createdAt": "2025-03-03T10:17:55+0000",
+      "updatedAt": "2025-03-03T14:19:28+0000",
+      "previewFileType": null,
+      "productVariantPreviewScene": null,
+      "variants": [
+        {
+          "id": "fee6cc59-1cc1-4932-9b70-9e42ea70f761",
+          "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+          "productId": "a6f9f13d-0531-4083-b9e2-15f8a2444afc",
+          "title": "Size 45x60 cm / 18x24″",
+          "externalId": "b37f6233-b7c3-4b7f-8dde-337be8bd2eb8",
+          "connectionStatus": "connected",
+          "isHidden": false,
+          "productUid": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver"
+        },
+        {
+          "id": "96437184-f9b0-4f5a-b0e4-f1a3cfb1733f",
+          "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+          "productId": "a6f9f13d-0531-4083-b9e2-15f8a2444afc",
+          "title": "Size 30x45 cm / 12x18″",
+          "externalId": "4c1e6661-3788-4862-bb2e-6e1f22726dfd",
+          "connectionStatus": "connected",
+          "isHidden": false,
+          "productUid": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver"
+        }
+      ],
+      "productVariantOptions": [],
+      "collectionsIds": [],
+      "tags": [],
+      "status": "active",
+      "productImages": [],
+      "metadata": [
+        {
+          "id": "a481309e-522d-4659-b6ed-ac441f8c5e90",
+          "productId": "a6f9f13d-0531-4083-b9e2-15f8a2444afc",
+          "variantId": null,
+          "imageId": null,
+          "key": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": "49",
+          "isExternal": false
+        },
+        {
+          "id": "5dafd691-9b81-4f02-ac6f-78b9b31130ca",
+          "productId": "a6f9f13d-0531-4083-b9e2-15f8a2444afc",
+          "variantId": null,
+          "imageId": null,
+          "key": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": "39.99",
+          "isExternal": false
+        }
+      ],
+      "handle": "",
+      "publishingErrorCode": null,
+      "publishingDetailsFlags": [],
+      "hasDraft": false,
+      "isFreeShipping": false,
+      "publishingErrorDetails": null,
+      "productVideos": [],
+      "templateName": "",
+      "parentTemplateId": "",
+      "priceUpdatedAt": null,
+      "productVariantAttributes": [],
+      "personalizationSettings": null,
+      "productType": null,
+      "vendor": null,
+      "hasPersonalizableVariants": false,
+      "hasCustomSizeVariants": false,
+      "errors": [],
+      "publishingProgress": null
     },
     {
-      "id": "d76823be-fb34-4c5f-96b3-d0734af8ef8b",
-      "productId": "a6f9f13d-0531-4083-b9e2-15f8a2444afc",
-      "variantId": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
-      "imageId": null,
-      "key": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
-      "value": "39.99",
-      "isExternal": false
+      "id": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+      "storeId": "947532c1-0582-4e63-9984-318179bcd8a7",
+      "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+      "externalId": "12351b96-d462-44e9-ae58-c0d2c3137d9f",
+      "title": "Hummingbird and Hibiscus Canvas",
+      "description": "<p>Sizes: 50 x 50 cm</p><p>Canvas print</p><p>&nbsp;</p><p>Artist description:</p><p>Hummingbirds are incredible creatures, they have up to 150 breaths a minute, heart beats up to 1,260 per minute and a wing beat of 60/80 times per second. They are small however strong. Hummingbirds symbolise healing, hope and transformation. They encourage us to be present, open and follow our dreams.</p><p>The original painting was 1 metre x 1 metre and was embellished with gold leaf. The bold colours truly make this a statement piece in your home.</p><p>&nbsp;</p><p>&nbsp;</p><p>Features:</p><p>The canvas texture enhances the image's natural look and feel, creating a truly immersive art experience. We use responsibly sourced wood for stretcher bars, mainly FSC certified wood, to make our canvas prints, ensuring a long-lasting and high-quality product. The canvas has an approximately 2cm /0.8\" thick wood stretcher bar, and comes with hanging hardware included for easy installation. We use coated fabric, a blend of cotton and polyester, for our canvas substrate. This provides a weight of approximately 300-350gsm/110-130lb cover and a thickness of 350-400 microns, giving you a sturdy and durable product. Please note that colored edges are not supported. However, we assure you that our canvas print is a beautiful, high-quality product that will bring life to any space. We've also included a hanging kit, which may vary depending on the country of fulfilment.To ensure no damage during transportation, we ship our canvas prints in protective packaging and strong boxes. Sizes may vary slightly by region. For the US and Canada, the measurement is in inches, while for the rest of the world, it is in centimeters. It is printed and shipped on demand. No minimums are required.</p>",
+      "previewUrl": "https://gelato-api-live.s3.eu-west-1.amazonaws.com/ecommerce/store_product_image/45859be8-42a9-4095-adf7-48935bcf65ce/preview?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3QM3COBPZOL2E4GY%2F20250303%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20250303T145601Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=0edf980355d840af4ebce9306c7c85aa084de66b708545122d8a62c1a3f7ec79",
+      "externalPreviewUrl": "https://static.wixstatic.com/media/3a715a_01ff473ea20d4f25a5295deb8609b361~mv2.png/v1/fit/w_1000,h_1000,q_90/file.png",
+      "externalThumbnailUrl": "https://static.wixstatic.com/media/3a715a_01ff473ea20d4f25a5295deb8609b361~mv2.png/v1/fit/w_1000,h_1000,q_90/file.png",
+      "isReadyToPublish": true,
+      "publishedAt": "2024-07-31T15:33:43+00:00",
+      "createdAt": "2024-07-31T15:32:18+0000",
+      "updatedAt": "2025-03-03T14:43:28+0000",
+      "previewFileType": "jpeg",
+      "productVariantPreviewScene": "8f9a231d-1f7e-4866-89ee-56ec730a8d97",
+      "variants": [
+        {
+          "id": "c29e03b9-6eb6-4b3a-9249-b6805ccfef81",
+          "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "title": "Size 50x50 cm / 20x20″ - Vertical - Slim",
+          "externalId": "7cfbc4d3-ddaa-437e-8672-96ecbc1c66a0",
+          "connectionStatus": "connected",
+          "isHidden": false,
+          "productUid": "canvas_500x500-mm-20x20-inch_canvas_wood-fsc-slim_4-0_ver"
+        }
+      ],
+      "productVariantOptions": [
+        {
+          "name": "Size",
+          "values": ["50x50 cm / 20x20″ - Vertical - Slim"]
+        }
+      ],
+      "collectionsIds": [],
+      "tags": [],
+      "status": "active",
+      "productImages": [],
+      "metadata": [
+        {
+          "id": "64e7749e-3961-4a03-a24e-f8660578aebf",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "usedGelatoPublisher",
+          "value": "1",
+          "isExternal": false
+        },
+        {
+          "id": "74f6dc9d-1a20-4948-9661-75cb623db72b",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishWithFreeShipping",
+          "value": "false",
+          "isExternal": false
+        },
+        {
+          "id": "98bb82bb-1b84-41b0-a930-37a0b7cb49dc",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "canvas_500x500-mm-20x20-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": "250",
+          "isExternal": false
+        },
+        {
+          "id": "8a85bcf6-7b4a-4f2b-9c0d-c6d65655177c",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "previewFileType",
+          "value": "jpeg",
+          "isExternal": false
+        },
+        {
+          "id": "e049c5b4-b5a5-46a8-aecc-4228cfaf1120",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "gelatoPublisherProductPublishMode",
+          "value": "individual",
+          "isExternal": false
+        },
+        {
+          "id": "2161517b-4a62-480c-8d27-763ee3bd92c5",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishMode",
+          "value": "create_product",
+          "isExternal": false
+        },
+        {
+          "id": "74cc02f2-1bb7-47f3-b162-0fea642bf573",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "usedStandardMockup",
+          "value": "1",
+          "isExternal": false
+        },
+        {
+          "id": "272f62bf-bdaa-482e-b016-3d64f92a107d",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "previewScenes",
+          "value": "[\"8f9a231d-1f7e-4866-89ee-56ec730a8d97\",\"9148e219-a90b-407b-b7d7-77cc34f4ba8e\",\"edbde428-6074-49f2-80d3-11f4c3123582\",\"922ee089-78b0-4428-9a25-a81c681d32c8\",\"6b125ce4-993d-48b1-9aff-28899729d909\",\"2637630c-4baf-43be-8f3c-52a338b1c4c2\"]",
+          "isExternal": false
+        },
+        {
+          "id": "21c3e9f7-5e53-4d6e-a9f2-a61fd80c9f73",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "videoMockups",
+          "value": "[]",
+          "isExternal": false
+        },
+        {
+          "id": "75e2859b-683b-4fb9-9d92-c60b1d296b70",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "primaryPreviewScene",
+          "value": "8f9a231d-1f7e-4866-89ee-56ec730a8d97",
+          "isExternal": false
+        },
+        {
+          "id": "05787fc0-7d21-4ce4-a9c1-d4e11ae50172",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "primaryPreviewProductVariantKey",
+          "value": "canvas_500x500-mm-20x20-inch_canvas_wood-fsc-slim_4-0_ver",
+          "isExternal": false
+        },
+        {
+          "id": "d69995ce-c2d1-4456-b414-83628d41bf11",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishScopes",
+          "value": "[\"product\",\"variants\",\"images\",\"videos\",\"prices\"]",
+          "isExternal": false
+        },
+        {
+          "id": "44b82e8d-131e-4daa-afc2-17963de0e29b",
+          "productId": "d95302ea-4b23-4d10-bb50-e96a8006ad73",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishImmediately",
+          "value": "true",
+          "isExternal": false
+        }
+      ],
+      "handle": "",
+      "publishingErrorCode": null,
+      "publishingDetailsFlags": [],
+      "hasDraft": false,
+      "isFreeShipping": false,
+      "publishingErrorDetails": null,
+      "productVideos": [],
+      "templateName": "",
+      "parentTemplateId": "",
+      "priceUpdatedAt": null,
+      "productVariantAttributes": [],
+      "personalizationSettings": null,
+      "productType": null,
+      "vendor": null,
+      "hasPersonalizableVariants": false,
+      "hasCustomSizeVariants": false,
+      "errors": [],
+      "publishingProgress": null
+    },
+    {
+      "id": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+      "storeId": "947532c1-0582-4e63-9984-318179bcd8a7",
+      "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+      "externalId": "f5a9d24f-70a9-49da-a40b-f074998bd253",
+      "title": "Phoenix Rising PRINT",
+      "description": "<p>Sizes: A3 and A2</p><p>Paper: Premium Matte paper</p><p>&nbsp;</p><p>Phoenix Rising artist description:</p><p>Phoenix Rising was originally painted large scale with oil paints, so this canvas print is almost an exact copy of the painting. It represents how we can rise from the ashes against all odds. In the face of the hardships that life throws at us, including grief and heartbreak. It is a painting of hope and love.</p><p>&nbsp;</p><p>&nbsp;</p><p>Features:</p><p>Paper is heavier-weight, white, premium matte paper has a natural, smooth uncoated luxurious finish. The 200 gsm/ 80 lb paper weight makes it durable and long-lasting. We use FSC-certified paper or equivalent certifications depending on regional availability, which is better for the planet.Each poster is shipped in robust packaging, ensuring it arrives safe and secure. Paper sizes may vary slightly by region. For the US and Canada, the measurement is in inches, while for the rest of the world, it is in centimeters. It is printed and shipped on demand. No minimums are required.</p>",
+      "previewUrl": "https://gelato-api-live.s3.eu-west-1.amazonaws.com/ecommerce/store_product_image/a2cfb4ed-0d7a-498c-9e4e-8469f4062e68/preview?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3QM3COBPZOL2E4GY%2F20250303%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20250303T145601Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=d33cca7a3aa3935887a7f04f428097082f1e2bac4d5a9513287db7e060a9ae55",
+      "externalPreviewUrl": "https://static.wixstatic.com/media/3a715a_7e8a8b28f7994ae4bc2b198cee3102c9~mv2.png/v1/fit/w_1000,h_1000,q_90/file.png",
+      "externalThumbnailUrl": "https://static.wixstatic.com/media/3a715a_7e8a8b28f7994ae4bc2b198cee3102c9~mv2.png/v1/fit/w_1000,h_1000,q_90/file.png",
+      "isReadyToPublish": true,
+      "publishedAt": "2024-07-31T15:19:26+00:00",
+      "createdAt": "2024-07-31T15:13:47+0000",
+      "updatedAt": "2025-03-03T14:55:19+0000",
+      "previewFileType": "jpeg",
+      "productVariantPreviewScene": "9148e219-a90b-407b-b7d7-77cc34f4ba8e",
+      "variants": [
+        {
+          "id": "c8e46919-9464-4ec1-bf7b-70a7b8b526a4",
+          "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "title": "Size A2 (42 x 59.4  cm)",
+          "externalId": "85977e9e-6a50-4d8c-a8da-a82ab846c790",
+          "connectionStatus": "connected",
+          "isHidden": false,
+          "productUid": "flat_a2_200-gsm-80lb-uncoated_4-0_ver"
+        },
+        {
+          "id": "bc1014f2-3260-4f6d-b6ce-af95b66f5e3f",
+          "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "title": "Size A3 (29.7 x 42  cm)",
+          "externalId": "347efab0-b25c-4447-91bf-89e53b968f43",
+          "connectionStatus": "connected",
+          "isHidden": false,
+          "productUid": "flat_a3_200-gsm-80lb-uncoated_4-0_ver"
+        }
+      ],
+      "productVariantOptions": [
+        {
+          "name": "Size",
+          "values": ["A3 (29.7 x 42  cm)", "A2 (42 x 59.4  cm)"]
+        }
+      ],
+      "collectionsIds": [],
+      "tags": [],
+      "status": "active",
+      "productImages": [],
+      "metadata": [
+        {
+          "id": "732a14d8-bb39-4823-9506-c2c08dc9e99c",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishImmediately",
+          "value": "true",
+          "isExternal": false
+        },
+        {
+          "id": "f7e6c7df-7f3a-40af-a709-5613b3d2d5b5",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "value": "50",
+          "isExternal": false
+        },
+        {
+          "id": "0b1f97ab-649f-4ef6-98f0-4683af1c8a75",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "usedGelatoPublisher",
+          "value": "1",
+          "isExternal": false
+        },
+        {
+          "id": "b32830bd-b769-4c78-bc50-2b5f562630b7",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishScopes",
+          "value": "[\"product\"]",
+          "isExternal": false
+        },
+        {
+          "id": "b573ba8f-0df1-4970-9a7a-e35f4dd5ca60",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "previewScenes",
+          "value": "[\"8f9a231d-1f7e-4866-89ee-56ec730a8d97\",\"9148e219-a90b-407b-b7d7-77cc34f4ba8e\",\"48e4cce4-ab97-4534-9c2b-0089158837fc\",\"6b125ce4-993d-48b1-9aff-28899729d909\",\"2637630c-4baf-43be-8f3c-52a338b1c4c2\"]",
+          "isExternal": false
+        },
+        {
+          "id": "3a4e5216-d95d-429a-a35f-64a58d0658dc",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "gelatoPublisherProductPublishMode",
+          "value": "individual",
+          "isExternal": false
+        },
+        {
+          "id": "578c45c9-27e4-4d82-8e34-c9c4894bb07e",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "previewFileType",
+          "value": "jpeg",
+          "isExternal": false
+        },
+        {
+          "id": "09274600-cc2f-4a3b-b1c6-f48dc51cf609",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "primaryPreviewScene",
+          "value": "9148e219-a90b-407b-b7d7-77cc34f4ba8e",
+          "isExternal": false
+        },
+        {
+          "id": "7e9bf0c6-59b1-4661-9414-9cd4c77ace0b",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": "30",
+          "isExternal": false
+        },
+        {
+          "id": "cc9a5e7c-7f71-4b6f-a6b6-8a6792d4a299",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishMode",
+          "value": "bulk_edit",
+          "isExternal": false
+        },
+        {
+          "id": "3410ad64-0b43-4b8c-b254-d5e925012d2e",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "videoMockups",
+          "value": "[]",
+          "isExternal": false
+        },
+        {
+          "id": "fc0e4bda-6431-453a-959a-7bead9b5c39c",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "primaryPreviewProductVariantKey",
+          "value": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "isExternal": false
+        },
+        {
+          "id": "230180e6-8ac1-4275-8d49-31d399814ade",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishWithFreeShipping",
+          "value": "false",
+          "isExternal": false
+        },
+        {
+          "id": "7d5828ee-49da-49a8-af0d-f658dc118542",
+          "productId": "b2dd5b7e-ef2c-462f-95f7-4fae3443b489",
+          "variantId": null,
+          "imageId": null,
+          "key": "usedStandardMockup",
+          "value": "1",
+          "isExternal": false
+        }
+      ],
+      "handle": "",
+      "publishingErrorCode": null,
+      "publishingDetailsFlags": [],
+      "hasDraft": false,
+      "isFreeShipping": false,
+      "publishingErrorDetails": null,
+      "productVideos": [],
+      "templateName": "",
+      "parentTemplateId": "",
+      "priceUpdatedAt": null,
+      "productVariantAttributes": [
+        {
+          "name": "Size",
+          "values": [
+            {
+              "value": "A3 (29.7 x 42  cm)",
+              "keys": [
+                {
+                  "name": "formatsize",
+                  "value": "A3 (29.7 x 42  cm)",
+                  "type": "physical"
+                }
+              ]
+            },
+            {
+              "value": "A2 (42 x 59.4  cm)",
+              "keys": [
+                {
+                  "name": "formatsize",
+                  "value": "A2 (42 x 59.4  cm)",
+                  "type": "physical"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "personalizationSettings": null,
+      "productType": null,
+      "vendor": null,
+      "hasPersonalizableVariants": false,
+      "hasCustomSizeVariants": false,
+      "errors": [],
+      "publishingProgress": null
+    },
+    {
+      "id": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+      "storeId": "947532c1-0582-4e63-9984-318179bcd8a7",
+      "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+      "externalId": "01bf0db8-961b-43c8-8266-e04593604190",
+      "title": "Phoenix Rising Canvas",
+      "description": "<p>Sizes: 40x60cm or 60x90cm</p><p>Canvas Print.</p><p>&nbsp;</p><p>Phoenix Rising artist description:</p><p>Phoenix Rising was originally painted large scale with oil paints, so this canvas print is almost an exact copy of the painting. It represents how we can rise from the ashes against all odds. In the face of the hardships that life throws at us, including grief and heartbreak. It is a painting of hope and love.</p><p>&nbsp;</p><p>&nbsp;</p><p>Features:</p><p>We use responsibly sourced wood for stretcher bars, mainly FSC certified wood, to make our canvas prints, ensuring a long-lasting and high-quality product.Our canvas print is available in two thicknesses - slim and thick - to match your preference. The slim canvas has an approximately 2cm /0.8\" thick wood stretcher bar, while the thick canvas has an approximately 4cm /1.6\" thick wood stretcher bar. Both variants come with hanging hardware included for easy installation.We use coated fabric, a blend of cotton and polyester, for our canvas substrate. This provides a weight of approximately 300-350gsm/110-130lb cover and a thickness of 350-400 microns, giving you a sturdy and durable product. Please note that colored edges are not supported. However, we assure you that our canvas print is a beautiful, high-quality product that will bring life to any space.</p><p>To ensure no damage during transportation, we ship our canvas prints in protective packaging and strong boxes.Sizes may vary slightly by region. For the US and Canada, the measurement is in inches, while for the rest of the world, it is in centimeters. It is printed and shipped on demand. No minimums are required.</p>",
+      "previewUrl": "https://gelato-api-live.s3.eu-west-1.amazonaws.com/ecommerce/store_product_image/fa5a7939-0132-4082-bf0d-0d52e2266c1d/preview?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3QM3COBPZOL2E4GY%2F20250303%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20250303T145601Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=52d6fe81baa794b00b765704d6cc5d4193d2516891f2503be75180b84ea46dda",
+      "externalPreviewUrl": "https://static.wixstatic.com/media/3a715a_7bff8ac739d842048d19494a2635b979~mv2.png/v1/fit/w_1000,h_1000,q_90/file.png",
+      "externalThumbnailUrl": "https://static.wixstatic.com/media/3a715a_7bff8ac739d842048d19494a2635b979~mv2.png/v1/fit/w_1000,h_1000,q_90/file.png",
+      "isReadyToPublish": true,
+      "publishedAt": "2024-07-31T15:13:29+00:00",
+      "createdAt": "2024-07-31T14:58:11+0000",
+      "updatedAt": "2024-07-31T15:51:08+0000",
+      "previewFileType": "jpeg",
+      "productVariantPreviewScene": "8f9a231d-1f7e-4866-89ee-56ec730a8d97",
+      "variants": [
+        {
+          "id": "b509265e-8f75-4615-ae76-c5ddc332542b",
+          "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "title": "Size 40x60 cm / 16x24″",
+          "externalId": "99824a80-7517-483e-8bc5-21ab78e4e41f",
+          "connectionStatus": "connected",
+          "isHidden": false,
+          "productUid": "canvas_400x600-mm-16x24-inch_canvas_wood-fsc-slim_4-0_ver"
+        },
+        {
+          "id": "dcf2bb91-d6fe-4279-9bf7-899775540b01",
+          "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "title": "Size 60x90 cm / 24x36″",
+          "externalId": "8553667f-686e-4e98-89ee-7589b6a17bbe",
+          "connectionStatus": "connected",
+          "isHidden": false,
+          "productUid": "canvas_600x900-mm-24x36-inch_canvas_wood-fsc-slim_4-0_ver"
+        }
+      ],
+      "productVariantOptions": [
+        {
+          "name": "Size",
+          "values": ["40x60 cm / 16x24″", "60x90 cm / 24x36″"]
+        }
+      ],
+      "collectionsIds": [],
+      "tags": [],
+      "status": "active",
+      "productImages": [],
+      "metadata": [
+        {
+          "id": "753f7568-c244-408e-aed3-ba9cc945238e",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "variantId": null,
+          "imageId": null,
+          "key": "previewFileType",
+          "value": "jpeg",
+          "isExternal": false
+        },
+        {
+          "id": "43c9898b-5121-49b2-9738-bcb76f5975d3",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishScopes",
+          "value": "[\"product\",\"variants\",\"images\",\"videos\",\"prices\"]",
+          "isExternal": false
+        },
+        {
+          "id": "fa132882-431a-4384-9979-aea676084dc3",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishWithFreeShipping",
+          "value": "false",
+          "isExternal": false
+        },
+        {
+          "id": "9e9e0398-306c-4c27-aa6a-9ec54590daec",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishMode",
+          "value": "create_product",
+          "isExternal": false
+        },
+        {
+          "id": "c1be51ba-88fe-4b72-8505-63eee3224741",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "variantId": null,
+          "imageId": null,
+          "key": "primaryPreviewProductVariantKey",
+          "value": "canvas_600x900-mm-24x36-inch_canvas_wood-fsc-slim_4-0_ver",
+          "isExternal": false
+        },
+        {
+          "id": "3b0fa009-2c35-4c93-8ba5-77e55881bd81",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishImmediately",
+          "value": "false",
+          "isExternal": false
+        },
+        {
+          "id": "f10d0422-010d-4156-96b1-ae3ab0321729",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "variantId": null,
+          "imageId": null,
+          "key": "previewScenes",
+          "value": "[\"8f9a231d-1f7e-4866-89ee-56ec730a8d97\",\"9148e219-a90b-407b-b7d7-77cc34f4ba8e\",\"6b125ce4-993d-48b1-9aff-28899729d909\",\"678cb042-bd5d-4810-849c-e79071670be2\"]",
+          "isExternal": false
+        },
+        {
+          "id": "632196fb-82db-495d-b9aa-6e3ce4254bba",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "variantId": null,
+          "imageId": null,
+          "key": "videoMockups",
+          "value": "[]",
+          "isExternal": false
+        },
+        {
+          "id": "4d3e0ef3-1d13-41cb-b5e5-a2c4c941c7ba",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "variantId": null,
+          "imageId": null,
+          "key": "usedStandardMockup",
+          "value": "1",
+          "isExternal": false
+        },
+        {
+          "id": "f1707967-6b7f-4f46-895e-15899069ec08",
+          "productId": "01f49d38-11d6-488f-a5eb-f6ba9f8cf864",
+          "variantId": null,
+          "imageId": null,
+          "key": "primaryPreviewScene",
+          "value": "8f9a231d-1f7e-4866-89ee-56ec730a8d97",
+          "isExternal": false
+        }
+      ],
+      "handle": "",
+      "publishingErrorCode": null,
+      "publishingDetailsFlags": [],
+      "hasDraft": false,
+      "isFreeShipping": false,
+      "publishingErrorDetails": null,
+      "productVideos": [],
+      "templateName": "",
+      "parentTemplateId": "",
+      "priceUpdatedAt": null,
+      "productVariantAttributes": [
+        {
+          "name": "Size",
+          "values": [
+            {
+              "value": "40x60 cm / 16x24″",
+              "keys": [
+                {
+                  "name": "formatsize",
+                  "value": "40x60 cm / 16x24″",
+                  "type": "physical"
+                }
+              ]
+            },
+            {
+              "value": "60x90 cm / 24x36″",
+              "keys": [
+                {
+                  "name": "formatsize",
+                  "value": "60x90 cm / 24x36″",
+                  "type": "physical"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "personalizationSettings": null,
+      "productType": null,
+      "vendor": null,
+      "hasPersonalizableVariants": false,
+      "hasCustomSizeVariants": false,
+      "errors": [],
+      "publishingProgress": null
+    },
+    {
+      "id": "ac4c5846-bc32-479d-b896-71c026c778df",
+      "storeId": "947532c1-0582-4e63-9984-318179bcd8a7",
+      "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+      "externalId": "4666bc1b-6db7-439b-bc5e-5f1cb5aca843",
+      "title": "Golden Gaia PRINT",
+      "description": "<p>Sizes: 25 x 60 cm</p><p>Paper: Premium Matte paper</p><p>&nbsp;</p><p>Golden Gaia artist description:</p><p>The original was painted on gold leaf by candlelight under the full moon, using only my hands. Gaia is Mother Earth. The painting depicts her roots going into the earth and arms connecting to the skies.</p><p>&nbsp;</p><p>&nbsp;</p><p>Features:</p><p>Our heavier-weight, white, premium matte paper has a natural, smooth uncoated finish that feels luxurious to the touch. The 200 gsm/ 80 lb paper weight makes it durable and long-lasting. We use FSC-certified paper or equivalent certifications depending on regional availability. It’s better for the people and the planet. Each poster is shipped in robust packaging, ensuring it arrives safe and secure.Paper sizes may vary slightly by region. For the US and Canada, the measurement is in inches, while for the rest of the world, it is in centimeters. It is printed and shipped on demand. No minimums are required.</p>",
+      "previewUrl": "https://gelato-api-live.s3.eu-west-1.amazonaws.com/ecommerce/store_product_image/53860232-a5c8-429d-8969-b2d012fee4bd/preview?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3QM3COBPZOL2E4GY%2F20250303%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20250303T145601Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=607d55d6978e292b6e4be39de2bc2b726d61351921337c6a9047a0e25618eb8c",
+      "externalPreviewUrl": "https://static.wixstatic.com/media/3a715a_ac8f3cc999a8446d9d68e761f305cf43~mv2.png/v1/fit/w_1000,h_1000,q_90/file.png",
+      "externalThumbnailUrl": "https://static.wixstatic.com/media/3a715a_ac8f3cc999a8446d9d68e761f305cf43~mv2.png/v1/fit/w_1000,h_1000,q_90/file.png",
+      "isReadyToPublish": true,
+      "publishedAt": "2024-07-31T14:54:12+00:00",
+      "createdAt": "2024-07-31T14:49:26+0000",
+      "updatedAt": "2024-07-31T15:51:09+0000",
+      "previewFileType": "jpeg",
+      "productVariantPreviewScene": "9148e219-a90b-407b-b7d7-77cc34f4ba8e",
+      "variants": [
+        {
+          "id": "79341ba1-d60a-42ca-afea-a63a14239190",
+          "clientId": "72f72e12-367e-42d0-8488-4ca7f745c119",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "title": "Size 25x60 cm / 10x24″ - Vertical",
+          "externalId": "b5ff6b75-9ea9-4c00-9957-bdd5335aea34",
+          "connectionStatus": "connected",
+          "isHidden": false,
+          "productUid": "flat_250x600-mm-10x24-inch_200-gsm-80lb-uncoated_4-0_ver"
+        }
+      ],
+      "productVariantOptions": [
+        {
+          "name": "Size",
+          "values": ["25x60 cm / 10x24″ - Vertical"]
+        }
+      ],
+      "collectionsIds": [],
+      "tags": [],
+      "status": "active",
+      "productImages": [],
+      "metadata": [
+        {
+          "id": "3c2a618b-6a91-4965-b0b5-2d7b2ba3399e",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "usedStandardMockup",
+          "value": "1",
+          "isExternal": false
+        },
+        {
+          "id": "63db86cd-7c32-4ddb-bd47-2ba5180629a9",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "videoMockups",
+          "value": "[]",
+          "isExternal": false
+        },
+        {
+          "id": "30f38efd-aee4-491e-aca1-a11260f4e5d3",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "previewFileType",
+          "value": "jpeg",
+          "isExternal": false
+        },
+        {
+          "id": "f29dea85-8eaf-4f5d-a2e4-9fd9b12488c9",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "primaryPreviewProductVariantKey",
+          "value": "flat_250x600-mm-10x24-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "isExternal": false
+        },
+        {
+          "id": "3e5bcc1c-753e-4684-bb3b-1ac943558df9",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishWithFreeShipping",
+          "value": "false",
+          "isExternal": false
+        },
+        {
+          "id": "9eb26418-e46a-4003-96fc-69b487c4b266",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishScopes",
+          "value": "[\"product\",\"variants\",\"images\",\"videos\",\"prices\"]",
+          "isExternal": false
+        },
+        {
+          "id": "930fb7cd-5a6f-476d-9e3f-51c7ce5727a5",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishMode",
+          "value": "create_product",
+          "isExternal": false
+        },
+        {
+          "id": "3f83ca70-b314-4b50-8889-1697b7312157",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "publishImmediately",
+          "value": "true",
+          "isExternal": false
+        },
+        {
+          "id": "51f3d9c5-f982-4def-b418-8db04badb860",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "previewScenes",
+          "value": "[\"8f9a231d-1f7e-4866-89ee-56ec730a8d97\",\"9148e219-a90b-407b-b7d7-77cc34f4ba8e\",\"6b125ce4-993d-48b1-9aff-28899729d909\",\"94f0e3fd-9608-48ce-9e73-45e1851a810f\"]",
+          "isExternal": false
+        },
+        {
+          "id": "cd573ca9-c52a-4eea-9128-bedb441b8a49",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "gelatoPublisherProductPublishMode",
+          "value": "individual",
+          "isExternal": false
+        },
+        {
+          "id": "ada0c762-3b03-4f3e-b66b-34ee455068cf",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "usedGelatoPublisher",
+          "value": "1",
+          "isExternal": false
+        },
+        {
+          "id": "cdc034d5-bd3f-4f3d-99ec-3435a88a23e2",
+          "productId": "ac4c5846-bc32-479d-b896-71c026c778df",
+          "variantId": null,
+          "imageId": null,
+          "key": "primaryPreviewScene",
+          "value": "9148e219-a90b-407b-b7d7-77cc34f4ba8e",
+          "isExternal": false
+        }
+      ],
+      "handle": "",
+      "publishingErrorCode": null,
+      "publishingDetailsFlags": [],
+      "hasDraft": false,
+      "isFreeShipping": false,
+      "publishingErrorDetails": null,
+      "productVideos": [],
+      "templateName": "",
+      "parentTemplateId": "",
+      "priceUpdatedAt": null,
+      "productVariantAttributes": [],
+      "personalizationSettings": null,
+      "productType": null,
+      "vendor": null,
+      "hasPersonalizableVariants": false,
+      "hasCustomSizeVariants": false,
+      "errors": [],
+      "publishingProgress": null
     }
   ]
 }

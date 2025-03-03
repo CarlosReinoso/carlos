@@ -1,4 +1,4 @@
-import { gelatoApiKey, gelatoStoreId } from "@/lib/constants";
+import { gelatoApiKey, gelatoStoreId } from "@/lib/constants.js";
 import { NextResponse } from "next/server";
 
 export async function PUT(req, { params }) {

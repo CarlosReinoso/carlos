@@ -1,6 +1,6 @@
 // src/lib/gelato/placeOrder.js
 
-import { gelatoApiKey } from "../constants";
+import { gelatoApiKey } from "../constants.js";
 
 export async function placeOrder(orderData) {
   try {

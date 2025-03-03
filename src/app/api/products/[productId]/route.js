@@ -1,4 +1,4 @@
-import { gelatoApiKey, gelatoStoreId } from "@/lib/constants";
+import { gelatoApiKey, gelatoStoreId } from "@/lib/constants.js";
 import { NextResponse } from "next/server";
 
 export const revalidate = 0; // Cache for 30 days (30 * 24 * 60 * 60 seconds)
@@ -110,7 +110,3 @@ export async function PUT(req, { params }) {
     );
   }
 }
-
-
-
-

@@ -1,5 +1,5 @@
 "use client";
-import { stripePublishableKey } from "@/lib/constants";
+import { stripePublishableKey } from "@/lib/constants.js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
 

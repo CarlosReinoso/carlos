@@ -9,7 +9,7 @@ export const gelatoStoreId = process.env.NEXT_PUBLIC_GELATO_STORE_ID; // Store t
 
 export const gelatoApiKey = process.env.GELATO_API_KEY;
 
-// STRIPE
+// STRIPEww
 export const stripeSecretKey = isProd
   ? process.env.STRIPE_SECRET_KEY_PROD
   : process.env.STRIPE_SECRET_KEY_DEV;

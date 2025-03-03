@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { gelatoOrderUrl, gelatoApiKey } from "@/lib/constants";
+import { gelatoOrderUrl, gelatoApiKey } from "@/lib/constants.js";
 
 export const revalidate = 0;
 

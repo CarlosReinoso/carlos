@@ -89,7 +89,7 @@ const ProductDetailsModal = ({
         <div className="order-2 md:order-none  custom-scrollbar">
           {/* Sizes Dropdown */}
           <Typography className="text-2xl sm:text-3xl font-bold text-gray-800 text-center md:text-left">
-            {selectedVariant?.price || product.basePrice || "N/A"}
+            £{selectedVariant?.price || product.basePrice || "N/A"}
           </Typography>
 
           {Array.isArray(product.variants) && product.variants.length > 0 && (

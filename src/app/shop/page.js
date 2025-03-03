@@ -37,7 +37,6 @@ export default function Shop() {
       return;
     }
     const nextIndex = (currentIndex + 1) % products.length;
-    console.log("🚀 ~ showNextProduct ~ nextIndex:", nextIndex);
     setCurrentProduct(products[nextIndex]);
   };
 
@@ -50,7 +49,6 @@ export default function Shop() {
     }
     const previousIndex =
       (currentIndex - 1 + products.length) % products.length;
-    console.log("🚀 ~ showPreviousProduct ~ previousIndex:", previousIndex);
     setCurrentProduct(products[previousIndex]);
   };
 
@@ -106,8 +104,8 @@ export default function Shop() {
             </div>
             <h2 className="mt-4 text-lg font-semibold">{product.title}</h2>
             <p className="text-gray-600 text-sm text-center mt-2">
-              {product.basePrice
-                ? `£${product.basePrice}`
+              {product.variants[0].price
+                ? `£${product.variants[0].price}`
                 : "Fetching price..."}
             </p>
           </div>

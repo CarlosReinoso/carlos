@@ -4,14 +4,12 @@ import {
   gelatoBaseUrl,
   gelatoStoreId,
   productQueryParams,
-} from "@/lib/constants";
-  
+} from "@/lib/constants.js";
 
 export const revalidate = 0;
 
 export async function GET() {
   try {
-    
     const queryParams = new URLSearchParams({
       order: "desc",
       orderBy: "createdAt",

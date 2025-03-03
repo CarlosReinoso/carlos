@@ -1,4 +1,4 @@
-import { gelatoApiKey } from "@/lib/constants";
+import { gelatoApiKey } from "@/lib/constants.js";
 import { NextResponse } from "next/server";
 
 export const revalidate = 0;
@@ -39,7 +39,7 @@ export async function GET(req, { params }) {
     }
 
     const prices = await response.json();
-    console.log("🚀 ~ GET ~ prices:", prices)
+    console.log("🚀 ~ GET ~ prices:", prices);
     return new NextResponse(JSON.stringify(prices), {
       status: 200,
       headers: { "Content-Type": "application/json" },

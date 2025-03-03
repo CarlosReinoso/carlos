@@ -50,7 +50,7 @@
           "variantId": null,
           "imageId": null,
           "key": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
-          "value": "39.99",
+          "value": 39.99,
           "isExternal": false
         },
         {
@@ -59,7 +59,7 @@
           "variantId": null,
           "imageId": null,
           "key": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
-          "value": "49.99",
+          "value": 49,
           "isExternal": false
         }
       ],
@@ -113,7 +113,9 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["50x50 cm / 20x20″ - Vertical - Slim"]
+          "values": [
+            "50x50 cm / 20x20″ - Vertical - Slim"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -228,6 +230,10 @@
           "key": "publishScopes",
           "value": "[\"product\",\"variants\",\"images\",\"videos\",\"prices\"]",
           "isExternal": false
+        },
+        {
+          "key": "canvas_500x500-mm-20x20-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 250
         }
       ],
       "handle": "",
@@ -290,7 +296,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["A3 (29.7 x 42  cm)", "A2 (42 x 59.4  cm)"]
+          "values": [
+            "A3 (29.7 x 42  cm)",
+            "A2 (42 x 59.4  cm)"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -405,6 +414,14 @@
           "key": "gelatoPublisherProductPublishMode",
           "value": "individual",
           "isExternal": false
+        },
+        {
+          "key": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 50
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
         }
       ],
       "handle": "",
@@ -493,7 +510,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["40x60 cm / 16x24″", "60x90 cm / 24x36″"]
+          "values": [
+            "40x60 cm / 16x24″",
+            "60x90 cm / 24x36″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -590,6 +610,14 @@
           "key": "publishImmediately",
           "value": "false",
           "isExternal": false
+        },
+        {
+          "key": "canvas_400x600-mm-16x24-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 200
+        },
+        {
+          "key": "canvas_600x900-mm-24x36-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 311
         }
       ],
       "handle": "",
@@ -668,7 +696,9 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["25x60 cm / 10x24″ - Vertical"]
+          "values": [
+            "25x60 cm / 10x24″ - Vertical"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -783,6 +813,10 @@
           "key": "previewFileType",
           "value": "jpeg",
           "isExternal": false
+        },
+        {
+          "key": "flat_250x600-mm-10x24-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 45
         }
       ],
       "handle": "",
@@ -835,7 +869,9 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["70x100 cm / 28x40″ - Vertical - Slim"]
+          "values": [
+            "70x100 cm / 28x40″ - Vertical - Slim"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -950,6 +986,10 @@
           "key": "previewScenes",
           "value": "[\"8f9a231d-1f7e-4866-89ee-56ec730a8d97\",\"9148e219-a90b-407b-b7d7-77cc34f4ba8e\",\"ddb50aa6-9f41-4e66-8f8b-f19dc0db5061\",\"6b125ce4-993d-48b1-9aff-28899729d909\",\"94f0e3fd-9608-48ce-9e73-45e1851a810f\"]",
           "isExternal": false
+        },
+        {
+          "key": "canvas_700x1000-mm-28x40-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 311
         }
       ],
       "handle": "",
@@ -1002,7 +1042,9 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["25x60 cm / 10x24″ - Vertical"]
+          "values": [
+            "25x60 cm / 10x24″ - Vertical"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -1117,6 +1159,10 @@
           "key": "previewScenes",
           "value": "[\"8f9a231d-1f7e-4866-89ee-56ec730a8d97\",\"9148e219-a90b-407b-b7d7-77cc34f4ba8e\",\"edbde428-6074-49f2-80d3-11f4c3123582\",\"922ee089-78b0-4428-9a25-a81c681d32c8\",\"6b125ce4-993d-48b1-9aff-28899729d909\",\"94f0e3fd-9608-48ce-9e73-45e1851a810f\"]",
           "isExternal": false
+        },
+        {
+          "key": "flat_250x600-mm-10x24-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 45
         }
       ],
       "handle": "",
@@ -1179,7 +1225,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["40x40 cm / 16x16″", "50x50 cm / 20x20″"]
+          "values": [
+            "40x40 cm / 16x16″",
+            "50x50 cm / 20x20″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -1294,6 +1343,14 @@
           "key": "usedGelatoPublisher",
           "value": "1",
           "isExternal": false
+        },
+        {
+          "key": "flat_400x400-mm-16x16-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 35
+        },
+        {
+          "key": "flat_500x500-mm-20x20-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 55
         }
       ],
       "handle": "",
@@ -1356,7 +1413,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["30x45 cm / 12x18″", "50x70 cm / 20x28″"]
+          "values": [
+            "30x45 cm / 12x18″",
+            "50x70 cm / 20x28″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -1471,6 +1531,14 @@
           "key": "gelatoPublisherProductPublishMode",
           "value": "individual",
           "isExternal": false
+        },
+        {
+          "key": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 120
+        },
+        {
+          "key": "canvas_500x700-mm-20x28-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 220
         }
       ],
       "handle": "",
@@ -1559,7 +1627,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["A3 (29.7 x 42  cm)", "A2 (42 x 59.4  cm)"]
+          "values": [
+            "A3 (29.7 x 42  cm)",
+            "A2 (42 x 59.4  cm)"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -1674,6 +1745,14 @@
           "key": "publishImmediately",
           "value": "true",
           "isExternal": false
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
+        },
+        {
+          "key": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 50
         }
       ],
       "handle": "",
@@ -1762,7 +1841,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["40x40 cm / 16x16″", "50x50 cm / 20x20″"]
+          "values": [
+            "40x40 cm / 16x16″",
+            "50x50 cm / 20x20″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -1877,6 +1959,14 @@
           "key": "primaryPreviewProductVariantKey",
           "value": "flat_500x500-mm-20x20-inch_200-gsm-80lb-uncoated_4-0_ver",
           "isExternal": false
+        },
+        {
+          "key": "flat_500x500-mm-20x20-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 50
+        },
+        {
+          "key": "flat_400x400-mm-16x16-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
         }
       ],
       "handle": "",
@@ -1929,7 +2019,9 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["50x50 cm / 20x20″ - Vertical - Slim"]
+          "values": [
+            "50x50 cm / 20x20″ - Vertical - Slim"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -2044,6 +2136,10 @@
           "key": "publishScopes",
           "value": "[\"product\",\"variants\",\"images\",\"videos\",\"prices\"]",
           "isExternal": false
+        },
+        {
+          "key": "canvas_500x500-mm-20x20-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 122
         }
       ],
       "handle": "",
@@ -2106,7 +2202,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["30x45 cm / 12x18″", "45x60 cm / 18x24″"]
+          "values": [
+            "30x45 cm / 12x18″",
+            "45x60 cm / 18x24″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -2221,6 +2320,14 @@
           "key": "previewFileType",
           "value": "jpeg",
           "isExternal": false
+        },
+        {
+          "key": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 220
+        },
+        {
+          "key": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 120
         }
       ],
       "handle": "",
@@ -2283,7 +2390,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["A3 (29.7 x 42  cm)", "A2 (42 x 59.4  cm)"]
+          "values": [
+            "A3 (29.7 x 42  cm)",
+            "A2 (42 x 59.4  cm)"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -2398,6 +2508,14 @@
           "key": "previewFileType",
           "value": "jpeg",
           "isExternal": false
+        },
+        {
+          "key": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 50
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
         }
       ],
       "handle": "",
@@ -2460,7 +2578,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["30x40 cm / 12x16″", "45x60 cm / 18x24″"]
+          "values": [
+            "30x40 cm / 12x16″",
+            "45x60 cm / 18x24″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -2575,6 +2696,14 @@
           "key": "primaryPreviewScene",
           "value": "8f9a231d-1f7e-4866-89ee-56ec730a8d97",
           "isExternal": false
+        },
+        {
+          "key": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 220
+        },
+        {
+          "key": "canvas_300x400-mm-12x16-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 80
         }
       ],
       "handle": "",
@@ -2663,7 +2792,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["A3 (29.7 x 42  cm)", "A2 (42 x 59.4  cm)"]
+          "values": [
+            "A3 (29.7 x 42  cm)",
+            "A2 (42 x 59.4  cm)"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -2778,6 +2910,14 @@
           "key": "usedGelatoPublisher",
           "value": "1",
           "isExternal": false
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
+        },
+        {
+          "key": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 50
         }
       ],
       "handle": "",
@@ -2856,7 +2996,9 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["A3 (29.7 x 42  cm) - Horizontal"]
+          "values": [
+            "A3 (29.7 x 42  cm) - Horizontal"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -2971,6 +3113,10 @@
           "key": "usedStandardMockup",
           "value": "1",
           "isExternal": false
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_hor",
+          "value": 30
         }
       ],
       "handle": "",
@@ -3033,7 +3179,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["30x45 cm / 12x18″", "45x60 cm / 18x24″"]
+          "values": [
+            "30x45 cm / 12x18″",
+            "45x60 cm / 18x24″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -3148,6 +3297,14 @@
           "key": "publishImmediately",
           "value": "true",
           "isExternal": false
+        },
+        {
+          "key": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 120
+        },
+        {
+          "key": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 220
         }
       ],
       "handle": "",
@@ -3210,7 +3367,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["A3 (29.7 x 42  cm)", "A2 (42 x 59.4  cm)"]
+          "values": [
+            "A3 (29.7 x 42  cm)",
+            "A2 (42 x 59.4  cm)"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -3325,6 +3485,14 @@
           "key": "gelatoPublisherProductPublishMode",
           "value": "individual",
           "isExternal": false
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
+        },
+        {
+          "key": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 50
         }
       ],
       "handle": "",
@@ -3403,7 +3571,9 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["Premium Matte Paper Poster"]
+          "values": [
+            "Premium Matte Paper Poster"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -3509,6 +3679,10 @@
           "key": "publishMode",
           "value": "product_expansion",
           "isExternal": false
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
         }
       ],
       "handle": "",
@@ -3571,7 +3745,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["40x60 cm / 16x24″", "70x100 cm / 28x40″"]
+          "values": [
+            "40x60 cm / 16x24″",
+            "70x100 cm / 28x40″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -3686,6 +3863,14 @@
           "key": "publishImmediately",
           "value": "true",
           "isExternal": false
+        },
+        {
+          "key": "canvas_700x1000-mm-28x40-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 311
+        },
+        {
+          "key": "canvas_400x600-mm-16x24-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 150
         }
       ],
       "handle": "",
@@ -3774,7 +3959,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["A3 (29.7 x 42  cm)", "A2 (42 x 59.4  cm)"]
+          "values": [
+            "A3 (29.7 x 42  cm)",
+            "A2 (42 x 59.4  cm)"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -3889,6 +4077,14 @@
           "key": "previewScenes",
           "value": "[\"8f9a231d-1f7e-4866-89ee-56ec730a8d97\",\"9148e219-a90b-407b-b7d7-77cc34f4ba8e\",\"922ee089-78b0-4428-9a25-a81c681d32c8\",\"6b125ce4-993d-48b1-9aff-28899729d909\",\"94f0e3fd-9608-48ce-9e73-45e1851a810f\"]",
           "isExternal": false
+        },
+        {
+          "key": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 60
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
         }
       ],
       "handle": "",
@@ -3967,7 +4163,9 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["Canvas"]
+          "values": [
+            "Canvas"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -4082,6 +4280,10 @@
           "key": "publishWithFreeShipping",
           "value": "false",
           "isExternal": false
+        },
+        {
+          "key": "canvas_700x1000-mm-28x40-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 311
         }
       ],
       "handle": "",
@@ -4144,7 +4346,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["25x60 cm / 10x24″", "70x100 cm / 28x40″"]
+          "values": [
+            "25x60 cm / 10x24″",
+            "70x100 cm / 28x40″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -4259,6 +4464,14 @@
           "key": "videoMockups",
           "value": "[]",
           "isExternal": false
+        },
+        {
+          "key": "flat_700x1000-mm-28x40-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 80
+        },
+        {
+          "key": "flat_250x600-mm-10x24-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 45
         }
       ],
       "handle": "",
@@ -4311,7 +4524,9 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["45x60 cm / 18x24″ - Vertical - Slim"]
+          "values": [
+            "45x60 cm / 18x24″ - Vertical - Slim"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -4426,6 +4641,10 @@
           "key": "primaryPreviewScene",
           "value": "8f9a231d-1f7e-4866-89ee-56ec730a8d97",
           "isExternal": false
+        },
+        {
+          "key": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 120
         }
       ],
       "handle": "",
@@ -4488,7 +4707,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["A3 (29.7 x 42  cm)", "A2 (42 x 59.4  cm)"]
+          "values": [
+            "A3 (29.7 x 42  cm)",
+            "A2 (42 x 59.4  cm)"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -4603,6 +4825,14 @@
           "key": "usedStandardMockup",
           "value": "1",
           "isExternal": false
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
+        },
+        {
+          "key": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 50
         }
       ],
       "handle": "",
@@ -4681,7 +4911,9 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["Canvas"]
+          "values": [
+            "Canvas"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -4796,6 +5028,10 @@
           "key": "primaryPreviewScene",
           "value": "9148e219-a90b-407b-b7d7-77cc34f4ba8e",
           "isExternal": false
+        },
+        {
+          "key": "canvas_500x500-mm-20x20-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 250
         }
       ],
       "handle": "",
@@ -4858,7 +5094,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["40x40 cm / 16x16″", "50x50 cm / 20x20″"]
+          "values": [
+            "40x40 cm / 16x16″",
+            "50x50 cm / 20x20″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -4973,6 +5212,14 @@
           "key": "usedGelatoPublisher",
           "value": "1",
           "isExternal": false
+        },
+        {
+          "key": "flat_500x500-mm-20x20-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 55
+        },
+        {
+          "key": "flat_400x400-mm-16x16-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 35
         }
       ],
       "handle": "",
@@ -5035,7 +5282,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["30x45 cm / 12x18″", "45x60 cm / 18x24″"]
+          "values": [
+            "30x45 cm / 12x18″",
+            "45x60 cm / 18x24″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -5150,6 +5400,14 @@
           "key": "usedGelatoPublisher",
           "value": "1",
           "isExternal": false
+        },
+        {
+          "key": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 120
+        },
+        {
+          "key": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 220
         }
       ],
       "handle": "",
@@ -5341,6 +5599,18 @@
           "key": "gelatoPublisherProductPublishMode",
           "value": "individual",
           "isExternal": false
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
+        },
+        {
+          "key": "flat_a4-8x12-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 17
+        },
+        {
+          "key": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 50
         }
       ],
       "handle": "",
@@ -5403,7 +5673,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["30x45 cm / 12x18″", "45x60 cm / 18x24″"]
+          "values": [
+            "30x45 cm / 12x18″",
+            "45x60 cm / 18x24″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -5518,6 +5791,14 @@
           "key": "publishWithFreeShipping",
           "value": "false",
           "isExternal": false
+        },
+        {
+          "key": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 120
+        },
+        {
+          "key": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 220
         }
       ],
       "handle": "",
@@ -5709,6 +5990,18 @@
           "key": "usedStandardMockup",
           "value": "1",
           "isExternal": false
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
+        },
+        {
+          "key": "flat_a4-8x12-inch_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 17
+        },
+        {
+          "key": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 50
         }
       ],
       "handle": "",
@@ -5771,7 +6064,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["A3 (29.7 x 42  cm)", "A2 (42 x 59.4  cm)"]
+          "values": [
+            "A3 (29.7 x 42  cm)",
+            "A2 (42 x 59.4  cm)"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -5895,6 +6191,14 @@
           "key": "publishMode",
           "value": "bulk_edit",
           "isExternal": false
+        },
+        {
+          "key": "flat_a3_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 30
+        },
+        {
+          "key": "flat_a2_200-gsm-80lb-uncoated_4-0_ver",
+          "value": 50
         }
       ],
       "handle": "",
@@ -5957,7 +6261,10 @@
       "productVariantOptions": [
         {
           "name": "Size",
-          "values": ["30x45 cm / 12x18″", "45x60 cm / 18x24″"]
+          "values": [
+            "30x45 cm / 12x18″",
+            "45x60 cm / 18x24″"
+          ]
         }
       ],
       "collectionsIds": [],
@@ -6072,6 +6379,14 @@
           "key": "videoMockups",
           "value": "[]",
           "isExternal": false
+        },
+        {
+          "key": "canvas_450x600-mm-18x24-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 220
+        },
+        {
+          "key": "canvas_300x450-mm-12x18-inch_canvas_wood-fsc-slim_4-0_ver",
+          "value": 120
         }
       ],
       "handle": "",

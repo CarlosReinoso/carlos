@@ -1,4 +1,4 @@
-import { baseUrl, stripeSecretKey } from "@/lib/constants";
+import { baseUrl, stripeSecretKey } from "@/lib/constants.js";
 import countriesDeliverable from "@/lib/countriesDeliverable";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
