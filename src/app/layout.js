@@ -1,4 +1,4 @@
-import { Playfair_Display, Poppins, Emblema_One } from "next/font/google";
+import { Playfair_Display, Poppins, Sacramento } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,10 +15,10 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-const emblema = Emblema_One({
+const sacramento = Sacramento({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-emblema",
+  variable: "--font-sacramento",
 });
 
 export const metadata = {
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${poppins.variable} ${emblema.variable}`}
+        className={`${playfair.variable} ${poppins.variable} ${sacramento.variable}`}
       >
         <Navbar />
         {children}

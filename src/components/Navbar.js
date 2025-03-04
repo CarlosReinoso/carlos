@@ -1,21 +1,22 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
 
 const NavLink = ({ children, href, onClick, isActive }) => (
   <a
     href={href}
     onClick={onClick}
-    className={`font-poppins text-2xl font-medium transition-all duration-300 relative group ${
+    className={`font-poppins font-medium transition-all duration-300 relative group ${
       isActive
-        ? "after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-white"
+        ? "after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-black"
         : ""
     }`}
   >
     {children}
-    <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+    <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
   </a>
 );
 
@@ -30,7 +31,6 @@ export default function Navbar() {
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   const navItems = [
-    { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Gallery", href: "/gallery " },
     { label: "Shop", href: "/shop" },
@@ -40,16 +40,21 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-0 left-0 w-full shadow-md z-50 bg-primary">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-3xl focus:outline-none md:hidden"
-        >
-          {isMobileMenuOpen ? "✖" : "☰"}
-        </button>
+      <div className="max-w-7xl mx-auto px-6 py-2  flex items-center justify-between">
+        {/* Logo on the left */}
+        <div className="flex items-center">
+          <Link href="/">
+            <Image
+              src="/name.avif"
+              alt="name"
+              width={120} // Adjust width as needed
+              height={60} // Adjust height as needed
+              className="object-contain"
+            />
+          </Link>
+        </div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation on the right */}
         <div className="hidden md:flex space-x-6">
           {navItems.map((item) => (
             <NavLink
@@ -61,6 +66,14 @@ export default function Navbar() {
             </NavLink>
           ))}
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="text-3xl focus:outline-none md:hidden"
+        >
+          {isMobileMenuOpen ? "✖" : "☰"}
+        </button>
       </div>
 
       {/* Mobile Navigation */}

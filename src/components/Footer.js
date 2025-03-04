@@ -3,8 +3,8 @@ import WebsiteBy from "./WebsiteBy";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
 
 export const whatsAppLink = "https://chat.whatsapp.com/BRb6XITEHr829zUKiwZBAM";
-const mailto = "luminousnightslondon@gmail.com";
-const instagramUrl = "https://www.instagram.com/luminousnightslondon/";
+const mailto = "GraceBasak@outlook.com";
+const instagramUrl = "https://www.instagram.com/gracebasak_art/?hl=en-gb";
 
 const Footer = () => {
   return (

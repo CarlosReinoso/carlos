@@ -19,9 +19,8 @@ const BuyButton = ({ product, selectedVariant }) => {
     }
 
     // Convert price to an integer (remove currency symbol and convert to pence)
-    const priceInPence =
-      parseInt(selectedVariant.price.replace(/[^0-9.]/g, "")) * 100;
-
+    const priceInPence = selectedVariant.price * 100;
+    
     setLoading(true);
     try {
       const response = await fetch("/api/checkout", {

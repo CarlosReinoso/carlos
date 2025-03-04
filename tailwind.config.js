@@ -10,7 +10,7 @@ module.exports = {
       fontFamily: {
         poppins: ["var(--font-poppins)", "sans-serif"],
         playfair: ["var(--font-playfair)", "cursive"],
-        emblema: ["var(--font-emblema)", "cursive"],
+        sacramento: ["var(--font-sacramento)", "cursive"],
       },
       colors: {
         secondary: "var(--secondary-colour)",

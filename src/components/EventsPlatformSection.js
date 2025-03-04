@@ -14,7 +14,7 @@ const EventsPlatformSection = () => {
           >
             Events Near You
           </Typography>
-          <Typography variant="h2" className="font-emblema text-white">
+          <Typography variant="h2" className="font-sacramento text-white">
             Dance With Our Partners
           </Typography>
           <Button href={"/events"} theme="dark">

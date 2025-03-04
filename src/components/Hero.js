@@ -7,20 +7,20 @@ const HeroSection = () => {
         {/* Left side - Text */}
         <div className="flex flex-col justify-center items-start p-8">
           <Typography variant="h2" className="font-playfair">
-            Keanu <br /> Lawrence <br /> Arcadio
+            Grace <br /> Basak
           </Typography>
           <hr className="w-80 border-t-2 border-gray-600 mb-4" />
           <Typography variant="h5" className="font-semibold tracking-wide">
-            WRITER & TEACHER
+            Artist
           </Typography>
         </div>
 
         {/* Right side - Image */}
         <div className="flex justify-center items-center bg-secondary h-[80vh] px-12">
           <img
-            src="/keanu.jpg"
-            alt="Keanu Lawrence Arcadio"
-            className="w-full h-full object-cover p-4"
+            src="/grace.avif"
+            alt="grace"
+            className="w-full object-cover p-4"
           />
         </div>
       </div>
