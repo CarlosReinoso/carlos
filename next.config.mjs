@@ -16,7 +16,8 @@ const nextConfig = {
       },
     ],
     domains: [
-      "gelato-api-live.s3.eu-west-1.amazonaws.com", // Add Gelato API S3 bucket
+      "gelato-api-live.s3.eu-west-1.amazonaws.com", // Gelato API S3 bucket
+      "swxkoqljwvokdwuukgii.supabase.co", // Supabase storage domain added
     ],
   },
 };

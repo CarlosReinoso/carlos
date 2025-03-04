@@ -1,13 +1,36 @@
-import fs from "fs";
-import path from "path";
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import supabase from "@/services/supabase/setup";
+import Typography from "@/components/common/Typography";
 
 export default function GalleryPage() {
-  // Read all webp files from the /public/gallery folder
-  const galleryPath = path.join(process.cwd(), "public/gallery");
-  const images = fs
-    .readdirSync(galleryPath)
-    .filter((file) => file.endsWith(".webp"));
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    async function fetchImages() {
+      const { data, error } = await supabase
+        .from("gallery")
+        .select("name, url, description, material, size, created_at");
+
+      if (error) {
+        console.error("Error fetching images:", error);
+      } else {
+        setImages(
+          data.map((image) => ({
+            src: image.url,
+            title: image.name.replace(/-\d+\.webp$/, ""), // Clean filename
+            description: image.description || "Oil on canvas",
+            material: image.material || "Unknown material",
+            size: image.size || "Size not specified",
+          }))
+        );
+      }
+    }
+
+    fetchImages();
+  }, []);
 
   return (
     <section className="container mx-auto px-6 py-12">
@@ -19,49 +42,36 @@ export default function GalleryPage() {
         We all have a unique creative expression in this world, here is mine.
       </p>
 
+      {/* Image Grid */}
       <div className="mt-8 mx-auto max-w-6xl grid grid-cols-2 sm:grid-cols-3 gap-4 grid-flow-dense auto-rows-[1fr]">
-        {images
-          .map((image) => {
-            return {
-              src: `/gallery/${image}`,
-              title: image.includes("kingfisher")
-                ? "Diving Kingfisher"
-                : "Artwork",
-              description: image.includes("kingfisher")
-                ? "Painting of a diving kingfisher with bubbles embellished with silver leaf.\nOil and silver leaf on canvas.\n100 x 100cm"
-                : "Oil on canvas",
-              isTall: image.includes("tall") || image.includes("portrait"),
-            };
-          })
-          .sort((a, b) => b.isTall - a.isTall) // Sort tall images first
-          .map((image, index) => (
-            <div
-              key={index}
-              className={`relative overflow-hidden group ${
-                image.isTall ? "row-span-2" : "row-span-1"
-              }`}
-            >
-              {/* Image */}
-              <Image
-                src={image.src}
-                alt={image.title}
-                width={500}
-                height={500}
-                className="w-full h-auto object-cover"
-                loading="lazy"
-              />
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`relative overflow-hidden group flex justify-center ${
+              image.isTall ? "row-span-2" : "row-span-1"
+            }`}
+          >
+            {/* Image */}
+            <Image
+              src={image.src}
+              alt={image.title}
+              width={500}
+              height={500}
+              className="w-auto h-auto object-cover"
+              loading="lazy"
+            />
 
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-white p-4">
-                  <h3 className="text-lg font-bold">{image.title}</h3>
-                  <p className="text-sm whitespace-pre-line">
-                    {image.description}
-                  </p>
-                </div>
-              </div>
+            {/* Overlay - Hidden by default, shows on hover */}
+            <div className="absolute top-0 left-0 w-full bg-gradient-to-b from-black/70 to-transparent px-4 py-3 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-[100%]">
+              <Typography variant="h5" className="font-bold mb-4">
+                {image.title}
+              </Typography>
+              <p className="text-md">{image.description}</p>
+              <p className="text-md opacity-80 mt-4">{image.material}</p>
+              <p className="text-md opacity-80">{image.size}</p>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </section>
   );
