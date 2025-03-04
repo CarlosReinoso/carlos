@@ -2,7 +2,7 @@ import addPricesToVariants from "@/lib/addPricesToVariants";
 import { gelatoApiKey, gelatoStoreId } from "@/lib/constants.js";
 import { NextResponse } from "next/server";
 
-export const revalidate = 0;
+export const revalidate = 86400; // 24 hours in seconds
 
 export async function GET() {
   try {
