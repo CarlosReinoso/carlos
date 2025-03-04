@@ -2,7 +2,7 @@ import Typography from "@/components/common/Typography";
 
 export default function AboutPage() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen px-6 lg:px-24 py-12 mt-24">
+    <section className="flex flex-col items-center justify-center min-h-screen px-6 lg:px-24 py-12">
       {/* Grid layout with image on top for mobile */}
       <div className="flex flex-col justify-center items-center">
         <img

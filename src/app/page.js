@@ -4,7 +4,7 @@ import HeroSection from "@/components/Hero";
 
 export default function Home() {
   return (
-    <main>
+    <main clasName="pt-48">
       <HeroSection />
       <AboutSection />
       <ExploreCollection />

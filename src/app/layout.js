@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
         className={`${playfair.variable} ${poppins.variable} ${sacramento.variable}`}
       >
         <Navbar />
-        {children}
+        <main className="pt-24">{children}</main>
         <Footer />
       </body>
     </html>

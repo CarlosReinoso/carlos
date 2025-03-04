@@ -2,7 +2,7 @@ import Typography from "./common/Typography";
 
 const HeroSection = () => {
   return (
-    <div className="relative h-[100vh] mt-32 sm:mt-8 flex items-center justify-center bg-primary p-4">
+    <div className="relative h-[100vh] flex items-center justify-center bg-primary p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-6xl overflow-hidden">
         {/* Left side - Text */}
         <div className="flex flex-col justify-center items-start p-8">
