@@ -88,7 +88,7 @@ const ProductDetailsModal = ({
         {/* Left Side (On Desktop), Below Image on Mobile */}
         <div className="order-2 md:order-none  custom-scrollbar">
           {/* Sizes Dropdown */}
-          <Typography className="text-2xl sm:text-3xl font-bold text-gray-800 text-center md:text-left">
+          <Typography variant="h3">
             £{selectedVariant?.price || product.basePrice || "N/A"}
           </Typography>
 
