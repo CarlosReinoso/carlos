@@ -31,6 +31,7 @@ export default function Navbar() {
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   const navItems = [
+    { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Gallery", href: "/gallery " },
     { label: "Shop", href: "/shop" },

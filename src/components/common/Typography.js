@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 const Typography = ({ variant = "h1", children, className = "" }) => {
   const variants = {
-    h1: "font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4",
+    h1: "font-sacramento text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4",
     h2: "font-sacramento text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4",
     h3: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mb-4",
     h4: "text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-4",
