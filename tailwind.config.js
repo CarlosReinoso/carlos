@@ -13,9 +13,9 @@ module.exports = {
         sacramento: ["var(--font-sacramento)", "cursive"],
       },
       colors: {
+        primary: "var(--primary-colour)",
         secondary: "var(--secondary-colour)",
         third: "var(--third-colour)",
-        primary: "var(--primary-colour)",
       },
     },
   },

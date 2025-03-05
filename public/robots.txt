@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://carlosreinoso.co.uk
+
+# Sitemaps
+Sitemap: https://carlosreinoso.co.uk/sitemap.xml
