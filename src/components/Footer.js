@@ -2,9 +2,10 @@ import React from "react";
 import WebsiteBy from "./WebsiteBy";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
 
-export const whatsAppLink = "https://chat.whatsapp.com/BRb6XITEHr829zUKiwZBAM";
-const mailto = "GraceBasak@outlook.com";
-const instagramUrl = "https://www.instagram.com/gracebasak_art/?hl=en-gb";
+export const whatsAppLink = "https://wa.me/447456531337";
+const mailto = "hello@carlosreinoso.co.uk";
+const instagramUrl = "https://www.instagram.com/carlos.reinoso_/?hl=en";
+const linkedIn = "https://www.linkedin.com/in/carlos-reinoso-bless/"
 
 const Footer = () => {
   return (

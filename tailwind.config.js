@@ -17,28 +17,6 @@ module.exports = {
         third: "var(--third-colour)",
         primary: "var(--primary-colour)",
       },
-      textColor: {
-        black: "#000000",
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-      boxShadow: {
-        "text-shadow": "1px 1px 2px rgb(0, 0, 0)",
-        "img-shadow": "rgba(0, 0, 0, 0.2) 0px 4px 8px 0px",
-      },
-      blur: {
-        custom: "60px", // Custom blur size
-      },
-    },
-    variants: {
-      extend: {
-        borderColor: ["focus"],
-        outline: ["focus"],
-        ringColor: ["focus"],
-      },
     },
   },
 };
