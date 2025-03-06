@@ -1,24 +1,14 @@
-import "../../styles/web-dev.css";
-import { metadataWebDev } from "../../metadata/web-dev";
-import HeroSection from "@/components/web-dev/BioSection";
-import ExperienceSection from "@/components/web-dev/ExperienceSection";
 import Sidebar from "@/components/web-dev/Sidebar";
-import Typography from "@/components/common/Typography";
 import BioSection from "@/components/web-dev/BioSection";
+import ExperienceSection from "@/components/web-dev/ExperienceSection";
 import ProjectSection from "@/components/web-dev/ProjectsSection";
-
-export const metadata = metadataWebDev;
 
 export default function WebDevPage() {
   return (
-    <div className="flex">
-      {/* Left Sidebar (Sticky Navigation) */}
-      <aside className="w-1/2 lg:w-1/2 hidden lg:block bg-slate-900 text-white">
-        <Sidebar />
-      </aside>
+    <div className="flex flex-col lg:flex-row bg-slate-900">
+      <Sidebar />
 
-      {/* Right Content (Scrollable) */}
-      <main className="w-full lg:w-3/4 overflow-y-auto p-8 bg-slate-900">
+      <main className="w-full lg:w-3/4 p-6 lg:p-8 pt-20 lg:pt-8 overflow-y-auto">
         <section id="about" className="mb-16">
           <BioSection />
         </section>

@@ -7,7 +7,7 @@ const BioSection = () => {
   return (
     <div className="container mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row items-start gap-12">
       {/* Right Section */}
-      <div className="w-full md:w-1/2">
+      <div className="w-full">
         <Typography variant="body" className="text-gray-300">
           I design and develop digital experiences tailored for solo
           entrepreneurs and small businesses. With experience working in

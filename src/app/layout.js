@@ -1,15 +1,13 @@
-// import "../styles/landing.css";
+import { generateMetadata } from "@/config/metadata"; // Import the function
 import LayoutSelector from "@/components/LayoutSelector";
-import { metadataLanding } from "../metadata/landing";
-import { playfair, poppins } from "../styles/fonts";
+import { playfair, poppins } from "@/styles/fonts";
 
-export const metadata = metadataLanding;
+export { generateMetadata }; // Re-export it so Next.js can use it
 
 export default function RootLayout({ children }) {
-
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${poppins.variable} `}>
+      <body className={`${playfair.variable} ${poppins.variable}`}>
         <LayoutSelector>{children}</LayoutSelector>
       </body>
     </html>

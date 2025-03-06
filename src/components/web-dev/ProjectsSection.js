@@ -1,6 +1,7 @@
 import React from "react";
 import Typography from "@/components/common/Typography";
 import ItemCard from "./ItemCard";
+import Button from "../common/Button";
 
 const projects = [
   {
@@ -25,6 +26,7 @@ const projects = [
 export default function ProjectSection() {
   return (
     <section className="container mx-auto px-6 md:px-12 lg:px-24 py-16 text-white">
+      <Button buttonUrl="/web-dev/projects"> projects</Button>
       <Typography variant="h2" className="text-3xl font-bold mb-8">
         Projects
       </Typography>

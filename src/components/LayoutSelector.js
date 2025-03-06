@@ -8,15 +8,13 @@ import LandingLayout from "@/app/layouts/LandingLayout";
 export default function LayoutSelector({ children }) {
   const pathname = usePathname();
 
-  return (
-    <>
-      {pathname.startsWith("/web-dev") ? (
-        <WebDevLayout>{children}</WebDevLayout>
-      ) : pathname.startsWith("/property") ? (
-        <PropertyLayout>{children}</PropertyLayout>
-      ) : (
-        <LandingLayout>{children}</LandingLayout>
-      )}
-    </>
-  );
+  if (pathname === "/web-dev" || pathname.startsWith("/web-dev/")) {
+    return <WebDevLayout>{children}</WebDevLayout>;
+  }
+
+  if (pathname === "/property" || pathname.startsWith("/property/")) {
+    return <PropertyLayout>{children}</PropertyLayout>;
+  }
+
+  return <LandingLayout>{children}</LandingLayout>; // Only if no other match
 }
