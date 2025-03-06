@@ -1,8 +1,10 @@
+// import "../../styles/web-dev.css";
+
 export default function WebDevLayout({ children }) {
   return (
-    <>
-      <>web dev layout nav</>
+    <div>
+      <p>p in web layout</p>
       {children}
-    </>
+    </div>
   );
 }

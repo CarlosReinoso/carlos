@@ -16,3 +16,7 @@ body {
 .font-poppins {
   letter-spacing: 0.1em;
 }
+
+p {
+  color: red;
+}
