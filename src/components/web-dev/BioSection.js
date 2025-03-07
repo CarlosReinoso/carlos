@@ -5,7 +5,8 @@ import Typography from "../common/Typography";
 
 const BioSection = () => {
   return (
-    <div className="container mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row items-start gap-12">
+    <div className="w-full text-left
+    ">
       {/* Right Section */}
       <div className="w-full">
         <Typography variant="body" className="text-gray-300">

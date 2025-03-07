@@ -1,4 +1,4 @@
-import Typography from "@/components/common/Typography"
+import Typography from "@/components/common/Typography";
 import ItemCard from "./ItemCard";
 
 const experiences = [
@@ -44,7 +44,7 @@ const experiences = [
 
 export default function ExperienceSection() {
   return (
-    <section className="container mx-auto px-6 md:px-12 lg:px-24 py-16 text-white">
+    <section className="text-white">
       <Typography variant="h2" className="text-3xl font-bold mb-8">
         Experience
       </Typography>

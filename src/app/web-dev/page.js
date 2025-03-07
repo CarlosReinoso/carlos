@@ -5,10 +5,10 @@ import ProjectSection from "@/components/web-dev/ProjectsSection";
 
 export default function WebDevPage() {
   return (
-    <div className="flex flex-col lg:flex-row bg-slate-900">
+    <div className="lg:flex lg:justify-between lg:gap-4 bg-slate-900 px-8 py-12">
       <Sidebar />
 
-      <main className="w-full lg:w-3/4 p-6 lg:p-8 pt-20 lg:pt-8 overflow-y-auto">
+      <main className="w-full lg:w-1/2">
         <section id="about" className="mb-16">
           <BioSection />
         </section>
