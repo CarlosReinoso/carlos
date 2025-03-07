@@ -11,6 +11,7 @@ export const navItems = [
   { id: "experience", name: "Experience" },
   { id: "projects", name: "Projects" },
 ];
+// export metadata = me
 
 export default function WebDevPage() {
   const { activeSection, isStickyVisible } = useStickyTitle();
