@@ -1,6 +1,5 @@
 import Typography from "@/components/common/Typography";
 import ItemCard from "./ItemCard";
-import StickyTitle from "./StickyTitle";
 
 const experiences = [
   {
@@ -46,9 +45,7 @@ const experiences = [
 export default function ExperienceSection() {
   return (
     <section id="experience" className="mb-16">
-      <Typography variant="h6" className="uppercase">
-        Experience
-      </Typography>
+      <Typography variant="h6">Experience</Typography>
 
       <div className="space-y-8">
         {experiences.map((exp, index) => (

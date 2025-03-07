@@ -8,18 +8,23 @@ export default function ItemCard({
   link,
   image,
   stars,
+  duration, // Added duration prop
 }) {
   return (
     <div className="bg-gray-800/50 p-6 rounded-lg border border-transparent hover:border-gray-500 shadow-lg transition duration-300">
       <div className="grid grid-cols-12 gap-4">
-        {/* Left Column: Image */}
-        {image && (
-          <div className="col-span-12 md:col-span-3 flex items-center">
+        {/* Left Column: Image or Duration */}
+        <div className="col-span-12 md:col-span-3 flex items-center">
+          {image ? (
             <a href={link} target="_blank" rel="noopener noreferrer">
               <img src={image} alt={title} className="rounded-lg w-full" />
             </a>
-          </div>
-        )}
+          ) : (
+            <Typography variant="body" className="w-full">
+              {duration}
+            </Typography>
+          )}
+        </div>
 
         {/* Right Column: Project Info */}
         <div
