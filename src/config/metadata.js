@@ -8,8 +8,8 @@ export async function generateMetadata() {
   console.log("🚀 ~ generateMetadata ~ headersList:", headersList);
 
   // ✅ Use "x-next-pathname" for more reliable path detection
-  const pathname = headersList.get("x-matched-path") || "/";
-  console.log("🚀 ~ generateMetadata ~ pathname:", pathname);
+  // const pathname = headersList.get("x-matched-path") || "/";
+  // console.log("🚀 ~ generateMetadata ~ pathname:", pathname);
 
   // const pathnameRef =
   // headersList.get("referer")?.split(headersList.get("host"))[1] || "/";
