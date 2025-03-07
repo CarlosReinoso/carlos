@@ -1,5 +1,6 @@
 import Typography from "@/components/common/Typography";
 import ItemCard from "./ItemCard";
+import StickyTitle from "./StickyTitle";
 
 const experiences = [
   {
@@ -44,8 +45,8 @@ const experiences = [
 
 export default function ExperienceSection() {
   return (
-    <section className="text-white">
-      <Typography variant="h2" className="text-3xl font-bold mb-8">
+    <section id="experience" className="mb-16">
+      <Typography variant="h6" className="uppercase">
         Experience
       </Typography>
 

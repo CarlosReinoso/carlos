@@ -1,6 +1,11 @@
+import { whatsAppUrl } from "@/lib/constants";
+
 export default function WhatsAppIcon({ className, svgStyles }) {
   return (
-    <div className={className}>
+    <  a className={className}
+          href={whatsAppUrl}
+          target="_blank"
+          rel="noopener noreferrer">
       <svg
         // fill="#000000"
         height="24"
@@ -20,6 +25,6 @@ export default function WhatsAppIcon({ className, svgStyles }) {
           />
         </g>
       </svg>
-    </div>
+    </a>
   );
 }

@@ -1,6 +1,13 @@
+import { instagramUrl } from "@/lib/constants";
+
 export default function InstagramIcon({ className, svgStyles }) {
   return (
-    <div className={`${className} text-gray-200`}>
+    <a
+      className={className}
+      href={instagramUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {" "}
       {/* Ensures stroke color */}
       <svg
@@ -15,6 +22,6 @@ export default function InstagramIcon({ className, svgStyles }) {
           <circle cx="18" cy="5" r=".5" />
         </g>
       </svg>
-    </div>
+    </a>
   );
 }

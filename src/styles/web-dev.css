@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --primary-colour: white;
+  --primary-colour: #042f1f;
   --secondary-colour: #e8ebea;
-  --third-colour: #ff7fe8;
+  --third-colour: #042f1fe6;
 }
 
 body {
-  color: #374151;
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(
+    to bottom,
+    hsl(145, 64%, 9%, 0.95),
+    hsl(152, 80%, 12%, 0.9)
+  );
 }
 
 .font-poppins {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
-
-p {
-  color: red;
-}
-

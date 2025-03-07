@@ -5,11 +5,12 @@ import LinkedInIcon from "../icons/LinkedInIcon";
 import WhatsAppIcon from "../icons/WhatsAppIcon";
 
 export default function SidebarIcons() {
-  const iconWrapperStyles = "bg-slate-900 rounded-lg";
-  const svgStyles = "w-8 h-8 text-gray-200 fill-current";
+  const iconWrapperStyles =
+    "rounded-lg transition duration-300 group";
+  const svgStyles = "w-8 h-8 text-gray-400 fill-current group-hover:text-white";
 
   return (
-    <div className="flex flex-wrap justify-center items-center content-center bg-gray-900 gap-4 md:space-x-6 h-16">
+    <div className="flex flex-wrap justify-center items-center content-center gap-8 md:space-x-6 h-16 mt-8">
       <GitHubLogo className={iconWrapperStyles} svgStyles={svgStyles} />
       <LinkedInIcon className={iconWrapperStyles} svgStyles={svgStyles} />
       <InstagramIcon

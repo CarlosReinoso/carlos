@@ -1,25 +1,22 @@
-import Sidebar from "@/components/web-dev/Sidebar";
+"use client";
 import BioSection from "@/components/web-dev/BioSection";
 import ExperienceSection from "@/components/web-dev/ExperienceSection";
 import ProjectSection from "@/components/web-dev/ProjectsSection";
+import Sidebar from "@/components/web-dev/Sidebar";
+import StickyTitle from "@/components/web-dev/StickyTitle";
+import useStickyTitle from "@/hooks/useStickyTitle";
 
-export default function WebDevPage() {
+export default function MainLayout() {
+  const { activeSection, isStickyVisible } = useStickyTitle();
+
   return (
-    <div className="lg:flex lg:justify-between lg:gap-4 bg-slate-900 px-8 py-12">
+    <div className="lg:flex lg:justify-between lg:gap-4 px-8 py-12">
       <Sidebar />
-
-      <main className="w-full lg:w-1/2">
-        <section id="about" className="mb-16">
-          <BioSection />
-        </section>
-
-        <section id="experience" className="mb-16">
-          <ExperienceSection />
-        </section>
-
-        <section id="projects">
-          <ProjectSection />
-        </section>
+      <main className="w-full lg:w-1/2 mt-40">
+        {isStickyVisible && <StickyTitle contentTitle={activeSection} />}
+        <BioSection />
+        <ExperienceSection />
+        <ProjectSection />
       </main>
     </div>
   );

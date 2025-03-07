@@ -13,6 +13,14 @@ const projects = [
     image: "/images/spotify-app.png",
   },
   {
+    title: "Build a Spotify Connected App",
+    description:
+      "Video course that teaches how to build a web app with the Spotify Web API. Topics covered include the principles of REST APIs, user auth flows, Node, Express, React, Styled Components, and more.",
+    technologies: ["React", "Express", "Spotify API", "Heroku"],
+    link: "https://example.com",
+    image: "/images/spotify-app.png",
+  },
+  {
     title: "Spotify Profile",
     description:
       "Web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.",
@@ -25,9 +33,9 @@ const projects = [
 
 export default function ProjectSection() {
   return (
-    <>
+    <section id="projects">
       <Button buttonUrl="/web-dev/projects"> projects</Button>
-      <Typography variant="h2" className="text-3xl font-bold mb-8">
+      <Typography variant="h6" className="uppercase">
         Projects
       </Typography>
 
@@ -36,6 +44,6 @@ export default function ProjectSection() {
           <ItemCard key={index} {...project} />
         ))}
       </div>
-    </>
+    </section>
   );
 }

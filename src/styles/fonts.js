@@ -1,9 +1,9 @@
-import { Playfair_Display, Poppins } from "next/font/google";
+import { Raleway, Poppins } from "next/font/google";
 
-export const playfair = Playfair_Display({
+export const raleway = Raleway({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-playfair",
+  variable: "--font-raleway",
 });
 
 export const poppins = Poppins({
@@ -11,4 +11,3 @@ export const poppins = Poppins({
   weight: ["400"],
   variable: "--font-poppins",
 });
-

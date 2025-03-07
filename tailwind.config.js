@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         poppins: ["var(--font-poppins)", "sans-serif"],
-        playfair: ["var(--font-playfair)", "cursive"],
+        raleway: ["var(--font-raleway)", "cursive"],
         sacramento: ["var(--font-sacramento)", "cursive"],
       },
       colors: {
