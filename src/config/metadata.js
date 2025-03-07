@@ -5,16 +5,15 @@ import { headers } from "next/headers";
 
 export async function generateMetadata() {
   const headersList = headers();
-  console.log("🚀 ~ generateMetadata ~ headersList:", headersList)
+  console.log("🚀 ~ generateMetadata ~ headersList:", headersList);
 
   // ✅ Use "x-next-pathname" for more reliable path detection
   const pathname = headersList.get("x-matched-path") || "/";
-  console.log("🚀 ~ generateMetadata ~ pathname:", pathname)
+  console.log("🚀 ~ generateMetadata ~ pathname:", pathname);
 
-  const pathnameRef =
-  headersList.get("referer")?.split(headersList.get("host"))[1] || "/";
-  console.log("🚀 ~ generateMetadata ~ pathnameRef:", pathnameRef)
-
+  // const pathnameRef =
+  // headersList.get("referer")?.split(headersList.get("host"))[1] || "/";
+  // console.log("🚀 ~ generateMetadata ~ pathnameRef:", pathnameRef)
 
   if (pathname.startsWith("/web-dev")) {
     return metadataWebDev;
