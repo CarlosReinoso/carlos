@@ -10,7 +10,7 @@ export default function SidebarIcons() {
   const svgStyles = "w-8 h-8 text-gray-400 fill-current group-hover:text-white";
 
   return (
-    <div className="flex flex-wrap justify-center items-center content-center gap-8 md:space-x-6 h-16 mt-8">
+    <div className="flex flex-wrap justify-center items-center content-center gap-4 md:space-x-6 h-16 mt-8">
       <GitHubLogo className={iconWrapperStyles} svgStyles={svgStyles} />
       <LinkedInIcon className={iconWrapperStyles} svgStyles={svgStyles} />
       <InstagramIcon

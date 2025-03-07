@@ -1,4 +1,5 @@
 "use client";
+import { navItems } from "@/app/web-dev/page";
 import { useState, useEffect } from "react";
 
 export default function useStickyTitle() {
@@ -6,18 +7,12 @@ export default function useStickyTitle() {
   const [isStickyVisible, setIsStickyVisible] = useState(true);
 
   useEffect(() => {
-    const sections = [
-      { id: "about", name: "about" },
-      { id: "experience", name: "experience" },
-      { id: "projects", name: "projects" },
-    ];
-
     const handleScroll = () => {
       let newActiveSection = activeSection;
       let foundVisibleSection = false;
       const scrollY = window.scrollY;
 
-      sections.forEach((section, index) => {
+      navItems.forEach((section, index) => {
         const element = document.getElementById(section.id);
         if (element) {
           const sectionTop = element.offsetTop;
@@ -30,8 +25,8 @@ export default function useStickyTitle() {
           } else if (!foundVisibleSection && scrollY >= sectionBottom) {
             // If scrolled past, use the next section's title
             newActiveSection =
-              index < sections.length - 1
-                ? sections[index + 1].name
+              index < navItems.length - 1
+                ? navItems[index + 1].name
                 : section.name;
           }
         }
@@ -40,7 +35,7 @@ export default function useStickyTitle() {
       setActiveSection(newActiveSection);
 
       // Hide StickyTitle when scrolling past the last section
-      const lastSection = sections[sections.length - 1];
+      const lastSection = navItems[navItems.length - 1];
       const lastElement = document.getElementById(lastSection.id);
       if (
         lastElement &&

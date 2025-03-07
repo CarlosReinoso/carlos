@@ -1,29 +1,52 @@
 "use client";
+import { navItems } from "@/app/web-dev/page";
 import SidebarHero from "./SidebarHero";
 import SidebarIcons from "./SidebarIcons";
 
-export default function Sidebar() {
+export default function Sidebar({ className, activeSection }) {
+
   return (
     <>
-      {/* Mobile View: Only Show Name, Tagline & Icons */}
-      <header className="flex-col lg:hidden top-0 w-full z-50 flex justify-between items-center">
+      {/* Mobile View */}
+      <header
+        className={`flex-col lg:hidden top-0 w-full z-50 flex justify-between items-center ${className}`}
+      >
         <SidebarHero />
         <SidebarIcons />
       </header>
 
       {/* Sidebar (Desktop Only) */}
-      <aside className="hidden lg:flex lg:sticky top-0 h-[100vh] w-1/2 bg-gray-900 text-white flex-col justify-between">
+      <aside
+        className={`hidden lg:flex lg:sticky top-0 h-[100vh] w-1/2 text-white flex-col justify-between ${className}`}
+      >
         {/* Branding */}
         <SidebarHero />
+
+        {/* Navigation Menu */}
         <nav className="mt-8">
           <ul className="space-y-3">
-            {["about", "experience", "projects"].map((section) => (
-              <li key={section}>
+            {navItems.map((section) => (
+              <li key={section.name}>
                 <a
-                  href={`#${section}`}
-                  className="text-gray-400 hover:text-white font-medium uppercase"
+                  href={`#${section.name.toLowerCase()}`}
+                  className={`relative font-medium uppercase transition-colors duration-300 group
+                    ${
+                      activeSection === section.name
+                        ? "text-white"
+                        : "text-gray-400 hover:text-white"
+                    }`}
                 >
-                  {section.toUpperCase()}
+                  {section.name.toUpperCase()}
+
+                  {/* Underline Effect */}
+                  <span
+                    className={`absolute left-0 h-[1px] bg-white transition-all duration-300 
+                      ${
+                        activeSection === section.name
+                          ? "w-full" // Full underline for active section
+                          : "w-0 group-hover:w-full" // Expands on hover
+                      }`}
+                  ></span>
                 </a>
               </li>
             ))}
