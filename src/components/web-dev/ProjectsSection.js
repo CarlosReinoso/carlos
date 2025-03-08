@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "@/components/common/Typography";
 import ItemCard from "./ItemCard";
 import Button from "../common/Button";
+import SectionTitle from "./SectionTitle";
 
 const projects = [
   {
@@ -34,16 +35,14 @@ const projects = [
 export default function ProjectSection() {
   return (
     <section id="projects">
-      <Button buttonUrl="/web-dev/projects"> projects</Button>
-      <Typography variant="h6" className="uppercase">
-        Projects
-      </Typography>
+      <SectionTitle>Projects</SectionTitle>
 
       <div className="space-y-8">
         {projects.map((project, index) => (
           <ItemCard key={index} {...project} />
         ))}
       </div>
+      <Button buttonUrl="/web-dev/projects"> projects</Button>
     </section>
   );
 }

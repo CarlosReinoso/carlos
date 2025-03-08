@@ -8,64 +8,61 @@ export default function ItemCard({
   link,
   image,
   stars,
-  duration, // Added duration prop
+  duration,
 }) {
+  console.log("🚀 ~ description:", description)
   return (
-    <div className="bg-gray-800/50 p-6 rounded-lg border border-transparent hover:border-gray-500 shadow-lg transition duration-300">
-      <div className="grid grid-cols-12 gap-4">
-        {/* Left Column: Image or Duration */}
-        <div className="col-span-12 md:col-span-3 flex items-center">
-          {image ? (
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <img src={image} alt={title} className="rounded-lg w-full" />
-            </a>
-          ) : (
-            <Typography variant="body" className="w-full">
-              {duration}
-            </Typography>
-          )}
-        </div>
+    <div className="group rounded-lg border border-transparent transition duration-300 hover:border-gray-500">
+      <div className="bg-transparent p-6 rounded-lg transition duration-300 group-hover:[background:linear-gradient(to_bottom,hsl(145,64%,9%,0.95),hsl(152,80%,12%,0.9))]">
+        <div className="grid grid-cols-12 gap-4">
+          {/* Left Column: Date or Image */}
+          <div className="col-span-12 md:col-span-3 flex items-start">
+            {image ? (
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                <img src={image} alt={title} className="rounded-lg w-full" />
+              </a>
+            ) : (
+              <Typography variant="body1" className="text-gray-400 text-sm">
+                {duration}
+              </Typography>
+            )}
+          </div>
 
-        {/* Right Column: Project Info */}
-        <div
-          className={`col-span-12 ${
-            image ? "md:col-span-9" : "md:col-span-12"
-          }`}
-        >
-          <Typography variant="h3" className="text-xl font-semibold text-white">
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              {title} ↗
-            </a>
-          </Typography>
-          <Typography variant="body" className="text-gray-300 mt-3">
-            {description}
-          </Typography>
-
-          {/* Star Rating (if available) */}
-          {stars && (
+          {/* Right Column: Project Info */}
+          <div className="col-span-12 md:col-span-9">
             <Typography
-              variant="body"
-              className="text-gray-400 mt-2 flex items-center"
+              variant="h6"
+              className="text-xl font-semibold text-secondary group-hover:text-amber-400 transition duration-300"
             >
-              ⭐ {stars}
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                {title}
+              </a>
             </Typography>
-          )}
+            <Typography variant="body1" className="text-gray-300 mt-3">
+              {description}
+            </Typography>
 
-          {/* Tech Badges */}
-          <div className="flex flex-wrap gap-2 mt-4">
-            {technologies.map((tech, i) => (
-              <span
-                key={i}
-                className="px-3 py-1 text-sm bg-gray-700 text-gray-200 rounded-full"
+            {/* Star Rating (if available) */}
+            {stars && (
+              <Typography
+                variant="body1"
+                className="text-gray-400 mt-2 flex items-center"
               >
-                {tech}
-              </span>
-            ))}
+                ⭐ {stars}
+              </Typography>
+            )}
+
+            {/* Tech Badges */}
+            <div className="flex flex-wrap gap-2 mt-4">
+              {technologies.map((tech, i) => (
+                <span
+                  key={i}
+                  className="font-raleway px-3 py-1 text-sm bg-gray-700 rounded-full bg-amber-200/10 text-amber-400"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
