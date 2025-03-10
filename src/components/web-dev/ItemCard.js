@@ -1,6 +1,7 @@
 import React from "react";
 import Typography from "@/components/common/Typography";
 import Image from "next/image";
+import TechBadge from "./TechBadge";
 
 export default function ItemCard({
   title,
@@ -46,25 +47,10 @@ export default function ItemCard({
               {description}
             </Typography>
 
-            {/* Star Rating (if available) */}
-            {stars && (
-              <Typography
-                variant="body1"
-                className="text-gray-400 mt-2 flex items-center"
-              >
-                ⭐ {stars}
-              </Typography>
-            )}
-
             {/* Tech Badges */}
             <div className="flex flex-wrap gap-2 mt-4">
               {technologies.map((tech, i) => (
-                <span
-                  key={i}
-                  className="font-raleway px-3 py-1 text-sm bg-gray-700 rounded-full bg-amber-200/10 text-amber-400"
-                >
-                  {tech}
-                </span>
+                <TechBadge>{tech}</TechBadge>
               ))}
             </div>
           </div>
