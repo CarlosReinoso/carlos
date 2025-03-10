@@ -7,7 +7,6 @@ export default function ProjectTable({ projects }) {
       <Typography variant="h1" className="text-4xl font-bold mb-8">
         All Projects
       </Typography>
-      <p>pargpagrs</p>
 
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
@@ -43,7 +42,7 @@ export default function ProjectTable({ projects }) {
                 <td className="py-4 text-gray-400">{project.madeAt}</td>
                 <td className="py-4">
                   <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, i) => (
+                    {project.technologies.map((tech, i) => (
                       <span
                         key={i}
                         className="px-3 py-1 text-sm bg-gray-700 text-gray-200 rounded-full"

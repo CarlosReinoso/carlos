@@ -13,9 +13,14 @@ module.exports = {
         sacramento: ["var(--font-sacramento)", "cursive"],
       },
       colors: {
-        primary: "var(--primary-colour)",
-        secondary: "var(--secondary-colour)",
-        third: "var(--third-colour)",
+        primary: "#042f1f",
+        secondary: "#e8ebea",
+        third: "#fbbf24",
+        gradient: "#fbbf24",
+      },
+      backgroundImage: {
+        "gradient-primary":
+          "linear-gradient(to bottom, hsl(145,64%,9%,0.95), hsl(152,80%,12%,0.9))",
       },
     },
   },

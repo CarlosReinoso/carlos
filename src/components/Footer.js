@@ -2,10 +2,6 @@ import React from "react";
 import WebsiteBy from "./WebsiteBy";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
 
-export const whatsAppLink = "https://wa.me/447456531337";
-const mailto = "hello@carlosreinoso.co.uk";
-const instagramUrl = "https://www.instagram.com/carlos.reinoso_/?hl=en";
-const linkedIn = "https://www.linkedin.com/in/carlos-reinoso-bless/"
 
 const Footer = () => {
   return (

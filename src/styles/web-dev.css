@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary-colour: #042f1f;
-  --secondary-colour: #e8ebea;
-  --third-colour: #8C4B28;
-}
-
 body {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -20,4 +14,8 @@ body {
 
 .font-poppins {
   letter-spacing: 0.05em;
+}
+
+.font-raleway {
+  letter-spacing: 0.04em;
 }

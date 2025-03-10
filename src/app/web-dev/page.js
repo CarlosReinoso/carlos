@@ -9,8 +9,8 @@ import useStickyTitle from "@/hooks/useStickyTitle";
 
 export const navItems = [
   { id: "about", name: "About" },
-  { id: "experience", name: "Experience" },
   { id: "projects", name: "Projects" },
+  { id: "experience", name: "Experience" },
 ];
 
 export default function WebDevPage() {
@@ -32,8 +32,8 @@ export default function WebDevPage() {
             />
           )}
           <BioSection />
-          <ExperienceSection />
           <ProjectSection />
+          <ExperienceSection />
         </main>
       </div>
     </div>
