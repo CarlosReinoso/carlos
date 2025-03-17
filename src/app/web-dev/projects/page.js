@@ -20,7 +20,7 @@ export default function ProjectsPage() {
               <div
                 key={index}
                 onClick={() => window.open(project.link, "_blank")}
-                className="group p-4 mb-6 rounded-lg border border-gray-700 hover:border-gray-300 transition duration-300 cursor-pointer hover:bg-gradient-primary"
+                className="group p-4 mb-6 rounded-lg border border-gray-700 hover:border-gray-300 transition duration-300 cursor-pointer hover:bg-wd-gradient"
               >
                 <img
                   src={project.image}
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
                   <tr
                     key={index}
                     onClick={() => window.open(project.link, "_blank")}
-                    className="group hover:bg-gradient-primary transition duration-300 cursor-pointer border-t border-gray-700 hover:border-gray-300"
+                    className="group hover:bg-wd-gradient transition duration-300 cursor-pointer border-t border-gray-700 hover:border-gray-300"
                   >
                     <td className={`${tdStyles}`}>
                       <img

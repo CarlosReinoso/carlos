@@ -1,5 +1,3 @@
-import "../styles/landing.css";
-
 import Link from "next/link";
 
 export default function LandingPage() {

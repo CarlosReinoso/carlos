@@ -14,7 +14,7 @@ export default function ItemCard({
 }) {
   return (
     <div className="group rounded-lg border border-transparent transition duration-300 hover:border-gray-500">
-      <div className="bg-transparent p-6 rounded-lg transition duration-300 group-hover:hover:bg-gradient-primary">
+      <div className="bg-transparent p-6 rounded-lg transition duration-300 group-hover:bg-wd-gradient">
         <div className="grid grid-cols-12 gap-4">
           {/* Left Column: Date or Image */}
           <div className="col-span-12 md:col-span-3 flex items-start">

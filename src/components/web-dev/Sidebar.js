@@ -29,7 +29,7 @@ export default function Sidebar({ className, activeSection }) {
               <li key={section.name}>
                 <a
                   href={`#${section.name.toLowerCase()}`}
-                  className={`relative font-medium uppercase transition-colors duration-300 group
+                  className={`font-poppins relative font-medium uppercase transition-colors duration-300 group
                     ${
                       activeSection === section.name
                         ? "text-white"

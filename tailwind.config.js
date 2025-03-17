@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,19 +9,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ["var(--font-poppins)", "sans-serif"],
         raleway: ["var(--font-raleway)", "cursive"],
-        sacramento: ["var(--font-sacramento)", "cursive"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
+      },
+      letterSpacing: {
+        poppins: "0.05em",
+        raleway: "0.04em",
       },
       colors: {
-        primary: "#042f1f",
-        secondary: "#e8ebea",
-        third: "#fbbf24",
-        gradient: "#fbbf24",
-      },
-      backgroundImage: {
-        "gradient-primary":
-          "linear-gradient(to bottom, hsl(145,64%,9%,0.95), hsl(152,80%,12%,0.9))",
+        primary: "var(--color-primary)",
+        secondary: "var(--color-secondary)",
+        third: "var(--color-third)",
+        gradient: "var(--color-gradient)",
       },
     },
   },
