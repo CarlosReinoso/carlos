@@ -1,26 +1,35 @@
 #!/bin/bash
 
-# Define the source folder where your images are stored
-SOURCE_FOLDER="C:\Users\jrpca\Downloads\heroImages"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+OUTPUT_FOLDER="$SCRIPT_DIR/../../../public"
 
-# Define the output folder where compressed images will be saved
-OUTPUT_FOLDER="C:\Users\jrpca\Documents\web-agency\carlos\public\web-dev"
+# Debugging: Check the paths
+echo "Script directory: $SCRIPT_DIR"
+echo "Output folder: $(realpath "$OUTPUT_FOLDER")"
 
 # Create output folder if it doesn't exist
 mkdir -p "$OUTPUT_FOLDER"
 
-for file in "$SOURCE_FOLDER"/*.{jpg,jpeg,png}; do
-  # Check if file exists (to prevent errors when no matching files are found)
-  [ -e "$file" ] || continue
+# Loop through images
+for file in "$SCRIPT_DIR"/*.{jpg,jpeg,png,avif,svg}; do
+  [ -e "$file" ] || continue  # Skip if file doesn't exist
 
-  filename=$(basename "$file")  # Extract filename with extension
-  filename_no_ext="${filename%.*}"  # Remove extension
+  filename=$(basename "$file")
+  filename_no_ext="${filename%.*}"
 
-  # Convert & compress to WebP format
-  ffmpeg -i "$file" -q:v 75 -vf "scale=1920:-1" "$OUTPUT_FOLDER/${filename_no_ext}.webp"
+  echo "Processing: $file"
 
-  echo "Converted: $file → $OUTPUT_FOLDER/${filename_no_ext}.webp"
+  # Convert AVIF properly
+  if [[ "$file" == *.avif ]]; then
+    if ffmpeg -i "$file" -c:v libwebp -q:v 75 "$OUTPUT_FOLDER/${filename_no_ext}.webp" 2>/dev/null; then
+      echo "Converted (FFmpeg): $file → $OUTPUT_FOLDER/${filename_no_ext}.webp"
+    else
+      echo "⚠️ FFmpeg failed for AVIF, using ImageMagick..."
+      magick "$file" "$OUTPUT_FOLDER/${filename_no_ext}.webp"
+      echo "Converted (ImageMagick): $file → $OUTPUT_FOLDER/${filename_no_ext}.webp"
+    fi
+  else
+    ffmpeg -i "$file" -q:v 75 "$OUTPUT_FOLDER/${filename_no_ext}.webp"
+    echo "Converted: $file → $OUTPUT_FOLDER/${filename_no_ext}.webp"
+  fi
 done
-
-
-echo "✅ All images have been converted and saved in: $OUTPUT_FOLDER"

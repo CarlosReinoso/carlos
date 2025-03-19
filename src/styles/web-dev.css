@@ -1,15 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
+[data-theme="web-dev"] {
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(
+  --color-primary: #042f1f;
+  --color-secondary: #e8ebea;
+  --color-third: #fbbf24;
+  --color-gradient: #fbbf24;
+  --wd-gradient: linear-gradient(
     to bottom,
     hsl(145, 64%, 9%, 0.95),
     hsl(152, 80%, 12%, 0.9)
   );
 }
-
-
+.bg-wd-gradient {
+  background-image: var(--wd-gradient);
+}
+.group:hover .group-hover\:bg-wd-gradient {
+  background-image: var(--wd-gradient);
+}

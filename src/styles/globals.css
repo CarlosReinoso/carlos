@@ -1,48 +1,14 @@
+@import "./property.css";
+@import "./web-dev.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .font-poppins {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.01em;
 }
 
 .font-raleway {
   letter-spacing: 0.1em;
-}
-
-/* Property Theme */
-[data-theme="property"] {
-  color: red;
-  --color-primary: #811e8a;
-  --color-secondary: #0b1bf5;
-  --color-third: #fbbf24;
-  --color-gradient: #fbbf24;
-}
-
-/* Web Development Theme */
-[data-theme="web-dev"] {
-  color: white;
-  --color-primary: #042f1f;
-  --color-secondary: #e8ebea;
-  --color-third: #fbbf24;
-  --color-gradient: #fbbf24;
-  --wd-gradient: linear-gradient(
-    to bottom,
-    hsl(145, 64%, 9%, 0.95),
-    hsl(152, 80%, 12%, 0.9)
-  );
-}
-.bg-wd-gradient {
-  background-image: var(--wd-gradient);
-}
-.group:hover .group-hover\:bg-wd-gradient {
-  background-image: var(--wd-gradient);
-}
-
-/* Travel Theme */
-[data-theme="travel"] {
-  --color-primary: #0077b6;
-  --color-secondary: #00b4d8;
-  --color-third: #caf0f8;
-  --color-gradient: #90e0ef;
 }

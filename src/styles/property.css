@@ -1,8 +1,6 @@
-body {
-  color: teal;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-p {
-  color: green;
+[data-theme="property"] {
+  color: white;
+  --color-primary: #001f3f;
+  --color-secondary: #d1d5db; /* Tailwind gray-300 */
+  --color-third: #30d5c8;
 }
