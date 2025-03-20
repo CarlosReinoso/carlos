@@ -45,7 +45,7 @@ export default function Hero() {
           <br />
           <br />
           My market research blends official data with insights from estate
-          agents and my network, giving investors a complete view of the market.
+          agents and my network, giving investors a detailed view of the market.
         </Typography>
         <Button>See Projects</Button>
       </div>
