@@ -1,0 +1,74 @@
+"use client";
+
+import Image from "next/image";
+import Typography from "./Typography";
+import Button from "./Button";
+import BeforeAfterSliderComponent from "./BeforeAfterSliderComponent";
+
+export default function ProjectSection() {
+  const projects = [
+    {
+      title: "Stoke on Trent",
+      description:
+        "This project involved the full refurbishment and conversion of a distressed property into a high-yield HMO in a sought-after student area. Located just 5 minutes from the university, the property presented a strong investment opportunity with excellent rental demand.",
+      before: "/property/projects/kam/before/kitchen.jpeg",
+      after: "/property/projects/kam/after/kitchen.jpeg",
+    },
+    {
+      title: "London, Dagenham",
+      description: "Auction, full renovation with kitchen and loft extension",
+      before: "/property/projects/fredy/front.webp",
+      after: null,
+    },
+  ];
+
+  return (
+    <>
+      <div className="border-t border-third my-10 w-4/5 m-auto"></div>
+
+      <section className="py-8 px-10 text-center">
+        <Typography variant="h3" className="mb-4">
+          Projects Transformation
+        </Typography>
+        <Typography
+          variant="body1"
+          className="max-w-2xl mx-auto text-gray-400 mb-10"
+        >
+          I started my property journey by joint venturing with experienced
+          investors, learning firsthand how to source deals, manage renovations,
+          and navigate property finance.
+        </Typography>
+
+        <div className="grid md:grid-cols-1 gap-12 ">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="flex flex-col md:flex-row justify-center items-center gap-24"
+            >
+              {/* Left Side - Before & After Slider */}
+              <div className="relative w-full max-w-md overflow-hidden rounded-lg shadow-lg">
+                <div className="relative w-full h-72">
+                  <BeforeAfterSliderComponent
+                    beforeImage={project.before}
+                    afterImage={project.after}
+                  />
+                </div>
+              </div>
+
+              {/* Right Side - Project Details */}
+              <div className="text-left max-w-sm">
+                <Typography variant="h4" className="mb-2 text-third">
+                  {project.title}
+                </Typography>
+                <Typography variant="body1" className="text-gray-400">
+                  {project.description}
+                </Typography>
+                <Button className="mt-4">View Case Study</Button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}

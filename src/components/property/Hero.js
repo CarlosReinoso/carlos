@@ -29,23 +29,21 @@ export default function Hero() {
   ];
 
   return (
-    <section className="h-[80vh] px-10 flex flex-col md:flex-row items-center justify-between gap-24">
+    <section className="py-0 md:py-10  px-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
       {/* Left Side - Text Content */}
-      <div className="md:w-1/2 text-left">
+      <div className="md:w-1/2 text-left ">
         <Typography variant="h3" className="mb-4">
           Property Investing to Build Wealth &{" "}
           <span className="text-third">Live Freely</span>
         </Typography>
-        <Typography variant="h6" className="text-gray-400">
+        <Typography variant="h6" className="text-secondary">
           Turning Rundown Properties into Profitable Investments
         </Typography>
         <Typography variant="body1">
           I help investors find discounted property deals and turn distressed
-          homes into profitable investments.
-          <br />
-          <br />
-          My market research blends official data with insights from estate
-          agents and my network, giving investors a detailed view of the market.
+          homes into profitable investments. My market research blends official
+          data with insights from estate agents and my network, giving investors
+          a detailed view of the market.
         </Typography>
         <Button className="mt-6">See Projects</Button>
       </div>

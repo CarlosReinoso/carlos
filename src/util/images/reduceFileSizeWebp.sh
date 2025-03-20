@@ -21,15 +21,15 @@ for file in "$SCRIPT_DIR"/*.{jpg,jpeg,png,avif,svg}; do
 
   # Convert AVIF properly
   if [[ "$file" == *.avif ]]; then
-    if ffmpeg -i "$file" -c:v libwebp -q:v 75 "$OUTPUT_FOLDER/${filename_no_ext}.webp" 2>/dev/null; then
+    if ffmpeg -i "$file" -c:v libwebp -compression_level 6 -q:v 50 "$OUTPUT_FOLDER/${filename_no_ext}.webp" 2>/dev/null; then
       echo "Converted (FFmpeg): $file → $OUTPUT_FOLDER/${filename_no_ext}.webp"
     else
       echo "⚠️ FFmpeg failed for AVIF, using ImageMagick..."
-      magick "$file" "$OUTPUT_FOLDER/${filename_no_ext}.webp"
+      magick "$file" -quality 75 "$OUTPUT_FOLDER/${filename_no_ext}.webp"
       echo "Converted (ImageMagick): $file → $OUTPUT_FOLDER/${filename_no_ext}.webp"
     fi
   else
-    ffmpeg -i "$file" -q:v 75 "$OUTPUT_FOLDER/${filename_no_ext}.webp"
+    ffmpeg -i "$file" -compression_level 6 -q:v 50 "$OUTPUT_FOLDER/${filename_no_ext}.webp"
     echo "Converted: $file → $OUTPUT_FOLDER/${filename_no_ext}.webp"
   fi
 done

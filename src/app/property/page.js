@@ -1,3 +1,4 @@
+import ProjectSection from "@/components/property/ProjectsSection";
 import { metadataProperty } from "../../metadata/property";
 import Hero from "@/components/property/Hero";
 
@@ -7,7 +8,7 @@ export default function PropertyPage() {
   return (
     <>
       <Hero />
-      {/* <Button buttonUrl={"property/portfolio"}>portfolio</Button> */}
+      <ProjectSection />
     </>
   );
 }
