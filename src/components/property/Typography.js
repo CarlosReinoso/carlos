@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 export const h6 =
   "font-raleway text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-4";
-export const body1 = "font-raleway text-gray-400 text-base sm:text-lg mb-4";
+export const body1 = "font-raleway text-base sm:text-lg";
 
 const Typography = ({ variant = "h1", children, className = "" }) => {
   const variants = {

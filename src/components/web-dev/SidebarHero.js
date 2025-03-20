@@ -4,7 +4,7 @@ import WhiteText from "./WhiteText";
 export default function SidebarHero() {
   return (
     <div className="flex flex-col space-y-2 lg:space-y-3 w-full  ">
-      <Typography variant="h1" className="font-bold">
+      <Typography variant="h1" className="font-semibold">
         Carlos Reinoso
       </Typography>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Typography from "../common/Typography";
+import Typography from "../property/Typography";
 
 export default function Hero() {
   const projects = [
@@ -15,7 +15,6 @@ export default function Hero() {
       description: "Refurbished and refinanced for maximum returns",
       image: "/property/kam-kitchen-after.webp",
     },
-
     {
       title: "Bedroom",
       description: "Turned a rundown house into a profitable rental",
@@ -29,16 +28,17 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen p-10 flex flex-col md:flex-row items-center justify-between">
+    <section className="h-[80vh] px-10 flex flex-col md:flex-row items-center justify-between gap-24">
       {/* Left Side - Text Content */}
       <div className="md:w-1/2 text-left">
-        <Typography variant="h1" className="mb-4">
-          From First Deal to Full-Time Property Investor
+        <Typography variant="h3" className="mb-4">
+          Property Investing to Build Wealth &{" "}
+          <span className="text-third">Live Freely</span>
         </Typography>
-        <Typography variant="h2" className="text-gray-400">
+        <Typography variant="h6" className="text-gray-400">
           Turning Rundown Properties into Profitable Investments
         </Typography>
-        <Typography variant="p" className="mt-4 text-lg max-w-xl">
+        <Typography variant="body1">
           I help investors find high-yield property deals and transform
           distressed homes into profitable investments. At the same time, I
           document my journey—sharing real experiences, wins, and lessons
@@ -52,7 +52,7 @@ export default function Hero() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="bg-gray-900 rounded-xl overflow-hidden shadow-lg"
+            className="relative rounded-xl overflow-hidden shadow-lg"
           >
             <Image
               src={project.image}
@@ -61,8 +61,8 @@ export default function Hero() {
               height={300}
               className="w-full h-60 object-cover"
             />
-            <div className="p-4">
-              <Typography variant="h5" className="font-semibold">
+            <div className="absolute bottom-0 left-0 w-full bg-black/20 backdrop-blur-md p-2 rounded-b-xl">
+              <Typography variant="body1" className="">
                 {project.title}
               </Typography>
             </div>
