@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Typography from "../property/Typography";
+import Button from "./Button";
 
 export default function Hero() {
   const projects = [
@@ -39,12 +40,14 @@ export default function Hero() {
           Turning Rundown Properties into Profitable Investments
         </Typography>
         <Typography variant="body1">
-          I help investors find high-yield property deals and transform
-          distressed homes into profitable investments. At the same time, I
-          document my journey—sharing real experiences, wins, and lessons
-          learned. Whether you’re looking for your next deal or inspiration for
-          your own property projects, you’ll find it here.
+          I help investors find discounted property deals and turn distressed
+          homes into profitable investments.
+          <br />
+          <br />
+          My market research blends official data with insights from estate
+          agents and my network, giving investors a complete view of the market.
         </Typography>
+        <Button>See Projects</Button>
       </div>
 
       {/* Right Side - Image Gallery */}

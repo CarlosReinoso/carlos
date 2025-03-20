@@ -1,7 +1,7 @@
 import React from "react";
 import ItemCard from "./ItemCard";
 import SectionTitle from "./SectionTitle";
-import Button from "./Button";
+import Button from "../property/Button";
 
 export const projects = [
   {
