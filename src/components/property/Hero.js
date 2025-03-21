@@ -29,7 +29,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="py-0 md:py-10  px-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
+    <section className="py-0 md:py-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
       {/* Left Side - Text Content */}
       <div className="md:w-1/2 text-left ">
         <Typography variant="h3" className="mb-4">

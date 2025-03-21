@@ -18,7 +18,7 @@ export default function ProjectSection() {
       title: "London, Dagenham",
       description: "Auction, full renovation with kitchen and loft extension",
       before: "/property/projects/fredy/front.webp",
-      after: null,
+      after: null, // No after image (Work in Progress)
     },
   ];
 
@@ -26,7 +26,7 @@ export default function ProjectSection() {
     <>
       <div className="border-t border-third my-10 w-4/5 m-auto"></div>
 
-      <section className="py-8 px-10 text-center">
+      <section className="py-8 text-center">
         <Typography variant="h3" className="mb-4">
           Projects Transformation
         </Typography>
@@ -39,24 +39,14 @@ export default function ProjectSection() {
           and navigate property finance.
         </Typography>
 
-        <div className="grid md:grid-cols-1 gap-12 ">
+        <div className="grid gap-12">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="flex flex-col md:flex-row justify-center items-center gap-24"
+              className="flex flex-col md:flex-row items-center justify-between gap-6"
             >
-              {/* Left Side - Before & After Slider */}
-              <div className="relative w-full max-w-md overflow-hidden rounded-lg shadow-lg">
-                <div className="relative w-full h-72">
-                  <BeforeAfterSliderComponent
-                    beforeImage={project.before}
-                    afterImage={project.after}
-                  />
-                </div>
-              </div>
-
-              {/* Right Side - Project Details */}
-              <div className="text-left max-w-sm">
+              {/* Left Side - Project Info */}
+              <div className="text-left max-w-lg w-full md:w-1/2">
                 <Typography variant="h4" className="mb-2 text-third">
                   {project.title}
                 </Typography>
@@ -64,6 +54,14 @@ export default function ProjectSection() {
                   {project.description}
                 </Typography>
                 <Button className="mt-4">View Case Study</Button>
+              </div>
+
+              {/* Right Side - Before & After Slider / Work in Progress */}
+              <div className="relative w-full md:w-1/2 max-w-lg overflow-hidden rounded-lg shadow-lg">
+                <BeforeAfterSliderComponent
+                  beforeImage={project.before}
+                  afterImage={project.after}
+                />
               </div>
             </div>
           ))}
