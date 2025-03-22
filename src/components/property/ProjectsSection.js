@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Typography from "./Typography";
 import Button from "./Button";
 import BeforeAfterSliderComponent from "./BeforeAfterSliderComponent";
@@ -10,13 +9,14 @@ export default function ProjectSection() {
     {
       title: "Stoke on Trent",
       description:
-        "This project involved the full refurbishment and conversion of a distressed property into a high-yield HMO in a sought-after student area. Located just 5 minutes from the university, the property presented a strong investment opportunity with excellent rental demand.",
+        "This project involved a full refurbishment and conversion of a distressed property into a HMO. Located just five minutes from the university, the property now offers premium student accommodation with strong rental demand. The renovation included modern interiors, optimised space planning, and compliance with HMO standards, making it a lucrative investment opportunity.",
       before: "/property/projects/kam/before/kitchen.jpeg",
       after: "/property/projects/kam/after/kitchen.jpeg",
     },
     {
       title: "London, Dagenham",
-      description: "Auction, full renovation with kitchen and loft extension",
+      description:
+        "A full renovation project following an auction purchase, transforming a run-down property into a modern living space. The works included a kitchen upgrade, a loft extension for additional bedrooms, and a full interior redesign. Situated in a growing rental market, this property now appeals to families and professionals, ensuring strong tenant demand and long-term capital appreciation.",
       before: "/property/projects/fredy/front.webp",
       after: null, // No after image (Work in Progress)
     },
@@ -47,12 +47,10 @@ export default function ProjectSection() {
             >
               {/* Left Side - Project Info */}
               <div className="text-left max-w-lg w-full md:w-1/2">
-                <Typography variant="h4" className="mb-2 text-third">
+                <Typography variant="h4" className="mb-2">
                   {project.title}
                 </Typography>
-                <Typography variant="body1" className="text-gray-400">
-                  {project.description}
-                </Typography>
+                <Typography variant="body1">{project.description}</Typography>
                 <Button className="mt-4">View Case Study</Button>
               </div>
 

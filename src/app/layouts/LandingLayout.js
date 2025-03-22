@@ -2,9 +2,7 @@
 
 export default function LandingLayout({ children }) {
   return (
-    <body>
-      <h1>landing layout</h1>
-      <p>p in LandingLayout</p>
+    <body className="bg-primary px-4 sm:px-12 md:px-24 max-w-screen-2xl mx-auto">
       {children}
     </body>
   );
