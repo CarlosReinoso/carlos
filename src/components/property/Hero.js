@@ -33,12 +33,19 @@ export default function Hero() {
       {/* Left Side - Text Content */}
       <div className="md:w-1/2 text-left ">
         <Typography variant="h3" className="mb-4">
-          Property Building
+          Kingdom Home Builders
         </Typography>
-        <Typography variant="h6" className="text-secondary">
-          Turning Rundown Properties into Profitable Investments
+
+        <Typography variant="h6" className="text-secondary mb-2">
+          Transforming Rundown Houses into Beautiful, Liveable Homes
         </Typography>
-        <Typography variant="body1">I help</Typography>
+
+        <Typography variant="body1" className="mb-6">
+          Kingdom Home Builders is a construction business focused on
+          delivering high-quality, stress-free property renovations. We offer
+          complete project management, from structural repairs and plumbing to
+          kitchen and bathroom installations.
+        </Typography>
         <Button className="mt-6">See Projects</Button>
       </div>
 
