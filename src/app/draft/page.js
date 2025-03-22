@@ -1,12 +1,25 @@
 "use client";
-import ProjectSection, {
-  projectsSection,
-} from "@/components/property/ProjectsSection";
 import { projects } from "@/components/property/Hero";
 import Image from "next/image";
 import Typography from "@/components/property/Typography";
 import Button from "@/components/property/Button";
 import BeforeAfterSliderComponent from "@/components/property/BeforeAfterSliderComponent";
+const projectsSection = [
+  {
+    title: "Stoke on Trent",
+    description:
+      "This was a complete refurbishment of a severely neglected property. We stripped it back to brick, reconfigured the internal layout to comply with HMO regulations, and installed high-quality, durable finishes throughout. Given its location just five minutes from the university, we designed the property specifically for student tenants — focusing on space efficiency, modern interiors, and safety compliance. The result is a fully licensed HMO delivering strong rental returns and minimal voids.",
+    before: "/property/projects/kam/before/kitchen.jpeg",
+    after: "/property/projects/kam/after/kitchen.jpeg",
+  },
+  {
+    title: "London, Dagenham",
+    description:
+      "Purchased at auction in a rundown state, this property presented a solid structural base and strong potential for value uplift. We carried out a full strip-out, completed initial structural assessments, and began essential upgrades including plumbing and electrics. A new kitchen layout was designed and a loft extension planned to add further bedrooms. Though the renovation is ongoing, the project is progressing well and is set to become a high-spec family home in an increasingly popular rental area.",
+    before: "/property/projects/fredy/front.webp",
+    after: null, // No after image (Work in Progress)
+  },
+];
 
 export default function PropertyPage() {
   return (
