@@ -4,30 +4,32 @@ import Image from "next/image";
 import Typography from "../property/Typography";
 import Button from "./Button";
 
-export default function Hero() {
-  const projects = [
-    {
-      title: "Kitchen",
-      description: "Refurbished and refinanced for maximum returns",
-      image: "/property/kam-kitchen.webp",
-    },
-    {
-      title: "Kitchen After",
-      description: "Refurbished and refinanced for maximum returns",
-      image: "/property/kam-kitchen-after.webp",
-    },
-    {
-      title: "Bedroom",
-      description: "Turned a rundown house into a profitable rental",
-      image: "/property/kam-bedroom1.webp",
-    },
-    {
-      title: "Bedroom After",
-      description: "Turned a rundown house into a profitable rental",
-      image: "/property/kam-bedroom1-after.webp",
-    },
-  ];
+export const projects = [
+  {
+    title: "Kitchen",
+    description: "Refurbished and refinanced for maximum returns",
+    image: "/property/kam-kitchen.webp",
+  },
+  {
+    title: "Kitchen After",
+    description: "Refurbished and refinanced for maximum returns",
+    image: "/property/kam-kitchen-after.webp",
+  },
+  {
+    title: "Bedroom",
+    description: "Turned a rundown house into a profitable rental",
+    image: "/property/kam-bedroom1.webp",
+  },
+  {
+    title: "Bedroom After",
+    description: "Turned a rundown house into a profitable rental",
+    image: "/property/kam-bedroom1-after.webp",
+  },
+];
 
+
+export default function Hero() {
+  
   return (
     <section className="py-0 md:py-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
       {/* Left Side - Text Content */}
