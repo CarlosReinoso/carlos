@@ -15,9 +15,9 @@ const projectsSection = [
   {
     title: "London, Dagenham",
     description:
-      "Purchased at auction in a rundown state, this property presented a solid structural base and strong potential for value uplift. We carried out a full strip-out, completed initial structural assessments, and began essential upgrades including plumbing and electrics. A new kitchen layout was designed and a loft extension planned to add further bedrooms. Though the renovation is ongoing, the project is progressing well and is set to become a high-spec family home in an increasingly popular rental area.",
+      "We carried out a full strip-out, completed initial structural assessments, and began essential upgrades including plumbing and electrics. A new kitchen layout was designed and a loft extension planned to add further bedrooms all done to a high-spec",
     before: "/property/projects/fredy/front.webp",
-    after: null, // No after image (Work in Progress)
+    after: "/property/projects/fredy/front.webp",
   },
 ];
 
