@@ -1,9 +1,12 @@
 "use client";
-import ProjectSection from "@/components/property/ProjectsSection";
+import ProjectSection, {
+  projectsSection,
+} from "@/components/property/ProjectsSection";
 import { projects } from "@/components/property/Hero";
 import Image from "next/image";
 import Typography from "@/components/property/Typography";
 import Button from "@/components/property/Button";
+import BeforeAfterSliderComponent from "@/components/property/BeforeAfterSliderComponent";
 
 export default function PropertyPage() {
   return (
@@ -61,7 +64,39 @@ export default function PropertyPage() {
         </div>
       </section>
 
-      <ProjectSection />
+      <div className="border-t border-third my-10 w-4/5 m-auto"></div>
+
+      <section className="py-8 text-center">
+        <Typography variant="h3" className="mb-4">
+          Projects Transformation
+        </Typography>
+
+        <div className="grid gap-12">
+          {projectsSection.map((project, index) => (
+            <div
+              key={index}
+              className="flex flex-col md:flex-row items-center justify-between gap-6"
+            >
+              {/* Left Side - Project Info */}
+              <div className="text-left max-w-lg w-full md:w-1/2">
+                <Typography variant="h4" className="mb-2">
+                  {project.title}
+                </Typography>
+                <Typography variant="body1">{project.description}</Typography>
+                <Button className="mt-4">View Case Study</Button>
+              </div>
+
+              {/* Right Side - Before & After Slider / Work in Progress */}
+              <div className="relative w-full md:w-1/2 max-w-lg overflow-hidden rounded-lg shadow-lg">
+                <BeforeAfterSliderComponent
+                  beforeImage={project.before}
+                  afterImage={project.after}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
