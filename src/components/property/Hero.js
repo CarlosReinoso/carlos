@@ -33,18 +33,12 @@ export default function Hero() {
       {/* Left Side - Text Content */}
       <div className="md:w-1/2 text-left ">
         <Typography variant="h3" className="mb-4">
-          Property Investing to Build Wealth &{" "}
-          <span className="text-third">Live Freely</span>
+          Property Building
         </Typography>
         <Typography variant="h6" className="text-secondary">
           Turning Rundown Properties into Profitable Investments
         </Typography>
-        <Typography variant="body1">
-          I help investors find discounted property deals and turn distressed
-          homes into profitable investments. My market research blends official
-          data with insights from estate agents and my network, giving investors
-          a detailed view of the market.
-        </Typography>
+        <Typography variant="body1">I help</Typography>
         <Button className="mt-6">See Projects</Button>
       </div>
 
