@@ -8,7 +8,7 @@ const projectsSection = [
   {
     title: "Stoke on Trent",
     description:
-      "This was a complete refurbishment of a severely neglected property. We stripped it back to brick, reconfigured the internal layout to comply with HMO regulations, and installed high-quality, durable finishes throughout. Given its location just five minutes from the university, we designed the property specifically for student tenants — focusing on space efficiency, modern interiors, and safety compliance. The result is a fully licensed HMO delivering strong rental returns and minimal voids.",
+      "This was a complete refurbishment of a severely neglected property. We stripped it back to brick, reconfigured the internal layout to comply with HMO regulations, and installed high-quality, durable finishes throughout. Given its location just five minutes from the university, we designed the property specifically for student tenants — focusing on space efficiency, modern interiors, and safety compliance.",
     before: "/property/projects/kam/before/kitchen.jpeg",
     after: "/property/projects/kam/after/kitchen.jpeg",
   },
