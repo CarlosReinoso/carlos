@@ -8,28 +8,26 @@ export const projects = [
   {
     title: "Kitchen",
     description: "Refurbished and refinanced for maximum returns",
-    image: "/property/kam-kitchen.webp",
+    image: "/property/projects/kam/before/kitchen.jpeg",
   },
   {
     title: "Kitchen After",
     description: "Refurbished and refinanced for maximum returns",
-    image: "/property/kam-kitchen-after.webp",
+    image: "/property/projects/kam/after/kitchen.jpeg",
   },
   {
     title: "Bedroom",
     description: "Turned a rundown house into a profitable rental",
-    image: "/property/kam-bedroom1.webp",
+    image: "/property/projects/kam/before/bed1.jpeg",
   },
   {
     title: "Bedroom After",
     description: "Turned a rundown house into a profitable rental",
-    image: "/property/kam-bedroom1-after.webp",
+    image: "/property/projects/kam/after/bed1.jpeg",
   },
 ];
 
-
 export default function Hero() {
-  
   return (
     <section className="py-0 md:py-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
       {/* Left Side - Text Content */}
