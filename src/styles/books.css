@@ -5,6 +5,9 @@
   --color-third: #30d5c8;
 }
 
+[data-theme="books"] hr {
+  padding: 4px 0;
+}
 [data-theme="books"] h1 {
   @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4;
 }
