@@ -6,6 +6,7 @@ import WebDevLayout from "@/app/layouts/WebDevLayout";
 import PropertyLayout from "@/app/layouts/PropertyLayout";
 import LandingLayout from "@/app/layouts/LandingLayout";
 import KingdomLayout from "@/app/layouts/KingdomLayout";
+import BooksLayout from "@/app/layouts/BooksLayout";
 
 export default function LayoutSelector({ children }) {
   const pathname = usePathname();
@@ -16,6 +17,7 @@ export default function LayoutSelector({ children }) {
     if (pathname.startsWith("/web-dev")) theme = "web-dev";
     else if (pathname.startsWith("/property")) theme = "property";
     else if (pathname.startsWith("/draft")) theme = "property";
+    else if (pathname.startsWith("/books")) theme = "books";
 
     document.documentElement.setAttribute("data-theme", theme);
   }, [pathname]); // Runs whenever pathname changes
@@ -29,6 +31,9 @@ export default function LayoutSelector({ children }) {
   }
   if (pathname.startsWith("/draft")) {
     return <KingdomLayout>{children}</KingdomLayout>;
+  }
+  if (pathname.startsWith("/books")) {
+    return <BooksLayout>{children}</BooksLayout>;
   }
 
   return <LandingLayout>{children}</LandingLayout>;

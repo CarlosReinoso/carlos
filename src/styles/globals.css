@@ -1,5 +1,6 @@
 @import "./property.css";
 @import "./web-dev.css";
+@import "./books.css";
 
 @tailwind base;
 @tailwind components;
