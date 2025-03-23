@@ -4,6 +4,7 @@ import InstagramIcon from "../icons/InstagramIcon";
 import LinkedInIcon from "../icons/LinkedInIcon";
 import WhatsAppIcon from "../icons/WhatsAppIcon";
 import Typography from "./Typography";
+import WebsiteBy from "../common/WebsiteBy";
 
 export default function Footer() {
   const iconWrapperStyles = "rounded-lg transition duration-300 group";
@@ -28,6 +29,7 @@ export default function Footer() {
           size="40px"
         />
       </div>
+      <WebsiteBy />
     </>
   );
 }
