@@ -32,7 +32,7 @@ export const propertyProjectsData = [
     valueOfWorks: "£120,000",
     purchaseDate: "January 2023",
     imageFolder: "/property/projects/fredy",
-    beforeImage: "/property/projects/fredy/front.webp",
+    beforeImage: "/property/projects/fredy/before/front.webp",
     afterImage: null,
   },
 ];
