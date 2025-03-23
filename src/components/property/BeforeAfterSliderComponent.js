@@ -9,11 +9,15 @@ export default function BeforeAfterSliderComponent({
   return (
     <div className="relative w-full mx-auto max-w-[800px]">
       {afterImage ? (
-        <div className="h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px]">
+        <div className="h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] rounded-lg shadow-lg overflow-hidden">
           <ReactCompareImage
             leftImage={beforeImage}
             rightImage={afterImage}
-            leftImageCss={{ width: "100%", height: "100%", objectFit: "cover" }}
+            leftImageCss={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
             rightImageCss={{
               width: "100%",
               height: "100%",
@@ -22,7 +26,7 @@ export default function BeforeAfterSliderComponent({
           />
         </div>
       ) : (
-        <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px]">
+        <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] rounded-lg shadow-lg overflow-hidden">
           <Image
             src={beforeImage}
             alt="Before"

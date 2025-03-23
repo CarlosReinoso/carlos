@@ -16,8 +16,8 @@ const projectsSection = [
     title: "London, Dagenham",
     description:
       "We carried out a full strip-out, completed initial structural assessments, and began essential upgrades including plumbing and electrics. A new kitchen layout was designed and a loft extension planned to add further bedrooms all done to a high-spec",
-    before: "/property/projects/fredy/front.webp",
-    after: "/property/projects/fredy/front.webp",
+    before: "/property/projects/fredy/before/front.webp",
+    after: "/property/projects/fredy/before/front.webp",
   },
 ];
 
@@ -100,7 +100,7 @@ export default function PropertyPage() {
               </div>
 
               {/* Right Side - Before & After Slider / Work in Progress */}
-              <div className="relative w-full md:w-1/2 max-w-lg overflow-hidden rounded-lg shadow-lg">
+              <div className="relative w-full md:w-1/2 max-w-lg overflow-hidden">
                 <BeforeAfterSliderComponent
                   beforeImage={project.before}
                   afterImage={project.after}

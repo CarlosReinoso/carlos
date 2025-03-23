@@ -44,7 +44,7 @@ export default function ProjectSection() {
               </div>
 
               {/* Right Side - Before & After Slider / Work in Progress */}
-              <div className="relative w-full md:w-1/2 max-w-lg overflow-hidden rounded-lg shadow-lg">
+              <div className="relative w-full md:w-1/2 max-w-lg overflow-hidden">
                 <BeforeAfterSliderComponent
                   beforeImage={project.beforeImage}
                   afterImage={project.afterImage}
