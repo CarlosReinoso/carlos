@@ -4,3 +4,11 @@
   --color-secondary: #d1d5db; /* Tailwind gray-300 */
   --color-third: #30d5c8;
 }
+
+/* property.css */
+[data-theme="property"]  .underline {
+  text-decoration-line: underline;
+  text-decoration-color: #30d5c8;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}

@@ -29,7 +29,7 @@ export const projects = [
 
 export default function Hero() {
   return (
-    <section className="py-0 md:py-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
+    <section className="py-0 md:py-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24" >
       {/* Left Side - Text Content */}
       <div className="md:w-1/2 text-left ">
         <Typography variant="h3" className="mb-4">
@@ -45,7 +45,9 @@ export default function Hero() {
           data with insights from estate agents and my network, giving investors
           a detailed view of the market.
         </Typography>
-        <Button className="mt-6">See Projects</Button>
+        <Button className="mt-6" buttonUrl="#projects">
+          See Projects
+        </Button>
       </div>
 
       {/* Right Side - Image Gallery */}

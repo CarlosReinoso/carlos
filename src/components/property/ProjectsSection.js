@@ -23,7 +23,7 @@ export default function ProjectSection() {
           and navigate property finance.
         </Typography>
 
-        <div className="grid gap-12">
+        <div className="grid gap-12" id="projects">
           {propertyProjectsData.map((project, index) => (
             <div
               key={index}
@@ -31,7 +31,7 @@ export default function ProjectSection() {
             >
               {/* Left Side - Project Info */}
               <div className="text-left max-w-lg w-full md:w-1/2">
-                <Typography variant="h4" className="mb-2">
+                <Typography variant="h4" className="mb-2 underline">
                   {project.location}
                 </Typography>
                 <Typography variant="body1">{project.summary}</Typography>

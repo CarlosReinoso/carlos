@@ -3,15 +3,13 @@
 import Image from "next/image";
 import Typography from "@/components/property/Typography";
 
-export const heading =
-  "underline decoration-third decoration-2 underline-offset-4";
 export default function Description({ project }) {
   return (
     <div className="bg-primary border-t border-third py-12 px-6 md:px-12 space-y-20">
       {/* BEFORE */}
       <div className="grid md:grid-cols-2 items-center gap-8">
         <div>
-          <Typography variant="h4" className={heading}>
+          <Typography variant="h4" className="underline">
             Before
           </Typography>
           <Typography variant="body" className="text-white text-lg">
@@ -45,7 +43,7 @@ export default function Description({ project }) {
           </div>
         )}
         <div>
-          <Typography variant="h4" className={heading}>
+          <Typography variant="h4" className="underline">
             After
           </Typography>
           <Typography variant="body" className="text-white text-lg">
