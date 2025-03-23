@@ -1,10 +1,9 @@
-import { emailUrl } from "@/lib/constants";
 
-export default function EmailIcon({ className, svgStyles }) {
+export default function EmailIcon({ className, svgStyles,href }) {
   return (
     <a
       className={className}
-      href={emailUrl}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
     >
