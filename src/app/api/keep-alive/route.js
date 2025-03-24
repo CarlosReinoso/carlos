@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-// import supabase from "@/services/supabase/config";
+import supabase from "@/services/supabase/config";
 
 export const revalidate = 0;
 export async function GET() {
