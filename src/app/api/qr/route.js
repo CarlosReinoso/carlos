@@ -9,7 +9,7 @@ export async function GET() {
   const vCard = `
 BEGIN:VCARD
 VERSION:3.0
-N:Reinso;Carlos;;;
+N:Reinoso;Carlos;;;
 FN:Carlos Reinso
 ORG:Reinso Web & Property
 TEL:+447456531337

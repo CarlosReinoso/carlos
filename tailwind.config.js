@@ -11,6 +11,7 @@ module.exports = {
       fontFamily: {
         raleway: ["var(--font-raleway)", "cursive"],
         poppins: ["var(--font-poppins)", "sans-serif"],
+        space: ["var(--font-space)", "sans-serif"],
       },
       letterSpacing: {
         poppins: "0.05em",

@@ -1,6 +1,7 @@
 @import "./property.css";
 @import "./web-dev.css";
 @import "./books.css";
+@import "./vcard.css";
 
 @tailwind base;
 @tailwind components;
