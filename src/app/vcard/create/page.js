@@ -1,14 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
-import QRCode from "qrcode";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-);
 
 export default function CreateVCard() {
   const [formData, setFormData] = useState({
@@ -22,6 +15,7 @@ export default function CreateVCard() {
     note: "",
     slug: "",
   });
+
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -29,72 +23,26 @@ export default function CreateVCard() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
+    console.log("🚀 ~ handleSubmit ~ e:", e)
     e.preventDefault();
     setLoading(true);
 
-    const {
-      name,
-      surname,
-      company,
-      phone,
-      email,
-      website,
-      address,
-      note,
-      slug,
-    } = formData;
-
-    const vcard = `
-BEGIN:VCARD
-VERSION:3.0
-N:${surname};${name};;;
-FN:${name} ${surname}
-ORG:${company}
-TEL:${phone}
-EMAIL:${email}
-URL:${website}
-ADR:;;${address};;;;
-NOTE:${note}
-END:VCARD
-    `.trim();
-
-    // Generate QR Code from link (e.g. /vcard/[slug])
-    const cardLink = `https://carlosreinoso.co.uk/vcard/${slug}`;
-    const qrDataUrl = await QRCode.toDataURL(cardLink);
-
-    // Upload QR to Supabase Storage
-    const filePath = `${slug}.png`;
-    const { data: file, error: uploadError } = await supabase.storage
-      .from("vcards")
-      .upload(filePath, await fetch(qrDataUrl).then((r) => r.blob()), {
-        contentType: "image/png",
-        upsert: true,
-      });
-
-    if (uploadError) {
-      console.error(uploadError);
-      return;
-    }
-
-    const { data, error } = await supabase.from("vcards").insert([
-      {
-        name,
-        surname,
-        company,
-        phone,
-        email,
-        website,
-        address,
-        note,
-        slug,
-        qr_url: filePath,
+    const res = await fetch("/api/vcard/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    ]);
+      body: JSON.stringify(formData),
+    });
+    console.log("🚀 ~ handleSubmit ~ res:", res)
 
-    if (error) {
-      console.error(error);
-    } else {
+    if (res.ok) {
+      const { slug } = await res.json();
       router.push(`/vcard/${slug}`);
+    } else {
+      const err = await res.json();
+      console.error("Failed to create vCard:", err?.error || "Unknown error");
+      alert("There was an error creating the vCard. Please try again.");
     }
 
     setLoading(false);

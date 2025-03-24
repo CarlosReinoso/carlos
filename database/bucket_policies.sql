@@ -48,11 +48,11 @@ USING (false);
 
 
   -- Enable Row-Level Security (if not already enabled)
-ALTER TABLE keanu_short_stories ENABLE ROW LEVEL SECURITY;
+ALTER TABLE vcards ENABLE ROW LEVEL SECURITY;
 
 -- Allow anyone to insert not
 CREATE POLICY allow_insert_for_anyone
-ON keanu_short_stories
+ON vcards
 FOR INSERT
 TO public
 WITH CHECK (TRUE);
