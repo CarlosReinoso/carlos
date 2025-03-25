@@ -4,17 +4,17 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import WebDevLayout from "@/app/layouts/WebDevLayout";
 import PropertyLayout from "@/app/layouts/PropertyLayout";
-import LandingLayout from "@/app/layouts/LandingLayout";
 import KingdomLayout from "@/app/layouts/KingdomLayout";
 import BooksLayout from "@/app/layouts/BooksLayout";
 import VCardLayout from "@/app/layouts/VCardLayout";
+import HomeLayout from "@/app/layouts/HomeLayout";
 
 export default function LayoutSelector({ children }) {
   const pathname = usePathname();
 
   useEffect(() => {
     // Detect which theme to apply based on pathname
-    let theme = "default"; // Default theme for Landing
+    let theme = "home"; // Default theme for Landing
     if (pathname.startsWith("/web-dev")) theme = "web-dev";
     else if (pathname.startsWith("/property")) theme = "property";
     else if (pathname.startsWith("/draft")) theme = "property";
@@ -41,5 +41,5 @@ export default function LayoutSelector({ children }) {
     return <VCardLayout>{children}</VCardLayout>;
   }
 
-  return <LandingLayout>{children}</LandingLayout>;
+  return <HomeLayout>{children}</HomeLayout>;
 }
