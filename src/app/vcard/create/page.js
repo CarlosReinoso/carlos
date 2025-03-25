@@ -24,11 +24,25 @@ export default function CreateVCard() {
   const router = useRouter();
 
   const requiredFields = ["slug", "name", "surname", "phone", "email"];
+  const slugRegex = /^[a-z0-9_.]+$/;
 
   const handleChange = (e) => {
-    setSlugError(false);
-    setFormError(null);
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    // Force slug lowercase
+    if (name === "slug") {
+      setFormData({ ...formData, slug: value.toLowerCase() });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+
+    if (slugError && name === "slug") {
+      setSlugError(false);
+    }
+
+    if (formError) {
+      setFormError(null);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -36,6 +50,14 @@ export default function CreateVCard() {
     setLoading(true);
     setSlugError(false);
     setFormError(null);
+
+    // Validate slug format
+    if (!slugRegex.test(formData.slug)) {
+      setSlugError(true);
+      slugRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      setLoading(false);
+      return;
+    }
 
     const res = await fetch("/api/vcard/create", {
       method: "POST",
@@ -114,6 +136,20 @@ export default function CreateVCard() {
                     : "border-[#4A4A4A]"
                 }`}
               />
+              {key === "slug" && (
+                <>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Your handle can only contain lowercase letters, numbers,
+                    underscores, and periods.
+                  </p>
+                  {!slugRegex.test(formData.slug) &&
+                    formData.slug.length > 0 && (
+                      <p className="text-sm text-yellow-400 mt-1">
+                        Invalid handle format.
+                      </p>
+                    )}
+                </>
+              )}
               {slugError && key === "slug" && (
                 <p className="text-sm text-red-400 mt-1">
                   That slug is already taken. Try another one.
