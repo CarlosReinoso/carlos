@@ -1,5 +1,6 @@
 import { metadataLanding } from "@/metadata/landing";
 import { metadataProperty } from "@/metadata/property";
+import { metadataVcard } from "@/metadata/vcard";
 import { metadataWebDev } from "@/metadata/web-dev";
 import { headers } from "next/headers";
 
@@ -14,6 +15,9 @@ export async function generateMetadata() {
 
   if (pathname.startsWith("/property")) {
     return metadataProperty;
+  }
+  if (pathname.startsWith("/vcard")) {
+    return metadataVcard;
   }
 
   return metadataLanding;

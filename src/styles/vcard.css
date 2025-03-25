@@ -1,7 +1,7 @@
 [data-theme="vcard"] {
-  color: #a0aec0;
+  color: white;
   --color-primary: #0d0c1d;
-  --color-secondary: #d1d5db;
+  --color-second: rgb(79, 209, 197);
   --color-third: #ff6c60;
   font-family: "Space Grotesk", sans-serif;
 }
@@ -58,4 +58,9 @@
 [data-theme="vcard"] li::before {
   content: "✦";
   @apply absolute left-0 top-1/2 -translate-y-1/2 text-third text-sm;
+}
+
+[data-theme="vcard"] button {
+  content: "✦";
+  @apply inline-block mt-4 px-6 py-3 bg-second text-black font-semibold rounded-xl  hover:bg-[rgba(79,209,197,0.8)] transition;
 }

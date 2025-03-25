@@ -20,6 +20,7 @@ module.exports = {
       colors: {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
+        second: "var(--color-second)",
         third: "var(--color-third)",
         gradient: "var(--color-gradient)",
       },

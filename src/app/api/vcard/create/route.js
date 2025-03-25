@@ -16,6 +16,19 @@ export async function POST(req) {
       slug,
     } = body;
 
+    // Check for duplicate slug
+    const { data: existing } = await supabase
+      .from("vcards")
+      .select("slug")
+      .eq("slug", slug)
+      .maybeSingle();
+
+    if (existing) {
+      return new Response(JSON.stringify({ error: "Slug already exists" }), {
+        status: 409,
+      });
+    }
+
     // Build vCard string
     const vcard = `
 BEGIN:VCARD
@@ -31,30 +44,54 @@ NOTE:${note}
 END:VCARD
     `.trim();
 
-    const cardLink = `https://carlosreinoso.co.uk/vcard/${slug}`;
+    // Generate QR Code from vCard
+    const qrDataUrl = await QRCode.toDataURL(vcard, {
+      errorCorrectionLevel: "H",
+      margin: 2,
+      width: 300,
+    });
 
-    // Generate QR Code
-    const qrDataUrl = await QRCode.toDataURL(cardLink);
     const qrBlob = await (await fetch(qrDataUrl)).blob();
-    const filePath = `${slug}.png`;
+    const qrFilePath = `${slug}.png`;
 
-    // Upload to Supabase Storage
     const { error: uploadError } = await supabase.storage
-      .from("/images/vcards")
-      .upload(filePath, qrBlob, {
+      .from("images/vcards")
+      .upload(qrFilePath, qrBlob, {
         contentType: "image/png",
         upsert: true,
       });
 
     if (uploadError) {
-      console.error("Upload error:", uploadError);
-      return new Response(
-        JSON.stringify({ error: "Failed to upload QR code" }),
-        { status: 500 }
-      );
+      console.error("QR upload error:", uploadError);
+      return new Response(JSON.stringify({ error: "Failed to upload QR code" }), {
+        status: 500,
+      });
     }
 
-    // Save metadata to Supabase DB
+    // Upload raw .vcf file
+    const vcfBlob = new Blob([vcard], { type: "text/vcard" });
+    const vcfFilePath = `${slug}.vcf`;
+
+    const { error: vcfUploadError } = await supabase.storage
+      .from("images/vcards")
+      .upload(vcfFilePath, vcfBlob, {
+        contentType: "text/vcard",
+        upsert: true,
+      });
+
+    if (vcfUploadError) {
+      console.error("VCF upload error:", vcfUploadError);
+      return new Response(JSON.stringify({ error: "Failed to upload .vcf file" }), {
+        status: 500,
+      });
+    }
+
+    // Construct public URLs
+    const publicBase = `https://znkasxqfakeaxrmuuxya.supabase.co/storage/v1/object/public/images/vcards/`;
+    const qrUrl = `${publicBase}${qrFilePath}`;
+    const vcfUrl = `${publicBase}${vcfFilePath}`;
+
+    // Save to DB
     const { error: insertError } = await supabase.from("vcards").insert([
       {
         name,
@@ -66,7 +103,7 @@ END:VCARD
         address,
         note,
         slug,
-        qr_url: filePath,
+        qr_url: qrUrl,
       },
     ]);
 
@@ -78,9 +115,17 @@ END:VCARD
       );
     }
 
-    return new Response(JSON.stringify({ success: true, slug }), {
-      status: 200,
-    });
+    // Respond with useful info
+    return new Response(
+      JSON.stringify({
+        success: true,
+        slug,
+        qr_url: qrUrl,
+        vcf_url: vcfUrl,
+        redirect: `/vcard/${slug}`,
+      }),
+      { status: 200 }
+    );
   } catch (err) {
     console.error("Unhandled error:", err);
     return new Response(JSON.stringify({ error: "Unexpected error" }), {
