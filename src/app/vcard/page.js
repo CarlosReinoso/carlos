@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function VCardLandingPage() {
   return (
     <div className="min-h-screen">
-      <main className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-20">
+      <main className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto">
         {/* Left Text Section */}
         <div className="md:w-1/2 space-y-6">
           <h2>

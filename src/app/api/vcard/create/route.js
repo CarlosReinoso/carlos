@@ -4,6 +4,7 @@ import QRCode from "qrcode";
 export async function POST(req) {
   try {
     const body = await req.json();
+    console.log("🚀 ~ POST ~ body:", body)
     const {
       name,
       surname,
@@ -63,33 +64,16 @@ END:VCARD
 
     if (uploadError) {
       console.error("QR upload error:", uploadError);
-      return new Response(JSON.stringify({ error: "Failed to upload QR code" }), {
-        status: 500,
-      });
+      return new Response(
+        JSON.stringify({ error: "Failed to upload QR code" }),
+        {
+          status: 500,
+        }
+      );
     }
 
-    // Upload raw .vcf file
-    const vcfBlob = new Blob([vcard], { type: "text/vcard" });
-    const vcfFilePath = `${slug}.vcf`;
-
-    const { error: vcfUploadError } = await supabase.storage
-      .from("images/vcards")
-      .upload(vcfFilePath, vcfBlob, {
-        contentType: "text/vcard",
-        upsert: true,
-      });
-
-    if (vcfUploadError) {
-      console.error("VCF upload error:", vcfUploadError);
-      return new Response(JSON.stringify({ error: "Failed to upload .vcf file" }), {
-        status: 500,
-      });
-    }
-
-    // Construct public URLs
     const publicBase = `https://znkasxqfakeaxrmuuxya.supabase.co/storage/v1/object/public/images/vcards/`;
     const qrUrl = `${publicBase}${qrFilePath}`;
-    const vcfUrl = `${publicBase}${vcfFilePath}`;
 
     // Save to DB
     const { error: insertError } = await supabase.from("vcards").insert([
@@ -121,7 +105,6 @@ END:VCARD
         success: true,
         slug,
         qr_url: qrUrl,
-        vcf_url: vcfUrl,
         redirect: `/vcard/${slug}`,
       }),
       { status: 200 }
