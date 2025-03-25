@@ -6,7 +6,7 @@
 }
 
 /* property.css */
-[data-theme="property"]  .underline {
+[data-theme="property"] .underline {
   text-decoration-line: underline;
   text-decoration-color: #30d5c8;
   text-decoration-thickness: 2px;
