@@ -11,7 +11,6 @@ export async function generateMetadata({ params }) {
 
 export default async function VCardSlugPage({ params }) {
   const { slug } = params;
-  console.log("🚀 ~ VCardSlugPage ~ slug:", slug);
 
   const { data: vcardData, error } = await supabase
     .from("vcards")
@@ -19,7 +18,6 @@ export default async function VCardSlugPage({ params }) {
     .eq("slug", slug);
 
   const vcard = vcardData[0];
-  console.log("🚀 ~ VCardSlugPage ~ vcard:", vcard);
   if (!vcard || error) {
     return (
       <div className="text-center text-red-500 p-10">
@@ -45,7 +43,7 @@ export default async function VCardSlugPage({ params }) {
         />
       </div>
 
-      <DownloadButton url={vcard.qr_url} filename={"testy"}>
+      <DownloadButton url={vcard.qr_url} filename={vcard.name}>
         Download Your QR Code
       </DownloadButton>
     </div>
