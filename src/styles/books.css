@@ -5,13 +5,6 @@
   --color-third: #30d5c8;
 }
 
-[data-theme="book"] .underline {
-  text-decoration-line: underline;
-  text-decoration-color: red;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 8px;
-}
-
 [data-theme="books"] hr {
   @apply border-t my-4;
   border-color: var(--color-third);

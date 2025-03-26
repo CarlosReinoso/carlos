@@ -3,6 +3,7 @@
 @import "./web-dev.css";
 @import "./books.css";
 @import "./vcard.css";
+@import "./travel.css";
 
 @tailwind base;
 @tailwind components;

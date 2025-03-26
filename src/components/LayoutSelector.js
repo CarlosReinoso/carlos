@@ -8,6 +8,7 @@ import KingdomLayout from "@/app/layouts/KingdomLayout";
 import BooksLayout from "@/app/layouts/BooksLayout";
 import VCardLayout from "@/app/layouts/VCardLayout";
 import HomeLayout from "@/app/layouts/HomeLayout";
+import TravelLayout from "@/app/layouts/TravelLayout";
 
 export default function LayoutSelector({ children }) {
   const pathname = usePathname();
@@ -20,6 +21,7 @@ export default function LayoutSelector({ children }) {
     else if (pathname.startsWith("/draft")) theme = "property";
     else if (pathname.startsWith("/books")) theme = "books";
     else if (pathname.startsWith("/vcard")) theme = "vcard";
+    else if (pathname.startsWith("/travel")) theme = "travel";
 
     document.documentElement.setAttribute("data-theme", theme);
   }, [pathname]); // Runs whenever pathname changes
@@ -39,6 +41,9 @@ export default function LayoutSelector({ children }) {
   }
   if (pathname.startsWith("/vcard")) {
     return <VCardLayout>{children}</VCardLayout>;
+  }
+  if (pathname.startsWith("/travel")) {
+    return <TravelLayout>{children}</TravelLayout>;
   }
 
   return <HomeLayout>{children}</HomeLayout>;

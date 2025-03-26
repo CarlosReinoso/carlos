@@ -12,6 +12,9 @@ module.exports = {
         raleway: ["var(--font-raleway)", "cursive"],
         poppins: ["var(--font-poppins)", "sans-serif"],
         space: ["var(--font-space)", "sans-serif"],
+        oxanium: ["var(--font-oxanium)", "sans-serif"],
+        philosopher: ["var(--font-philosopher)", "sans-serif"],
+        gruppo: ["var(--font-gruppo)", "sans-serif"],
       },
       letterSpacing: {
         poppins: "0.05em",
