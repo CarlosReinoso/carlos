@@ -26,7 +26,7 @@ export default function TravelPage() {
         {/* Text Content */}
         <div className="absolute inset-0 flex flex-col items-start justify-center px-4 z-20">
           <h1 className="underline text-white">Wild Songs For The Road</h1>
-          <h4 className="text-white">{"A Journey With Heart"}</h4>
+          <h4 className="text-white">A Journey With Heart</h4>
         </div>
       </div>
 

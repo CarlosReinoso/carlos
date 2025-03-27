@@ -105,7 +105,7 @@ export default function CreateVCard() {
           ["phone", "Phone"],
           ["email", "Email"],
           ["website", "Website"],
-          ["address", "Address"],
+          ["address", "City"],
           ["note", "Note"],
         ].map(([key, label]) => {
           const isRequired = requiredFields.includes(key);
