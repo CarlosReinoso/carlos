@@ -11,8 +11,16 @@ export default async function BooksPage() {
           <li key={book.slug}>
             <Link href={`/books/${book.slug}`} className="hover:underline">
               <h6>
-                {book.frontmatter.title}{" "}
+                {book.frontmatter.title}
+
+                {book.frontmatter?.subtitle && (
+                  <span className="text-md">
+                    {" - "} {book.frontmatter?.subtitle}
+                  </span>
+                )}
+
                 <span className="text-sm text-gray-400">
+                  {" "}
                   ({book.frontmatter.date})
                 </span>
               </h6>
