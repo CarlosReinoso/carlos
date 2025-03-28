@@ -1,3 +1,4 @@
+"use client";
 import clsx from "clsx";
 import Link from "next/link";
 import Typography from "./Typography";
@@ -7,14 +8,16 @@ export default function Button({
   children,
   loading,
   theme = "light", // Default theme is light
-  arrow = true,    // Default to showing arrow
+  arrow = true, // Default to showing arrow
   className = "",
+  arrowLeft,
   ...props
 }) {
   const baseStyles =
     "inline-block px-6 py-3 font-semibold rounded-full transition duration-300 ease-in-out cursor-pointer group";
   const lightThemeStyles = "border hover:border-third";
-  const darkThemeStyles = "bg-gray-100 border-2 border-primary hover:scale-105 hover:shadow-[0_0_15px_var(--primary-colour)]";
+  const darkThemeStyles =
+    "bg-gray-100 border-2 border-primary hover:scale-105 hover:shadow-[0_0_15px_var(--primary-colour)]";
 
   return (
     <div className="mt-4 flex justify-center">
@@ -31,6 +34,11 @@ export default function Button({
           variant="body1"
           className="relative inline-block group group-hover:text-third !mb-0 flex items-center gap-2 transition-all duration-300"
         >
+          {arrowLeft && (
+            <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+              ←
+            </span>
+          )}
           {children}
 
           {arrow && (

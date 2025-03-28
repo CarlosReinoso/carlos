@@ -9,7 +9,7 @@ export default async function BooksPage() {
       <ul>
         {books.map((book) => (
           <li key={book.slug}>
-            <Link href={`/books/${book.slug}`} className="hover:underline">
+            <Link href={`/books/${book.slug}`} className="underline-hover">
               <h6>
                 {book.frontmatter.title}
 

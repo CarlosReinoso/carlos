@@ -1,6 +1,6 @@
+import AmaraImages from "@/components/books/AmaraImages";
 import { getContentBySlug } from "@/lib/books/getContent";
 import dynamic from "next/dynamic";
-import AmaraImages from "@/components/books/AmaraImages"; // Your client component
 
 const ClientWrapper = dynamic(() => import("@/components/ClientWrapper"), {
   ssr: false, // Ensure it only runs on the client
