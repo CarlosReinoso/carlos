@@ -1,3 +1,4 @@
+import { metadataBooks } from "@/metadata/books";
 import { metadataLanding } from "@/metadata/landing";
 import { metadataProperty } from "@/metadata/property";
 import { metadataVcard } from "@/metadata/vcard";
@@ -18,6 +19,9 @@ export async function generateMetadata() {
   }
   if (pathname.startsWith("/vcard")) {
     return metadataVcard;
+  }
+  if (pathname.startsWith("/books")) {
+    return metadataBooks;
   }
 
   return metadataLanding;
