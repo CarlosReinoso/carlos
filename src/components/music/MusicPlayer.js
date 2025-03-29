@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import LoadingSpinner from "../common/LoadingSpinner";
@@ -7,8 +7,10 @@ import LoadingSpinner from "../common/LoadingSpinner";
 export default function MusicPlayer() {
   const [tracks, setTracks] = useState([]);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  const [canAutoPlay, setCanAutoPlay] = useState(false);
+  const audioRef = useRef(null);
 
-  // Fetch tracks from API on mount
+  // Fetch tracks on mount
   useEffect(() => {
     const fetchTracks = async () => {
       try {
@@ -23,6 +25,40 @@ export default function MusicPlayer() {
     fetchTracks();
   }, []);
 
+  // Enable autoplay on scroll (mobile) or mouseenter (desktop)
+  useEffect(() => {
+    const handleScroll = () => {
+      setCanAutoPlay(true);
+      window.removeEventListener("scroll", handleScroll);
+    };
+
+    const handleMouseEnter = () => {
+      setCanAutoPlay(true);
+      window.removeEventListener("mouseenter", handleMouseEnter);
+    };
+
+    if (window.innerWidth < 768) {
+      window.addEventListener("scroll", handleScroll);
+    } else {
+      window.addEventListener("mouseenter", handleMouseEnter);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mouseenter", handleMouseEnter);
+    };
+  }, []);
+
+  // Actually trigger .play() on scroll/hover
+  useEffect(() => {
+    if (canAutoPlay && audioRef.current) {
+      const audio = audioRef.current.audio.current;
+      audio?.play().catch((err) => {
+        console.warn("Autoplay blocked:", err.message);
+      });
+    }
+  }, [canAutoPlay]);
+
   const handleClickNext = () => {
     setCurrentTrackIndex((prev) => (prev + 1) % tracks.length);
   };
@@ -31,9 +67,7 @@ export default function MusicPlayer() {
     setCurrentTrackIndex((prev) => (prev === 0 ? tracks.length - 1 : prev - 1));
   };
 
-  if (tracks.length === 0) {
-    return <LoadingSpinner />;
-  }
+  if (tracks.length === 0) return <LoadingSpinner />;
 
   const currentTrack = tracks[currentTrackIndex];
 
@@ -46,18 +80,9 @@ export default function MusicPlayer() {
           className="w-16 h-16 rounded-md object-cover"
         />
       )}
-      <div className="flex-1">
-        <div className="fixed bottom-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-t border-neutral-800 px-4 py-2 sm:px-6 flex items-center gap-4">
-          {/* Album cover */}
-          {currentTrack.cover && (
-            <img
-              src={currentTrack.cover}
-              alt={currentTrack.title}
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded object-cover"
-            />
-          )}
 
-          {/* Track info */}
+      <div className="flex-1">
+        <div className="flex items-center gap-4">
           <div className="flex flex-col justify-center overflow-hidden flex-1">
             <h6 className="text-sm sm:text-base font-semibold truncate text-white capitalize !mb-1">
               {currentTrack.title}
@@ -66,13 +91,15 @@ export default function MusicPlayer() {
               {currentTrack.artist}
             </p>
 
-            {/* AudioPlayer with custom styles */}
             <AudioPlayer
-              autoPlay
+              ref={audioRef}
+              autoPlay={false}
               src={currentTrack.src}
               onEnded={handleClickNext}
               showJumpControls={false}
               showSkipControls={false}
+              onClickPrevious={handleClickPrevious}
+              onClickNext={handleClickNext}
               layout="horizontal-reverse"
               customAdditionalControls={[]}
               customVolumeControls={[]}

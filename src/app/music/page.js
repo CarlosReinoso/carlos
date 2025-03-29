@@ -31,12 +31,12 @@ export default function MusicPageHero() {
       {/* Content */}
       <div className="relative z-20 flex flex-col justify-between h-full pb-28">
         {/* Header */}
-        <div className="flex justify-between items-center px-2 md:px-8 py-4 w-full gap-2">
-          <h4 className="text-white bg-gradient-to-r from-amber-500 to-stone-500 rounded blur-custom opacity-80 px-3 py-1 text-base sm:text-lg md:text-xl whitespace-nowrap !mb-0">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center px-2 md:px-8 py-4 w-full gap-2 sm:gap-4">
+          <h4 className="text-white bg-gradient-to-r from-amber-500 to-stone-500 rounded blur-custom opacity-80 px-3 py-1 text-sm sm:text-lg md:text-xl whitespace-nowrap !mb-0">
             [Carlos Reinoso]
           </h4>
 
-          <div className="flex gap-2 sm:gap-3 md:gap-4 items-center text-white bg-gradient-to-r from-amber-500 to-stone-500 rounded blur-custom opacity-80 px-2 py-1">
+          <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 items-center text-white bg-gradient-to-r from-amber-500 to-stone-500 rounded blur-custom opacity-80 px-2 py-1">
             <WhatsAppIcon className={iconWrapperStyles} svgStyles={svgStyles} />
             <EmailIcon
               href={webEmailUrl}
