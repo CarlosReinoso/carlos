@@ -4,8 +4,8 @@ import GitHubLogo from "../icons/GithubIcon";
 import InstagramIcon from "../icons/InstagramIcon";
 import LinkedInIcon from "../icons/LinkedInIcon";
 import WhatsAppIcon from "../icons/WhatsAppIcon";
-import QRCodeIcon from "../icons/QrCodeIcon";
 import HomeIcon from "../icons/HomeIcon";
+import QRCodeIcon from "../icons/QRCodeIcon";
 
 export default function SocialMediaIcons({
   github = false,
