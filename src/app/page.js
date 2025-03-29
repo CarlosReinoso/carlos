@@ -44,7 +44,7 @@ const links = [
 export default function HomePage() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-4 py-8 bg-white dark:bg-black">
-      <h1 className="text-4xl font-bold mb-6 text-center">
+      <h1 className="text-4xl font-bold mb-6 text-center pb-8">
         Welcome to the Hub
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl">

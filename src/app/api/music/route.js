@@ -9,7 +9,6 @@ export async function GET() {
   const { data, error } = await supabase.storage
     .from(BUCKET)
     .list(FOLDER, { limit: 100 });
-    console.log("🚀 ~ GET ~ data:", data)
 
   if (error) {
     console.error("Error listing music files:", error);
