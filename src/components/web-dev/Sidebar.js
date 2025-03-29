@@ -1,10 +1,10 @@
 "use client";
 import { navItems } from "@/app/web-dev/page";
 import SidebarHero from "./SidebarHero";
-import SidebarIcons from "./SidebarIcons";
+import SocialMediaIcons from "../common/SocialMediaIcons";
+import { webEmailUrl } from "@/lib/constants";
 
 export default function Sidebar({ className, activeSection }) {
-
   return (
     <>
       {/* Mobile View */}
@@ -12,7 +12,7 @@ export default function Sidebar({ className, activeSection }) {
         className={`flex-col lg:hidden top-0 w-full z-50 flex justify-between items-center ${className}`}
       >
         <SidebarHero />
-        <SidebarIcons />
+        <SocialMediaIcons github emailUrl={webEmailUrl} />
       </header>
 
       {/* Sidebar (Desktop Only) */}
@@ -54,7 +54,7 @@ export default function Sidebar({ className, activeSection }) {
         </nav>
 
         {/* Social Icons */}
-        <SidebarIcons />
+        <SocialMediaIcons github emailUrl={webEmailUrl} />
       </aside>
     </>
   );

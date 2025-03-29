@@ -9,5 +9,6 @@ export const githubUrl = "https://github.com/CarlosReinoso";
 export const instagramUrl = "https://www.instagram.com/carlos.reinoso_/?hl=en";
 export const linkedInUrl = "https://www.linkedin.com/in/carlos-reinoso-bless/";
 export const whatsAppUrl = "https://wa.me/447456531337";
+export const helloEmailUrl = "mailto:hello@carlosreinoso.co.uk";
 export const webEmailUrl = "mailto:web@carlosreinoso.co.uk";
 export const propertyEmailUrl = "mailto:property@carlosreinoso.co.uk";

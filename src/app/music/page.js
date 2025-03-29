@@ -1,19 +1,10 @@
 "use client";
 
-import EmailIcon from "@/components/icons/EmailIcon";
-import InstagramIcon from "@/components/icons/InstagramIcon";
-import LinkedInIcon from "@/components/icons/LinkedInIcon";
-import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
-import { webEmailUrl } from "@/lib/constants";
 import Image from "next/image";
 import MusicPlayer from "@/components/music/MusicPlayer";
+import SocialMediaIcons from "@/components/common/SocialMediaIcons";
 
 export default function MusicPageHero() {
-  const iconWrapperStyles =
-    "flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-lg transition duration-300 group";
-  const svgStyles =
-    "w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 fill-current text-white group-hover:text-third";
-
   return (
     <section className="relative w-full h-screen overflow-hidden">
       {/* Background image */}
@@ -37,18 +28,7 @@ export default function MusicPageHero() {
           </h4>
 
           <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 items-center text-white bg-gradient-to-r from-amber-500 to-stone-500 rounded blur-custom opacity-80 px-2 py-1">
-            <WhatsAppIcon className={iconWrapperStyles} svgStyles={svgStyles} />
-            <EmailIcon
-              href={webEmailUrl}
-              className={iconWrapperStyles}
-              svgStyles={svgStyles}
-            />
-            <LinkedInIcon className={iconWrapperStyles} svgStyles={svgStyles} />
-            <InstagramIcon
-              className={iconWrapperStyles}
-              svgStyles={svgStyles}
-              size="40px"
-            />
+            <SocialMediaIcons spacing="" container="h-10" />
           </div>
         </div>
       </div>

@@ -71,6 +71,7 @@
 
 .rhap_time {
   color: #aaa !important;
+  @apply font-philosopher;
 }
 
 .rhap_progress-bar {
@@ -84,4 +85,3 @@
 .rhap_controls-section svg {
   fill: white !important;
 }
-
