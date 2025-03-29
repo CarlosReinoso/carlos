@@ -1,0 +1,87 @@
+[data-theme="music"] {
+  color: white;
+  --color-primary: #f5f0e6; /* Soft beige background */
+  --color-secondary: #3b5f4f; /* Rich forest green for CTAs */
+  /* --color-third: #b08b4f; Earthy gold accent (sand/leather tone) */
+  --color-third: #344051; /* Earthy gold accent (sand/leather tone) */
+  --color-accent: #e1d4c0; /* Light sand for borders/cards */
+  font-family: "Playfair Display", serif; /* Optional earthy serif */
+}
+
+[data-theme="music"] .underline {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-third);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 9px;
+}
+
+[data-theme="music"] hr {
+  @apply border-t my-4;
+  border-color: var(--color-third);
+}
+
+[data-theme="music"] h1 {
+  @apply font-philosopher text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4;
+}
+
+[data-theme="music"] h2 {
+  @apply font-philosopher text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4;
+}
+
+[data-theme="music"] h3 {
+  @apply font-philosopher text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mb-4;
+}
+
+[data-theme="music"] h4 {
+  @apply font-gruppo text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-medium mb-4;
+}
+
+[data-theme="music"] h5 {
+  @apply font-philosopher text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium mb-4;
+}
+
+[data-theme="music"] h6 {
+  @apply font-philosopher text-base sm:text-lg md:text-xl lg:text-2xl font-medium mb-4;
+}
+
+[data-theme="music"] p {
+  @apply font-philosopher mb-4;
+}
+
+[data-theme="music"] ul {
+  @apply pl-0; /* remove default padding */
+  list-style: none; /* remove bullet */
+}
+
+[data-theme="music"] li {
+  @apply relative mb-2 pl-6 text-white leading-relaxed;
+}
+
+[data-theme="music"] li::before {
+  content: "✦";
+  @apply absolute left-0 top-1/2 -translate-y-1/2 text-third text-sm;
+}
+
+/*  */
+
+.rhap_container {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.rhap_time {
+  color: #aaa !important;
+}
+
+.rhap_progress-bar {
+  background-color: #444 !important;
+}
+
+.rhap_progress-filled {
+  background-color: #1db954 !important; /* Spotify green */
+}
+
+.rhap_controls-section svg {
+  fill: white !important;
+}
+

@@ -4,6 +4,7 @@
 @import "./books.css";
 @import "./vcard.css";
 @import "./travel.css";
+@import "./music.css";
 
 @tailwind base;
 @tailwind components;

@@ -4,7 +4,6 @@ import QRCode from "qrcode";
 export async function POST(req) {
   try {
     const body = await req.json();
-    console.log("🚀 ~ POST ~ body:", body)
     const {
       name,
       surname,

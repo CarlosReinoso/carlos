@@ -1,27 +1,24 @@
 import { metadataBooks } from "@/metadata/books";
 import { metadataLanding } from "@/metadata/landing";
+import { metadataMusic } from "@/metadata/music";
 import { metadataProperty } from "@/metadata/property";
 import { metadataVcard } from "@/metadata/vcard";
 import { metadataWebDev } from "@/metadata/web-dev";
 import { headers } from "next/headers";
 
+const metadataMap = new Map([
+  ["/web-dev", metadataWebDev],
+  ["/property", metadataProperty],
+  ["/vcard", metadataVcard],
+  ["/books", metadataBooks],
+  ["/music", metadataMusic],
+]);
+
 export async function generateMetadata() {
-  const headersList = headers();
+  const pathname = headers().get("x-custom-path") || "/";
 
-  const pathname = headersList.get("x-custom-path") || "/";
-
-  if (pathname.startsWith("/web-dev")) {
-    return metadataWebDev;
-  }
-
-  if (pathname.startsWith("/property")) {
-    return metadataProperty;
-  }
-  if (pathname.startsWith("/vcard")) {
-    return metadataVcard;
-  }
-  if (pathname.startsWith("/books")) {
-    return metadataBooks;
+  for (const [prefix, metadata] of metadataMap) {
+    if (pathname.startsWith(prefix)) return metadata;
   }
 
   return metadataLanding;

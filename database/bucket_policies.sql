@@ -2,6 +2,13 @@ create policy "allow public access" on storage.objects
 for select
 using (bucket_id = 'luminous');
 
+CREATE POLICY "public read access to music bucket"
+ON storage.objects
+FOR SELECT
+TO public
+USING (bucket_id = 'music');
+
+
 CREATE POLICY "Allow uploads" ON storage.objects FOR
   INSERT WITH CHECK (
     bucket_id = 'luminous' AND auth.role() = 'anon'
