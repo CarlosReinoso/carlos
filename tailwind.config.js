@@ -27,9 +27,6 @@ module.exports = {
         third: "var(--color-third)",
         gradient: "var(--color-gradient)",
       },
-      blur: {
-        custom: "20px", // Custom blur size
-      },
     },
   },
 };

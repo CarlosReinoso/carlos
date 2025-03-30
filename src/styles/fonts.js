@@ -1,4 +1,11 @@
-import { Raleway, Poppins, Space_Grotesk, Oxanium, Philosopher, Gruppo } from "next/font/google";
+import {
+  Raleway,
+  Poppins,
+  Space_Grotesk,
+  Oxanium,
+  Philosopher,
+  Gruppo,
+} from "next/font/google";
 
 export const raleway = Raleway({
   subsets: ["latin"],
