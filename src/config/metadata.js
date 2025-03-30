@@ -2,6 +2,7 @@ import { metadataBooks } from "@/metadata/books";
 import { metadataLanding } from "@/metadata/landing";
 import { metadataMusic } from "@/metadata/music";
 import { metadataProperty } from "@/metadata/property";
+import { metadataTravel } from "@/metadata/travel";
 import { metadataVcard } from "@/metadata/vcard";
 import { metadataWebDev } from "@/metadata/web-dev";
 import { headers } from "next/headers";
@@ -12,6 +13,7 @@ const metadataMap = new Map([
   ["/vcard", metadataVcard],
   ["/books", metadataBooks],
   ["/music", metadataMusic],
+  ["/travel", metadataTravel],
 ]);
 
 export async function generateMetadata() {

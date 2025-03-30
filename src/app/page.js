@@ -1,6 +1,7 @@
 "use client";
 
 import SocialMediaIcons from "@/components/common/SocialMediaIcons";
+import WebsiteBy from "@/components/common/WebsiteBy";
 import Footer from "@/components/property/Footer";
 import { helloEmailUrl } from "@/lib/constants";
 import Image from "next/image";
@@ -47,7 +48,7 @@ export default function HomePage() {
       <h1 className="text-4xl font-bold mb-6 text-center pb-8">
         Welcome to the Hub
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-4xl">
         {links.map(({ href, title, description, imageSrc }) => (
           <Link href={href} key={href} className="group">
             <div className="flex flex-col h-full min-h-[320px] border border-gray-200 dark:border-gray-700 rounded-2xl transition duration-300 hover:border-gray-400 dark:hover:border-gray-500 hover:shadow-lg overflow-hidden">
@@ -73,6 +74,8 @@ export default function HomePage() {
         ))}
       </div>
       <SocialMediaIcons home={false} />
+      <div className="mt-4"/>
+      <WebsiteBy />
     </main>
   );
 }
