@@ -1,9 +1,10 @@
-import { generateMetadata } from "@/config/metadata"; // Import the function
+import { generateMetadata } from "@/config/metadata";
 import LayoutSelector from "@/components/LayoutSelector";
 import { raleway, poppins, space, philosopher, gruppo } from "@/styles/fonts";
 import "../styles/globals.css";
+import Script from "next/script";
 
-export { generateMetadata }; // Re-export it so Next.js can use it
+export { generateMetadata };
 
 export default function RootLayout({ children }) {
   return (
@@ -11,7 +12,26 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${raleway.variable} ${poppins.variable} ${space.variable} ${philosopher.variable} ${gruppo.variable}`}
     >
-      <LayoutSelector>{children}</LayoutSelector>
+      <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SWEWEHCXPR"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SWEWEHCXPR', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
+      <body>
+        <LayoutSelector>{children}</LayoutSelector>
+      </body>
     </html>
   );
 }

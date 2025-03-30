@@ -1,3 +1,4 @@
+import SocialMediaIcons from "@/components/common/SocialMediaIcons";
 import Button from "@/components/travel/Button";
 import Image from "next/image";
 
@@ -45,6 +46,7 @@ export default function HeroSection() {
           <h1 className="underline">Wild Songs For The Road</h1>
           <h4>A Motorcycle Journey With Heart</h4>
           <Button>Ride With Me</Button>
+          <SocialMediaIcons />
         </div>
       </section>
     </>

@@ -2,8 +2,6 @@
 
 import SocialMediaIcons from "@/components/common/SocialMediaIcons";
 import WebsiteBy from "@/components/common/WebsiteBy";
-import Footer from "@/components/property/Footer";
-import { helloEmailUrl } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -74,7 +72,7 @@ export default function HomePage() {
         ))}
       </div>
       <SocialMediaIcons home={false} />
-      <div className="mt-4"/>
+      <div className="mt-4" />
       <WebsiteBy />
     </main>
   );
