@@ -1,5 +1,5 @@
 import { metadataBooks } from "@/metadata/books";
-import { metadataLanding } from "@/metadata/landing";
+import { metadataHome } from "@/metadata/home";
 import { metadataMusic } from "@/metadata/music";
 import { metadataProperty } from "@/metadata/property";
 import { metadataTravel } from "@/metadata/travel";
@@ -23,5 +23,5 @@ export async function generateMetadata() {
     if (pathname.startsWith(prefix)) return metadata;
   }
 
-  return metadataLanding;
+  return metadataHome;
 }

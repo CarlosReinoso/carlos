@@ -38,14 +38,19 @@ const links = [
       "Sharing my music - chill, emotive, and heartfelt compositions.",
     imageSrc: "/home/music.png",
   },
+  {
+    href: "/travel",
+    title: "Travel",
+    description:
+      "Motorcycle trip from London to Japan - coming end of 2025",
+    imageSrc: "/home/travel.jpg",
+  },
 ];
 
 export default function HomePage() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-4 py-8 bg-white dark:bg-black">
-      <h1 className="text-4xl font-bold mb-6 text-center pb-8">
-        Welcome to the Hub
-      </h1>
+     
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-4xl">
         {links.map(({ href, title, description, imageSrc }) => (
           <Link href={href} key={href} className="group">
@@ -59,9 +64,9 @@ export default function HomePage() {
                 />
               </div>
               <div className="flex flex-col flex-grow p-4">
-                <h4 className="text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-third">
+                <h5 className="text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-third">
                   {title}
-                </h4>
+                </h5>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   {description}
                 </p>
