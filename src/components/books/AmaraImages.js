@@ -19,26 +19,35 @@ export default function AmaraImages() {
     localKey,
     setCount,
     setShowMessage,
+    gaEventName,
   }) => {
     const alreadyClicked = localStorage.getItem(localKey);
 
     event.preventDefault();
     setShowMessage(true);
 
-    if (alreadyClicked) return;
+    if (!alreadyClicked) {
+      try {
+        await fetch("/api/features", {
+          method: "POST",
+          body: JSON.stringify({ field }),
+        });
 
-    try {
-      await fetch("/api/features", {
-        method: "POST",
-        body: JSON.stringify({ field }),
-      });
+        localStorage.setItem(localKey, "true");
+        if (setCount) {
+          setCount((prev) => (prev ?? 0) + 1);
+        }
 
-      localStorage.setItem(localKey, "true");
-      if (setCount) {
-        setCount((prev) => (prev ?? 0) + 1);
+        // Fire GA4 event
+        if (typeof window !== "undefined" && window.gtag && gaEventName) {
+          window.gtag("event", gaEventName, {
+            event_category: "User Interaction",
+            event_label: field,
+          });
+        }
+      } catch (error) {
+        console.error(`Failed to increment feature: ${field}`, error);
       }
-    } catch (error) {
-      console.error(`Failed to increment feature: ${field}`, error);
     }
   };
 
@@ -58,6 +67,7 @@ export default function AmaraImages() {
       localKey: "amara-comment-clicked",
       setCount: setCommentCount,
       setShowMessage: setShowCommentMessage,
+      gaEventName: "click_leave_comment", // ← GA4 event name
     });
 
   useEffect(() => {
