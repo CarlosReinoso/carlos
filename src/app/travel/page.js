@@ -1,8 +1,22 @@
+"use client";
+import { useState } from "react";
 import SocialMediaIcons from "@/components/common/SocialMediaIcons";
 import Button from "@/components/travel/Button";
+import { trackEvent } from "@/lib/analytics";
 import Image from "next/image";
 
 export default function HeroSection() {
+  const [showMessage, setShowMessage] = useState(false);
+
+  const handleClick = () => {
+    trackEvent(
+      "click_ride_with_me",
+      "User Interaction",
+      "Hero Button - Ride With Me"
+    );
+    setShowMessage(true);
+  };
+
   return (
     <>
       <div
@@ -28,8 +42,6 @@ export default function HeroSection() {
              bg-[radial-gradient(circle,_rgba(245,240,230,0.9)_0%,_rgba(245,240,230,0.4)_60%,_rgba(245,240,230,0)_100%)] 
              blur-lg"
                 />
-
-                {/* Logo image layer */}
                 <div className="relative z-10 rounded-xl">
                   <Image
                     width={200}
@@ -45,7 +57,16 @@ export default function HeroSection() {
 
           <h1 className="underline">Wild Songs For The Road</h1>
           <h4>A Motorcycle Journey With Heart</h4>
-          <Button>Ride With Me</Button>
+
+          <Button onClick={handleClick}>Ride With Me</Button>
+
+          {showMessage && (
+            <p className="text-red-500 mt-4">
+              The journey kicks off in winter 2025 — stay tuned
+              <br />: D
+            </p>
+          )}
+
           <SocialMediaIcons />
         </div>
       </section>

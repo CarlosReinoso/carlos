@@ -67,7 +67,7 @@ export default function AmaraImages() {
       localKey: "amara-comment-clicked",
       setCount: setCommentCount,
       setShowMessage: setShowCommentMessage,
-      gaEventName: "click_leave_comment", // ← GA4 event name
+      gaEventName: "click_leave_comment_amara", // ← GA4 event name
     });
 
   useEffect(() => {
