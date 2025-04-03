@@ -26,6 +26,7 @@ export default async function VCardSlugPage({ params }) {
     );
   }
 
+  
   return (
     <div className="flex flex-col items-center justify-center text-white ">
       <h2>Scan me</h2>
