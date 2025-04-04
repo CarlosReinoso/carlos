@@ -6,3 +6,15 @@ export function trackEvent(eventName, eventCategory, eventLabel) {
     });
   }
 }
+
+// 🔹 BOOKS: Chapter navigation, comments, etc.
+export function trackBookEvent(eventName, eventLabel, chapter = "") {
+  const label = chapter ? `${eventLabel} | ${chapter}` : eventLabel;
+  trackEvent(eventName, "Books", label);
+}
+
+// 🔹 TRAVEL: Location clicks, open maps, blog reads, etc.
+export function trackTravelEvent(eventName, eventLabel, location = "") {
+  const label = location ? `${eventLabel} | ${location}` : eventLabel;
+  trackEvent(eventName, "Travel", label);
+}

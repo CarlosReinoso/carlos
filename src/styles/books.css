@@ -58,7 +58,9 @@
   @apply relative mb-2 pl-6 text-white leading-relaxed;
 }
 
-[data-theme="books"] li::before {
+
+[data-theme="books"] .star-list::before {
   content: "✦";
   @apply absolute left-0 top-1/2 -translate-y-1/2 text-third text-sm;
 }
+

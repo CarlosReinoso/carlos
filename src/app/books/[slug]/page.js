@@ -1,4 +1,3 @@
-import AmaraImages from "@/components/books/AmaraImages";
 import { getContentBySlug } from "@/lib/books/getContent";
 import dynamic from "next/dynamic";
 
@@ -12,7 +11,7 @@ export default async function BookPage({ params }) {
 
   return (
     <div>
-      <ClientWrapper source={book.source} components={{ AmaraImages }} />
+      <ClientWrapper source={book.source} />
     </div>
   );
 }

@@ -7,10 +7,12 @@ export default function Button({
   buttonUrl,
   children,
   loading,
-  theme = "light", // Default theme is light
-  arrow = true, // Default to showing arrow
+  theme = "light",
+  arrow = true,
   className = "",
   arrowLeft,
+  type,
+  onClick,
   ...props
 }) {
   const baseStyles =
@@ -19,38 +21,54 @@ export default function Button({
   const darkThemeStyles =
     "bg-gray-100 border-2 border-primary hover:scale-105 hover:shadow-[0_0_15px_var(--primary-colour)]";
 
+  const sharedContent = (
+    <Typography
+      variant="body1"
+      className="relative inline-block group group-hover:text-third !mb-0 flex items-center gap-2 transition-all duration-300"
+    >
+      {arrowLeft && (
+        <span className="transform transition-transform duration-300 group-hover:-translate-x-1">
+          ←
+        </span>
+      )}
+      {children}
+      {arrow && (
+        <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+          →
+        </span>
+      )}
+      <span className="absolute left-0 bottom-0 h-[1px] w-full bg-third scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+    </Typography>
+  );
+
+  const commonStyles = clsx(
+    baseStyles,
+    theme === "light" ? lightThemeStyles : darkThemeStyles,
+    className
+  );
+
+  // Case 1: It's a Link
+  if (buttonUrl) {
+    return (
+      <div className="mt-4 flex justify-center">
+        <Link href={buttonUrl} className={commonStyles} {...props}>
+          {sharedContent}
+        </Link>
+      </div>
+    );
+  }
+
+  // Case 2: It's a button (submit or clickable)
   return (
     <div className="mt-4 flex justify-center">
-      <Link
-        href={buttonUrl || "#"}
-        className={clsx(
-          baseStyles,
-          theme === "light" ? lightThemeStyles : darkThemeStyles,
-          className
-        )}
+      <button
+        className={commonStyles}
+        type={type || "button"}
+        onClick={onClick}
         {...props}
       >
-        <Typography
-          variant="body1"
-          className="relative inline-block group group-hover:text-third !mb-0 flex items-center gap-2 transition-all duration-300"
-        >
-          {arrowLeft && (
-            <span className="transform transition-transform duration-300 group-hover:translate-x-1">
-              ←
-            </span>
-          )}
-          {children}
-
-          {arrow && (
-            <span className="transform transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
-          )}
-
-          {/* Underline Animation */}
-          <span className="absolute left-0 bottom-0 h-[1px] w-full bg-third scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
-        </Typography>
-      </Link>
+        {sharedContent}
+      </button>
     </div>
   );
 }

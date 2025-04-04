@@ -30,3 +30,19 @@ create trigger set_updated_at
 before update on features
 for each row
 execute procedure update_updated_at_column();
+
+
+create table public.amara_comments (
+  id          bigserial primary key,
+  chapter     text not null,
+  name        text not null,
+  comment     text not null,
+  created_at  timestamp with time zone default now() not null
+);
+
+
+-- (Optional) allow reading if needed
+create policy "Allow public read"
+on public.amara_comments
+for select
+using (true);

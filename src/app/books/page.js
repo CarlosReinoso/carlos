@@ -2,13 +2,25 @@ import Link from "next/link";
 import { getAllContent } from "@/lib/books/getContent";
 
 export default async function BooksPage() {
-  const books = await getAllContent(""); // no folderName needed if mdx is in /database/books/
+  const books = await getAllContent("");
+
+  // Add Amara manually to the list
+  const amaraEntry = {
+    slug: "amara",
+    frontmatter: {
+      title: "Amara",
+      subtitle: "Echoes of What Was Never Lost",
+      date: "2024-04-01",
+    },
+  };
+
+  const combinedBooks = [amaraEntry, ...books];
 
   return (
     <div className="h-[100vh]">
       <ul>
-        {books.map((book) => (
-          <li key={book.slug}>
+        {combinedBooks.map((book) => (
+          <li key={book.slug} className="star-list">
             <Link href={`/books/${book.slug}`} className="underline-hover">
               <h6>
                 {book.frontmatter.title}
