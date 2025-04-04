@@ -5,6 +5,7 @@ import LoadingSpinner from "@/components/common/LoadingSpinner";
 import supabase from "@/services/supabase/config";
 import CommentBox from "@/components/books/amara/Comments";
 import AmaraNav from "@/components/books/amara/AmaraNav";
+import SupportMe from "@/components/books/amara/SupportMe";
 
 export default function AmaraChapterPage() {
   const { chapter } = useParams();
@@ -106,6 +107,7 @@ export default function AmaraChapterPage() {
         <div className="flex flex-col items-center mt-4">
           <CommentBox chapter={chapter} />
         </div>
+        <SupportMe />
       </div>
     </>
   );
