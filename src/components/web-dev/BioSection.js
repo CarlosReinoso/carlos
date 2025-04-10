@@ -12,7 +12,7 @@ const BioSection = () => {
       >
         {/* Right Section */}
         <div className="w-full">
-          <div className="relative w-[450px] h-[350px] m-auto p-[2px] bg-gray-500 clip-hexagon mb-8 group transition-all duration-100 ease-in-out hover:bg-third hover:p-[4px]">
+          <div className="relative w-full max-w-[450px] aspect-[4/3] mx-auto p-[2px] bg-gray-500 clip-hexagon mb-8 group transition-all duration-100 ease-in-out hover:bg-third hover:p-[4px] sm:aspect-[4/3]">
             <Image
               src="/web-dev/headshot.webp"
               width={400}
@@ -20,8 +20,7 @@ const BioSection = () => {
               alt="headshot"
               className="w-full h-full object-cover object-[20%_center] clip-hexagon transition-transform duration-500 ease-in-out group-hover:scale-[1.015] group-hover:brightness-105"
             />
-
-            <TechBadge className="absolute bottom-4 right-28 text-xs sm:text-sm transition-all duration-300 group-hover:scale-105 group-hover:bg-amber-200/20">
+            <TechBadge className="absolute bottom-4 right-1/2 translate-x-1/2 sm:right-28 sm:translate-x-0 text-xs sm:text-sm transition-all duration-300 group-hover:scale-105 group-hover:bg-amber-200/20">
               Web Dev
             </TechBadge>
           </div>
