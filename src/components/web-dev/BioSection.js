@@ -18,8 +18,9 @@ const BioSection = () => {
               width={400}
               height={400}
               alt="headshot"
-              className="w-full h-full object-cover clip-hexagon transition-transform duration-500 ease-in-out group-hover:scale-[1.015] group-hover:brightness-105"
+              className="w-full h-full object-cover object-[20%_center] clip-hexagon transition-transform duration-500 ease-in-out group-hover:scale-[1.015] group-hover:brightness-105"
             />
+
             <TechBadge className="absolute bottom-4 right-28 text-xs sm:text-sm transition-all duration-300 group-hover:scale-105 group-hover:bg-amber-200/20">
               Web Dev
             </TechBadge>
