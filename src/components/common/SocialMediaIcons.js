@@ -26,7 +26,7 @@ export default function SocialMediaIcons({
 
   return (
     <div
-      className={`flex flex-wrap justify-center items-center content-center gap-4 md:space-x-6 ${container}`}
+      className={`flex flex-wrap justify-center items-center content-center gap-3 md:space-x-6 ${container}`}
     >
       {github && (
         <GitHubLogo
