@@ -1,4 +1,4 @@
-import { helloEmailUrl, webEmailUrl } from "@/lib/constants";
+import { helloEmailUrl } from "@/lib/constants";
 import EmailIcon from "../icons/EmailIcon";
 import GitHubLogo from "../icons/GithubIcon";
 import InstagramIcon from "../icons/InstagramIcon";
