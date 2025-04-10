@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Typography from "../common/Typography";
 import WhiteText from "./WhiteText";
+import TechBadge from "./TechBadge";
 
 const BioSection = () => {
   return (
@@ -10,6 +12,19 @@ const BioSection = () => {
       >
         {/* Right Section */}
         <div className="w-full">
+          <div className="relative w-[450px] h-[350px] m-auto p-[2px] bg-gray-500 clip-hexagon mb-8 group transition-all duration-100 ease-in-out hover:bg-third hover:p-[4px]">
+            <Image
+              src="/web-dev/headshot.webp"
+              width={400}
+              height={400}
+              alt="headshot"
+              className="w-full h-full object-cover clip-hexagon transition-transform duration-500 ease-in-out group-hover:scale-[1.015] group-hover:brightness-105"
+            />
+            <TechBadge className="absolute bottom-4 right-28 text-xs sm:text-sm transition-all duration-300 group-hover:scale-105 group-hover:bg-amber-200/20">
+              Web Dev
+            </TechBadge>
+          </div>
+
           <Typography variant="body1" className="text-gray-300">
             I design and develop digital experiences tailored for solo
             entrepreneurs and small businesses. With experience working in
@@ -26,8 +41,8 @@ const BioSection = () => {
           </Typography>
 
           <Typography variant="body1" className="text-gray-300 mt-4">
-            To relax I like to play guitar and sing, stay active at the gym,
-            and love exploring new places. Right now, I’m planning an epic world
+            To relax I like to play guitar and sing, stay active at the gym, and
+            love exploring new places. Right now, I’m planning an epic world
             trip to inspire my creativity for music, poetry and philosophy.
           </Typography>
         </div>

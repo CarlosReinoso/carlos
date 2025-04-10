@@ -1,6 +1,5 @@
 import React from "react";
 import Typography from "@/components/common/Typography";
-import Image from "next/image";
 import TechBadge from "./TechBadge";
 
 export default function ItemCard({
@@ -9,7 +8,6 @@ export default function ItemCard({
   technologies,
   link,
   image,
-  stars,
   duration,
 }) {
   return (
