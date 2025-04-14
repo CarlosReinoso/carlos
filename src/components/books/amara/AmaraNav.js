@@ -33,9 +33,9 @@ export default function AmaraNav({
   };
 
   return (
-    <>
+    <div className="py-12">
       {/* Top Sticky Nav */}
-      <div className="top-0 z-50 bg-black/80 backdrop-blur-sm p-4 flex items-center justify-between text-white">
+      <div className="top-0 z-50 bg-black/80 backdrop-blur-sm p-4 flex items-center justify-between text-white ">
         <Link href="/books/amara" className="text-sm underline-hover">
           ← All Chapters
         </Link>
@@ -97,6 +97,6 @@ export default function AmaraNav({
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }

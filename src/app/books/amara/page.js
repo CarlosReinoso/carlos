@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import LoadingSpinner from "@/components/common/LoadingSpinner";
 import supabase from "@/services/supabase/config";
+import Button from "@/components/property/Button";
+import EmailNotificationForm from "@/components/books/amara/EmailNotificationForm";
 
 export default function AmaraChaptersList() {
   const [chapters, setChapters] = useState([]);
@@ -91,6 +93,7 @@ export default function AmaraChaptersList() {
           </Link>
         ))}
       </div>
+      <EmailNotificationForm />
     </div>
   );
 }

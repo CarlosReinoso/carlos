@@ -6,6 +6,7 @@ import supabase from "@/services/supabase/config";
 import CommentBox from "@/components/books/amara/Comments";
 import AmaraNav from "@/components/books/amara/AmaraNav";
 import SupportMe from "@/components/books/amara/SupportMe";
+import EmailNotificationForm from "@/components/books/amara/EmailNotificationForm";
 
 export default function AmaraChapterPage() {
   const { chapter } = useParams();
@@ -96,7 +97,10 @@ export default function AmaraChapterPage() {
             className="w-full max-w-3xl mx-auto rounded shadow"
           />
         ))}
+        <SupportMe />
 
+        <EmailNotificationForm />
+        
         <AmaraNav
           heading={false}
           chapter={chapter}
@@ -107,7 +111,6 @@ export default function AmaraChapterPage() {
         <div className="flex flex-col items-center mt-4">
           <CommentBox chapter={chapter} />
         </div>
-        <SupportMe />
       </div>
     </>
   );
