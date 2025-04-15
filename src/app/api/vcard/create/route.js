@@ -1,5 +1,5 @@
+import { generateAndUploadQR } from "@/lib/vcard/generateAndUploadQR";
 import supabase from "@/services/supabase/config";
-import QRCode from "qrcode";
 
 export async function POST(req) {
   try {
@@ -29,50 +29,18 @@ export async function POST(req) {
       });
     }
 
-    // Build vCard string
-    const vcard = `
-BEGIN:VCARD
-VERSION:3.0
-N:${surname};${name};;;
-FN:${name} ${surname}
-ORG:${company}
-TEL:${phone}
-EMAIL:${email}
-URL:${website}
-ADR:;;${address};;;;
-NOTE:${note}
-END:VCARD
-    `.trim();
-
-    // Generate QR Code from vCard
-    const qrDataUrl = await QRCode.toDataURL(vcard, {
-      errorCorrectionLevel: "H",
-      margin: 2,
-      width: 300,
+    // Generate and upload QR code
+    const qr_url = await generateAndUploadQR({
+      name,
+      surname,
+      company,
+      phone,
+      email,
+      website,
+      address,
+      note,
+      slug,
     });
-
-    const qrBlob = await (await fetch(qrDataUrl)).blob();
-    const qrFilePath = `${slug}.png`;
-
-    const { error: uploadError } = await supabase.storage
-      .from("images/vcards")
-      .upload(qrFilePath, qrBlob, {
-        contentType: "image/png",
-        upsert: true,
-      });
-
-    if (uploadError) {
-      console.error("QR upload error:", uploadError);
-      return new Response(
-        JSON.stringify({ error: "Failed to upload QR code" }),
-        {
-          status: 500,
-        }
-      );
-    }
-
-    const publicBase = `https://znkasxqfakeaxrmuuxya.supabase.co/storage/v1/object/public/images/vcards/`;
-    const qrUrl = `${publicBase}${qrFilePath}`;
 
     // Save to DB
     const { error: insertError } = await supabase.from("vcards").insert([
@@ -86,7 +54,7 @@ END:VCARD
         address,
         note,
         slug,
-        qr_url: qrUrl,
+        qr_url,
       },
     ]);
 
@@ -103,7 +71,7 @@ END:VCARD
       JSON.stringify({
         success: true,
         slug,
-        qr_url: qrUrl,
+        qr_url,
         redirect: `/vcard/${slug}`,
       }),
       { status: 200 }

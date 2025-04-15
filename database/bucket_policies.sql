@@ -63,3 +63,12 @@ ON vcards
 FOR INSERT
 TO public
 WITH CHECK (TRUE);
+
+-- Allow deleting only files in the `vcards/` folder of the `images` bucket
+CREATE POLICY "Allow delete from vcards"
+  ON storage.objects
+  FOR DELETE
+  USING (
+    bucket_id = 'images' AND
+    name LIKE 'vcards/%'
+  );

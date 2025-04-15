@@ -2,6 +2,8 @@ import DownloadButton from "@/components/vcard/DownloadButton";
 import supabase from "@/services/supabase/config";
 import Image from "next/image";
 
+export const revalidate = 0;
+
 export async function generateMetadata({ params }) {
   return {
     title: `vCard | ${params.slug}`,
@@ -26,7 +28,6 @@ export default async function VCardSlugPage({ params }) {
     );
   }
 
-  
   return (
     <div className="flex flex-col items-center justify-center text-white ">
       <h2>Scan me</h2>
