@@ -19,6 +19,9 @@ export default function VCardForm({
     address: "",
     note: "",
     slug: "",
+    linkedin: "",
+    instagram: "",
+    whatsapp: "",
     ...initialData,
   });
 
@@ -89,6 +92,9 @@ export default function VCardForm({
           ["email", "Email"],
           ["website", "Website"],
           ["address", "City"],
+          ["instagram", "Instagram"],
+          ["linkedin", "LinkedIn"],
+          ["whatsapp", "WhatsApp"],
           ["note", "Note"],
         ].map(([key, label]) => {
           const isRequired = requiredFields.includes(key);

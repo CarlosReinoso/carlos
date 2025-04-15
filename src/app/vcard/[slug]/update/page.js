@@ -38,17 +38,7 @@ export default function UpdateVCardPage() {
 
   const handleUpdate = async (formData, { setFormError }) => {
     try {
-      const {
-        name,
-        surname,
-        company,
-        phone,
-        email,
-        website,
-        address,
-        note,
-        slug,
-      } = formData;
+      const { slug } = formData;
 
       const oldQrUrl = initialData?.qr_url;
       const oldPath = oldQrUrl?.split("/images/vcards/")[1];
@@ -63,29 +53,14 @@ export default function UpdateVCardPage() {
         }
       }
 
-      const qr_url = await generateAndUploadQR({
-        name,
-        surname,
-        company,
-        phone,
-        email,
-        website,
-        address,
-        note,
-        slug,
-      });
+      // 📦 Generate QR with the full form data (now includes linkedin, instagram, etc)
+      const qr_url = await generateAndUploadQR(formData);
 
+      // ⬆️ Update DB with all fields + new QR
       const { error } = await supabase
         .from("vcards")
         .update({
-          name,
-          surname,
-          company,
-          phone,
-          email,
-          website,
-          address,
-          note,
+          ...formData,
           qr_url,
           updated_at: new Date(),
         })

@@ -1,26 +1,48 @@
 import { generateAndUploadQR } from "@/lib/vcard/generateAndUploadQR";
 import supabase from "@/services/supabase/config";
 
+function extractVCardFields(body) {
+  const {
+    name,
+    surname,
+    company,
+    phone,
+    email,
+    website,
+    address,
+    note,
+    slug,
+    linkedin,
+    instagram,
+    whatsapp,
+  } = body;
+
+  return {
+    name,
+    surname,
+    company,
+    phone,
+    email,
+    website,
+    address,
+    note,
+    slug,
+    linkedin,
+    instagram,
+    whatsapp,
+  };
+}
+
 export async function POST(req) {
   try {
     const body = await req.json();
-    const {
-      name,
-      surname,
-      company,
-      phone,
-      email,
-      website,
-      address,
-      note,
-      slug,
-    } = body;
+    const fields = extractVCardFields(body);
 
     // Check for duplicate slug
     const { data: existing } = await supabase
       .from("vcards")
       .select("slug")
-      .eq("slug", slug)
+      .eq("slug", fields.slug)
       .maybeSingle();
 
     if (existing) {
@@ -30,33 +52,13 @@ export async function POST(req) {
     }
 
     // Generate and upload QR code
-    const qr_url = await generateAndUploadQR({
-      name,
-      surname,
-      company,
-      phone,
-      email,
-      website,
-      address,
-      note,
-      slug,
-    });
+    const qr_url = await generateAndUploadQR(fields);
 
-    // Save to DB
-    const { error: insertError } = await supabase.from("vcards").insert([
-      {
-        name,
-        surname,
-        company,
-        phone,
-        email,
-        website,
-        address,
-        note,
-        slug,
-        qr_url,
-      },
-    ]);
+    const vcardData = { ...fields, qr_url };
+
+    const { error: insertError } = await supabase
+      .from("vcards")
+      .insert([vcardData]);
 
     if (insertError) {
       console.error("Insert error:", insertError);
@@ -66,13 +68,12 @@ export async function POST(req) {
       );
     }
 
-    // Respond with useful info
     return new Response(
       JSON.stringify({
         success: true,
-        slug,
+        slug: fields.slug,
         qr_url,
-        redirect: `/vcard/${slug}`,
+        redirect: `/vcard/${fields.slug}`,
       }),
       { status: 200 }
     );

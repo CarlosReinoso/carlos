@@ -10,6 +10,9 @@ create table vcards (
   note text,
   slug text unique,
   qr_url text,
+  linkedin text,       -- ✅ NEW
+  instagram text,      -- ✅ NEW
+  whatsapp text,      -- ✅ NEW
   created_at timestamp with time zone default timezone('utc'::text, now()),
   updated_at timestamp with time zone default timezone('utc'::text, now())
 );

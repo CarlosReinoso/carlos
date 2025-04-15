@@ -11,27 +11,18 @@ export async function generateAndUploadQR({
   address,
   note,
   slug,
+  linkedin,
+  instagram,
+  whatsapp
 }) {
   try {
     const now = new Date();
-    const isoString = now.toISOString(); // e.g. "2025-04-15T13:47:28.123Z"
+    const isoString = now.toISOString(); // "2025-04-15T13:47:28.123Z"
     const timestamp = isoString.replace(/[:.]/g, "-"); // "2025-04-15T13-47-28-123Z"
-    const qrFilePath = `${slug}-${timestamp}.png`; // e.g. "carlos-2025-04-15T13-47-28-123Z.png"
+    const qrFilePath = `${slug}-${timestamp}.png`;
 
-    // 🧹 1. Delete existing QR image first
-    const { error: deleteError } = await supabase.storage
-      .from("images/vcards")
-      .remove([qrFilePath]);
-
-    if (deleteError) {
-      console.warn(
-        "QR delete warning (can be ignored if file not found):",
-        deleteError
-      );
-    }
-
-    // 🎯 2. Build vCard string
-    const vcard = `
+    // 🔧 1. Build vCard string
+    let vcard = `
 BEGIN:VCARD
 VERSION:3.0
 N:${surname};${name};;;
@@ -42,9 +33,16 @@ EMAIL:${email}
 URL:${website}
 ADR:;;${address};;;
 NOTE:${note}
-END:VCARD`.trim();
+    `.trim();
 
-    // 📦 3. Generate QR code as Data URL
+    // Optionally add social profiles
+    if (linkedin) vcard += `\nX-SOCIALPROFILE;type=linkedin:${linkedin}`;
+    if (instagram) vcard += `\nX-SOCIALPROFILE;type=instagram:${instagram}`;
+    if (whatsapp) vcard += `\nX-SOCIALPROFILE;type=whatsapp:${whatsapp}`;
+
+    vcard += `\nEND:VCARD`;
+
+    // 📦 2. Generate QR code from vCard
     const qrDataUrl = await QRCode.toDataURL(vcard, {
       errorCorrectionLevel: "H",
       margin: 2,
@@ -53,10 +51,13 @@ END:VCARD`.trim();
 
     const qrBlob = await (await fetch(qrDataUrl)).blob();
 
-    // 📤 4. Upload to Supabase (no upsert needed since we deleted first)
+    // 🧼 3. Delete file if it somehow already exists (rare)
+    await supabase.storage.from("images").remove([`vcards/${qrFilePath}`]);
+
+    // 📤 4. Upload to Supabase
     const { error: uploadError } = await supabase.storage
-      .from("images/vcards")
-      .upload(qrFilePath, qrBlob, {
+      .from("images")
+      .upload(`vcards/${qrFilePath}`, qrBlob, {
         contentType: "image/png",
       });
 
