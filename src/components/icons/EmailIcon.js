@@ -1,5 +1,10 @@
+import { whatsAppUrl } from "@/lib/constants";
 
-export default function EmailIcon({ className, svgStyles,href }) {
+export default function EmailIcon({
+  className = "rounded-lg transition duration-300 group",
+  svgStyles = "w-8 h-8 text-white fill-current group-hover:text-secondary",
+  href = whatsAppUrl,
+}) {
   return (
     <a
       className={className}

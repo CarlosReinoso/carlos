@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Typography from "../common/Typography";
 import WhiteText from "./WhiteText";
 import TechBadge from "./TechBadge";
@@ -42,8 +43,15 @@ const BioSection = () => {
 
           <Typography variant="body1" className="text-gray-300 mt-4">
             To relax I like to play guitar and sing, stay active at the gym, and
-            love exploring new places. Right now, I’m planning an epic world
-            trip to inspire my creativity for music, poetry and philosophy.
+            love exploring new places. Right now, I'm planning an epic world
+            trip to inspire my creativity for{" "}
+            <Link href="/music">
+              <WhiteText>music</WhiteText>
+            </Link>
+            , poetry and{" "}
+            <Link href="/books">
+              <WhiteText>philosophy</WhiteText>
+            </Link>.
           </Typography>
         </div>
       </div>

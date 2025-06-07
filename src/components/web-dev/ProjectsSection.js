@@ -5,6 +5,33 @@ import Button from "../property/Button";
 
 export const projects = [
   {
+    year: "June 2025",
+    title: "The Taliswoman – Ethical Jewellery Brand",
+    technologies: ["Next.js", "React", "Tailwind CSS", "Stripe", "Vercel"],
+    link: "https://www.thetaliswoman.com/",
+    description:
+      "An e-commerce platform for Taliswoman, a London-based brand offering handcrafted, ethically sourced jewellery. The site features a minimalist design that highlights the artistry of each piece, with an intuitive shopping experience and seamless mobile responsiveness.",
+    image: "/web-dev/taliswoman.webp",
+  },
+  {
+    year: "May 2025",
+    title: "Smith & Son Homes – Property Investment & Development",
+    technologies: ["Next.js", "React", "Tailwind CSS"],
+    link: "https://www.smithandsonhomes.co.uk/",
+    description:
+      "A corporate website for Smith & Son Homes, a family-run property investment and development firm. The site showcases their portfolio, outlines investment opportunities, and provides detailed information on services, all within a professional and user-friendly interface.",
+    image: "/web-dev/smithandsonhomes.webp",
+  },
+  {
+    year: "May 2025",
+    title: "Five London – Elite Companionship Agency",
+    technologies: ["Next.js", "React", "Tailwind CSS","Dalle3", "RunwayML"],
+    link: "https://www.fivelondon.com/",
+    description:
+      "A sophisticated online presence for Five London, an elite companionship agency. The website presents profiles of their models with elegance and discretion, incorporating secure booking functionalities and a refined aesthetic to appeal to a high-end clientele.",
+    image: "/web-dev/fivelondon.webp",
+  },
+  {
     year: 2025,
     title: "Keanu Arcadio - Writer and Teacher",
     technologies: ["Next.js", "React", "Tailwind CSS"],
