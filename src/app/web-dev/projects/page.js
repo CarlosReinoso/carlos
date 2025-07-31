@@ -1,8 +1,8 @@
 "use client";
 import Typography, { body1, h6 } from "@/components/common/Typography";
-import { projects } from "@/components/web-dev/ProjectsSection";
 import TechBadge from "@/components/web-dev/TechBadge";
 import Link from "next/link";
+import { websiteProjectsData } from "../../../../database/websiteProjectsData";
 
 const tdStyles = "py-4 px-4";
 
@@ -35,7 +35,7 @@ export default function ProjectsPage() {
 
           {/* Stacked Layout on Mobile */}
           <div className="block md:hidden">
-            {projects.map((project, index) => (
+            {websiteProjectsData.map((project, index) => (
               <div
                 key={index}
                 onClick={() => window.open(project.link, "_blank")}
