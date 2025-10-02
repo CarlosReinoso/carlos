@@ -2,6 +2,42 @@
 
 export const websiteProjectsData = [
   {
+    year: 2025,
+    title: "Embody Perthshire – Neurological Physiotherapy & Pilates",
+    technologies: ["Next.js", "React", "Tailwind CSS"],  // adjust if the site uses something else
+    link: "https://embodyperthshire.co.uk/",
+    description:
+      "A site for Embody Perthshire, a specialist neurological physiotherapy and movement practice. The design emphasises clarity, trust, and accessibility, showcasing home-visits, community Pilates classes, MS online classes, and Carol’s blended approach to healing and movement.",
+    image: "/web-dev/carol.png",
+  },
+  {
+    year: 2025,
+    title: "BusyOcto — AI-Powered Ad Creative & Performance Optimisation",
+    technologies: ["Next.js", "React", "Tailwind CSS", "Node.js", "Fastify", "Firebase", "AWS"],
+    link: "https://www.busyocto.ai/",
+    description:
+      "Collaborated on BusyOcto’s AI-driven ad creative platform, building analytics dashboards, research/competitor-tracking modules, and AI suggestion engines. Delivered intuitive UI for reporting and added real-time trend listening to speed up creative decisions.",
+    image: "/web-dev/busyocto.png",
+  },
+  {
+    year: 2025,
+    title: "Ace Picks — AI & Analytics for Sports Predictions",
+    technologies: ["React", "Next.js", "Shadcn", "FastAPI", "AWS", "PostgreSQL", "Redis", "Stripe"],
+    link: "https://acepicks.ai/",
+    description:
+      "Integrated forecasting models and real-time data pipelines, with dashboards for performance (P/L, win rate, ROI), subscription gating, and transparent pick histories. Scaled infrastructure to support multiple leagues and evolving models.",
+    image: "/web-dev/acepicks.png",
+  },
+  {
+    year: "2024–2025",
+    title: "Terzo.ai — Contract Intelligence & Financial Insights",
+    technologies: ["Next.js", "React", "Tailwind CSS", "Node.js", "Express", "GraphQL", "Apollo"],
+    link: "https://terzo.ai/",
+    description:
+      "Integrated AI extraction into enterprise document workflows and built dashboards for contract performance, spend optimisation, and renewals. Added workflow automation (intake, alerting, approvals) with human-in-the-loop QA to maintain high data quality.",
+    image: "/web-dev/terzo.png",
+  },
+  {
     year: "July 2025",
     title: "Supple Space – Somatic Movement & Embodied Healing",
     technologies: ["Next.js", "React", "Tailwind CSS", "Vercel"],
