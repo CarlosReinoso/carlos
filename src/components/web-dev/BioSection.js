@@ -26,19 +26,20 @@ const BioSection = () => {
             </TechBadge>
           </div>
 
-          <Typography variant="body1" className="text-gray-300">
-            I design and develop digital experiences tailored for solo
-            entrepreneurs and small businesses. With experience working in
-            startups to large FTS100 companies.
-          </Typography>
           <Typography variant="body1" className="text-gray-300 mt-4">
-            I now focus on empowering independent business owners—artists,
-            property investors, Airbnb hosts as well as psychosomatic teachers
-            and many more—to establish a strong online presence. Whether it's a{" "}
-            <WhiteText>sleek portfolio</WhiteText>, a{" "}
-            <WhiteText>booking platform</WhiteText>, or an{" "}
-            <WhiteText>eCommerce site</WhiteText>, I create websites that are
-            intuitive, visually compelling, and built for growth.
+            I help <WhiteText>startups</WhiteText>,{" "}
+            <WhiteText>enterprises</WhiteText>, and{" "}
+            <WhiteText>investors</WhiteText> build scalable{" "}
+            <WhiteText>SaaS platforms</WhiteText>,{" "}
+            <WhiteText>AI-powered applications</WhiteText>, and high-performance{" "}
+            <WhiteText>FinTech systems</WhiteText> that deliver measurable
+            business results. With <WhiteText>5+ years of experience</WhiteText>{" "}
+            across the US, Europe, and Asia, I've successfully launched
+            platforms in <WhiteText>SaaS</WhiteText>,{" "}
+            <WhiteText>trading</WhiteText>, <WhiteText>e-commerce</WhiteText>,{" "}
+            <WhiteText>healthcare</WhiteText>, and{" "}
+            <WhiteText>education</WhiteText>, consistently turning ideas into
+            profitable products.
           </Typography>
 
           <Typography variant="body1" className="text-gray-300 mt-4">
@@ -51,7 +52,8 @@ const BioSection = () => {
             , poetry and{" "}
             <Link href="/books">
               <WhiteText>philosophy</WhiteText>
-            </Link>.
+            </Link>
+            .
           </Typography>
         </div>
       </div>
