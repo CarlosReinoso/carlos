@@ -9,6 +9,7 @@ import KingdomLayout from "@/app/layouts/KingdomLayout";
 import BooksLayout from "@/app/layouts/BooksLayout";
 import VCardLayout from "@/app/layouts/VCardLayout";
 import HomeLayout from "@/app/layouts/HomeLayout";
+import BaseLayout from "@/app/layouts/BaseLayout";
 import TravelLayout from "@/app/layouts/TravelLayout";
 import MusicLayout from "@/app/layouts/MusicLayout";
 
@@ -26,7 +27,8 @@ export default function LayoutSelector({ children }) {
   const pathname = usePathname();
 
   const matched = layoutMap.find(({ prefix }) => pathname.startsWith(prefix));
-  const Layout = matched?.layout || HomeLayout;
+  const isLanding = pathname === "/";
+  const Layout = matched?.layout || (isLanding ? HomeLayout : BaseLayout);
   const theme = matched?.theme || "home";
 
   useEffect(() => {
