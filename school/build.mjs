@@ -5,7 +5,7 @@ import about from "./src/pages/about.mjs";
 import profile from "./src/pages/profile.mjs";
 import app from "./src/pages/app.mjs";
 import learn from "./src/pages/learn.mjs";
-import { site, courses } from "./src/site.mjs";
+import { site, courses, publishedOf } from "./src/site.mjs";
 
 rmSync("dist", { recursive: true, force: true });
 cpSync("public", "dist", { recursive: true });
@@ -17,7 +17,7 @@ for (const { path, html } of pages) {
 }
 
 const indexed = ["/ai-builders/", "/ai-builders-pro/", "/carlos/", "/learn/",
-  ...courses.flatMap((c) => [`/learn/${c.slug}/`, ...c.lessons.map((l) => `/learn/${c.slug}/${l.slug}/`)])];
+  ...courses.flatMap((c) => [`/learn/${c.slug}/`, ...publishedOf(c).map((l) => `/learn/${c.slug}/${l.slug}/`)])];
 writeFileSync("dist/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${indexed.map((p) => `<url><loc>${site.url}${p}</loc></url>`).join("")}</urlset>\n`);
 writeFileSync("dist/robots.txt", `User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${site.url}/sitemap.xml\n`);
 console.log(`Built ${pages.length} pages into dist/`);

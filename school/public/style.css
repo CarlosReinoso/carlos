@@ -171,3 +171,22 @@ textarea{resize:vertical;min-height:90px}
 .memberships{display:grid;gap:12px}
 .locked{padding:32px 24px;text-align:center}.locked .owned-logo{margin:0 auto 10px;width:60px;height:60px}.locked h2{margin:0 0 6px}.locked>p{max-width:460px;margin:0 auto 14px}
 .blur-posts{display:grid;gap:10px;margin:18px auto;max-width:520px;filter:blur(3px);opacity:.6}.blur-posts i{display:block;height:54px;border-radius:12px;background:linear-gradient(90deg,var(--panel2) 30%,var(--line) 50%,var(--panel2) 70%)}
+
+/* /learn/ index and course contents pages */
+.toc{padding-top:28px;padding-bottom:40px}
+.toc-hero{margin:8px 0 18px}.toc-hero h1{margin:4px 0 10px;font-size:clamp(30px,5vw,42px)}
+.toc-eye{margin:0;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toc-stats{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;padding:0;margin:16px 0 20px;color:var(--muted)}.toc-stats b{color:var(--text);font-size:18px}
+.toc-m{display:block;padding:18px 20px;margin:0 0 14px}
+.toc-mh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}.toc-mh h2{margin:0;font-size:18px;flex:1;min-width:0}
+.toc-mn{width:100%;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.toc-ls{list-style:none;margin:12px 0 0;padding:0}
+.toc-l{border-top:1px solid var(--line)}.toc-l>a,.toc-l.soon{display:flex;align-items:center;gap:14px;padding:12px 4px;text-decoration:none;color:inherit}
+.toc-l>a:hover b{color:var(--accent)}.toc-l div{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.toc-l .mute{font-size:14px}
+.toc-l.soon{color:var(--muted)}
+.toc-n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;background:var(--accent-soft);color:var(--accent)}
+.toc-l.soon .toc-n{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.toc-tag{flex:none;font-size:12.5px;font-weight:650;color:var(--muted)}.toc-tag.live{color:var(--accent)}
+.toc-soon{margin:10px 0 0}
+.toc-course{text-decoration:none;color:inherit}.toc-course:hover h2{color:var(--accent)}.toc-course p{margin:8px 0 0}
+.toc-join{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;margin-top:24px}.toc-join p{margin:4px 0 0}

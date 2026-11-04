@@ -78,15 +78,31 @@ export const joinQuestions = [
   { id: "source", type: "text", label: "Where did you find me? (optional)", placeholder: "YouTube, Instagram, a friend…", optional: true },
 ];
 
-// Free public lessons under /learn/. Each lesson is a self-contained page at
-// public/learn/<course>/<lesson>/index.html; this list builds the /learn/ index, course pages and sitemap.
+// Free public lessons under /learn/. A lesson with a `slug` is published: a self-contained page at
+// public/learn/<course>/<lesson>/index.html. Lessons without one show as "Coming soon". This list builds the
+// /learn/ index, the course contents pages and the sitemap.
 export const courses = [
   {
     slug: "ai-fundamentals",
     title: "AI Fundamentals",
     desc: "A visual, beginner-friendly introduction to artificial intelligence: what it is, how it works and where it shows up in everyday life.",
-    lessons: [
-      { slug: "what-is-ai", title: "What is AI?", desc: "What artificial intelligence actually is, why it's an umbrella term, and how AI systems perceive, reason, act and learn." },
+    modules: [
+      {
+        title: "Introduction to AI",
+        lessons: [
+          { slug: "what-is-ai", title: "What is AI?", desc: "What artificial intelligence actually is, why it's an umbrella term, and how AI systems perceive, reason, act and learn." },
+          { title: "AI in everyday life" },
+          { title: "Narrow vs general AI" },
+          { title: "Quiz: check what you know" },
+        ],
+      },
+      { title: "History and evolution", soon: 4 },
+      { title: "Core concepts", soon: 4 },
+      { title: "Practical tools and platforms", soon: 5 },
+      { title: "Build and share your AI project", soon: 2 },
     ],
   },
 ];
+
+export const lessonsOf = (c) => c.modules.flatMap((m) => m.lessons || []);
+export const publishedOf = (c) => lessonsOf(c).filter((l) => l.slug);
