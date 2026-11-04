@@ -77,3 +77,16 @@ export const joinQuestions = [
   },
   { id: "source", type: "text", label: "Where did you find me? (optional)", placeholder: "YouTube, Instagram, a friend…", optional: true },
 ];
+
+// Free public lessons under /learn/. Each lesson is a self-contained page at
+// public/learn/<course>/<lesson>/index.html; this list builds the /learn/ index, course pages and sitemap.
+export const courses = [
+  {
+    slug: "ai-fundamentals",
+    title: "AI Fundamentals",
+    desc: "A visual, beginner-friendly introduction to artificial intelligence: what it is, how it works and where it shows up in everyday life.",
+    lessons: [
+      { slug: "what-is-ai", title: "What is AI?", desc: "What artificial intelligence actually is, why it's an umbrella term, and how AI systems perceive, reason, act and learn." },
+    ],
+  },
+];

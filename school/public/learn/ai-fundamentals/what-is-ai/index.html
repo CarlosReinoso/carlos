@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>What Is AI? A Visual Guide for Beginners · AI Builders</title>
+<meta name="description" content="What artificial intelligence actually is, in plain English: why AI is an umbrella term, how AI systems perceive, reason, act and learn, and what isn't AI. An interactive visual lesson.">
+<link rel="canonical" href="https://school.carlosreinoso.co.uk/learn/ai-fundamentals/what-is-ai/">
+<meta property="og:type" content="article"><meta property="og:title" content="What Is AI? A Visual Guide for Beginners · AI Builders"><meta property="og:description" content="What artificial intelligence actually is, in plain English: why AI is an umbrella term, how AI systems perceive, reason, act and learn, and what isn't AI. An interactive visual lesson."><meta property="og:url" content="https://school.carlosreinoso.co.uk/learn/ai-fundamentals/what-is-ai/"><meta property="og:image" content="https://school.carlosreinoso.co.uk/carlos.jpg"><meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "What is AI?", "description": "What artificial intelligence actually is, in plain English: why AI is an umbrella term, how AI systems perceive, reason, act and learn, and what isn't AI. An interactive visual lesson.", "url": "https://school.carlosreinoso.co.uk/learn/ai-fundamentals/what-is-ai/", "inLanguage": "en", "educationalLevel": "Beginner", "learningResourceType": "Interactive lesson", "isAccessibleForFree": true, "author": {"@type": "Person", "name": "Carlos Reinoso", "url": "https://school.carlosreinoso.co.uk/carlos/"}, "isPartOf": {"@type": "Course", "name": "AI Fundamentals", "url": "https://school.carlosreinoso.co.uk/learn/ai-fundamentals/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Learn", "item": "https://school.carlosreinoso.co.uk/learn/"}, {"@type": "ListItem", "position": 2, "name": "AI Fundamentals", "item": "https://school.carlosreinoso.co.uk/learn/ai-fundamentals/"}, {"@type": "ListItem", "position": 3, "name": "What is AI?", "item": "https://school.carlosreinoso.co.uk/learn/ai-fundamentals/what-is-ai/"}]}</script>
+<style>.ts{display:none}.written{max-width:720px;margin:0 auto;padding:40px 20px 0;line-height:1.65}.written h2{margin-top:0}</style>
+<style>
+:root{color-scheme:dark;--bg:#10131a;--panel:#191e28;--panel2:#202634;--line:#303746;--text:#eef2fa;--muted:#a6b0c2;--accent:#b9a0ff;--good:#7ee0b0;--bad:#ff8f8f;--warm:#ffcf7a;--cool:#7cc7ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 system-ui,sans-serif}
+a{color:var(--accent);text-underline-offset:4px}button{font:inherit;color:var(--muted);background:linear-gradient(#171c26,#12161e);border:1px solid var(--line);border-radius:999px;padding:9px 16px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:color .25s,border-color .25s,background .25s}
+button::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.07) 50%,transparent 65%);background-size:300% 100%;background-repeat:no-repeat;background-position:100% 0;pointer-events:none}
+button:hover{color:var(--text);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--cool),var(--accent));z-index:10}
+main{max-width:900px;margin:auto;padding:0 20px 80px}
+.scene{min-height:85vh;padding:70px 0 30px;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.16em;text-transform:uppercase}.ts{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;margin-left:8px;letter-spacing:0;text-transform:none}
+h1{font-size:clamp(40px,9vw,76px);letter-spacing:-.045em;line-height:1.02;margin:12px 0 18px}h2{font-size:clamp(28px,5vw,42px);letter-spacing:-.03em;line-height:1.15;margin:10px 0 16px}
+.lead{color:var(--muted);max-width:620px;font-size:19px}.quote{border-left:3px solid var(--accent);padding:6px 18px;margin:18px 0;color:#d9cffa;font-style:italic}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.grid.two{grid-template-columns:repeat(2,1fr)}.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:18px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}.reveal.d4{transition-delay:.48s}
+.back{font-size:14px;display:inline-block;margin-top:24px}
+/* hero network */
+body{overflow-x:clip}#hero{position:relative;min-height:100vh}#hero>*:not(#net){position:relative;z-index:1}#hero>.scroll-hint:not(#net){position:absolute;left:0;right:0;bottom:28px;margin:0;text-align:center;cursor:pointer}
+#net{position:absolute;top:0;bottom:0;left:50%;width:100vw;height:100%;transform:translateX(-50%);z-index:0;pointer-events:none;-webkit-mask-image:linear-gradient(#000 75%,transparent);mask-image:linear-gradient(#000 75%,transparent)}#net line{stroke:var(--accent);stroke-width:1.2}#net line.hot{stroke:var(--cool);stroke-width:1.6}
+#net circle{fill:var(--accent)}#net circle.me{fill:none;stroke:var(--cool);stroke-width:2}
+#hero .plate{align-self:center;text-align:center;margin:30px 0 0;padding:34px 44px 18px;border-radius:22px;border:1px solid var(--line);background:color-mix(in srgb,#12161e 62%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+#hero h1{font-weight:850;text-shadow:0 2px 24px rgba(0,0,0,.6)}#hero h1 .grad{text-shadow:none}
+@media (max-width:640px){#hero .plate{margin-left:-14px;margin-right:-14px;padding:26px 20px 12px}#hero .plate .eyebrow{letter-spacing:.1em}}
+.scroll-hint{color:var(--muted);font-size:14px;margin-top:20px;animation:bob 2s ease-in-out infinite}@keyframes bob{50%{transform:translateY(6px)}}
+/* objectives: 3D card row */
+.grad{background:linear-gradient(90deg,var(--cool),var(--accent),var(--warm));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}@keyframes shine{to{background-position:200%}}
+.verbtxt{font-weight:800;letter-spacing:-.04em;line-height:1.05;white-space:nowrap}
+.ico{height:70px;width:100%;display:block}.ico path{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.ico.draw path{stroke-dasharray:1;stroke-dashoffset:1;animation:icodraw 1.3s ease forwards}@keyframes icodraw{to{stroke-dashoffset:0}}
+.v5{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;perspective:1100px;padding:16px 0}
+.card5{height:250px;position:relative;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.8,.3,1);cursor:pointer}
+.card5 .f,.card5 .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:18px}
+.card5 .f{overflow:hidden;background:radial-gradient(circle at 85% 12%,color-mix(in srgb,var(--c) 16%,transparent),transparent 55%),radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1.5px) 0 0/16px 16px,#12161e}
+
+.card5 .f .n{font-size:84px;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1.5px color-mix(in srgb,var(--c) 45%,transparent);letter-spacing:-.04em}
+.card5 .f small{color:var(--muted);margin-top:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.75}
+.card5 .pips{display:flex;gap:6px;margin-top:10px}.card5 .pips i{width:6px;height:6px;border-radius:50%;background:var(--line)}.card5 .pips i.me{background:var(--c);opacity:.7}
+.card5.next .f{border-color:color-mix(in srgb,var(--c) 40%,var(--line));animation:breathe 2.4s ease-in-out infinite}@keyframes breathe{50%{box-shadow:0 0 22px color-mix(in srgb,var(--c) 22%,transparent)}}
+.card5 .b{overflow:hidden;transform:rotateY(180deg);background:linear-gradient(160deg,#241e38,#151a24);border-color:var(--accent)}
+.card5 .b .verbtxt{font-size:clamp(24px,3.4vw,34px)}.card5 .b p{font-size:14px;color:var(--muted);margin:6px 0 0}
+.card5.on{transform:rotateY(180deg) translateZ(30px)}.card5.seen:not(.on){transform:rotateY(180deg) scale(.92)}.card5.seen:not(.on) .b{opacity:.55;border-color:var(--line)}
+.card5.on .b{box-shadow:0 20px 50px rgba(185,160,255,.25)}
+.v5-controls{justify-content:center}
+/* human -> machine */
+.bridge{display:grid;grid-template-columns:1fr 120px 1fr;align-items:center;margin-top:22px}
+.glasscard{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.3);background:radial-gradient(circle at 88% 10%,color-mix(in srgb,var(--c) 14%,transparent),transparent 55%),radial-gradient(circle,rgba(255,255,255,.045) 1px,transparent 1.5px) 0 0/14px 14px,#12161e}
+.bridge .side{padding:22px;display:flex;gap:16px;align-items:center}.bridge .side svg{width:54px;height:54px;flex:0 0 54px}.bridge h3{margin:0;font-size:19px}.bridge p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.bridge .link{height:2px;background:repeating-linear-gradient(90deg,var(--accent) 0 6px,transparent 6px 12px);opacity:.55;animation:linkmarch 1.6s linear infinite paused;position:relative;transition:opacity .3s}.bridge:hover .link{animation-play-state:running;opacity:.9}
+.bridge .link span{position:absolute;left:50%;top:-24px;transform:translateX(-50%);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}@keyframes linkmarch{to{background-position:12px 0}}
+.tiles-label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:30px}
+.chips.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+.chips.tiles .chip{flex-direction:column;justify-content:flex-start;min-height:92px;gap:6px;text-align:center;border-radius:14px;padding:12px 8px;font-size:14px}.chips.tiles .chip svg.i{width:22px;height:22px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;justify-content:center}
+.chip{padding:9px 16px;font-size:15px;display:inline-flex;align-items:center;gap:8px}
+/* glass pills: chips and tab buttons share the capsule look */
+/* chips are spans, so they copy the glass button look */
+.chip{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:999px;background:linear-gradient(#171c26,#12161e);color:var(--muted);box-shadow:0 6px 18px rgba(0,0,0,.28);transition:color .25s,border-color .25s,background .25s}
+.chip::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.07) 50%,transparent 65%);background-size:300% 100%;background-repeat:no-repeat;background-position:100% 0;pointer-events:none}
+
+.chip:hover{color:var(--text);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.chip svg.i{color:var(--accent)}
+.chips.in .chip{animation:pop .5s backwards}.chips .chip:nth-child(2){animation-delay:.1s}.chips .chip:nth-child(3){animation-delay:.2s}.chips .chip:nth-child(4){animation-delay:.3s}.chips .chip:nth-child(5){animation-delay:.4s}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+/* umbrella: a glass figure holds the AI umbrella; each field is pinned to the human ability it copies */
+#umbrella{display:block;width:100%;margin:6px auto 0}
+#umbrella .ut{fill:var(--text);font:600 15px system-ui;text-anchor:middle}
+#umbrella .canopy{fill:color-mix(in srgb,var(--accent) 7%,#12161e);stroke:var(--accent);stroke-width:3;stroke-linejoin:round}
+#umbrella .handle{fill:none;stroke:#c9d0de;stroke-width:4;stroke-linecap:round}
+#umbrella .lab{cursor:pointer;outline:none}#umbrella .lab rect{fill:#12161e;stroke:var(--line);transition:stroke .25s}#umbrella .lab text{fill:var(--muted);font:500 14px system-ui;transition:fill .25s}
+#umbrella .lab.on rect,#umbrella .lab:hover rect,#umbrella .lab:focus-visible rect{stroke:var(--c)}#umbrella .lab.on text,#umbrella .lab:hover text{fill:var(--text)}
+#umbrella .ldr{stroke:var(--line);stroke-width:1.2;stroke-dasharray:3 4;transition:stroke .25s}#umbrella .ldr.on{stroke:var(--c);stroke-dasharray:none;stroke-width:1.6}
+#umbrella .pin{fill:var(--c);stroke:#10131a;stroke-width:2;cursor:pointer}#umbrella .ring{fill:none;stroke:var(--c);stroke-width:2;transform-box:fill-box;transform-origin:center;opacity:0;pointer-events:none}#umbrella .ring.on{animation:ping 1.6s ease-out infinite}
+@keyframes ping{from{transform:scale(.6);opacity:.9}to{transform:scale(2.6);opacity:0}}
+#um-det{display:flex;gap:18px;align-items:center;padding:18px 18px 18px 22px;margin-top:14px;min-height:128px;transition:background .4s}
+#um-det .dico{width:64px;height:64px;flex:0 0 auto;border-radius:16px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--c) 45%,var(--line));color:var(--c);background:color-mix(in srgb,var(--c) 10%,#12161e)}
+#um-det .dico svg.i{width:32px;height:32px;stroke-width:2}#um-det .dico path{stroke-dasharray:1;stroke-dashoffset:1;animation:icodraw 1.1s ease forwards}
+#um-det .txt{flex:1;min-width:0}#um-det h3{margin:0 0 4px;font-size:20px;line-height:1.25}#um-det p{margin:0;color:var(--muted);font-size:16px}#um-det .eg{margin-top:6px;font-size:15px}#um-det .eg b{color:var(--text);font-weight:600}
+#um-det .grp{display:block;line-height:1.5;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+#um-det .nav{display:flex;flex-direction:column;align-items:center;gap:8px;flex:0 0 auto;align-self:stretch;justify-content:center;padding-left:16px;border-left:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+#um-det .btns{display:flex;gap:8px}
+#um-det .arr{width:44px;height:44px;padding:0;display:grid;place-items:center;opacity:.6;box-shadow:none;border-color:color-mix(in srgb,var(--line) 70%,transparent);background:transparent;transition:color .25s,border-color .25s,background .25s,opacity .25s}
+#um-det .arr svg.i{width:20px;height:20px;transition:transform .25s}
+#um-det .arr:hover,#um-det .arr:focus-visible{opacity:1;color:var(--text);border-color:color-mix(in srgb,var(--c) 60%,var(--line));background:color-mix(in srgb,var(--c) 12%,#12161e);box-shadow:0 6px 18px rgba(0,0,0,.3)}
+#um-det .next:hover svg{transform:translateX(2px)}#um-det .prev:hover svg{transform:translateX(-2px)}
+#um-det .count{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.06em}#um-det .count b{color:var(--text);font-weight:600}
+#um-det .dots{display:flex;gap:4px}#um-det .dots i{width:5px;height:5px;border-radius:50%;background:var(--line);transition:background .3s,width .3s}#um-det .dots i.on{background:var(--c);width:14px;border-radius:3px}
+@media (max-width:640px){#umbrella .lab,#umbrella .ldr{display:none}#umbrella .pin{r:7}#um-det{flex-wrap:wrap}#um-det .nav{flex-direction:row;width:100%;border-left:0;border-top:1px solid var(--line);padding:12px 0 0;justify-content:space-between}}
+@media (prefers-reduced-motion:reduce){#umbrella .ring.on,#um-det .dico path{animation:none}#um-det .dico path{stroke-dashoffset:0}}
+/* spectrum */
+.scope{margin-top:22px}.ex-head{display:flex;justify-content:space-between;align-items:center}
+.scope .tag{font-size:12px;text-transform:uppercase;letter-spacing:.12em;padding:4px 10px;border-radius:999px;border:1px solid currentColor}
+.ex-count{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.scope h3{margin:10px 0 2px;font-size:24px}.scope .ex-desc{margin:0 0 16px;color:var(--muted)}
+.ex-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.ex-tabs button{padding:7px 15px;font-size:14px}.ex-tabs button.on{color:var(--text);background:linear-gradient(#2b2245,#211a38);border-color:var(--accent)}
+.ex-body{transition:opacity .3s}.ex-body.fade{opacity:0}
+.stage{height:210px;background:#12161e;border:1px solid var(--line);border-radius:14px;position:relative;overflow:hidden}
+.stage .cap{position:absolute;left:14px;bottom:10px;font-size:14px;color:var(--muted)}
+.stage .mail{position:absolute;left:20px;width:70px;height:40px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);font-size:11px;display:grid;place-items:center;opacity:0;animation:mail 2.4s ease-in-out infinite}
+@keyframes mail{0%{top:75px;left:20px;opacity:0}15%{opacity:1}60%{left:44%;top:75px}100%{left:calc(100% - 100px);top:var(--y);opacity:.2}}
+.stage .bin{position:absolute;right:16px;width:90px;height:50px;border:2px solid;border-radius:8px;display:grid;place-items:center;font-size:12px}
+.stage .face{position:absolute;left:50%;top:40px;width:80px;height:100px;margin-left:-40px;border-radius:40px 40px 34px 34px;background:#3b3550}
+.stage .face::before,.stage .face::after{content:"";position:absolute;top:38px;width:10px;height:10px;border-radius:50%;background:var(--text)}.stage .face::before{left:20px}.stage .face::after{right:20px}
+.stage .lockbox{position:absolute;left:50%;top:30px;width:110px;height:120px;margin-left:-55px;border:3px solid var(--warm);border-radius:8px;animation:lock 2s ease-in-out infinite}
+@keyframes lock{0%{transform:scale(1.8);opacity:0}40%{transform:scale(1);opacity:1}100%{opacity:1}}
+.stage .word{position:absolute;left:50%;top:70px;transform:translateX(-50%);font-size:clamp(24px,5vw,34px);font-weight:700;white-space:nowrap;animation:fadeswap 3s infinite}
+.stage .word.b{animation-delay:1.5s;opacity:0;color:var(--cool)}@keyframes fadeswap{0%,40%{opacity:1}50%,100%{opacity:0}}
+.stage .route path{fill:none;stroke:var(--good);stroke-width:4;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.5s ease infinite}@keyframes draw{70%,100%{stroke-dashoffset:0}}
+.stage .route circle{fill:var(--panel2);stroke:var(--muted);stroke-width:2}
+.stage .xray{position:absolute;left:50%;top:22px;width:120px;height:150px;margin-left:-60px;border-radius:12px;background:radial-gradient(ellipse at 50% 40%,#5a6070,#20242e 70%)}
+.stage .xray::after{content:"";position:absolute;left:62px;top:56px;width:30px;height:30px;border-radius:50%;border:3px solid var(--bad);animation:lock 2s infinite}
+.stage .sweep{position:absolute;left:0;right:0;height:3px;background:var(--warm);box-shadow:0 0 12px var(--warm);animation:sweep 2s linear infinite}@keyframes sweep{from{top:22px}to{top:172px}}
+/* spam: how the AI decides */
+.how-w{margin-top:14px}.how-w summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;list-style:none;font-size:14px;color:var(--accent);padding:7px 15px;border:1px solid var(--line);border-radius:999px}
+.how-w summary::-webkit-details-marker{display:none}.how-w summary::after{content:"▾";transition:transform .3s}.how-w[open] summary::after{transform:rotate(180deg)}.how-w summary:hover{border-color:var(--accent)}
+.how-w[open] .how{animation:pop .4s;margin-top:12px}
+.how .st:hover{background:var(--panel2);border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 8px 22px rgba(185,160,255,.18)}
+.how .more{margin:10px 0 0;padding-top:8px;border-top:1px dashed var(--line);color:var(--text);font-size:13px;line-height:1.5}
+.how{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.how .st{background:#12161e;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px;color:var(--muted);transition:border-color .25s,box-shadow .25s,background .25s}
+
+.how b{display:block;color:var(--text);font-size:14px;margin-bottom:8px}.how b em{font-style:normal;color:var(--accent);margin-right:6px}
+.how .pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid currentColor;margin:0 4px 4px 0}
+.how .bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,var(--panel2) 90%,color-mix(in srgb,var(--bad) 22%,var(--panel2)) 90%);margin:5px 0 12px}
+.how .bar i{position:absolute;left:0;top:0;bottom:0;width:max(var(--w),12px);border-radius:6px;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 45%,transparent),var(--c));box-shadow:0 0 10px color-mix(in srgb,var(--c) 40%,transparent);animation:grow 1.2s ease-out}
+.how .bar::after{content:"";position:absolute;left:90%;top:-4px;bottom:-4px;width:2px;margin-left:-1px;border-radius:1px;background:var(--warm)}@keyframes grow{from{width:0}}
+.how .bar.plain{background:var(--panel2)}.how .bar.plain::after{display:none}.how .nums{font:12px/1.6 ui-monospace,monospace;color:var(--cool);background:var(--panel2);border-radius:8px;padding:6px 8px}
+.how .verdict{font-size:11px;font-weight:600;padding:1px 8px;border-radius:999px;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent)}
+.how .legend{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--warm);margin-top:-4px}.how .legend::before{content:"";width:2px;height:12px;border-radius:1px;background:var(--warm)}
+.how .row{display:flex;flex-wrap:wrap;gap:4px 6px;justify-content:space-between;align-items:center;font-size:12px}.how .spin{display:inline-block;animation:spin 3s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:640px){.how .st{padding:10px}}
+.dots{display:flex;gap:6px;margin-top:16px}.dots i{width:28px;height:4px;border-radius:2px;background:var(--line);overflow:hidden;position:relative}
+.dots i.done{background:var(--accent)}.dots i.cur::after{content:"";position:absolute;inset:0;background:var(--accent);transform-origin:left;animation:fill var(--dur) linear forwards}
+.dots.paused i.cur::after{animation:none}@keyframes fill{from{transform:scaleX(0)}}
+/* loop */
+.loop{display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:24px;align-items:center;margin-top:16px}
+#cycle{width:100%}#cycle .node circle{fill:var(--panel2);stroke:var(--line);stroke-width:2;transition:.4s}#cycle .node text{fill:var(--muted);font:600 14px system-ui;text-anchor:middle;transition:.4s}
+#cycle .node.on circle{fill:#2b2245;stroke:var(--accent);stroke-width:3}#cycle .node.on text{fill:var(--text)}
+#cycle .ring{fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:6 8}#runner{fill:var(--accent);transition:cx .6s,cy .6s}
+.stage-panel h3{margin:0 0 6px;font-size:24px}.stage-panel p{margin:0 0 10px;color:var(--muted)}
+.road{position:relative;height:80px;background:#151922;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:10px}
+.road::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px dashed #3a4253}
+.car{position:absolute;top:22px;left:4%;width:56px;height:30px;border-radius:8px 14px 6px 6px;background:var(--cool);transition:left 1.4s cubic-bezier(.3,.8,.4,1)}
+.car::after{content:"";position:absolute;right:-60px;top:0;width:60px;height:30px;background:linear-gradient(90deg,rgba(124,199,255,.35),transparent);clip-path:polygon(0 30%,100% 0,100% 100%,0 70%);opacity:0;transition:.3s}
+.road[data-s="0"] .car::after{opacity:1}
+.ped{position:absolute;right:12%;top:14px;width:14px;height:44px}.ped::before{content:"";position:absolute;left:2px;top:0;width:10px;height:10px;border-radius:50%;background:var(--warm)}.ped::after{content:"";position:absolute;left:5px;top:12px;width:4px;height:28px;background:var(--warm);border-radius:2px}
+.box-label{position:absolute;right:calc(12% - 14px);top:6px;width:42px;height:58px;border:2px solid var(--accent);border-radius:6px;opacity:0;transition:.3s}.road[data-s="1"] .box-label,.road[data-s="2"] .box-label{opacity:1}
+.road[data-s="2"] .car,.road[data-s="3"] .car{left:48%}
+.learn-bar{height:8px;background:var(--line);border-radius:4px;margin-top:10px;overflow:hidden}.learn-bar i{display:block;height:100%;width:var(--w,30%);background:var(--good);transition:width .8s}
+.controls{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;align-items:center}
+/* capsule stepper: Back · Play/Pause (ring counts down to the next step) · Next */
+.capsule,.cap-extra{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:999px;background:linear-gradient(#171c26,#12161e);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.capsule{display:inline-flex;align-items:center;gap:4px;padding:5px}
+.capsule::before,.cap-extra::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.07) 50%,transparent 65%);background-size:300% 100%;background-repeat:no-repeat;background-position:100% 0;pointer-events:none}
+@keyframes capsheen{from{background-position:100% 0}to{background-position:0 0}}
+/* the glass sheen sweeps once per hover and always finishes (JS adds .shine for the sweep's length) */
+.shine::before{animation:capsheen 4.4s ease-in-out}
+.capsule button{overflow:visible;box-shadow:none;background:none;border:0;border-radius:999px;display:flex;align-items:center;gap:6px;padding:9px 16px;color:var(--muted);position:relative}
+.capsule button::before{display:none}.capsule button:hover{color:var(--text);background:rgba(255,255,255,.05);border-color:transparent}
+.capsule .play{width:48px;height:48px;padding:0;justify-content:center;background:#2b2245;color:var(--text);border:1px solid var(--accent)}.capsule .play:hover{background:#352a57}
+.capsule .play svg.r{position:absolute;inset:-4px;width:56px;height:56px;transform:rotate(-90deg);overflow:visible}.capsule .play svg.r circle{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-dasharray:1;stroke-dashoffset:1}
+.capsule[data-playing="1"] .play svg.r circle.run{animation:capring var(--dur,3400ms) linear forwards}@keyframes capring{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}svg.i .fill{fill:currentColor;stroke:none}
+.capsule .ip,.capsule .ipa{display:none}.capsule[data-playing="1"] .ipa,.capsule[data-playing="0"] .ip{display:block}
+.cap-extra{color:var(--text);padding:12px 18px}.cap-extra:hover{border-color:var(--accent)}
+/* inside reason */
+#rz{display:none;margin-top:18px}#rz.open{display:block;animation:pop .45s}
+#rz .rz-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}#rz h3{margin:0;font-size:22px}
+#rz-svg{width:100%;height:auto;display:block;background:#12161e;border:1px solid var(--line);border-radius:14px;margin-top:14px}
+#rz-svg .pave{fill:#1a1f29}#rz-svg .road{fill:#161a22}#rz-svg .lane{stroke:#3a4253;stroke-width:2;stroke-dasharray:14 12}#rz-svg .kerb{stroke:#4a5263;stroke-width:3}
+#rz-svg .carb{fill:var(--cool)}#rz-svg .ped{stroke:var(--warm);stroke-width:4;stroke-linecap:round;fill:none}#rz-svg .pedh{fill:var(--warm)}
+#rz-svg text{font:600 14px system-ui;fill:var(--text)}#rz-svg .sm{font:500 12px system-ui;fill:var(--muted)}
+#rz-svg .ly{opacity:0;transition:opacity .6s}#rz-svg .ly.on{opacity:1}
+#rz-svg .px{transition:opacity .8s}#rz-svg .px.off{opacity:0}
+#rz-svg .bbox{fill:none;stroke:var(--accent);stroke-width:3;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1s}#rz-svg .ly.on .bbox{stroke-dashoffset:0}
+#rz-svg .lidar circle{fill:var(--cool)}#rz-svg .ly.on .lidar circle{animation:blink 1.4s infinite alternate}@keyframes blink{to{opacity:.3}}
+#rz-svg .pathp{stroke:var(--warm);stroke-width:3;stroke-dasharray:6 6;fill:none;animation:march 1s linear infinite}#rz-svg .pathc{stroke:var(--cool);stroke-width:3;stroke-dasharray:6 6;fill:none;animation:march 1s linear infinite}@keyframes march{to{stroke-dashoffset:-12}}
+#rz-svg .ghost{fill:var(--warm);opacity:.3}#rz-svg .hit{fill:none;stroke:var(--bad);stroke-width:3}#rz-svg .ly.on .hit{animation:lock 1.6s infinite}
+#rz-svg .risk rect{fill:#3a1f25;stroke:var(--bad)}#rz-svg .risk text{fill:var(--bad)}#rz-svg .chain text{font:600 13px system-ui}
+.rz-text h4{margin:14px 0 4px;font-size:18px}.rz-text p{margin:0;color:var(--muted)}.rz-chain{color:var(--accent);font-size:13px;margin-top:6px}
+/* calculator vs ai */
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.versus h3{margin:0 0 4px}.versus .mono{font:15px ui-monospace,monospace;background:#12161e;border:1px solid var(--line);border-radius:10px;padding:12px;min-height:118px;white-space:pre-line}
+.badge{display:inline-block;font-size:12px;padding:3px 10px;border-radius:999px;margin-bottom:8px}.badge.no{background:#3a1f25;color:var(--bad)}.badge.yes{background:#183428;color:var(--good)}
+.acc{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:10px}
+/* sorter */
+.sort-list{display:grid;gap:10px;margin-top:18px}
+.sort-item{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:.3s}
+.sort-item .why{grid-column:1/-1;color:var(--muted);font-size:15px;display:none}.sort-item.done .why{display:block}
+.sort-item.right{border-color:var(--good)}.sort-item.wrong{border-color:var(--bad)}.sort-item.done button{pointer-events:none;opacity:.55}
+.sort-item .btns{display:flex;gap:6px}.score{margin-top:12px;color:var(--accent);font-weight:600}
+/* summary: recall challenge (think first, then the answer types itself out and you mark yourself) */
+#rc{--c:var(--warm);padding:26px 28px 22px;margin-top:18px;transition:background .4s}
+#rc .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+#rc .qn{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+#rc .marks{display:flex;gap:6px}#rc .marks i{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-style:normal;font-size:13px;color:var(--muted);background:#12161e;transition:all .3s}
+#rc .marks i.cur{border-color:var(--c);color:var(--text)}#rc .marks i.ok{background:color-mix(in srgb,var(--good) 18%,#12161e);border-color:var(--good);color:var(--good)}#rc .marks i.no{background:color-mix(in srgb,var(--bad) 15%,#12161e);border-color:var(--bad);color:var(--bad)}
+#rc .body{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center}
+#rc .topic{font-size:13px;color:var(--muted);margin:0}#rc h3{font-size:clamp(22px,3.4vw,28px);letter-spacing:-.02em;line-height:1.2;margin:4px 0 0}
+#rc .timer{width:84px;height:84px;position:relative;flex:0 0 auto}#rc .timer svg{width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+#rc .timer circle{fill:none;stroke-width:4}#rc .timer .bg{stroke:var(--line)}#rc .timer .fg{stroke:var(--c);stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--c) 60%,transparent))}
+#rc .timer.run .fg{animation:rccount 6s linear forwards}@keyframes rccount{to{stroke-dashoffset:1}}
+#rc .timer span{position:absolute;inset:8px;border-radius:50%;display:grid;place-items:center;font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;background:linear-gradient(#171c26,#12161e);box-shadow:inset 0 0 0 1px var(--line)}
+#rc .timer span svg{width:26px;height:26px;transform:none;color:var(--c)}
+#rc .ans{margin-top:20px;min-height:92px;border-radius:14px;padding:16px 18px;border:1.5px dashed var(--line);color:var(--muted);font-size:17px;display:flex;align-items:center;transition:border-color .3s,background .3s}
+#rc .ans.shown{border-style:solid;border-color:color-mix(in srgb,var(--c) 45%,var(--line));background:color-mix(in srgb,var(--c) 7%,#12161e);color:var(--text)}
+#rc .ans .cursor{display:inline-block;width:2px;height:1.05em;background:var(--c);vertical-align:-3px;margin-left:1px;animation:rcblink .6s infinite alternate}@keyframes rcblink{to{opacity:0}}
+#rc .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+#rc .acts .grow{flex:1}#rc button svg.i{width:16px;height:16px;vertical-align:-3px;margin-right:6px}
+#rc .got:hover{border-color:var(--good);color:var(--good)}#rc .miss:hover{border-color:var(--bad);color:var(--bad)}
+#rc .restart{background:none;box-shadow:none;border-color:transparent;font-size:14px;opacity:.7}#rc .restart:hover{opacity:1;border-color:var(--line)}
+#rc .end{text-align:center;padding:6px 0}#rc .end h3{margin:12px 0 6px}#rc .end p{color:var(--muted);margin:0 0 16px}
+#rc .end .score{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1}#rc .end .score small{font-size:20px;color:var(--muted);font-weight:600}
+#rc .review{display:grid;gap:8px;text-align:left;margin:0 0 18px}#rc .review div{display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#12161e;font-size:15px;color:var(--muted)}
+#rc .review b{color:var(--text);display:block;font-size:14px}#rc .review .m{flex:0 0 auto;font-weight:700}#rc .review .ok .m{color:var(--good)}#rc .review div.no{border-color:color-mix(in srgb,var(--bad) 40%,var(--line));background:color-mix(in srgb,var(--bad) 6%,#12161e)}#rc .review .no .m{color:var(--bad)}
+@media (max-width:640px){#rc{padding:20px 18px}#rc .body{grid-template-columns:1fr}#rc .timer{width:70px;height:70px;order:-1}#rc .timer span{font-size:22px}}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px;margin-top:40px}
+@media (max-width:640px){.v5{grid-template-columns:1fr}.card5{height:210px}.loop,.versus{grid-template-columns:1fr}.bridge{grid-template-columns:1fr}.bridge .link{width:2px;height:36px;margin:0 auto;background:repeating-linear-gradient(180deg,var(--accent) 0 6px,transparent 6px 12px)}.bridge .link span{display:none}.chips.tiles{grid-template-columns:repeat(2,1fr)}.chips.tiles .chip:last-child{grid-column:1/-1;min-height:0}.sort-item{grid-template-columns:1fr}.grid.two{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.ico.draw path{stroke-dashoffset:0}}
+
+/* shared look for the remaining slides: same glass cards as the objectives and definition (style only) */
+.card,.sort-item{background:radial-gradient(circle at 88% 10%,color-mix(in srgb,var(--c,var(--accent)) 12%,transparent),transparent 55%),radial-gradient(circle,rgba(255,255,255,.045) 1px,transparent 1.5px) 0 0/14px 14px,#12161e;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.card,.sort-item{position:relative;border-radius:18px}
+.versus .card:nth-child(1){--c:var(--bad)}.versus .card:nth-child(2){--c:var(--good)}.stage-panel{--c:var(--cool)}
+.sort-item.right{--c:var(--good)}.sort-item.wrong{--c:var(--bad)}
+
+</style></head><body>
+<div id="progress"></div>
+<main>
+
+<section class="scene" id="hero">
+  <a class="back" href="/learn/ai-fundamentals/">← AI Fundamentals</a>
+  <div class="plate"><div class="eyebrow">AI Fundamentals · Module 1 · Lesson 1</div>
+  <h1>What is Artificial<br><span class="grad">Intelligence?</span></h1></div>
+  <svg id="net" aria-hidden="true"></svg>
+  <div class="scroll-hint" role="button" tabindex="0">Scroll to start ↓</div>
+</section>
+
+<section class="scene">
+  <div class="eyebrow reveal">Learning objectives <span class="ts">00:00</span></div>
+  <h2 class="reveal">By the end, you should be able to…</h2>
+  <div class="v5 reveal d1" id="v5"></div>
+  <div class="controls v5-controls reveal d2"><div class="capsule" data-playing="0"><button id="v5-prev"><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Back</button><button class="play" id="v5-play" aria-label="Play"><svg class="r" viewBox="0 0 60 60" aria-hidden="true"><circle pathLength="1" cx="30" cy="30" r="28"/></svg><svg class="i ip" viewBox="0 0 24 24"><path class="fill" d="M8 5.5v13l11-6.5z"/></svg><svg class="i ipa" viewBox="0 0 24 24"><path class="fill" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button><button id="v5-next">Next<svg class="i" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button></div></div>
+</section>
+
+<section class="scene">
+  <div class="eyebrow reveal">The definition <span class="ts">00:00:40</span></div>
+  <h2 class="reveal">Human intelligence, simulated by machines</h2>
+  <div class="quote reveal">“The simulation of human intelligence processes by machines.”</div>
+  <div class="bridge reveal d1">
+    <div class="side glasscard" style="--c:var(--warm)"><svg viewBox="0 0 54 54" aria-hidden="true" fill="none" stroke="#ffcf7a" stroke-width="2.5" stroke-linecap="round"><path d="M27 9a8 8 0 1 0 .1 0M11 47c2-11 8-17 16-17s14 6 16 17"/></svg><div><h3>Humans</h3><p>recognise faces, solve puzzles</p></div></div>
+    <div class="link" aria-hidden="true"><span>simulate</span></div>
+    <div class="side glasscard" style="--c:var(--cool)"><svg viewBox="0 0 54 54" aria-hidden="true" fill="none" stroke="#7cc7ff" stroke-width="2.5" stroke-linecap="round"><rect x="8" y="9" width="38" height="27" rx="4"/><path d="M19 45h16M27 36v9"/><circle cx="21" cy="22" r="2.5" fill="#7cc7ff" stroke="none"/><circle cx="33" cy="22" r="2.5" fill="#7cc7ff" stroke="none"/></svg><div><h3>Machines</h3><p>strive to do similar things</p></div></div>
+  </div>
+  <div class="tiles-label reveal">Tasks that historically required human intelligence</div>
+  <div class="chips tiles reveal">
+    <span class="chip"><svg class="i" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>Reasoning</span><span class="chip"><svg class="i" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/></svg>Understanding language</span><span class="chip"><svg class="i" viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/></svg>Recognising patterns</span><span class="chip"><svg class="i" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>Learning from experience</span><span class="chip"><svg class="i" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Making decisions</span>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="eyebrow reveal">A field, not a robot <span class="ts">00:01:20</span></div>
+  <h2 class="reveal">AI is an <span style="color:var(--accent)">umbrella term</span></h2>
+  <p class="lead reveal">AI isn't a single program or robot. It's a broad field of computer science that holds many technologies and techniques.</p>
+  <svg id="umbrella" class="reveal" viewBox="0 25 900 470" role="group" aria-label="A person holding an umbrella labelled Artificial Intelligence. Nine fields are pinned to the human abilities they copy."></svg>
+  <div class="glasscard reveal" id="um-det" aria-live="polite"></div>
+</section>
+
+<section class="scene">
+  <div class="eyebrow reveal">The scope <span class="ts">00:02:00</span></div>
+  <h2 class="reveal">From simple to complex</h2>
+  <div class="card scope reveal">
+    <div class="ex-tabs" id="ex-tabs"></div>
+    <div class="ex-body" id="ex-body">
+      <div class="ex-head"><span class="tag" id="ex-tag"></span><span class="ex-count" id="ex-count"></span></div>
+      <h3 id="ex-title"></h3><p class="ex-desc" id="ex-desc"></p>
+      <div class="stage" id="ex-stage" aria-hidden="true"></div>
+      <div id="ex-more"></div>
+    </div>
+    <div class="dots" id="ex-dots" aria-hidden="true"></div>
+    <div class="controls"><div class="capsule" data-playing="0"><button id="ex-prev"><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Back</button><button class="play" id="ex-play" aria-label="Play"><svg class="r" viewBox="0 0 60 60" aria-hidden="true"><circle pathLength="1" cx="30" cy="30" r="28"/></svg><svg class="i ip" viewBox="0 0 24 24"><path class="fill" d="M8 5.5v13l11-6.5z"/></svg><svg class="i ipa" viewBox="0 0 24 24"><path class="fill" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button><button id="ex-next">Next<svg class="i" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button></div></div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="eyebrow reveal">Key characteristics <span class="ts">00:02:33</span></div>
+  <h2 class="reveal">Perceive → Reason → Act → Learn</h2>
+  <p class="lead reveal">Follow the lesson's self-driving car example through each step.</p>
+  <div class="loop reveal">
+    <svg id="cycle" viewBox="0 0 300 300" aria-hidden="true">
+      <circle class="ring" cx="150" cy="150" r="105"/>
+      <g class="node" data-i="0"><circle cx="150" cy="45" r="38"/><text x="150" y="50">Perceive</text></g>
+      <g class="node" data-i="1"><circle cx="255" cy="150" r="38"/><text x="255" y="155">Reason</text></g>
+      <g class="node" data-i="2"><circle cx="150" cy="255" r="38"/><text x="150" y="260">Act</text></g>
+      <g class="node" data-i="3"><circle cx="45" cy="150" r="38"/><text x="45" y="155">Learn</text></g>
+      <circle id="runner" r="6" cx="150" cy="83"/>
+    </svg>
+    <div class="stage-panel card">
+      <div class="eyebrow" id="st-num">Step 1 of 4</div>
+      <h3 id="st-title"></h3>
+      <p id="st-desc"></p>
+      <div class="road" id="road" data-s="0"><div class="car"></div><div class="ped"></div><div class="box-label"></div></div>
+      <div class="learn-bar" title="Prediction quality"><i id="learn"></i></div>
+      <div class="controls"><div class="capsule" data-playing="0"><button id="prev"><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Back</button><button class="play" id="play" aria-label="Play"><svg class="r" viewBox="0 0 60 60" aria-hidden="true"><circle pathLength="1" cx="30" cy="30" r="28"/></svg><svg class="i ip" viewBox="0 0 24 24"><path class="fill" d="M8 5.5v13l11-6.5z"/></svg><svg class="i ipa" viewBox="0 0 24 24"><path class="fill" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button><button id="next">Next<svg class="i" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button></div><button class="cap-extra" id="rz-open">🔍 Inside Reason</button></div>
+    </div>
+  </div>
+  <div class="card" id="rz" aria-live="polite">
+    <div class="rz-head"><h3>Inside the Reason step</h3><span class="ex-count" id="rz-count"></span></div>
+    <p style="color:var(--muted);margin:4px 0 12px">How “a camera image” becomes “that's a pedestrian, so slow down”.</p>
+    <div class="ex-tabs" id="rz-tabs"></div>
+    <svg id="rz-svg" viewBox="0 0 600 230" role="img" aria-label="Street scene: a car in the lane and a pedestrian on the pavement">
+      <rect class="pave" x="0" y="0" width="600" height="118"/><rect class="road" x="0" y="118" width="600" height="112"/>
+      <line class="kerb" x1="0" y1="118" x2="600" y2="118"/><line class="lane" x1="0" y1="178" x2="600" y2="178"/>
+      <rect class="carb" x="40" y="132" width="72" height="30" rx="8"/>
+      <g><circle class="pedh" cx="440" cy="68" r="8"/><path class="ped" d="M440 78v20M440 98l-7 14M440 98l7 12M440 84l-9 8M440 84l9 6"/></g>
+      <g class="ly" data-from="1"><rect class="bbox" pathLength="1" x="422" y="54" width="36" height="62" rx="4"/></g>
+      <g class="ly" data-from="2"><g class="lidar"><circle cx="426" cy="62" r="2.5"/><circle cx="452" cy="60" r="2.5"/><circle cx="432" cy="76" r="2.5"/><circle cx="448" cy="80" r="2.5"/><circle cx="424" cy="92" r="2.5"/><circle cx="456" cy="94" r="2.5"/><circle cx="436" cy="104" r="2.5"/><circle cx="446" cy="110" r="2.5"/><circle cx="430" cy="112" r="2.5"/><circle cx="452" cy="70" r="2.5"/></g>
+        <rect x="370" y="22" width="140" height="26" rx="13" fill="#2b2245" stroke="#b9a0ff"/><text x="440" y="40" text-anchor="middle">pedestrian · 94%</text></g>
+      <g class="ly" data-from="3"><circle class="ghost" cx="440" cy="128" r="6"/><circle class="ghost" cx="440" cy="142" r="6"/><path class="pathp" d="M440 116V146"/><circle class="hit" cx="440" cy="147" r="13"/>
+        <text class="sm" x="460" y="140">steps in ~2 s</text></g>
+      <g class="ly" data-from="4"><path class="pathc" d="M114 147H424"/><text class="sm" x="200" y="200">car reaches that spot in ~2.5 s</text>
+        <g class="risk"><rect x="190" y="18" width="160" height="30" rx="8"/><text x="270" y="38" text-anchor="middle">⚠ Risk → slow down</text></g></g>
+      <g class="px" id="rz-px"></g>
+    </svg>
+    <div class="rz-text"><h4 id="rz-title"></h4><p id="rz-desc"></p><div class="rz-chain" id="rz-chain"></div></div>
+    <div class="dots" id="rz-dots" aria-hidden="true"></div>
+    <div class="controls"><div class="capsule" data-playing="0"><button id="rz-prev"><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Back</button><button class="play" id="rz-play" aria-label="Play"><svg class="r" viewBox="0 0 60 60" aria-hidden="true"><circle pathLength="1" cx="30" cy="30" r="28"/></svg><svg class="i ip" viewBox="0 0 24 24"><path class="fill" d="M8 5.5v13l11-6.5z"/></svg><svg class="i ipa" viewBox="0 0 24 24"><path class="fill" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button><button id="rz-next">Next<svg class="i" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button></div></div>
+  </div>
+</section>
+
+<section class="scene">
+  <div class="eyebrow reveal">What AI is not <span class="ts">00:03:29</span></div>
+  <h2 class="reveal">Fixed rules vs. learning</h2>
+  <p class="lead reveal">AI isn't a magical superintelligence, and not every program is AI.</p>
+  <div class="versus reveal">
+    <div class="card"><span class="badge no">Not AI</span><h3>Calculator</h3><p style="color:var(--muted);margin:0 0 10px">Applies predefined arithmetic rules.</p><div class="mono" id="calc-out">rule: a + b
+2 + 2 = 4</div><div class="acc"><span>Improvement</span><span id="calc-acc">none, ever</span></div></div>
+    <div class="card"><span class="badge yes">AI</span><h3>Spam filter</h3><p style="color:var(--muted);margin:0 0 10px">Learns from the emails it has seen.</p><div class="mono" id="ai-out">examples seen: 0
+accuracy: 60%</div><div class="learn-bar"><i id="ai-bar" style="--w:60%"></i></div><div class="acc"><span>Improvement</span><span id="ai-acc">adapts with data</span></div></div>
+  </div>
+  <div class="controls reveal"><button id="feed">Feed a new example</button><button id="reset-feed">Reset</button></div>
+  <p class="quote reveal">AI systems, in contrast, are designed to cope with variability and to make appropriate choices based on the data they receive.</p>
+</section>
+
+<section class="scene">
+  <div class="eyebrow reveal">Try it</div>
+  <h2 class="reveal">AI, or just a program?</h2>
+  <p class="lead reveal">Ask yourself whether it adapts and makes judgements, or only follows a fixed routine.</p>
+  <div class="sort-list" id="sorter"></div>
+  <div class="score" id="sort-score"></div>
+</section>
+
+<section class="scene">
+  <div class="eyebrow reveal">Summary <span class="ts">00:04:50</span></div>
+  <h2 class="reveal">Four things to remember</h2>
+  <p class="lead reveal">Try to answer each one in your head before the timer runs out, then mark yourself honestly. Remembering first beats re-reading.</p>
+  <div class="glasscard reveal d1" id="rc" aria-live="polite"></div>
+</section>
+
+<article class="written">
+  <h2>What is AI? The short version</h2>
+  <p><strong>Artificial intelligence (AI)</strong> is the simulation of human intelligence by machines. It covers tasks that used to need a person: reasoning, understanding language, recognising patterns, learning from experience and making decisions.</p>
+  <p>AI isn't one program or one robot. It's an <strong>umbrella term</strong> for a whole field of computer science, with many techniques under it, from simple rule-based systems to machine learning and the large language models behind tools like ChatGPT and Claude.</p>
+  <p>Most AI systems work in a loop: they <strong>perceive</strong> the world through data (a self-driving car's cameras spot a person), <strong>reason</strong> about it (that's a pedestrian), <strong>act</strong> (slow down), and <strong>learn</strong> from the result so the next prediction is better.</p>
+  <p>Not every program is AI. A calculator follows fixed rules and never improves. A spam filter is AI: it learns from the emails it sees and gets more accurate with more data. The test is simple: does it adapt and make judgements, or only follow a fixed routine?</p>
+  <footer><a href="/learn/ai-fundamentals/">AI Fundamentals</a> · <a href="/learn/">All free lessons</a> · <a href="/ai-builders/">Join AI Builders free</a></footer>
+</article>
+</main>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// glass sheen (buttons and chips only, not cards): one full sweep each time the pointer enters, even if it leaves early (moving inside doesn't retrigger)
+document.addEventListener('pointerover',e=>{const el=e.target.closest('.capsule')||e.target.closest('button,.chip,.cap-extra');
+ if(!el||reduce||el.classList.contains('shine')||el.contains(e.relatedTarget))return;el.classList.add('shine');setTimeout(()=>el.classList.remove('shine'),4500)});
+
+// capsule controls: swap the play/pause icon and restart the ring that counts down to the next step
+function capState(btn,playing,ms){const c=btn.closest('.capsule');c.dataset.playing=playing?1:0;btn.setAttribute('aria-label',playing?'Pause':'Play');if(ms)c.style.setProperty('--dur',ms+'ms');capTick(btn)}
+function capTick(btn){const r=btn.querySelector('.r circle');r.classList.remove('run');void r.getBoundingClientRect();if(btn.closest('.capsule').dataset.playing==='1')r.classList.add('run')}
+
+// scroll hint jumps to the first section
+{const h=$('.scroll-hint'),go=()=>$('#hero').nextElementSibling.scrollIntoView({behavior:reduce?'auto':'smooth'});h.onclick=go;h.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}}
+
+// objectives: 3D cards turn over one by one (card 1 turns when on screen; press Play to step through)
+{const V=[
+ {v:'Define',d:'what AI is, and its key characteristics.',c:'var(--warm)',ico:'<path pathLength="1" stroke="#ffcf7a" d="M150 12a13 13 0 1 0 .1 0M120 66c2-18 14-28 30-28s28 10 30 28"/>'},
+ {v:'Explain',d:'its scope: the kinds of tasks and problems it can address.',c:'var(--accent)',ico:'<path pathLength="1" stroke="#b9a0ff" d="M95 40Q150 -4 205 40Q191 33 177 40Q164 33 150 40Q136 33 123 40Q109 33 95 40M150 40v24q0 6-6 6"/>'},
+ {v:'Give examples',d:'of abilities that need human intelligence, which AI aims to replicate.',c:'var(--good)',ico:'<path pathLength="1" stroke="#7ee0b0" d="M85 18h36v36H85zM131 36h38M179 18h36v36h-36zM190 36l7 7 12-14"/>'}];
+ $('#v5').innerHTML=V.map((x,i)=>`<div class="card5" style="--c:${x.c};--d:${i*.8}s" tabindex="0" aria-label="Goal ${i+1}: ${x.v} ${x.d}"><div class="f"><div class="n">${i+1}</div><small>Goal ${i+1} of 3</small><div class="pips">${[0,1,2].map(k=>`<i class="${k===i?'me':''}"></i>`).join('')}</div></div><div class="b"><div class="slot"></div><div class="verbtxt grad">${x.v}</div><p>${x.d}</p></div></div>`).join('');
+ const cs=$$('#v5 .card5'),MS=3400;let i=-1,t=null;
+ const show=k=>{i=(k+3)%3;cs.forEach((c,j)=>{c.classList.toggle('on',j===i);c.classList.toggle('next',j===i+1);c.classList.toggle('seen',j<i)});
+  cs[i].querySelector('.slot').innerHTML=`<svg class="ico draw" viewBox="0 0 300 72">${V[i].ico}</svg>`};
+ const play=()=>{clearInterval(t);t=setInterval(()=>{show(i+1);capTick($('#v5-play'))},MS);capState($('#v5-play'),1,MS)};
+ const pause=()=>{clearInterval(t);t=null;capState($('#v5-play'),0)};
+ $('#v5-prev').onclick=()=>{pause();show(i-1)};$('#v5-next').onclick=()=>{pause();show(i+1)};$('#v5-play').onclick=()=>t?pause():(i<0&&show(0),play());
+ cs.forEach((c,j)=>{const go=()=>{pause();show(j)};c.onclick=go;c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}});
+ // hover turns cards forward in order: pointing at card 3 turns card 2 first, then 3; never goes backwards
+ let walk=null;const walkTo=j=>{if(j<=i)return;pause();clearTimeout(walk);const step=()=>{show(i+1);if(i<j)walk=setTimeout(step,reduce?0:450)};step()};
+ cs.forEach((c,j)=>{c.onpointerenter=e=>{if(e.pointerType==='mouse')walkTo(j)}});
+ pause();cs[0].classList.add('next');
+ new IntersectionObserver(([e],o)=>{if(e.isIntersecting){o.disconnect();if(i<0)setTimeout(()=>{if(i<0)show(0)},reduce?0:500)}},{threshold:.5}).observe($('#v5'))}
+
+// progress bar
+addEventListener('scroll',()=>{const h=document.documentElement;$('#progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+$$('.reveal,.chips').forEach(el=>io.observe(el));
+
+// hero network: fills the hero; nodes drift, and the pointer becomes a node they reach towards
+(()=>{const svg=$('#net'),LINK=130,R=180;let W=0,H=0,ns=[],me=null,live=true;
+function size(){W=svg.clientWidth;H=svg.clientHeight;svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+ const want=Math.min(120,Math.round(W*H/11000));while(ns.length<want)ns.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4});ns.length=want;
+ for(const n of ns){n.x=Math.min(n.x,W);n.y=Math.min(n.y,H)}}
+size();addEventListener('resize',()=>{size();if(reduce)frame()});
+// track the pointer across the whole window; it counts while it's over the header area (full width)
+let px=null,py=null;addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY},{passive:true});document.addEventListener('pointerleave',()=>px=null);
+const where=()=>{if(px===null)return null;const r=svg.getBoundingClientRect(),x=px-r.left,y=py-r.top;return x>=0&&x<=r.width&&y>=0&&y<=r.height?{x,y}:null};
+new IntersectionObserver(([e])=>{live=e.isIntersecting;if(live&&!reduce)requestAnimationFrame(frame)}).observe(svg);
+function frame(){me=where();
+ for(const n of ns){if(!reduce){n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1}
+  if(me&&!reduce){const dx=me.x-n.x,dy=me.y-n.y,d=Math.hypot(dx,dy);if(d<R&&d>1){const f=(d<50?-1.2:.6)*(1-d/R);n.x+=dx/d*f;n.y+=dy/d*f}}}
+ let s='';
+ for(let i=0;i<ns.length;i++)for(let j=i+1;j<ns.length;j++){const a=ns[i],b=ns[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<LINK)s+=`<line x1="${a.x|0}" y1="${a.y|0}" x2="${b.x|0}" y2="${b.y|0}" opacity="${((1-d/LINK)*.35).toFixed(2)}"/>`}
+ for(const n of ns){let r=3.5,o=.45;if(me){const d=Math.hypot(me.x-n.x,me.y-n.y);if(d<R){s+=`<line class="hot" x1="${n.x|0}" y1="${n.y|0}" x2="${me.x}" y2="${me.y}" opacity="${(1-d/R).toFixed(2)}"/>`;r=3.5+3*(1-d/R);o=.45+.55*(1-d/R)}}
+  s+=`<circle cx="${n.x|0}" cy="${n.y|0}" r="${r.toFixed(1)}" opacity="${o.toFixed(2)}"/>`}
+ if(me)s+=`<circle class="me" cx="${me.x}" cy="${me.y}" r="10"/>`;
+ svg.innerHTML=s;if(live&&!reduce)requestAnimationFrame(frame)}
+frame()})();
+
+// scope: watch each task happen (back / play / next; starts paused)
+// "How does the AI decide?": 4 steps per example, shown under the stage
+const pill=(t,c='var(--warm)')=>`<span class="pill" style="color:${c}">${t}</span>`;
+const bar=(name,w,v,c,plain)=>`<div class="row"><span>${name}</span><span class="verdict" style="--c:${c}">${v}</span></div><div class="bar${plain?' plain':''}"><i style="--w:${w}%;--c:${c}"></i></div>`;
+const line=t=>`<div class="legend">${t}</div>`,nums=t=>`<div class="nums">${t}</div>`;
+const how=steps=>`<details class="how-w"><summary>How does the AI decide?</summary><div class="how">${steps.map(([t,v,m],i)=>`<div class="st"><b><em>${i+1}</em>${t}</b>${v}<p class="more">${m}</p></div>`).join('')}</div></details>`;
+const hows={
+ spam:how([
+  ['Learn',`It studies lots of emails people already sorted:<br>${pill('spam','var(--bad)')}${pill('not spam','var(--good)')}`,'Nobody writes rules. It finds the patterns by itself.'],
+  ['Look for clues',pill('“free”')+pill('!!!')+pill('fake link')+pill('stranger'),'It checks the words, the links and who sent it.'],
+  ['Score it',bar('WIN £££',98,'98% · Spam','var(--bad)')+bar('Lunch?',2,'2% · Inbox','var(--good)')+line('spam line (90%)'),'Past the yellow line → Spam. It sits high so real mail isn’t lost.'],
+  ['Get better',`You click ${pill('Spam','var(--text)')} or ${pill('Not spam','var(--text)')}`,'<span class="spin">↻</span> Each click teaches it, so it keeps up with new tricks.']]),
+ face:how([
+  ['Learn',`It studies millions of photos:<br>${pill('face','var(--good)')}${pill('not a face','var(--bad)')}`,'It learns what faces look like from examples, not rules.'],
+  ['Find the features',pill('eyes')+pill('nose')+pill('mouth')+pill('face shape'),'It locks onto the key points of the face.'],
+  ['Turn it into numbers',nums('[0.12, 0.87, 0.33, 0.56 …]'),'Each face becomes a list of numbers, like a fingerprint.'],
+  ['Match',bar('Person A',96,'96% · Match','var(--good)')+bar('Person B',11,'11% · No','var(--bad)')+line('match line (90%)'),'Numbers close enough → same person.']]),
+ trans:how([
+  ['Learn',`It reads millions of translated sentences:<br>${pill('¿Dónde está?','var(--cool)')} = ${pill('Where is it?','var(--cool)')}`,'Pairs of sentences teach it how the languages line up.'],
+  ['Understand',`${pill('¿Dónde')}${pill('está?')} → ${pill('asking for a place','var(--text)')}`,'It works out the meaning, not just word by word.'],
+  ['Pick the best words',bar('Where is it?',92,'92% · Chosen','var(--good)',1)+bar('Where it is?',15,'15% · Dropped','var(--bad)',1),'It scores possible sentences and picks the most natural one.'],
+  ['Get better',`People ${pill('fix','var(--text)')} or ${pill('rate','var(--text)')} translations`,'<span class="spin">↻</span> Every correction is a new example to learn from.']]),
+ route:how([
+  ['Gather facts',pill('stops')+pill('traffic')+pill('distance')+pill('deadlines'),'It knows every stop, road and delivery time.'],
+  ['List options',nums('5 stops → 120 orders<br>20 stops → billions'),'Far too many to check by hand, so it searches smartly.'],
+  ['Score plans',bar('Route A',50,'42 min · Best','var(--good)',1)+bar('Route B',78,'65 min · Slower','var(--bad)',1),'The fastest plan that hits every deadline wins.'],
+  ['Adjust live',`${pill('roadworks','var(--bad)')} → ${pill('new route','var(--good)')}`,'<span class="spin">↻</span> If traffic changes, it re-plans on the go.']]),
+ med:how([
+  ['Learn',`It studies thousands of scans doctors checked:<br>${pill('healthy','var(--good)')}${pill('problem','var(--bad)')}`,'Doctors’ labels teach it what to look for.'],
+  ['Look closely',pill('shape')+pill('brightness')+pill('size')+pill('edges'),'It checks every part of the image for tiny details.'],
+  ['Score each area',bar('Area 1',94,'94% · Flag','var(--bad)')+bar('Area 2',6,'6% · Clear','var(--good)')+line('flag line (90%)'),'High-scoring areas get highlighted for a closer look.'],
+  ['Doctor decides',`AI ${pill('points','var(--text)')} → doctor ${pill('confirms','var(--text)')}`,'A doctor makes the final call; their feedback improves it.']])};
+const scenes={
+ spam:`<div class="bin" style="top:20px;color:var(--bad)">Spam</div><div class="bin" style="top:115px;color:var(--good)">Inbox</div><div class="mail" style="--y:28px">WIN £££</div><div class="mail" style="--y:123px;animation-delay:.8s">Lunch?</div><div class="mail" style="--y:28px;animation-delay:1.6s">Click here</div><div class="cap">Each email is read and routed</div>`,
+ face:`<div class="face"></div><div class="lockbox"></div><div class="cap">The camera finds and locks onto a face</div>`,
+ trans:`<div class="word">¿Dónde está?</div><div class="word b">Where is it?</div><div class="cap">Understand one language → generate another</div>`,
+ route:`<svg class="route" viewBox="0 0 600 210" width="100%" height="210" preserveAspectRatio="none"><path pathLength="1" d="M60 150 L180 60 L300 130 L420 50 L540 120"/>${[[60,150],[180,60],[300,130],[420,50],[540,120]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="10"/>`).join('')}</svg><div class="cap">Planning the best order of stops</div>`,
+ med:`<div class="xray"></div><div class="sweep"></div><div class="cap">Scanning an X-ray and flagging an area</div>`};
+const ex=[
+ ['Language','Filtering spam emails','Sorting junk from real mail: the lesson\'s simplest example.','var(--cool)',scenes.spam,hows.spam],
+ ['Vision','Recognising faces','Spotting who is in an image, as humans do without thinking.','var(--warm)',scenes.face,hows.face],
+ ['Language','Translating between languages','Understanding one language and generating another.','var(--cool)',scenes.trans,hows.trans],
+ ['Decision making','Planning a delivery route','Weighing many options to pick a good plan.','var(--good)',scenes.route,hows.route],
+ ['Vision','Interpreting medical images','Complex, high-stakes pattern recognition.','var(--warm)',scenes.med,hows.med]];
+const EX_MS=5000;let exI=0,exTimer=null;
+$('#ex-dots').innerHTML=ex.map(()=>'<i></i>').join('');
+$('#ex-tabs').innerHTML=['Spam filter','Faces','Translation','Delivery route','Medical images'].map(n=>`<button>${n}</button>`).join('');
+[...$('#ex-tabs').children].forEach((b,j)=>b.onclick=()=>{exPause();showEx(j)});$('#ex-dots').style.setProperty('--dur',EX_MS+'ms');
+function showEx(i){exI=(i+ex.length)%ex.length;[...$('#ex-tabs').children].forEach((b,j)=>{b.classList.toggle('on',j===exI);b.setAttribute('aria-pressed',j===exI)});const [t,h,d,c,sc,more]=ex[exI],body=$('#ex-body');body.classList.add('fade');
+ setTimeout(()=>{$('#ex-tag').textContent=t;$('#ex-tag').style.color=c;$('#ex-title').textContent=h;$('#ex-desc').textContent=d;$('#ex-count').textContent=`${exI+1} / ${ex.length}`;
+  $('#ex-stage').innerHTML=sc;$('#ex-more').innerHTML=more||'';body.classList.remove('fade')},reduce?0:250);
+ [...$('#ex-dots').children].forEach((dot,j)=>{dot.className=j<exI?'done':'';if(j===exI){dot.className='';void dot.offsetWidth;dot.className='cur'}})}
+function exPlay(){clearInterval(exTimer);exTimer=setInterval(()=>{showEx(exI+1);capTick($('#ex-play'))},EX_MS);capState($('#ex-play'),1,EX_MS);$('#ex-dots').classList.remove('paused');showEx(exI)}
+function exPause(){clearInterval(exTimer);exTimer=null;capState($('#ex-play'),0);$('#ex-dots').classList.add('paused')}
+$('#ex-prev').onclick=()=>{exPause();showEx(exI-1)};$('#ex-next').onclick=()=>{exPause();showEx(exI+1)};$('#ex-play').onclick=()=>exTimer?exPause():exPlay();
+showEx(0);exPause();
+$('#ex-more').addEventListener('toggle',()=>exPause(),true);
+
+// perceive-reason-act-learn
+const stages=[
+ ['Perceive','It takes in its environment or data: here, the car\'s camera image.'],
+ ['Reason','It works out what the input means: “that object is a pedestrian.” Tap 🔍 Inside Reason to see how.'],
+ ['Act','Based on that reasoning, it decides and acts: the car slows down.'],
+ ['Learn','It uses past experience to do better, improving its predictions after seeing more examples.']];
+const pos=[[150,83],[217,150],[150,217],[83,150]];let st=0,learn=30,timer=null;
+function setStage(i){st=(i+4)%4;$$('#cycle .node').forEach(n=>n.classList.toggle('on',+n.dataset.i===st));
+ const r=$('#runner');r.setAttribute('cx',pos[st][0]);r.setAttribute('cy',pos[st][1]);
+ $('#st-num').textContent=`Step ${st+1} of 4`;$('#st-title').textContent=stages[st][0];$('#st-desc').textContent=stages[st][1];
+ $('#road').dataset.s=st;if(st===3){learn=Math.min(95,learn+15)}if(st===0&&learn>=95)learn=30;$('#learn').style.setProperty('--w',learn+'%')}
+function play(){clearInterval(timer);timer=setInterval(()=>{setStage(st+1);capTick($('#play'))},3200);capState($('#play'),1,3200)}
+function pause(){clearInterval(timer);timer=null;capState($('#play'),0)}
+$('#next').onclick=()=>{pause();setStage(st+1)};$('#prev').onclick=()=>{pause();setStage(st-1)};$('#play').onclick=()=>timer?pause():play();
+setStage(0);pause();
+
+// inside reason: a sub-stepper for the Reason stage
+const rz=[
+ ['Raw data','1 · It starts as raw numbers','To the car this is millions of coloured pixels plus lidar distance points. Nothing in the data says “pedestrian” yet.'],
+ ['Find it','2 · Separate the object','It picks out one distinct thing from the background of road, kerb and pavement.'],
+ ['Classify','3 · What is it, and how sure?','Upright, about 1.7 m tall, legs moving: that matches learned patterns. The camera says “person” and the lidar confirms something solid, so: pedestrian, 94% sure. A probability, not a certainty.'],
+ ['Predict','4 · What will it do next?','Walking towards the kerb, so on its current path it steps into the lane in about 2 seconds. Reasoning is about the future, not just the present.'],
+ ['Judge','5 · Does it matter to me?','At its current speed the car reaches that spot in about 2.5 seconds. That is a risk, so the conclusion is handed on to Act: slow down.']];
+const RZ_MS=4500;let rzI=0,rzTimer=null;
+(()=>{let px='';for(let y=0;y<230;y+=10)for(let x=0;x<600;x+=10){const v=30+Math.floor(Math.random()*90);px+=`<rect x="${x}" y="${y}" width="10" height="10" fill="rgb(${v},${v+4},${v+14})"/>`}
+ px+='<rect x="12" y="186" width="250" height="32" rx="6" fill="#10131a" opacity=".85"/><text class="sm" x="22" y="207">[142, 98, 77, 201, 64, 133, …]</text>';$('#rz-px').innerHTML=px})();
+$('#rz-tabs').innerHTML=rz.map(r=>`<button>${r[0]}</button>`).join('');$('#rz-dots').innerHTML=rz.map(()=>'<i></i>').join('');$('#rz-dots').style.setProperty('--dur',RZ_MS+'ms');
+[...$('#rz-tabs').children].forEach((b,j)=>b.onclick=()=>{rzPause();showRz(j)});
+function showRz(i){rzI=(i+rz.length)%rz.length;$('#rz-count').textContent=`${rzI+1} / ${rz.length}`;
+ [...$('#rz-tabs').children].forEach((b,j)=>{b.classList.toggle('on',j===rzI);b.setAttribute('aria-pressed',j===rzI)});
+ $('#rz-px').classList.toggle('off',rzI>0);$$('#rz-svg .ly').forEach(l=>l.classList.toggle('on',+l.dataset.from<=rzI));
+ $('#rz-title').textContent=rz[rzI][1];$('#rz-desc').textContent=rz[rzI][2];
+ $('#rz-chain').textContent=['what is it?','how sure am I?','what will it do?','does it matter to me?'].map((t,j)=>j<rzI?'✓ '+t:t).slice(0,Math.max(0,rzI)).join('  →  ');
+ [...$('#rz-dots').children].forEach((dot,j)=>{dot.className=j<rzI?'done':'';if(j===rzI){void dot.offsetWidth;dot.className='cur'}})}
+function rzPlay(){clearInterval(rzTimer);rzTimer=setInterval(()=>{if(rzI<rz.length-1){showRz(rzI+1);return capTick($('#rz-play'))}openRz();setStage(2)},RZ_MS);capState($('#rz-play'),1,RZ_MS);$('#rz-dots').classList.remove('paused');showRz(rzI)}
+function rzPause(){clearInterval(rzTimer);rzTimer=null;capState($('#rz-play'),0);$('#rz-dots').classList.add('paused')}
+$('#rz-prev').onclick=()=>{rzPause();showRz(rzI-1)};$('#rz-next').onclick=()=>{rzPause();showRz(rzI+1)};$('#rz-play').onclick=()=>rzTimer?rzPause():rzPlay();
+function openRz(){const box=$('#rz');if(box.classList.contains('open')){box.classList.remove('open');rzPause();$('#rz-open').textContent='🔍 Inside Reason';return}
+ pause();setStage(1);box.classList.add('open');$('#rz-open').textContent='✕ Close Reason';rzI=0;showRz(0);rzPause();box.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'})}
+$('#rz-open').onclick=openRz;const rNode=$('#cycle .node[data-i="1"]');rNode.style.cursor='pointer';rNode.onclick=()=>{if(!$('#rz').classList.contains('open'))openRz()};
+// stepping by hand onto Reason opens the panel; stepping off it closes it (auto-play leaves it alone)
+const syncRz=()=>{if((st===1)!==$('#rz').classList.contains('open'))openRz()};
+$('#next').onclick=()=>{pause();setStage(st+1);syncRz()};$('#prev').onclick=()=>{pause();setStage(st-1);syncRz()};
+
+// calculator vs ai
+let seen=0;const emails=['“WIN A PRIZE!!!” → spam','“Lunch at 1?” → not spam','“Your account is locked, click here” → spam','“Invoice for October” → not spam','“Cheap meds, no prescription” → spam'];
+const sums=[[3,5],[10,7],[12,30],[6,9],[2,2]];
+$('#feed').onclick=()=>{seen++;const [a,b]=sums[seen%5];$('#calc-out').textContent=`rule: a + b\n${a} + ${b} = ${a+b}\n(same rule, no learning)`;
+ const acc=Math.min(98,Math.round(60+38*(1-Math.exp(-seen/3))));$('#ai-out').textContent=`examples seen: ${seen}\nlast: ${emails[(seen-1)%5]}\naccuracy: ${acc}%`;$('#ai-bar').style.setProperty('--w',acc+'%')};
+$('#reset-feed').onclick=()=>{seen=0;$('#calc-out').textContent='rule: a + b\n2 + 2 = 4';$('#ai-out').textContent='examples seen: 0\naccuracy: 60%';$('#ai-bar').style.setProperty('--w','60%')};
+
+// sorter
+const items=[
+ ['A calculator adding up your shopping',false,'It strictly applies predefined arithmetic rules. It doesn\'t learn or make judgements.'],
+ ['A spam filter that gets better as it sees more emails',true,'It learns from data and improves over time.'],
+ ['A self-driving car that spots a pedestrian and slows down',true,'It perceives, reasons and acts on what it sees.'],
+ ['An alarm clock that rings at 7:00 every day',false,'It follows a fixed routine and never adapts.'],
+ ['A system that interprets medical images',true,'Pattern recognition in a complex, variable domain.']];
+let sortRight=0,sortDone=0;
+$('#sorter').innerHTML=items.map((it,i)=>`<div class="sort-item reveal" data-i="${i}"><span>${it[0]}</span><span class="btns"><button data-a="1">AI</button><button data-a="0">Not AI</button></span><span class="why"></span></div>`).join('');
+$$('#sorter .sort-item').forEach(el=>{io.observe(el);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||el.classList.contains('done'))return;
+ const it=items[el.dataset.i],ok=(b.dataset.a==='1')===it[1];el.classList.add('done',ok?'right':'wrong');
+ el.querySelector('.why').textContent=(ok?'✓ Correct. ':'✗ Not quite. ')+(it[1]?'This is AI. ':'This is not AI. ')+it[2];
+ sortDone++;if(ok)sortRight++;if(sortDone===items.length)$('#sort-score').textContent=`You sorted ${sortRight} of ${items.length} correctly.`})});
+
+
+// umbrella: a glass figure holds the AI umbrella; each field is pinned to the ability it copies. Arrows go clockwise from the top right
+{const svg=$('#umbrella'),box=$('#um-det'),c=(x,y,r)=>`M${x-r} ${y}a${r} ${r} 0 1 0 ${2*r} 0a${r} ${r} 0 1 0 ${-2*r} 0`;
+ const G={Perceive:'var(--cool)',Reason:'var(--accent)',Act:'var(--warm)',Learn:'var(--good)'},GD={Perceive:'sense the world',Reason:'think it through',Act:'do something',Learn:'get better with data'};
+ // key, name, label, group, what, example, icon, pin x/y, label side and y
+ const F=[
+  ['plan','Planning & Search','Planning & search','Reason','Finds the best sequence of moves or steps.','Delivery routes, chess engines, satnav',c(5,18,2)+c(19,6,2)+'M7 18h5a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h8',450,170,'R',182],
+  ['kr','Knowledge Representation & Reasoning','Knowledge & reasoning','Reason','Stores facts and draws conclusions from them.',"Google's knowledge panel",c(6,6,2)+c(18,6,2)+c(12,18,2)+'M8 6h8 M7 8l4 8 M17 8l-4 8',472,182,'R',235],
+  ['cv','Computer Vision','Computer vision','Perceive','Understands images and video.','Face unlock, reading X-rays','M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z'+c(12,12,3),481,198,'R',288],
+  ['rec','Recommender Systems','Recommenders','Learn',"Predicts what you'll like next.","Netflix, Spotify, Amazon's \"you may also like\"",'M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z',462,303,'R',341],
+  ['rob','Robotics','Robotics','Act','Senses, decides and moves in the physical world.','Warehouse robots, robot vacuums','M5 9h14v10H5z M12 5v4 M9 14h.01 M15 14h.01 M2 13v3 M22 13v3'+c(12,4,1),433,440,'L',445],
+  ['exp','Expert Systems','Expert systems','Reason','Hand-written if-then rules from human experts.','Early medical diagnosis, tax software','M9 3h6v4H9z M12 7v4 M6 11h12 M6 11v3 M18 11v3 M3 14h6v4H3z M15 14h6v4h-6z',371,374,'L',370],
+  ['nlp','Natural Language Processing','Language (NLP)','Perceive','Understands and generates human language.','Translation apps, chatbots','M4 5h16v11H10l-5 4v-4H4z M8 9h8 M8 12h5',450,228,'L',270],
+  ['sp','Speech Recognition & Synthesis','Speech','Perceive','Turns speech into text, and text back into speech.','Siri, Alexa, live captions','M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z M5 11a7 7 0 0 0 14 0 M12 18v3',402,206,'L',205],
+  ['ml','Machine Learning','Machine learning','Learn','Algorithms learn patterns from data instead of following hand-written rules.','Spam filters, fraud alerts','M3 20h18 M5 16l4-5 4 3 6-7 M15 7h4v4',428,182,'L',140]
+ ].map(([k,n,s,g,w,e,p,px,py,side,ly])=>({k,n,s,g,w,e,p,px,py,side,ly}));
+ const canopy=(x0,x1,top,b,n)=>{let d=`M${x0} ${b}Q${(x0+x1)/2} ${top} ${x1} ${b}`;const w=(x1-x0)/n;for(let k=n;k>0;k--){const a=x0+k*w;d+=`Q${a-w/2} ${b-24} ${a-w} ${b}`}return d+'Z'};
+ const body='M407 304Q407 260 450 256Q493 260 493 304L482 384H418Z';
+ const fig=`<defs><linearGradient id="um-f" gradientUnits="userSpaceOnUse" x1="380" y1="160" x2="520" y2="480"><stop offset="0" stop-color="#b9a0ff" stop-opacity=".42"/><stop offset="1" stop-color="#7cc7ff" stop-opacity=".14"/></linearGradient>
+  <pattern id="um-d" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="#fff" opacity=".12"/></pattern>
+  <filter id="um-b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+  <g id="um-s"><path d="M438 374L432 462M462 374L468 462M488 284Q514 302 518 270M412 284Q396 322 386 360" fill="none" stroke-width="15" stroke-linecap="round"/>
+   <path d="${body}"/><rect x="440" y="238" width="20" height="24" rx="8"/><path d="M410 194a7 11 0 0 0 0 22M490 194a7 11 0 0 1 0 22"/><circle cx="450" cy="205" r="42"/></g></defs>
+  <path class="canopy" d="${canopy(380,660,-50,140,5)}"/><text class="ut" x="520" y="108">Artificial Intelligence</text><path class="handle" d="M520 140V262"/>
+  <use href="#um-s" fill="#b9a0ff" stroke="#b9a0ff" opacity=".35" filter="url(#um-b)"/><use href="#um-s" fill="#12161e" stroke="#12161e"/>
+  <use href="#um-s" fill="url(#um-f)" stroke="url(#um-f)"/><use href="#um-s" fill="url(#um-d)" stroke="none"/>
+  <g fill="none" stroke-linecap="round">
+   <circle cx="450" cy="205" r="42" stroke="rgba(255,255,255,.22)"/><path d="${body}" stroke="rgba(255,255,255,.18)"/>
+   <path d="M419 190a36 36 0 0 1 24-26M414 296q2-26 26-32" stroke="rgba(255,255,255,.45)" stroke-width="2.5"/>
+   <path d="M428 182L442 174H458L472 182M450 170v4M436 178v-5M464 178v-5" stroke="rgba(255,255,255,.3)" stroke-width="1.6"/>
+   <path d="M402 200q-4 6 0 12M498 200q4 6 0 12" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+   <path d="M434 224Q450 236 466 224" stroke="rgba(255,255,255,.55)" stroke-width="2.4"/>
+  </g>
+  <g class="eyes"><ellipse cx="435" cy="202" rx="7.5" ry="9" fill="#0d1018"/><ellipse cx="465" cy="202" rx="7.5" ry="9" fill="#0d1018"/>
+   <circle cx="437.5" cy="198" r="3" fill="#fff"/><circle cx="467.5" cy="198" r="3" fill="#fff"/><circle cx="432.5" cy="206" r="1.4" fill="#fff" opacity=".8"/><circle cx="462.5" cy="206" r="1.4" fill="#fff" opacity=".8"/></g>
+  <ellipse cx="425" cy="217" rx="6.5" ry="3.5" fill="#ff9ec4" opacity=".35"/><ellipse cx="475" cy="217" rx="6.5" ry="3.5" fill="#ff9ec4" opacity=".35"/>
+  <rect x="356" y="362" width="32" height="24" rx="3" fill="#12161e" stroke="#c9d0de" stroke-width="2"/><path d="M372 362v24" stroke="#c9d0de" stroke-width="2"/>
+  <circle cx="519" cy="264" r="8" fill="url(#um-f)" stroke="rgba(255,255,255,.3)"/>`;
+ let ldr='',pins='',labs='';
+ F.forEach((f,j)=>{const lx=f.side==='L'?100:600,ex=f.side==='L'?300:600,st=`style="--c:${G[f.g]}" data-k="${f.k}" data-j="${j}"`;
+  ldr+=`<line class="ldr" ${st} x1="${ex}" y1="${f.ly}" x2="${f.px}" y2="${f.py}"/>`;
+  pins+=`<circle class="ring" ${st} cx="${f.px}" cy="${f.py}" r="5"/><circle class="pin" ${st} cx="${f.px}" cy="${f.py}" r="5"><title>${f.n}</title></circle>`;
+  labs+=`<g class="lab" ${st} tabindex="0" role="button" aria-label="${f.n}"><rect x="${lx}" y="${f.ly-17}" width="200" height="34" rx="17"/>
+   <svg x="${lx+12}" y="${f.ly-9}" width="18" height="18" viewBox="0 0 24 24" style="color:${G[f.g]}"><path d="${f.p}" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+   <text x="${lx+38}" y="${f.ly+5}">${f.s}</text></g>`});
+ svg.innerHTML=fig+ldr+pins+labs;
+ box.innerHTML=`<div class="dico"></div><div class="txt"></div><div class="nav"><div class="btns">
+  <button class="arr prev" aria-label="Previous field"><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="arr next" aria-label="Next field"><svg class="i" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button></div>
+  <div class="count"></div><div class="dots">${F.map(()=>'<i></i>').join('')}</div></div>`;
+ let i=0;
+ const sel=k=>{i=(k+F.length)%F.length;const f=F[i];
+  svg.querySelectorAll('[data-k]').forEach(el=>el.classList.toggle('on',el.dataset.k===f.k));
+  box.style.setProperty('--c',G[f.g]);
+  box.querySelector('.dico').innerHTML=`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="${f.p}"/></svg>`;
+  box.querySelector('.txt').innerHTML=`<span class="grp">${f.g} · ${GD[f.g]}</span><h3>${f.n}</h3><p>${f.w}</p><p class="eg"><b>You've seen it in:</b> ${f.e}</p>`;
+  box.querySelector('.count').innerHTML=`<b>${i+1}</b> / ${F.length}`;box.querySelectorAll('.dots i').forEach((d,j)=>d.classList.toggle('on',j===i))};
+ box.querySelector('.prev').onclick=()=>sel(i-1);box.querySelector('.next').onclick=()=>sel(i+1);
+ svg.querySelectorAll('.lab,.pin').forEach(el=>{const j=+el.dataset.j;el.onclick=()=>sel(j);el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();sel(j)}};el.onpointerenter=e=>{if(e.pointerType==='mouse'&&j!==i)sel(j)}});
+ // phones: hide the side labels and zoom in on the figure
+ const mq=matchMedia('(max-width:640px)'),fit=()=>svg.setAttribute('viewBox',mq.matches?'340 25 340 470':'0 25 900 470');mq.addEventListener('change',fit);fit();
+ sel(0)}
+
+// summary: recall challenge. 6s to think (starts when the card is in view), then the answer types itself out and you mark yourself
+{const box=$('#rc'),SEC=6;
+ const Q=[['The definition','What is AI?','Human intelligence, simulated by machines.','var(--warm)'],
+  ['The umbrella','Name all the fields under the AI umbrella you can remember.','Machine learning · Natural language processing · Computer vision · Speech recognition & synthesis · Robotics · Planning & search · Knowledge & reasoning · Expert systems · Recommender systems.','var(--accent)'],
+  ['Think it through','Why is the spam line set high (90%) instead of 50%?','Losing a real email is worse than letting one spam through, so the AI only bins mail it is very sure about.','var(--cool)'],
+  ['Rules vs learning','Explain “following instructions” vs “learning from experience” with an example.','Old spam filters followed hand-written rules, so spammers just changed their wording. AI learns from new examples, so it keeps up.','var(--good)']];
+ const ic={eye:'<svg class="i" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>',
+  ok:'<svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',no:'<svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  re:'<svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>',bulb:'<svg class="i" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>'};
+ let i=0,res=[],tmr=null,typ=null,started=false;
+ const marks=()=>`<div class="marks">${Q.map((_,j)=>`<i class="${res[j]===true?'ok':res[j]===false?'no':j===i?'cur':''}">${res[j]===true?'✓':res[j]===false?'✗':j+1}</i>`).join('')}</div>`;
+ function load(k){i=k;clearTimeout(tmr);clearInterval(typ);const [t,q,,c]=Q[i];box.style.setProperty('--c',c);
+  box.innerHTML=`<div class="top"><span class="qn">Question ${i+1} of ${Q.length}</span>${marks()}</div>
+   <div class="body"><div><p class="topic">${t}</p><h3>${q}</h3></div><div class="timer"><svg viewBox="0 0 84 84"><circle class="bg" cx="42" cy="42" r="38"/><circle class="fg" pathLength="1" cx="42" cy="42" r="38"/></svg><span>${SEC}</span></div></div>
+   <div class="ans">Think of your answer…</div>
+   <div class="acts"><button class="show">${ic.eye}Show answer</button><span class="grow"></span><button class="restart">${ic.re}Restart</button></div>`;
+  box.querySelector('.show').onclick=reveal;box.querySelector('.restart').onclick=restart;
+  if(started)count()}
+ function count(){const tm=box.querySelector('.timer');if(!tm||box.querySelector('.ans.shown'))return;let n=SEC;tm.classList.add('run');
+  const tick=()=>{n--;if(n>0){tm.querySelector('span').textContent=n;tmr=setTimeout(tick,1000)}else reveal()};tmr=setTimeout(tick,1000)}
+ function reveal(){clearTimeout(tmr);const tm=box.querySelector('.timer');tm.classList.remove('run');tm.querySelector('.fg').style.strokeDashoffset=1;tm.querySelector('span').innerHTML=ic.bulb;
+  const a=box.querySelector('.ans'),txt=Q[i][2];a.classList.add('shown');
+  box.querySelector('.acts').innerHTML=`<button class="got">${ic.ok}Got it</button><button class="miss">${ic.no}Missed it</button><span class="grow"></span><button class="restart">${ic.re}Restart</button>`;
+  box.querySelector('.got').onclick=()=>mark(true);box.querySelector('.miss').onclick=()=>mark(false);box.querySelector('.restart').onclick=restart;
+  if(reduce){a.textContent=txt;return}let k=0;clearInterval(typ);typ=setInterval(()=>{k+=2;a.innerHTML=txt.slice(0,k)+(k<txt.length?'<span class="cursor"></span>':'');if(k>=txt.length)clearInterval(typ)},22)}
+ function mark(ok){res[i]=ok;if(i<Q.length-1)load(i+1);else end()}
+ function end(){clearInterval(typ);const got=res.filter(Boolean).length;box.style.setProperty('--c',got===Q.length?'var(--good)':'var(--accent)');
+  box.innerHTML=`<div class="end"><div class="top"><span class="qn">Done</span>${marks()}</div><div class="score">${got}<small> / ${Q.length}</small></div>
+   <h3>${got===Q.length?'Perfect recall 🎉':got>=Q.length/2?'Nearly there':'Worth another go'}</h3><p>${got===Q.length?'You remembered all four key points.':'Read the ones you missed, then try again.'}</p>
+   <div class="review">${Q.map((q,j)=>`<div class="${res[j]?'ok':'no'}"><span class="m">${res[j]?'✓':'✗'}</span><span><b>${q[0]}</b>${q[2]}</span></div>`).join('')}</div>
+   <button class="restart" style="opacity:1;border-color:var(--line)">${ic.re}Try again</button></div>`;
+  box.querySelector('.restart').onclick=restart}
+ function restart(){res=[];load(0)}
+ load(0);new IntersectionObserver(([e],o)=>{if(e.isIntersecting){o.disconnect();started=true;count()}},{threshold:.6}).observe(box)}
+</script>
+</body></html>
