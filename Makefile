@@ -3,7 +3,7 @@
 
 MSG ?= update
 
-.PHONY: help install dev next school db-local db-remote build deploy deploy-school deploy-next commit push ship
+.PHONY: help install dev next school db-local db-remote build deploy deploy-school deploy-next commit push ship gh-secrets
 
 help: ## List targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*## "}{printf "  \033[36m%-14s\033[0m %s\n",$$1,$$2}'
@@ -45,3 +45,6 @@ push: ## Push current branch
 	git push origin HEAD
 
 ship: commit deploy ## Commit, push (Vercel) and deploy school
+
+gh-secrets: ## Copy .env's Cloudflare token + account ID into GitHub repo secrets
+	gh secret set -f .env

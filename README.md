@@ -46,6 +46,10 @@ make commit MSG="what changed"            # commit
 make deploy                               # school → Cloudflare, nextjs → Vercel (via push)
 ```
 
+Pushing to `master` deploys automatically: Vercel deploys `nextjs/`, and the GitHub Action
+`.github/workflows/deploy-school.yml` applies new D1 migrations and deploys `school/` whenever a push changes it
+(repo secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`). `make deploy-school` still works for a manual deploy.
+
 If you add a file to `school/migrations/`, run `make db-local` before `make dev`, and `make db-remote` before `make deploy-school`.
 
 ## Hosting notes

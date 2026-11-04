@@ -1,0 +1,33 @@
+# Deploys school/ to Cloudflare Pages on every push to master that touches it.
+# nextjs/ is deployed by Vercel's own Git integration (Root Directory: nextjs).
+# Repo secrets: CLOUDFLARE_API_TOKEN (Pages: Edit + D1: Edit), CLOUDFLARE_ACCOUNT_ID.
+name: Deploy school
+
+on:
+  push:
+    branches: [master]
+    paths: ["school/**", ".github/workflows/deploy-school.yml"]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-school
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: school
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Apply D1 migrations
+        run: npx --yes wrangler@4 d1 migrations apply school --remote
+      - name: Build and deploy
+        run: node build.mjs && npx --yes wrangler@4 pages deploy dist --project-name carlos-school --branch master
