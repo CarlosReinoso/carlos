@@ -3,7 +3,7 @@ import { json, guard } from "../../_lib/auth.js";
 import { authorOf } from "../../_lib/feed.js";
 
 export async function onRequestGet({ request, env }) {
-  const { user, res } = await guard(request, env);
+  const { user, res } = await guard(request, env, "user");
   if (res) return res;
   const rows = await env.DB.prepare(
     "WITH conv AS (SELECT CASE WHEN sender_id = ?1 THEN recipient_id ELSE sender_id END other, MAX(created_at) last_at, " +

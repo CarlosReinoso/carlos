@@ -1,9 +1,9 @@
-// Follow or unfollow a member.
+// Follow or unfollow someone. Any logged-in account can follow; joining isn't required.
 import { json, fail, body, guard } from "../_lib/auth.js";
 import { notify } from "../_lib/notify.js";
 
 export async function onRequestPost({ request, env }) {
-  const { user, res } = await guard(request, env);
+  const { user, res } = await guard(request, env, "user");
   if (res) return res;
   const t = await env.DB.prepare("SELECT id FROM users WHERE handle = ?").bind((await body(request)).handle || "").first();
   if (!t) return fail("No member with that name.", 404);

@@ -62,7 +62,7 @@
     var h = document.getElementById("hdr");
     if (!h) return;
     if (!me.user) { h.innerHTML = '<a class="pillbtn sm" href="/login/?next=' + encodeURIComponent(location.pathname + location.search) + '">Log in</a>'; return; }
-    if (!me.member) { h.innerHTML = '<a class="btn sm" href="/join/">Join</a>' + menuHtml(me); wireMenu(me); return; }
+    if (!me.member) { h.innerHTML = '<a class="btn sm" href="/join/">Join</a><a class="icon-btn" id="hdr-msg" href="/messages/" aria-label="Messages">' + ICON.chat + badge(me.unread.messages) + "</a>" + menuHtml(me); wireMenu(me); return; }
     h.innerHTML =
       '<a class="icon-btn" id="hdr-msg" href="/messages/" aria-label="Messages">' + ICON.chat + badge(me.unread.messages) + "</a>" +
       '<div class="drop"><button class="icon-btn" id="hdr-bell" type="button" aria-label="Notifications" aria-haspopup="true">' + ICON.bell + badge(me.unread.notifications) + "</button></div>" +

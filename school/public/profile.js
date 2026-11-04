@@ -47,7 +47,7 @@
     if (u.bio) card.querySelector(".pf-bio").textContent = u.bio;
     var btns = card.querySelector(".pf-btns");
     if (d.isMe) btns.innerHTML = '<a class="pillbtn" href="/settings/">Edit profile</a>';
-    else if (me.member) {
+    else if (me.user) {
       btns.innerHTML = '<button class="btn" type="button" data-follow>' + (d.following ? "Following" : "Follow") + '</button><a class="pillbtn" href="/messages/?to=' + encodeURIComponent(u.handle) + '">Chat 💬</a>';
       var fb = btns.querySelector("[data-follow]");
       fb.onclick = function () {
@@ -55,7 +55,10 @@
         S.api("/api/follow", { handle: u.handle }).then(function (r) { fb.textContent = r.following ? "Following" : "Follow"; card.querySelector("[data-followers]").textContent = S.fmt(r.followers); fb.disabled = false; })
           .catch(function (x) { S.toast(x.message); fb.disabled = false; });
       };
-    } else btns.innerHTML = '<a class="btn" href="/join/">Join to follow & chat</a>';
+    } else {
+      var login = function (next) { return "/login/?next=" + encodeURIComponent(next); };
+      btns.innerHTML = '<a class="btn" href="' + login(location.pathname) + '">Follow</a><a class="pillbtn" href="' + login("/messages/?to=" + encodeURIComponent(u.handle)) + '">Chat 💬</a>';
+    }
   }
   var AT = P.levels; // level thresholds from src/site.mjs
 

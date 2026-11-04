@@ -5,7 +5,6 @@
 
   S.me.then(function (me) {
     if (!me.user) { location = "/login/?next=" + encodeURIComponent(location.pathname + location.search); return; }
-    if (!me.member) { location = "/join/"; return; }
     ME = me;
     root.innerHTML = '<div class="conv-list"><h2>Chats</h2><div id="convs"><p class="mute pad">Loading…</p></div></div><div class="thread" id="thread"><div class="empty" style="margin:auto">Pick a chat, or press <b>Chat</b> on someone\'s profile to start one.</div></div>';
     inbox();
