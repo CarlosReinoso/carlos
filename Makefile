@@ -3,7 +3,7 @@
 
 MSG ?= update
 
-.PHONY: help install dev next school db-local db-remote build deploy deploy-school deploy-next commit push ship gh-secrets
+.PHONY: help install dev next school db-local db-remote build deploy deploy-school deploy-next commit push ship gh-secrets school-secrets
 
 help: ## List targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*## "}{printf "  \033[36m%-14s\033[0m %s\n",$$1,$$2}'
@@ -48,3 +48,10 @@ ship: commit deploy ## Commit, push (Vercel) and deploy school
 
 gh-secrets: ## Copy .env's Cloudflare token + account ID into GitHub repo secrets
 	gh secret set -f .env
+
+SCHOOL_SECRETS = ADMIN_EMAILS RESEND_API_KEY EMAIL_FROM GOOGLE_CLIENT_ID GOOGLE_CLIENT_SECRET STRIPE_SECRET_KEY STRIPE_PRICE_ID STRIPE_WEBHOOK_SECRET
+
+school-secrets: ## Copy school/.dev.vars to Cloudflare production (skips DEV_UNLOCK / JOIN_FREE), then redeploy
+	@cd school && python3 -c "import json,re,sys; keep=set(sys.argv[1:]); print(json.dumps({m[1]: m[2].strip().strip('\"') for m in (re.match(r'^([A-Z_]+)=(.*)$$', l.strip()) for l in open('.dev.vars')) if m and m[1] in keep}))" $(SCHOOL_SECRETS) > .secrets.json
+	cd school && npx wrangler pages secret bulk .secrets.json --project-name carlos-school; rm -f school/.secrets.json
+	$(MAKE) deploy-school
