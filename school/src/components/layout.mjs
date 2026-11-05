@@ -3,7 +3,7 @@ import { site } from "../site.mjs";
 import { esc, json } from "../lib/html.mjs";
 import { icons, logoMark } from "./icons.mjs";
 
-const TABS = [["community", "Community", "/community/"], ["members", "Members", "/members/"], ["about", "About", "/ai-builders/"]];
+const TABS = [["community", "Community", "/community/"], ["learn", "Classroom", "/learn/"], ["members", "Members", "/members/"], ["about", "About", "/ai-builders/"]];
 
 // Runs before paint so the saved theme never flashes.
 const themeBoot = `<script>try{var t=localStorage.getItem("sc_theme");document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>`;
@@ -22,7 +22,7 @@ ${schema.map((s) => `<script type="application/ld+json">${json(s)}</script>`).jo
 </head><body>
 <header class="top"><div class="top-in">
 <a class="brand" href="/"><span class="brand-mark">${logoMark}</span><span class="brand-name">${esc(site.name)}</span></a>
-<form class="search" action="/community/" role="search"><span>${icons.search}</span><input name="q" type="search" placeholder="Search" aria-label="Search posts"></form>
+<form class="search" action="/community/" role="search"><span>${icons.search}</span><input name="q" type="search" placeholder="Search" aria-label="Search posts and lessons"></form>
 <div class="hdr"><div id="hdr" class="hdr-acts"></div><button class="icon-btn theme" id="theme-btn" type="button" aria-label="Toggle dark mode">${icons.moon}${icons.sun}</button></div>
 </div>
 <nav class="tabs" aria-label="School"><div class="tabs-in">${TABS.map(([id, label, href]) => `<a href="${href}"${tab === id ? ' class="on" aria-current="page"' : ""}>${label}</a>`).join("")}</div></nav>

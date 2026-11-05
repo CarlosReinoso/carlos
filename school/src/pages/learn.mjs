@@ -1,10 +1,9 @@
 // Free lessons: /learn/ (every course) and /learn/<course>/ (its contents: modules, lessons, what's coming).
 // The lesson pages themselves are static files in public/learn/, listed in `courses` (src/site.mjs).
-import { site, spaces, courses, lessonsOf, publishedOf } from "../site.mjs";
+import { site, spaces, courses, publishedOf, lessonUrl } from "../site.mjs";
 import { esc } from "../lib/html.mjs";
 import { layout } from "../components/layout.mjs";
 
-const lessonUrl = (c, l) => `/learn/${c.slug}/${l.slug}/`;
 const count = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 const total = (c) => c.modules.reduce((n, m) => n + (m.lessons ? m.lessons.length : m.soon), 0);
 
@@ -50,7 +49,7 @@ export default () => [
   {
     path: "/learn/",
     html: layout({
-      path: "/learn/", title: "Free AI lessons", tab: "about",
+      path: "/learn/", title: "Free AI lessons", tab: "learn",
       desc: "Free visual lessons on AI for beginners and builders, from Carlos Reinoso.",
       body: `<div class="wrap narrow-wide toc"><header class="toc-hero"><p class="toc-eye">Learn</p><h1>Free AI lessons</h1><p class="mute">Short, visual lessons you can work through at your own pace.</p></header>
 ${courses.map((c) => `<a class="card toc-m toc-course" href="/learn/${c.slug}/"><div class="toc-mh"><h2>${esc(c.title)}</h2><span class="mute small">${count(c.modules.length, "module")} · ${count(total(c), "lesson")} · ${publishedOf(c).length} available now</span></div><p class="mute">${esc(c.desc)}</p></a>`).join("")}
@@ -61,7 +60,7 @@ ${join}</div>`,
   ...courses.map((c) => ({
     path: `/learn/${c.slug}/`,
     html: layout({
-      path: `/learn/${c.slug}/`, title: `${c.title}: free course`, desc: c.desc, tab: "about",
+      path: `/learn/${c.slug}/`, title: `${c.title}: free course`, desc: c.desc, tab: "learn",
       body: coursePage(c),
       schema: [
         crumbs([["Learn", "/learn/"], [c.title, `/learn/${c.slug}/`]]),

@@ -1,5 +1,5 @@
 // The signed-in screens. Each is a small HTML shell; its script in public/ does the work.
-import { site, spaces, joinQuestions } from "../site.mjs";
+import { site, spaces, joinQuestions, lessonIndex } from "../site.mjs";
 import { esc } from "../lib/html.mjs";
 import { layout } from "../components/layout.mjs";
 
@@ -20,7 +20,7 @@ export default () => [
     <div id="feed"><p class="mute">Loading…</p></div>
   </section>
   <aside class="side-col" id="side"></aside>
-</div>`, ["community.js"], { categories: site.categories, name: site.name, spaces }),
+</div>`, ["community.js"], { categories: site.categories, name: site.name, spaces, lessons: lessonIndex() }),
 
   page("/members/", "Members", "members", `<div class="wrap narrow-wide"><div id="members-root"><p class="mute">Loading…</p></div></div>`, ["members.js"]),
 

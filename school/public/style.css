@@ -111,6 +111,9 @@ textarea{resize:vertical;min-height:90px}
 .empty{padding:28px;text-align:center;color:var(--muted)}
 .welcome{padding:18px 20px;margin-bottom:14px;background:radial-gradient(circle at 95% 0,color-mix(in srgb,var(--accent) 25%,transparent),transparent 60%),var(--panel)}
 .welcome h2{margin:0 0 4px;font-size:20px}
+.course-card{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:16px 18px;margin-bottom:14px;text-decoration:none;color:inherit}.cc-text{display:grid;gap:4px;min-width:0;flex:1}.cc-text b{font-size:16px}
+.cc-eye{font-size:12px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}.cc-bar{height:6px;border-radius:3px;background:var(--panel2);overflow:hidden;max-width:320px;margin-top:4px}.cc-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--cool),var(--accent))}
+.cc-hit:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}.cc-go{color:var(--accent);font-weight:650;white-space:nowrap}
 
 /* profile */
 .profile{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}

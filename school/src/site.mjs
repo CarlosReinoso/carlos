@@ -106,3 +106,6 @@ export const courses = [
 
 export const lessonsOf = (c) => c.modules.flatMap((m) => m.lessons || []);
 export const publishedOf = (c) => lessonsOf(c).filter((l) => l.slug);
+export const lessonUrl = (c, l) => `/learn/${c.slug}/${l.slug}/`;
+// Every published lesson, in course order, for the browser (community course card and search).
+export const lessonIndex = () => courses.flatMap((c) => publishedOf(c).map((l) => ({ course: c.title, courseUrl: `/learn/${c.slug}/`, title: l.title, desc: l.desc || "", url: lessonUrl(c, l) })));

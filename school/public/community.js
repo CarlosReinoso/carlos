@@ -16,7 +16,8 @@
     if (qs.get("post")) return openPost(qs.get("post"));
     switcher(); sidebar();
     if (space === "pro" && !me.pro) return locked();
-    if (qs.get("welcome")) feed.insertAdjacentHTML("beforebegin", '<div class="card welcome"><h2>Welcome' + (space === "pro" ? " to Pro" : "") + ", " + S.esc(me.user.name.split(" ")[0]) + '! 🎉</h2><p class="mute" style="margin:0">Start by introducing yourself: who you are, and the one thing you want AI to do for you. Pick <b>General</b> and say hi.</p></div>');
+    if (qs.get("welcome")) feed.insertAdjacentHTML("beforebegin", '<div class="card welcome"><h2>Welcome' + (space === "pro" ? " to Pro" : "") + ", " + S.esc(me.user.name.split(" ")[0]) + '! 🎉</h2><p class="mute" style="margin:0">Start by introducing yourself: who you are, and the one thing you want AI to do for you. Pick <b>General</b> and say hi.</p>' + (P.lessons.length ? '<p class="mute" style="margin:10px 0 0">New to AI? Start with the free course: <a href="' + P.lessons[0].url + '">' + S.esc(P.lessons[0].title) + " →</a></p>" : "") + "</div>");
+    if (space === "free") course();
     composer(); categories(); load();
   });
 
@@ -26,7 +27,7 @@
     var url = "/api/posts?" + new URLSearchParams(Object.assign({ space: space }, qs.get("cat") && { cat: qs.get("cat") }, qs.get("q") && { q: qs.get("q") }, more && { before: before }));
     if (!more) feed.innerHTML = '<p class="mute">Loading…</p>';
     S.api(url).then(function (d) {
-      if (!more) feed.innerHTML = qs.get("q") ? '<p class="mute">Results for “' + S.esc(qs.get("q")) + '” · <a href="' + href() + '">clear</a></p>' : "";
+      if (!more) feed.innerHTML = qs.get("q") ? '<p class="mute">Results for “' + S.esc(qs.get("q")) + '” · <a href="' + href() + '">clear</a></p>' + lessonHits(qs.get("q")) : "";
       var old = feed.querySelector(".more"); if (old) old.remove();
       if (!d.posts.length && !more) feed.insertAdjacentHTML("beforeend", '<div class="card empty">' + (qs.get("q") || qs.get("cat") ? "No posts here yet." : "No posts yet. Be the first! 👋") + "</div>");
       d.posts.forEach(function (p) { feed.appendChild(postCard(p)); before = p.createdAt; });
@@ -174,6 +175,23 @@
       '<div class="blur-posts" aria-hidden="true"><i></i><i></i><i></i></div><button class="btn" type="button">Upgrade · ' + S.esc(pro.price) + '</button><p class="mute small">' + S.esc(pro.priceNote) + ' <a href="/' + pro.slug + '/">What\'s inside?</a></p><p class="err" role="alert"></p></div>';
     var b = feed.querySelector("button");
     b.onclick = function () { b.disabled = true; S.api("/api/upgrade", {}).then(function (d) { location = d.url; }).catch(function (x) { feed.querySelector(".err").textContent = x.message; b.disabled = false; }); };
+  }
+
+  // ---- the free course: a card above the composer with progress (lessons mark themselves done in localStorage)
+  function done() { try { return JSON.parse(localStorage.getItem("sc_lessons") || "[]"); } catch (e) { return []; } }
+  function course() {
+    var L = P.lessons; if (!L.length) return;
+    var d = done(), n = L.filter(function (l) { return d.indexOf(l.url) >= 0; }).length, next = L.filter(function (l) { return d.indexOf(l.url) < 0; })[0];
+    document.getElementById("composer").insertAdjacentHTML("beforebegin", '<div class="card course-card"><div class="cc-text"><span class="cc-eye">📚 Free course · ' + S.esc(L[0].course) + '</span>' +
+      (next ? "<b>" + (n ? "Continue: " : "Start here: ") + S.esc(next.title) + "</b>" : "<b>You're all caught up 🎉</b>") +
+      '<div class="cc-bar" role="progressbar" aria-valuemin="0" aria-valuemax="' + L.length + '" aria-valuenow="' + n + '"><i style="width:' + (100 * n / L.length) + '%"></i></div><span class="mute small">' + n + " of " + L.length + " available lessons done</span></div>" +
+      '<a class="' + (next ? "btn" : "pillbtn") + ' sm" href="' + (next ? next.url : L[0].courseUrl) + '">' + (next ? (n ? "Continue" : "Start") + " →" : "See the course") + "</a></div>");
+  }
+  // Lessons whose title or description match the search, shown above the matching posts.
+  function lessonHits(q) {
+    q = q.toLowerCase();
+    var hits = P.lessons.filter(function (l) { return (l.title + " " + l.desc + " " + l.course).toLowerCase().indexOf(q) >= 0; });
+    return hits.map(function (l) { return '<a class="card course-card cc-hit" href="' + l.url + '"><div class="cc-text"><span class="cc-eye">📚 Lesson · ' + S.esc(l.course) + "</span><b>" + S.esc(l.title) + '</b><span class="mute small">' + S.esc(l.desc) + '</span></div><span class="cc-go">Open →</span></a>'; }).join("");
   }
 
   // ---- sidebar: the community card and the leaderboard
