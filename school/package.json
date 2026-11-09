@@ -3,10 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node build.mjs",
+    "build": "node init && node build.mjs",
     "db:local": "npx wrangler d1 migrations apply school --local",
     "db:remote": "npx wrangler d1 migrations apply school --remote",
-    "dev": "node build.mjs && npx wrangler pages dev dist",
+    "dev": "node init && node build.mjs && npx wrangler pages dev dist",
     "deploy": "node build.mjs && npx wrangler pages deploy dist"
   }
 }

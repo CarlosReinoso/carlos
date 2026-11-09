@@ -7,6 +7,13 @@ import Link from "next/link";
 
 const links = [
   {
+    href: "https://school.carlosreinoso.co.uk/",
+    title: "AI Builders",
+    description:
+      "My free community for going from using AI to building with it",
+    imageSrc: "/home/ai-builders.jpg",
+  },
+  {
     href: "/web-dev",
     title: "Web Development",
     description: "Portfolio & coding projects",
@@ -42,7 +49,7 @@ const links = [
     href: "/travel",
     title: "Travel",
     description:
-      "Motorcycle trip from London to Japan - coming end of 2025",
+      "Motorcycle trip from London to Japan",
     imageSrc: "/home/travel.jpg",
   },
 ];
