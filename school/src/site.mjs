@@ -3,8 +3,11 @@
 export const site = {
   url: "https://school.carlosreinoso.co.uk",
   name: "AI Builders",
-  // Paste a YouTube video ID here to replace the placeholder (e.g. "dQw4w9WgXcQ").
+  // Paste a YouTube video ID here to replace the placeholder (e.g. "dQw4w9WgXcQ"). Used when introVideoUrl is empty.
   introVideoId: "",
+  // Self-hosted intro, stored in the Cloudflare R2 bucket ai-builders-media.
+  introVideoUrl: "https://pub-d1758e6d36754457ba19b8d8fe37e7be.r2.dev/intro/ai-builders-intro.mp4",
+  introVideoPoster: "https://pub-d1758e6d36754457ba19b8d8fe37e7be.r2.dev/intro/ai-builders-intro.jpg",
   categories: [
     { id: "announcements", label: "Announcements", icon: "📣", ownerOnly: true },
     { id: "general", label: "General", icon: "💬" },
@@ -19,12 +22,12 @@ export const site = {
 export const spaces = {
   free: {
     id: "free", slug: "ai-builders", name: "AI Builders", price: "Free", logo: "AB",
-    tagline: "Learn Claude Code, AI agents & automation by building real projects. Free.",
+    tagline: "Go from using AI to building it, with visual lessons, a clear path and help from me. Free.",
   },
   pro: {
     id: "pro", slug: "ai-builders-pro", name: "AI Builders Pro", price: "£10/month", logo: "PRO",
     priceNote: "Cancel any time from your settings.",
-    tagline: "The full courses, build-along projects, templates and weekly Q&A with me. Ship your first AI product.",
+    tagline: "Weekly Q&A, reviews of what you're building and new build-alongs as they ship. Build your first AI product with me.",
   },
 };
 

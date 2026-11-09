@@ -56,7 +56,7 @@ main{padding:24px 0 40px;min-height:70vh}
 /* about page */
 .about{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
 .about-main{padding:24px}.about-title{font-size:22px;margin:0 0 16px}
-.video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#0c0f15}.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#0c0f15}.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video.placeholder{display:grid;place-items:center;background:radial-gradient(circle at 80% 10%,rgba(185,160,255,.35),transparent 55%),radial-gradient(circle at 10% 90%,rgba(124,199,255,.25),transparent 50%),#12161e}
 .vp-grid{position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.07) 1px,transparent 1.5px) 0 0/18px 18px}
 .vp-play{position:relative;width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.92);color:#12161e;display:grid;place-items:center;padding-left:4px;box-shadow:0 10px 40px rgba(0,0,0,.4);animation:breathe 2.6s ease-in-out infinite}@keyframes breathe{50%{transform:scale(1.06)}}

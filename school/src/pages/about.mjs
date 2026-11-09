@@ -9,41 +9,48 @@ const intro = `<p>If you're new: hi 👋 I'm Carlos. I'm a web developer in the 
 
 const copy = {
   free: `
-    <p><b>AI Builders</b> is the free home for people who want to build real things with AI. Not just chat with it: actually ship websites, tools and automations that save you hours every week.</p>
+    <p><b>AI Builders</b> is the free home for people who use AI every day and want to go from using it to building with it. If you've done a bit of coding and don't want to be left behind, this is for you.</p>
     <p>What's inside ⬇️</p>
-    <p>✅ A starter course: from your first prompt to your first Claude Code project<br>
+    <p>✅ Free visual lessons in a clear order, so you always know what to learn next<br>
+    ✅ The AI Product Teardown: four questions for working out what any AI tool really does and where it breaks<br>
+    ✅ A place to ask questions, share what you're building and get unstuck, with replies from me<br>
     ✅ My prompts, workflows and tool picks, shared as I use them<br>
-    ✅ A community of builders to ask questions, share wins and get unstuck<br>
     ✅ Levels and a leaderboard, so showing up and helping others gets noticed</p>
-    <p>Bonuses 🎁</p>
-    <p>🎁 Not a glorified sales funnel: the free group is genuinely useful on its own<br>
+    <p>Founding members 🎁</p>
+    <p>🎁 The first 20 members get a 20-minute call with me to plan their first steps<br>
+    🎁 A say in what I teach next: I'm learning in public, mistakes included<br>
     🎁 Direct messages with me and other members<br>
+    🎁 Not a glorified sales funnel: the free group is genuinely useful on its own<br>
     🎁 Heavily moderated and spam-free</p>
     ${intro}
-    <p>Want to go all in? <a href="/${spaces.pro.slug}/">AI Builders Pro</a> has the full courses, build-alongs and weekly Q&amp;A.</p>
+    <p>I also post free lessons on <a href="https://www.youtube.com/@carlos.reinoso" target="_blank" rel="noopener">my YouTube channel</a>.</p>
+    <p>Want to go all in? <a href="/${spaces.pro.slug}/">AI Builders Pro</a> adds weekly Q&amp;A, reviews of what you're building and new build-alongs as they ship.</p>
     <p>Welcome aboard. Let's build. 🚀</p>`,
   pro: `
-    <p><b>AI Builders Pro</b> is where we go from "I've tried AI" to shipping your first real AI product, with me in your corner.</p>
-    <p>What's inside ⬇️</p>
-    <p>✅ The full courses: Claude Code, AI agents, automations, deploying and getting paid<br>
-    ✅ Build-along projects: a full website with accounts and Stripe payments, AI tools, scrapers<br>
-    ✅ My exact templates, prompts and project starters, copy-paste ready<br>
-    ✅ Weekly Q&amp;A posts where I answer your questions and review what you're building<br>
-    ✅ A private Pro feed, separate from the free group</p>
+    <p><b>AI Builders Pro</b> is where we go from "I've tried AI" to shipping your first real AI product, with me in your corner. It's new and I'm building it in the open, so founding members decide what comes first.</p>
+    <p>What you get now ⬇️</p>
+    <p>✅ Weekly Q&amp;A posts where I answer your questions and review what you're building<br>
+    ✅ A private Pro feed, separate from the free group<br>
+    ✅ My templates, prompts and project starters, added as I make them</p>
+    <p>On the way, included as each one ships 🛠️</p>
+    <p>🛠️ Build-along projects: a full website with accounts and Stripe payments, AI tools, scrapers<br>
+    🛠️ Courses: Claude Code, AI agents, automations, deploying and getting paid</p>
     <p>Bonuses 🎁</p>
     <p>🎁 Everything in AI Builders (free) too<br>
     🎁 Priority replies to your DMs<br>
     🎁 ${esc(spaces.pro.priceNote)}</p>
     ${intro}
-    <p>I put everything I've learned in one place, so you can skip the months of trial and error.</p>
+    <p>I'm putting everything I learn in one place, so you can skip the months of trial and error.</p>
     <p>See you inside. 🚀</p>`,
 };
 
-const video = site.introVideoId
+const video = site.introVideoUrl
+  ? `<div class="video"><video src="${esc(site.introVideoUrl)}" poster="${esc(site.introVideoPoster)}" controls playsinline preload="metadata" aria-label="Welcome to ${esc(site.name)}"></video></div>`
+  : site.introVideoId
   ? `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${esc(site.introVideoId)}" title="Welcome to ${esc(site.name)}" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
   : `<div class="video placeholder" role="img" aria-label="Intro video coming soon"><div class="vp-grid"></div><span class="vp-play">${icons.play}</span><span class="vp-cap">Intro video coming soon</span></div>`;
 
-const thumbs = [["Welcome", "👋"], ["Course map", "🗺️"], ["Claude Code", "⌨️"], ["Agents", "🤖"], ["Wins", "🏆"]];
+const thumbs = [["Welcome", "👋"], ["Course map", "🗺️"], ["Lessons", "📚"], ["Teardown", "🧰"], ["Wins", "🏆"]];
 
 function body(s) {
   const pro = s.id === "pro", stat = pro ? "pro" : "members";
@@ -63,7 +70,7 @@ function body(s) {
   </article>
   <aside class="about-side">
     <div class="card join-card">
-      <div class="jc-banner${pro ? " pro" : ""}"><img src="${owner.avatar}" alt="${esc(owner.name)}"><div><b>${esc(s.name)}</b><span>Claude Code · Agents · Automation</span></div></div>
+      <div class="jc-banner${pro ? " pro" : ""}"><img src="${owner.avatar}" alt="${esc(owner.name)}"><div><b>${esc(s.name)}</b><span>Learn AI · Build with it</span></div></div>
       <div class="jc-body">
         <h2>${esc(s.name)}${pro ? ' <span class="pro-tag">PRO</span>' : ""}</h2>
         <p class="mute small">school.carlosreinoso.co.uk/${s.slug}</p>
